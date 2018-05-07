@@ -1,0 +1,21 @@
+{
+  "title": "Party object",
+  "description": "Schema of a party object.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "adults": {
+      "type": "integer"
+    },
+    "children": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "adults"
+  ],
+  "additionalProperties": true
+}

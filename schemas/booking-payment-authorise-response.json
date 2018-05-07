@@ -1,0 +1,6 @@
+{
+  "title": "Booking Payment Confirm",
+  "description": "Schema of an booking payment confirm.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "booking-submit-response.json#"
+}

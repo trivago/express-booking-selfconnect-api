@@ -1,0 +1,19 @@
+{
+  "title": "Cancellation Penalty",
+  "description": "Schema of an cancellation penalty.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "fee": {
+      "$ref": "price.json#"
+    }
+  },
+  "required": [
+    "fee"
+  ],
+  "additionalProperties": true
+}

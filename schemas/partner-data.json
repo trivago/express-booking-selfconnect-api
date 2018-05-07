@@ -1,0 +1,22 @@
+{
+  "title": "PartnerData",
+  "description": "Schema of a partner data.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "oneOf": [
+    {
+      "type": "integer"
+    },
+    {
+      "type": "number"
+    },
+    {
+      "type": "string"
+    },
+    {
+      "type": "array"
+    },
+    {
+      "type": "object"
+    }
+  ]
+}

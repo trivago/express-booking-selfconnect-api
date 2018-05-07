@@ -1,0 +1,17 @@
+{
+  "checkin_date": "2018-01-25",
+  "checkout_date": "2018-01-26",
+  "partner_reference": "abc123",
+  "reference_id": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
+  "partner_data": {
+    "identifier_for_something": "9614b191-9e1b-4b7d-9cbc-5b9204ac2a2a"
+  },
+  "party": [
+    {
+      "adults": 2,
+      "children": [
+        1
+      ]
+    }
+  ]
+}

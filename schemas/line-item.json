@@ -1,0 +1,34 @@
+{
+  "title": "LineItem",
+  "description": "Schema of an line item.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "price": {
+      "$ref": "price.json#"
+    },
+    "type": {
+      "enum": [
+        "rate",
+        "tax",
+        "fee",
+        "net_rate",
+        "city_tax",
+        "vat",
+        "hotel_fee",
+        "resort_fee",
+        "service_fee",
+        "booking_fee",
+        "others"
+      ]
+    },
+    "paid_at_checkout": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [ "price", "type", "paid_at_checkout", "description" ],
+  "additionalProperties": true
+}

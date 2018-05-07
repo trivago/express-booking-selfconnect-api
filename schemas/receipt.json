@@ -1,0 +1,25 @@
+{
+  "title": "Receipt",
+  "description": "Schema of an receipt.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "line_items": {
+      "type": "array",
+      "items": {
+        "$ref": "line-item.json#"
+      }
+    },
+    "final_price_at_booking": {
+      "$ref": "price.json#"
+    },
+    "final_price_at_checkout": {
+      "$ref": "price.json#"
+    },
+    "profit_margin": {
+      "$ref": "price.json#"
+    }
+  },
+  "required": [ "line_items", "final_price_at_booking", "final_price_at_checkout" ],
+  "additionalProperties": true
+}

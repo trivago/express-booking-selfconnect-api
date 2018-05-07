@@ -1,0 +1,21 @@
+{
+  "title": "Cancellation",
+  "description": "Schema of an cancellation.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "policy": {
+      "type": "string"
+    },
+    "penalties": {
+      "type": "array",
+      "items": {
+        "$ref": "cancellation-penalty.json#"
+      }
+    }
+  },
+  "required": [
+    "penalties"
+  ],
+  "additionalProperties": true
+}

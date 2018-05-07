@@ -1,0 +1,21 @@
+{
+    "name": "trivago/ota-self-connect-json-schema",
+    "type": "project",
+    "description": "JSON schemas for trivago express booking API.",
+    "keywords": ["teb", "json", "schema"],
+    "homepage": "http://developer.trivago.com/expressbooking/express-booking-overview.html",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Roman Lasinski",
+            "email": "roman.lasinski@trivago.com",
+            "role": "Developer"
+        }
+    ],
+    "require-dev": {
+        "php": "^7.0",
+
+        "phpunit/phpunit": "~7.1",
+        "stefk/jval": "dev-master"
+    }
+}

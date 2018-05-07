@@ -1,0 +1,16 @@
+{
+  "title": "Price",
+  "description": "Schema of an price.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    }
+  },
+  "required": [ "amount", "currency" ],
+  "additionalProperties": true
+}

@@ -1,0 +1,47 @@
+{
+  "reference_id": "ae79eb46-0048-4c5b-98f4-9a1225589ff5",
+  "status": "PaymentPending",
+  "authorisation": {
+    "reservation_id": "61382b72-546e-465d-82e3-61eb3829727e",
+    "partner_data": {
+      "transaction_id": "1234"
+    },
+    "target": {
+      "url": "http://www.psp.test/auth",
+      "method": "POST",
+      "parameters": {
+        "id1": "value1",
+        "id2": "value2",
+        "id3": "value3"
+      }
+    }
+  },
+  "customer_support": {
+    "phone_numbers": [
+      {
+        "contact": "1-153-072-9237 x6907",
+        "description": "Tempora iure sit accusamus et cupiditate autem reiciendis iusto."
+      },
+      {
+        "contact": "015.409.9218",
+        "description": "Commodi aut quia molestiae ut."
+      }
+    ],
+    "emails": [
+      {
+        "contact": "Roxane.McKenzie@gmail.com",
+        "description": "Aspernatur reiciendis quis at qui asperiores."
+      }
+    ],
+    "urls": [
+      {
+        "contact": "http://kasey.info",
+        "description": "Maiores enim cupiditate deserunt ut."
+      },
+      {
+        "contact": "http://johann.biz",
+        "description": "Rerum quae earum."
+      }
+    ]
+  }
+}

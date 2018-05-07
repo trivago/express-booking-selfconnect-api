@@ -1,0 +1,10 @@
+{
+  "title": "Booking Availability",
+  "description": "Schema of an booking availability.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "booking-availability-response-success.json#" },
+    { "$ref": "error-response.json#" }
+  ]
+}

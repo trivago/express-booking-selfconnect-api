@@ -1,0 +1,28 @@
+{
+  "title": "Booking Verify",
+  "description": "Schema of an booking verify.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "reference_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [ "Success", "Failure", "UnknownReference" ]
+    },
+    "reservation": {
+      "$ref": "reservation.json#"
+    },
+    "customer_support": {
+      "$ref": "customer-support.json#"
+    },
+    "problems": {
+      "type": "array",
+      "items": {
+        "$ref": "problem.json#"
+      }
+    }
+  },
+  "required": [ "reference_id", "reservation", "status", "customer_support" ],
+  "additionalProperties": true
+}

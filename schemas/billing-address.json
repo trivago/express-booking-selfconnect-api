@@ -1,0 +1,32 @@
+{
+  "title": "Billing Address",
+  "description": "Schema of an billing address.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "address1": {
+      "type": "string"
+    },
+    "address2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "address1",
+    "city",
+    "country"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,41 @@
+{
+    "title": "Booking Prepare",
+    "description": "Schema of a booking preparation request.",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "api_version": {
+            "type": "integer"
+        },
+        "checkin_date": {
+            "type": "string"
+        },
+        "checkout_date": {
+            "type": "string"
+        },
+        "partner_reference": {
+            "type": "string"
+        },
+        "partner_data": {
+            "$ref": "partner-data.json#"
+        },
+        "reference_id": {
+            "type": "string"
+        },
+        "party": {
+            "type": "array",
+            "items": {
+                "$ref": "party.json#"
+            }
+        }
+    },
+    "required": [
+        "checkin_date",
+        "checkout_date",
+        "partner_reference",
+        "partner_data",
+        "party",
+        "reference_id"
+    ],
+    "additionalProperties": true
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Contact",
+  "description": "Schema of an contact.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "contact": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [ "contact", "description" ],
+  "additionalProperties": true
+}

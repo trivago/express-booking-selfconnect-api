@@ -1,0 +1,25 @@
+{
+  "title": "Booking Cancel",
+  "description": "Schema of a booking cancellation.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "partner_reference": {
+      "type": "string"
+    },
+    "reservation_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [ "Success", "Error", "UnknownReference", "AlreadyCancelled", "CannotBeCancelled" ]
+    },
+    "cancellation_number": {
+      "type": "string"
+    },
+    "customer_support": {
+      "$ref": "customer-support.json#"
+    }
+  },
+  "required": [ "partner_reference", "reservation_id", "status", "cancellation_number","customer_support" ],
+  "additionalProperties": true
+}

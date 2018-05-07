@@ -1,0 +1,23 @@
+{
+  "title": "Authorisation",
+  "description": "Schema of an authorisation.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "reservation_id": {
+      "type": "string"
+    },
+    "partner_data": {
+      "$ref": "partner-data.json#"
+    },
+    "target": {
+      "$ref": "authorisation-target.json#"
+    }
+  },
+  "required": [
+    "reservation_id",
+    "partner_data",
+    "target"
+  ],
+  "additionalProperties": false
+}
