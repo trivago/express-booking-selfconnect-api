@@ -1,0 +1,58 @@
+{
+  "title": "Problem",
+  "description": "Schema of an problem.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "problem": {
+      "enum": [
+        "CreditCardDeclined",
+        "CreditCardTypeNotSupported",
+        "MissingTravelerFirstName",
+        "MissingTravelerLastName",
+        "MissingEmail",
+        "MissingReservationFirstName",
+        "MissingReservationLastName",
+        "MissingWorkPhone",
+        "MissingHomePhone",
+        "MissingAddress",
+        "MissingCity",
+        "MissingStateProvince",
+        "MissingCountry",
+        "MissingPostalCode",
+        "MissingCardholderName",
+        "InvalidTravelerFirstName",
+        "InvalidTravelerLastName",
+        "InvalidEmail",
+        "InvalidReservationFirstName",
+        "InvalidReservationLastName",
+        "InvalidWorkPhone",
+        "InvalidHomePhone",
+        "InvalidAddress",
+        "InvalidCity",
+        "InvalidStateProvince",
+        "InvalidCountry",
+        "InvalidPostalCode",
+        "InvalidCardholderName",
+        "UnknownUserProblem",
+        "RoomNotAvailable",
+        "PartnerDown",
+        "PartnerTimeout",
+        "PendingSupplier",
+        "AgentAttention",
+        "PropertyNotSupported",
+        "PriceMismatch",
+        "UnknownReference",
+        "UnknownPartnerProblem"
+      ]
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "string"
+    }
+  },
+  "required": [ "problem", "explanation" ],
+  "additionalProperties": true
+}

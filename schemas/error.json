@@ -1,0 +1,22 @@
+{
+  "title": "Error",
+  "description": "Schema of an error.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "error_code": {
+      "type": "integer"
+    },
+    "message": {
+      "type": "string"
+    },
+    "timeout": {
+      "type": "integer"
+    },
+    "hotel_ids": {
+      "type": "array"
+    }
+  },
+  "required": [ "error_code" ],
+  "additionalProperties": true
+}

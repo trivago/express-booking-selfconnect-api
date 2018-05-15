@@ -1,0 +1,19 @@
+{
+  "title": "Error Response",
+  "description": "Schema response is not OK",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "error.json#"
+      }
+    },
+    "customer_support": {
+      "$ref": "customer-support.json#"
+    }
+  },
+  "required": [ "errors", "customer_support" ],
+  "additionalProperties": false
+}

@@ -1,0 +1,28 @@
+{
+  "title": "Customer Support",
+  "description": "Schema of an customer support.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "phone_numbers": {
+      "type": "array",
+      "items": {
+        "$ref": "contact.json#"
+      }
+    },
+    "emails": {
+      "type": "array",
+      "items": {
+        "$ref": "contact.json#"
+      }
+    },
+    "urls": {
+      "type": "array",
+      "items": {
+        "$ref": "contact.json#"
+      }
+    }
+  },
+  "required": [ "phone_numbers", "emails", "urls" ],
+  "additionalProperties": true
+}

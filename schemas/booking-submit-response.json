@@ -1,0 +1,31 @@
+{
+  "title": "Booking Submit",
+  "description": "Schema of an booking submit.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "reference_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [ "Success", "Failure", "PaymentPending" ]
+    },
+    "reservation": {
+      "$ref": "reservation.json#"
+    },
+    "authorisation": {
+      "$ref": "authorisation.json#"
+    },
+    "customer_support": {
+      "$ref": "customer-support.json#"
+    },
+    "problems": {
+      "type": "array",
+      "items": {
+        "$ref": "problem.json#"
+      }
+    }
+  },
+  "required": [ "reference_id", "status", "customer_support" ],
+  "additionalProperties": true
+}

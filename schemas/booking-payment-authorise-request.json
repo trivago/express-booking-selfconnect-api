@@ -1,0 +1,26 @@
+{
+  "title": "Booking Payment Confirm Request",
+  "description": "Schema of an booking payment confirm request.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "api_version": {
+      "type": "integer"
+    },
+    "reservation_id": {
+      "type": "string"
+    },
+    "callback_parameters": {
+      "type": "string"
+    },
+    "partner_data": {
+      "$ref": "partner-data.json#"
+    }
+  },
+  "required": [
+    "reservation_id",
+    "callback_parameters",
+    "partner_data"
+  ],
+  "additionalProperties": false
+}

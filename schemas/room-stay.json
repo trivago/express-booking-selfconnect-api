@@ -1,0 +1,19 @@
+{
+  "title": "RoomStay",
+  "description": "Schema of an room stay.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "party": {
+      "$ref": "party.json#"
+    },
+    "traveler_first_name": {
+      "type": "string"
+    },
+    "traveler_last_name": {
+      "type": "string"
+    }
+  },
+  "required": [ "party", "traveler_first_name", "traveler_last_name" ],
+  "additionalProperties": true
+}

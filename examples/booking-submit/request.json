@@ -1,0 +1,72 @@
+{
+  "checkin_date": "2016-01-25",
+  "checkout_date": "2016-01-26",
+  "partner_reference": "abc123",
+  "reference_id": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
+  "partner_data": {
+    "identifier_for_something": "9614b191-9e1b-4b7d-9cbc-5b9204ac2a2a"
+  },
+  "tracking_data": {
+    "actor": "trivago",
+    "advLink": "http://advertiser-site.com/hoteladlon/Executive_Brilliant_Doppelzimmer?start_date=2016-12-28&end_date=2016-12-29"
+  },
+  "payment": {
+    "method": {
+      "code": "PaymentCard",
+      "options": [
+        {
+          "code": "MasterCard",
+          "fee": {
+            "amount": 0.0,
+            "currency": "USD"
+          }
+        }
+      ]
+    },
+    "parameters": {
+      "card_number": "6011111111111117",
+      "cardholder_name": "Christopher Palmer",
+      "expiration_month": "09",
+      "expiration_year": "2025",
+      "cvv": "507",
+      "callback_success": "",
+      "callback_cancel": "",
+      "callback_error": "",
+      "type": "PaymentCard"
+    },
+    "billing_address": {
+      "address1": "12 Johnson Junction",
+      "city": "Santa Cruz",
+      "state": "Maryland",
+      "postal_code": "97897",
+      "country": "US"
+    }
+  },
+  "customer": {
+    "first_name": "Christopher",
+    "last_name": "Palmer",
+    "phone_number": "9-(590)311-9256",
+    "email": "Christopher.Palmer@test.trivago.com",
+    "country": "US"
+  },
+  "rooms": [
+    {
+      "party": {
+        "adults": 2,
+        "children": [
+          1
+        ]
+      },
+      "traveler_first_name": "Christopher",
+      "traveler_last_name": "Palmer"
+    }
+  ],
+  "final_price_at_booking": {
+    "amount": 100.0,
+    "currency": "USD"
+  },
+  "final_price_at_checkout": {
+    "amount": 5.00,
+    "currency": "USD"
+  }
+}

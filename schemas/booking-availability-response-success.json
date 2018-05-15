@@ -1,0 +1,80 @@
+{
+  "title": "booking-availability-ok",
+  "description": "Schema Booking availability when response is OK",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "api_version": {
+      "type": "integer"
+    },
+    "hotel_id": {
+      "type": "integer"
+    },
+    "start_date": {
+      "type": "string"
+    },
+    "end_date": {
+      "type": "string"
+    },
+    "party": {
+      "type": "array",
+      "items": {
+        "$ref": "party.json#"
+      }
+    },
+    "lang": {
+      "type": "string"
+    },
+    "query_key": {
+      "type": "string"
+    },
+    "user_country": {
+      "type": "string"
+    },
+    "device_type": {
+      "type": "string"
+    },
+    "room_types_array": {
+      "type": "array",
+      "items": {
+        "$ref": "room-type.json#"
+      }
+    },
+    "hotel_details": {
+      "$ref": "hotel-details.json#"
+    },
+    "accepted_credit_cards": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "terms_and_conditions": {
+      "type": "string"
+    },
+    "terms_and_conditions_url": {
+      "type": "string"
+    },
+    "payment_policy": {
+      "type": "string"
+    },
+    "other_policy": {
+      "type": "string"
+    },
+    "customer_support": {
+      "$ref": "customer-support.json#"
+    }
+  },
+  "required": [
+    "api_version",
+    "hotel_id",
+    "start_date",
+    "end_date",
+    "party",
+    "lang",
+    "user_country",
+    "room_types_array",
+    "customer_support"
+  ],
+  "additionalProperties": true
+}

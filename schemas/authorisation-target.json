@@ -1,0 +1,23 @@
+{
+  "title": "Authorisation Target",
+  "description": "Schema of an authorisation target.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "parameters": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "url",
+    "method",
+    "parameters"
+  ],
+  "additionalProperties": false
+}

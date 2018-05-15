@@ -1,0 +1,63 @@
+{
+  "title": "Hotel details",
+  "description": "Schema of an hotel detail.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "address1": {
+      "type": "string"
+    },
+    "address2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "amenities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "$ref": "photo.json#"
+      }
+    },
+    "checkinout_policy": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "address1",
+    "city",
+    "country"
+  ],
+  "additionalProperties": true
+}

@@ -1,0 +1,8 @@
+{
+  "reservation_id": "1234",
+  "callback_parameters": "a=1&b=2",
+  "partner_data": {
+    "test": "Frühstück"
+  },
+  "api_version": 1
+}

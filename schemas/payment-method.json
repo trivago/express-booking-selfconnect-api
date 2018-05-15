@@ -1,0 +1,24 @@
+{
+  "title": "PaymentMethod",
+  "description": "Schema of an payment method.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "code": {
+      "enum": [
+        "PaymentCard",
+        "ExternalProvider",
+        "BankAccount",
+        "ManualPayment"
+      ]
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "$ref": "payment-option.json#"
+      }
+    }
+  },
+  "required": [ "code", "options" ],
+  "additionalProperties": true
+}

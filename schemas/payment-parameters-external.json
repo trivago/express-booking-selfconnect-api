@@ -1,0 +1,27 @@
+{
+  "title": "Payment Parameters ExternalProvider",
+  "description": "Schema of an payment parameters ExternalProvider.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "callback_success": {
+      "type": "string"
+    },
+    "callback_cancel": {
+      "type": "string"
+    },
+    "callback_error": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "callback_success",
+    "callback_cancel",
+    "callback_error",
+    "type"
+  ],
+  "additionalProperties": false
+}

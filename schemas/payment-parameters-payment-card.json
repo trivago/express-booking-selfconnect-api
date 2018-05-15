@@ -1,0 +1,47 @@
+{
+  "title": "Payment Parameters PaymentCard",
+  "description": "Schema of an payment parameters PaymentCard.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "card_number": {
+      "type": "string"
+    },
+    "cardholder_name": {
+      "type": "string"
+    },
+    "expiration_month": {
+      "type": "string"
+    },
+    "expiration_year": {
+      "type": "string"
+    },
+    "cvv": {
+      "type": "string"
+    },
+    "callback_success": {
+      "type": "string"
+    },
+    "callback_cancel": {
+      "type": "string"
+    },
+    "callback_error": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "card_number",
+    "cardholder_name",
+    "expiration_month",
+    "expiration_year",
+    "cvv",
+    "callback_success",
+    "callback_cancel",
+    "callback_error",
+    "type"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,72 @@
+{
+  "title": "PaymentOption",
+  "description": "Schema of an payment option.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "code": {
+          "enum": [
+            "VisaDebit",
+            "MasterCardDebit",
+            "Maestro",
+            "Visa",
+            "MasterCard",
+            "AmericanExpress",
+            "Discover",
+            "Diners",
+            "JCB",
+            "ChinaUnionPay",
+            "Dankort",
+            "Paypal",
+            "BankTransfer",
+            "Invoice",
+            "DirectDebit"
+          ]
+        },
+        "fee": {
+          "$ref": "price.json#"
+        },
+        "description": {
+          "type": "string"
+        },
+        "hold_time": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "code",
+        "fee"
+      ],
+      "additionalProperties": true
+    },
+    {
+      "type": "object",
+      "properties": {
+        "code": {
+          "enum": [
+            "NoGuarantee"
+          ]
+        },
+        "fee": {
+          "$ref": "price.json#"
+        },
+        "description": {
+          "type": "string"
+        },
+        "hold_time": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "code",
+        "fee",
+        "hold_time"
+      ],
+      "additionalProperties": true
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "title": "Reservation",
+  "description": "Schema of an reservation.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "reservation_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [ "Booked", "Cancelled", "CheckedIn", "CheckedOut" ]
+    },
+    "confirmation_url": {
+      "type": "string"
+    },
+    "checkin_date": {
+      "type": "string"
+    },
+    "checkout_date": {
+      "type": "string"
+    },
+    "partner_reference": {
+      "type": "string"
+    },
+    "hotel": {
+      "$ref": "hotel-details.json#"
+    },
+    "customer": {
+      "$ref": "customer.json#"
+    },
+    "rooms": {
+      "type": "array",
+      "items": {
+        "$ref": "room-stay.json#"
+      }
+    },
+    "legal_text": {
+      "type": "string"
+    },
+    "comments": {
+      "type": "string"
+    },
+    "receipt": {
+      "$ref": "receipt.json#"
+    }
+  },
+  "required": [
+    "reservation_id",
+    "status",
+    "confirmation_url",
+    "checkin_date",
+    "checkout_date",
+    "partner_reference",
+    "hotel",
+    "customer",
+    "rooms",
+    "receipt"
+  ],
+  "additionalProperties": true
+}
