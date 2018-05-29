@@ -1,4 +1,4 @@
-# trivago Express Booking API - JSON schemas
+# trivago Express Booking - Self Connect API
 
 trivago Express Booking (tEB) fast tracks the booking process for users while maintaining your brand presence.
 
