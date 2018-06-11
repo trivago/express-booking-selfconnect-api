@@ -1,0 +1,27 @@
+{
+  "title": "Discount object",
+  "description": "Schema of a discount object.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "percentage": {
+      "type": "number"
+    },
+    "total": {
+      "$ref": "price.json#"
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "percentage"
+      ]
+    },
+    {
+      "required": [
+        "total"
+      ]
+    }
+  ],
+  "additionalProperties": true
+}

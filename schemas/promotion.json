@@ -1,0 +1,22 @@
+{
+  "title": "Promotion object",
+  "description": "Schema of a promotion object.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": [ "MOBILE_ONLY" ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "discount": {
+      "$ref": "discount.json#"
+    }
+  },
+  "required": [
+    "type",
+    "description"
+  ],
+  "additionalProperties": true
+}
