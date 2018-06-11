@@ -144,7 +144,20 @@
           }
         }
       ]
-    }
+    },
+    "promotions": [
+      {
+        "type": "MOBILE_ONLY",
+        "description": "...",
+        "discount": {
+          "percentage": 25,
+          "total": {
+            "amount": 25,
+            "currency": "USD"
+          }
+        }
+      }
+    ]
   },
   "customer_support": {
     "phone_numbers": [

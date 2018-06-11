@@ -154,7 +154,20 @@
             }
           }
         ]
-      }
+      },
+      "promotions": [
+        {
+          "type": "MOBILE_ONLY",
+          "description": "...",
+          "discount": {
+            "percentage": 25,
+            "total": {
+              "amount": 25,
+              "currency": "USD"
+            }
+          }
+        }
+      ]
     }
   ],
   "hotel_details": {

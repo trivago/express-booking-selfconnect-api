@@ -129,6 +129,12 @@
     },
     "other_policy": {
       "type": "string"
+    },
+    "promotions": {
+      "type": "array",
+      "items": {
+        "$ref": "promotion.json#"
+      }
     }
   },
   "required": [
