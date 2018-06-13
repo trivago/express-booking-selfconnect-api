@@ -2,7 +2,7 @@
   "reservation_id": "1234",
   "callback_parameters": "a=1&b=2",
   "partner_data": {
-    "test": "Frühstück"
+    "test": "You must agree to the terms and conditions prior to booking "
   },
   "api_version": 1
 }
