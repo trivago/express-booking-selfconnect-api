@@ -34,14 +34,31 @@
         "hold_time": {
           "type": "string",
           "format": "date-time"
-        }
+        },
+        "brand": {
+            "enum": [
+              "Bonus",
+              "Axess",
+              "CardFinans",
+              "Maximum",
+              "Paraf",
+              "World",
+              "Advantage"
+            ]
+          },
+          "discount": {
+            "$ref": "price.json#"
+          },
+          "installments": {
+            "$ref": "installments.json#"
+          }
+        },
+        "required": [
+          "code",
+          "fee"
+        ],
+        "additionalProperties": true
       },
-      "required": [
-        "code",
-        "fee"
-      ],
-      "additionalProperties": true
-    },
     {
       "type": "object",
       "properties": {

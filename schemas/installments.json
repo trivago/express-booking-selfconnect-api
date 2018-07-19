@@ -1,0 +1,53 @@
+{
+  "title": "Installments",
+  "description": "Schema of an installment",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "number": {
+      "type": "string"
+    },
+    "frequency": {
+        "enum": [
+          "B",
+          "M",
+          "W"
+        ]
+    },
+    "installment_amount": {
+      "$ref": "price.json#"
+    },
+    "interest_charge": {
+      "type": "number"
+    },
+    "extra_charge": {
+      "$ref": "price.json#"
+    },
+    "swift_code": {
+      "type": "string"
+    },
+    "discount": {
+      "$ref": "price.json#"
+    },
+    "initial_rate": {
+      "$ref": "price.json#"
+    },
+    "last_rate": {
+      "$ref": "price.json#"
+    },
+    "first_installment": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "number",
+    "frequency",
+    "installment_amount",
+    "interest_charge"
+  ],
+  "additionalProperties": true
+}
