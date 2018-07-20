@@ -50,7 +50,7 @@
             "$ref": "price.json#"
           },
           "installments": {
-            "$ref": "installments.json#"
+            "$ref": "installment.json#"
           }
         },
         "required": [

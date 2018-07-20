@@ -1,5 +1,5 @@
 {
-  "title": "Installments",
+  "title": "Installment",
   "description": "Schema of an installment",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
