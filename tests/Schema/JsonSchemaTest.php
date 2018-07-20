@@ -34,6 +34,10 @@ class JsonSchemaTest extends \PHPUnit\Framework\TestCase
             ],
             [
                 __DIR__ . '/../../schemas/booking-availability-response.json',
+                __DIR__ . '/../../examples/booking-availability/response_with_installment.json'
+            ],
+            [
+                __DIR__ . '/../../schemas/booking-availability-response.json',
                 __DIR__ . '/../../examples/booking-availability/response-error.json'
             ],
             [
