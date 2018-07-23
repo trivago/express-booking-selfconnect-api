@@ -115,7 +115,7 @@
                     "amount": 10.0,
                     "currency": "USD"
                   },
-                  "interest_rate": 30.0,
+                  "interest_charge": 30.0,
                   "first_installment": 0
                 },
                 {
