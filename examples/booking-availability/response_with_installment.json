@@ -125,7 +125,8 @@
                   "installment_amount": {
                     "amount": 50.0,
                     "currency": "USD"
-                  }
+                  },
+                  "interest_charge": 0.0
                 }
               ]
             }
