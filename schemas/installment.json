@@ -2,13 +2,13 @@
   "title": "Installment",
   "description": "Schema of an installment",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "array",
+  "type": "object",
   "properties": {
     "id": {
-      "type": "number"
+      "type": "string"
     },
     "number": {
-      "type": "string"
+      "type": "number"
     },
     "frequency": {
         "enum": [
