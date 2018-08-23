@@ -1,0 +1,31 @@
+{
+  "title": "Booking Prepare Sold-Out",
+  "description": "Schema of a booking preparation.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "checkin_date": {
+      "type": "string"
+    },
+    "checkout_date": {
+      "type": "string"
+    },
+    "partner_reference": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [ "SOLD_OUT" ]
+    },
+    "customer_support": {
+      "$ref": "customer-support.json#"
+    }
+  },
+  "required": [
+    "checkin_date",
+    "checkout_date",
+    "partner_reference",
+    "status",
+    "customer_support"
+  ],
+  "additionalProperties": true
+}

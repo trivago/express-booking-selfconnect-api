@@ -1,0 +1,182 @@
+{
+  "status": "ADJUSTED",
+  "checkin_date": "2016-01-25",
+  "checkout_date": "2016-01-26",
+  "partner_reference": "abc123",
+  "room_type": {
+    "name": "Double Room, 1 King Bed",
+    "final_price_at_booking": {
+      "amount": 100,
+      "currency": "USD"
+    },
+    "final_price_at_checkout": {
+      "amount": 5,
+      "currency": "USD"
+    },
+    "description": "Air-conditioned room with a minibar, desk and private bathroom.",
+    "rooms_available": 4,
+    "partner_data": {
+      "identifier_for_something": "9614b191-9e1b-4b7d-9cbc-5b9204ac2a2a"
+    },
+    "rate_key": "0fd6eca9-9c33-4978-b9bc-b3f3d60f6205",
+    "room_type": "STANDARD",
+    "occupancy": {
+      "standard_persons": 2,
+      "max_persons": 3,
+      "max_adults": 2,
+      "max_children": 2,
+      "max_children_age": 16
+    },
+    "room_group": {
+      "code": "e5db04fa67d6",
+      "name": "Cozy Double Room",
+      "description": "Air-conditioned room with a minibar, desk and private bathroom."
+    },
+    "line_items": [
+      {
+        "price": {
+          "amount": 100,
+          "currency": "USD"
+        },
+        "type": "net_rate",
+        "paid_at_checkout": false,
+        "description": "base price"
+      },
+      {
+        "price": {
+          "amount": 5,
+          "currency": "USD"
+        },
+        "type": "city_tax",
+        "paid_at_checkout": true,
+        "description": "city tax"
+      }
+    ],
+    "amenities": [
+      "free bottle of water",
+      "air condition"
+    ],
+    "value_adds": [
+      "FREE_BREAKFAST",
+      "FREE_INTERNET",
+      "FREE_PARKING"
+    ],
+    "payment_methods": [
+      {
+        "code": "PaymentCard",
+        "options": [
+          {
+            "code": "MasterCard",
+            "fee": {
+              "amount": 0,
+              "currency": "USD"
+            }
+          },
+          {
+            "code": "Visa",
+            "fee": {
+              "amount": 2.77,
+              "currency": "USD"
+            }
+          }
+        ]
+      },
+      {
+        "code": "ExternalProvider",
+        "options": [
+          {
+            "code": "Paypal",
+            "fee": {
+              "amount": 0,
+              "currency": "USD"
+            }
+          }
+        ]
+      },
+      {
+        "code": "BankAccount",
+        "options": [
+          {
+            "code": "DirectDebit",
+            "fee": {
+              "amount": 0,
+              "currency": "GBP"
+            }
+          }
+        ]
+      },
+      {
+        "code": "ManualPayment",
+        "options": [
+          {
+            "code": "Invoice",
+            "fee": {
+              "amount": 0,
+              "currency": "GBP"
+            }
+          }
+        ]
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://trv-companypages.s3-eu-central-1.amazonaws.com/wp-content/uploads/sites/2/2015/07/trivago_logo_twitter-1024x512.png",
+        "caption": "Trivago logo",
+        "width": 1024,
+        "height": 512
+      }
+    ],
+    "cancellation": {
+      "policy": "free text",
+      "penalties": [
+        {
+          "from": "2016-01-04T16:00:00+0000",
+          "fee": {
+            "amount": 0,
+            "currency": "USD"
+          }
+        },
+        {
+          "from": "2016-01-18T16:00:00+0000",
+          "fee": {
+            "amount": 100,
+            "currency": "USD"
+          }
+        }
+      ]
+    },
+    "promotions": [
+      {
+        "type": "MOBILE_ONLY",
+        "description": "...",
+        "discount": {
+          "percentage": 25,
+          "total": {
+            "amount": 25,
+            "currency": "USD"
+          }
+        }
+      }
+    ]
+  },
+  "customer_support": {
+    "phone_numbers": [
+      {
+        "contact": "1-153-072-9237 x6907",
+        "description": "Tempora iure sit accusamus et cupiditate autem reiciendis iusto."
+      }
+    ],
+    "emails": [
+      {
+        "contact": "Roxane.McKenzie@gmail.com",
+        "description": "Aspernatur reiciendis quis at qui asperiores."
+      }
+    ],
+    "urls": [
+      {
+        "contact": "http://kasey.info",
+        "description": "Maiores enim cupiditate deserunt ut."
+      }
+    ]
+  }
+}

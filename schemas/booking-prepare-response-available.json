@@ -1,0 +1,35 @@
+{
+  "title": "Booking Prepare Available",
+  "description": "Schema of a booking preparation.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "checkin_date": {
+      "type": "string"
+    },
+    "checkout_date": {
+      "type": "string"
+    },
+    "partner_reference": {
+      "type": "string"
+    },
+    "room_type": {
+      "$ref": "room-type.json#"
+    },
+    "status": {
+      "enum": [ "AVAILABLE", "ADJUSTED" ]
+    },
+    "customer_support": {
+      "$ref": "customer-support.json#"
+    }
+  },
+  "required": [
+    "checkin_date",
+    "checkout_date",
+    "partner_reference",
+    "status",
+    "room_type",
+    "customer_support"
+  ],
+  "additionalProperties": true
+}

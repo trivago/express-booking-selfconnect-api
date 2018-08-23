@@ -61,6 +61,14 @@ class JsonSchemaTest extends \PHPUnit\Framework\TestCase
                 __DIR__ . '/../../examples/booking-prepare/response.json'
             ],
             [
+                __DIR__ . '/../../schemas/booking-prepare-response.json',
+                __DIR__ . '/../../examples/booking-prepare/response-adjusted.json'
+            ],
+            [
+                __DIR__ . '/../../schemas/booking-prepare-response.json',
+                __DIR__ . '/../../examples/booking-prepare/response-sold-out.json'
+            ],
+            [
                 __DIR__ . '/../../schemas/booking-submit-request.json',
                 __DIR__ . '/../../examples/booking-submit/request.json'
             ],
@@ -84,6 +92,24 @@ class JsonSchemaTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @return array
+     */
+    public function getInvalidFilesToValidate()
+    {
+        return [
+            [
+                [
+                    '[property "room_type" is missing] .',
+                    '[should match one element in enum] /status.',
+                    '[instance must match exactly one of the schemas listed in oneOf] .'
+                ],
+                __DIR__ . '/../../schemas/booking-prepare-response.json',
+                __DIR__ . '/../../examples/booking-prepare/response-invalid.json'
+            ],
+        ];
+    }
+
+    /**
      * @dataProvider getFilesToValidate
      *
      * @param string $schemaFile
@@ -92,7 +118,20 @@ class JsonSchemaTest extends \PHPUnit\Framework\TestCase
     public function testJsonSchema($schemaFile, $jsonFile)
     {
         $errors = self::validateJsonSchema($schemaFile, $jsonFile);
-        self::assertCount(0, $errors, $jsonFile . ': ' . implode(', ', $errors));
+        self::assertEmpty($errors, $jsonFile . ': ' . implode(', ', $errors));
+    }
+
+    /**
+     * @dataProvider getInvalidFilesToValidate
+     *
+     * @param array $expectedErrors
+     * @param string $schemaFile
+     * @param string $jsonFile
+     */
+    public function testJsonSchemaInvalid(array $expectedErrors, $schemaFile, $jsonFile)
+    {
+        $errors = self::validateJsonSchema($schemaFile, $jsonFile);
+        self::assertSame($expectedErrors, $errors);
     }
 
     /**
