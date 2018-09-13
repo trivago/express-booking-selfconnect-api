@@ -23,6 +23,6 @@
       }
     }
   },
-  "required": [ "reference_id", "reservation", "status", "customer_support" ],
+  "required": [ "reference_id", "status", "customer_support" ],
   "additionalProperties": true
 }

@@ -88,6 +88,10 @@ class JsonSchemaTest extends \PHPUnit\Framework\TestCase
                 __DIR__ . '/../../schemas/booking-verify-response.json',
                 __DIR__ . '/../../examples/booking-verify/response.json'
             ],
+            [
+                __DIR__ . '/../../schemas/booking-verify-response.json',
+                __DIR__ . '/../../examples/booking-verify/response-error.json'
+            ],
         ];
     }
 
