@@ -23,6 +23,6 @@
       }
     }
   },
-  "required": [ "phone_numbers", "emails", "urls" ],
+  "required": [ "phone_numbers", "emails" ],
   "additionalProperties": true
 }
