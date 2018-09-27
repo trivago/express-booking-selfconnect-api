@@ -139,16 +139,16 @@ class JsonSchemaTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @param string $schemaFile
+     * @param string $schemaFilePath
      * @param string $jsonFile
      *
      * @return array
      */
-    private static function validateJsonSchema($schemaFile, $jsonFile)
+    private static function validateJsonSchema($schemaFilePath, $jsonFile)
     {
-        $schemaFile = realpath($schemaFile);
+        $schemaFile = realpath($schemaFilePath);
         if ($schemaFile === false) {
-            self::fail('Could not load schema file.');
+            self::fail(sprintf('Could not load schema file %s.', $schemaFilePath));
         }
         $jsonSchemaUri = 'file://' . pathinfo($schemaFile, PATHINFO_DIRNAME) . '/';
 
