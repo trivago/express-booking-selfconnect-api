@@ -1,0 +1,37 @@
+{
+  "api_version": 1,
+  "hotel_id": 730099,
+  "start_date": "2016-01-25",
+  "end_date": "2016-01-26",
+  "party": [
+    {
+      "adults": 2,
+      "children": [
+        1
+      ]
+    }
+  ],
+  "lang": "en_US",
+  "user_country": "US",
+  "room_types_array": [],
+  "customer_support": {
+    "phone_numbers": [
+      {
+        "contact": "123456780",
+        "description": "support phone"
+      }
+    ],
+    "emails": [
+      {
+        "contact": "support@advertiser.com",
+        "description": "support email"
+      }
+    ],
+    "urls": [
+      {
+        "contact": "support@advertiser.com",
+        "description": "support website"
+      }
+    ]
+  }
+}
