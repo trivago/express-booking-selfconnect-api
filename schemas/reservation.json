@@ -1,60 +1,80 @@
 {
-  "title": "Reservation",
-  "description": "Schema of an reservation.",
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "reservation_id": {
-      "type": "string"
-    },
-    "status": {
-      "enum": [ "Booked", "Cancelled", "CheckedIn", "CheckedOut" ]
-    },
-    "confirmation_url": {
-      "type": "string"
-    },
-    "checkin_date": {
-      "type": "string"
-    },
-    "checkout_date": {
-      "type": "string"
-    },
-    "partner_reference": {
-      "type": "string"
-    },
-    "hotel": {
-      "$ref": "hotel-details.json#"
-    },
-    "customer": {
-      "$ref": "customer.json#"
-    },
-    "rooms": {
-      "type": "array",
-      "items": {
-        "$ref": "room-stay.json#"
-      }
-    },
-    "legal_text": {
-      "type": "string"
-    },
-    "comments": {
-      "type": "string"
-    },
-    "receipt": {
-      "$ref": "receipt.json#"
-    }
-  },
+  "description": "Schema of an reservation.", 
+  "title": "Reservation object", 
   "required": [
-    "reservation_id",
-    "status",
-    "confirmation_url",
-    "checkin_date",
-    "checkout_date",
-    "partner_reference",
-    "hotel",
-    "customer",
-    "rooms",
+    "reservation_id", 
+    "status", 
+    "confirmation_url", 
+    "checkin_date", 
+    "checkout_date", 
+    "partner_reference", 
+    "hotel", 
+    "customer", 
+    "rooms", 
     "receipt"
-  ],
-  "additionalProperties": true
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "status": {
+      "enum": [
+        "Booked", 
+        "Cancelled", 
+        "CheckedIn", 
+        "CheckedOut"
+      ], 
+      "example": "Booked"
+    }, 
+    "customer": {
+      "$ref": "customer.json"
+    }, 
+    "receipt": {
+      "description": "Information about the pricing on the reservation.", 
+      "$ref": "receipt.json"
+    }, 
+    "partner_reference": {
+      "type": "string", 
+      "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.", 
+      "example": "zzz123"
+    }, 
+    "legal_text": {
+      "deprecated": true, 
+      "type": "string", 
+      "description": "Describes any legal requirements for the hotel. If an advertiser has a single policy across all bookings, return\nthe advertiser's legal text here (e. g. Terms of Service and Privacy Policy)."
+    }, 
+    "hotel": {
+      "$ref": "hotel-details.json"
+    }, 
+    "confirmation_url": {
+      "type": "string", 
+      "description": "Deep link to the reservation confirmation page. The confirmation URL is displayed to the user after a booking has\nbeen confirmed.\nSince this URL is displayed to the user, it has to redirect to a page owned by the booked property which\ndisplays any relevant confirmation codes, and confirms the dates, rooms and final price for the booking.\nPlease provide an empty string, if the confirmation page should be hosted by trivago."
+    }, 
+    "comments": {
+      "deprecated": true, 
+      "type": "string", 
+      "description": "Generic reservation comments field."
+    }, 
+    "rooms": {
+      "items": {
+        "$ref": "room-stay.json"
+      }, 
+      "type": "array", 
+      "description": "An array of RoomStay objects."
+    }, 
+    "checkin_date": {
+      "type": "string", 
+      "description": "The check-in date of the user in YYYY-MM-DD.", 
+      "format": "date"
+    }, 
+    "checkout_date": {
+      "type": "string", 
+      "description": "The check-out date of the user in YYYY-MM-DD.", 
+      "format": "date"
+    }, 
+    "reservation_id": {
+      "type": "string", 
+      "description": "The advertiser's unique id for this reservation. Must be used as booking_id in the tracking pixel.", 
+      "example": "XXX123"
+    }
+  }
 }

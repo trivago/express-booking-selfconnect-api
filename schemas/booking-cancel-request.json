@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "partner_reference", 
+    "reservation_id"
+  ], 
+  "type": "object", 
+  "properties": {
+    "reservation_id": {
+      "type": "string", 
+      "description": "The advertiser's unique id for this reservation. Must be used as booking_id in the tracking pixel.", 
+      "example": "XXX123"
+    }, 
+    "partner_reference": {
+      "type": "string", 
+      "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.", 
+      "example": "zzz123"
+    }
+  }
+}

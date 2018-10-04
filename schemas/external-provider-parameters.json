@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "callback_success", 
+    "callback_cancel", 
+    "callback_error", 
+    "type"
+  ], 
+  "type": "object", 
+  "properties": {
+    "callback_error": {
+      "type": "string", 
+      "description": "Callback for failed 3ds-authorisation (if necessary)."
+    }, 
+    "type": {
+      "enum": [
+        "ExternalProvider"
+      ], 
+      "example": "ExternalProvider"
+    }, 
+    "callback_success": {
+      "type": "string", 
+      "description": "Callback for successful 3ds-authorisation (if necessary)."
+    }, 
+    "callback_cancel": {
+      "type": "string", 
+      "description": "Callback for canceled 3ds-authorisation (if necessary)."
+    }
+  }
+}

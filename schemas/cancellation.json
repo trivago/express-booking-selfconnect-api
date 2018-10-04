@@ -1,21 +1,22 @@
 {
-  "title": "Cancellation",
-  "description": "Schema of an cancellation.",
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "policy": {
-      "type": "string"
-    },
-    "penalties": {
-      "type": "array",
-      "items": {
-        "$ref": "cancellation-penalty.json#"
-      }
-    }
-  },
+  "description": "Schema of an cancellation.", 
+  "title": "Cancellation object", 
   "required": [
     "penalties"
-  ],
-  "additionalProperties": true
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "policy": {
+      "type": "string", 
+      "description": "Advertiser's text to describe the cancellation policy."
+    }, 
+    "penalties": {
+      "items": {
+        "$ref": "cancellation-penalty.json"
+      }, 
+      "type": "array", 
+      "description": "Array to describe the costs user has to pay if the rate is being cancelled."
+    }
+  }
 }

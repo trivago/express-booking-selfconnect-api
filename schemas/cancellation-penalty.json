@@ -1,19 +1,20 @@
 {
-  "title": "Cancellation Penalty",
-  "description": "Schema of an cancellation penalty.",
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "from": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "fee": {
-      "$ref": "price.json#"
-    }
-  },
+  "description": "Schema of an cancellation penalty.", 
+  "title": "Cancellation Penalty object", 
   "required": [
     "fee"
-  ],
-  "additionalProperties": true
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "fee": {
+      "type": "object", 
+      "description": "Object containing amount & currency of the fee the user has to pay if rate is being cancelled.\nA rate will be considered as non-refundable, if the penalty fee is the same as the gross price. The gross price\nis the sum of \"net_rate\" + \"vat\" + \"booking_fee\" + \"service_fee\" defined on LineItems. All other line\nLineItems are not considered as part of the gross price."
+    }, 
+    "from": {
+      "type": "string", 
+      "description": "Date determined from which time stamp this penalty is applied. Must be in ISO-8601 format, e.g.\n2015-05-25T16:00:00+0000. If the penalty is applied at the time of booking, this field must not be provided.", 
+      "format": "date-time"
+    }
+  }
 }

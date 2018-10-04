@@ -1,31 +1,40 @@
 {
-  "title": "Customer",
-  "description": "Schema of an customer.",
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "first_name": {
-      "type": "string"
-    },
-    "last_name": {
-      "type": "string"
-    },
-    "phone_number": {
-      "type": "string"
-    },
-    "email": {
-      "type": "string"
-    },
-    "country": {
-      "type": "string"
-    }
-  },
+  "description": "Schema of an customer.", 
+  "title": "Customer object", 
   "required": [
-    "first_name",
-    "last_name",
-    "phone_number",
-    "email",
+    "first_name", 
+    "last_name", 
+    "phone_number", 
+    "email", 
     "country"
-  ],
-  "additionalProperties": true
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "phone_number": {
+      "type": "string", 
+      "description": "Phone number of the user submitting the booking.", 
+      "example": "9-(590)311-9256"
+    }, 
+    "country": {
+      "type": "string", 
+      "description": "ISO 3166 country code of the user submitting the booking.", 
+      "example": "US"
+    }, 
+    "first_name": {
+      "type": "string", 
+      "description": "First name of the user submitting the booking.", 
+      "example": "Christopher"
+    }, 
+    "last_name": {
+      "type": "string", 
+      "description": "Last name of the user submitting the booking.", 
+      "example": "Palmer"
+    }, 
+    "email": {
+      "type": "string", 
+      "description": "E-mail address of the user submitting the booking.", 
+      "example": "Christopher.Palmer@test.trivago.com"
+    }
+  }
 }

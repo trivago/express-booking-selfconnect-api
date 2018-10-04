@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "card_number", 
+    "cardholder_name", 
+    "expiration_month", 
+    "expiration_year", 
+    "cvv", 
+    "type"
+  ], 
+  "type": "object", 
+  "properties": {
+    "expiration_month": {
+      "type": "string", 
+      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)"
+    }, 
+    "callback_cancel": {
+      "type": "string", 
+      "description": "Callback for canceled 3ds-authorisation (if necessary)."
+    }, 
+    "expiration_year": {
+      "type": "string", 
+      "description": "Expiration year as four digit string."
+    }, 
+    "cvv": {
+      "type": "string", 
+      "description": "The cvv number of the credit card used for the booking."
+    }, 
+    "callback_success": {
+      "type": "string", 
+      "description": "Callback for successful 3ds-authorisation (if necessary)."
+    }, 
+    "callback_error": {
+      "type": "string", 
+      "description": "Callback for failed 3ds-authorisation (if necessary)."
+    }, 
+    "cardholder_name": {
+      "type": "string", 
+      "description": "Name on the credit card holder."
+    }, 
+    "type": {
+      "enum": [
+        "PaymentCard"
+      ], 
+      "example": "PaymentCard"
+    }, 
+    "card_number": {
+      "type": "string", 
+      "description": "Credit card number used for the booking."
+    }
+  }
+}

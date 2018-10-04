@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "holder_name", 
+    "iban", 
+    "type"
+  ], 
+  "type": "object", 
+  "properties": {
+    "iban": {
+      "type": "string", 
+      "description": "TODO"
+    }, 
+    "holder_name": {
+      "type": "string", 
+      "description": "TODO"
+    }, 
+    "type": {
+      "enum": [
+        "BankAccount"
+      ], 
+      "example": "BankAccount"
+    }
+  }
+}

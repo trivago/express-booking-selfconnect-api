@@ -1,0 +1,49 @@
+{
+  "deprecated": true, 
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "card_type", 
+    "card_number", 
+    "cardholder_name", 
+    "expiration_month", 
+    "expiration_year", 
+    "cvv", 
+    "billing_address"
+  ], 
+  "type": "object", 
+  "properties": {
+    "card_type": {
+      "type": "string", 
+      "description": "The type of credit card used."
+    }, 
+    "billing_address": {
+      "type": "object", 
+      "description": "TODO"
+    }, 
+    "expiration_year": {
+      "type": "string", 
+      "description": "TODO", 
+      "example": "2025"
+    }, 
+    "cvv": {
+      "type": "string", 
+      "description": "TODO", 
+      "example": "507"
+    }, 
+    "expiration_month": {
+      "type": "string", 
+      "description": "TODO", 
+      "example": "09"
+    }, 
+    "cardholder_name": {
+      "type": "string", 
+      "description": "TODO", 
+      "example": "Christopher Palmer"
+    }, 
+    "card_number": {
+      "type": "string", 
+      "description": "TODO", 
+      "example": "6011111111111117"
+    }
+  }
+}

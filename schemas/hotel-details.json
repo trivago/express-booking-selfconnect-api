@@ -1,63 +1,83 @@
 {
-  "title": "Hotel details",
-  "description": "Schema of an hotel detail.",
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
+  "description": "Schema of a hotel details object", 
+  "title": "Hotel details object", 
+  "deprecated": true, 
+  "required": [
+    "name", 
+    "address1", 
+    "city", 
+    "country", 
+    "phone", 
+    "amenities", 
+    "photos", 
+    "checkinout_policy"
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
   "properties": {
-    "name": {
-      "type": "string"
-    },
-    "address1": {
-      "type": "string"
-    },
-    "address2": {
-      "type": "string"
-    },
     "city": {
-      "type": "string"
-    },
-    "state": {
-      "type": "string"
-    },
-    "postal_code": {
-      "type": "string"
-    },
-    "country": {
-      "type": "string"
-    },
-    "latitude": {
-      "type": "number"
-    },
-    "longitude": {
-      "type": "number"
-    },
-    "phone": {
-      "type": "string"
-    },
+      "type": "string", 
+      "description": "City of the hotel"
+    }, 
+    "name": {
+      "type": "string", 
+      "description": "Name of the hotel"
+    }, 
+    "photos": {
+      "items": {
+        "$ref": "photo.json"
+      }, 
+      "type": "array", 
+      "description": "URLs for photos of the hotel to be displayed during the booking process. If no photos are available, an empty\narray should be returned."
+    }, 
     "url": {
-      "type": "string"
-    },
+      "type": "string", 
+      "description": "URL for general hotel contact"
+    }, 
+    "address1": {
+      "type": "string", 
+      "description": "Street and number of the hotel"
+    }, 
+    "address2": {
+      "type": "string", 
+      "description": "Additional address information about the hotel"
+    }, 
+    "longitude": {
+      "type": "number", 
+      "description": "Longitude coordinate", 
+      "format": "float"
+    }, 
+    "phone": {
+      "type": "string", 
+      "description": "Phone number of the hotel"
+    }, 
+    "state": {
+      "type": "string", 
+      "description": "State or province"
+    }, 
+    "postal_code": {
+      "type": "string", 
+      "description": "Zip code or postal code"
+    }, 
+    "country": {
+      "type": "string", 
+      "description": "ISO 3166 country code"
+    }, 
+    "latitude": {
+      "type": "number", 
+      "description": "Latitude coordinate", 
+      "format": "float"
+    }, 
     "amenities": {
-      "type": "array",
       "items": {
         "type": "string"
-      }
-    },
-    "photos": {
-      "type": "array",
-      "items": {
-        "$ref": "photo.json#"
-      }
-    },
+      }, 
+      "type": "array", 
+      "description": "Amenities that are generally available at the hotel, not specific to a room. Each string is free text which\nshould be in the language indicated by the 'lang' parameter"
+    }, 
     "checkinout_policy": {
-      "type": "string"
+      "type": "string", 
+      "description": "Describes the check-in/check-out policy for the hotel. Should be in the language indicated by the 'lang'\nparameter. Max length 1000 characters."
     }
-  },
-  "required": [
-    "name",
-    "address1",
-    "city",
-    "country"
-  ],
-  "additionalProperties": true
+  }
 }

@@ -1,25 +1,31 @@
 {
-  "title": "Photo",
-  "description": "Schema of an photo.",
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
+  "description": "Schema for the photo", 
+  "title": "Photo Object", 
+  "required": [
+    "url"
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
   "properties": {
     "url": {
-      "type": "string"
-    },
-    "thumbnail_url": {
-      "type": "string"
-    },
+      "type": "string", 
+      "description": "URL for the image. Please assure your images are available with https. The minimum width is 280px, while the\nminimum height is 170px."
+    }, 
     "caption": {
-      "type": "string"
-    },
-    "width": {
-      "type": "number"
-    },
+      "type": "string", 
+      "description": "Caption for the photo. Should be in the language indicated by the 'lang' parameter in the request."
+    }, 
     "height": {
-      "type": "number"
+      "type": "integer", 
+      "description": "Height in pixels of full size image"
+    }, 
+    "thumbnail_url": {
+      "type": "string", 
+      "description": "URL for thumbnail of the image."
+    }, 
+    "width": {
+      "type": "integer", 
+      "description": "Width in pixels of full size image"
     }
-  },
-  "required": [ "url" ],
-  "additionalProperties": true
+  }
 }

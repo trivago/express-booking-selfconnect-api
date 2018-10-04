@@ -1,41 +1,56 @@
 {
-    "title": "Booking Prepare",
-    "description": "Schema of a booking preparation request.",
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "object",
-    "properties": {
-        "api_version": {
-            "type": "integer"
-        },
-        "checkin_date": {
-            "type": "string"
-        },
-        "checkout_date": {
-            "type": "string"
-        },
-        "partner_reference": {
-            "type": "string"
-        },
-        "partner_data": {
-            "$ref": "partner-data.json#"
-        },
-        "reference_id": {
-            "type": "string"
-        },
-        "party": {
-            "type": "array",
-            "items": {
-                "$ref": "party.json#"
-            }
-        }
-    },
-    "required": [
-        "checkin_date",
-        "checkout_date",
-        "partner_reference",
-        "partner_data",
-        "party",
-        "reference_id"
-    ],
-    "additionalProperties": true
+  "description": "Schema of a booking preparation request.", 
+  "title": "Booking Prepare", 
+  "required": [
+    "checkin_date", 
+    "checkout_date", 
+    "partner_reference", 
+    "reference_id", 
+    "partner_data"
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "partner_reference": {
+      "type": "string", 
+      "description": "Advertiser's unique hotel id.", 
+      "example": "abc123"
+    }, 
+    "partner_data": {
+      "type": "object", 
+      "description": "Echoed partner_data from the booking availability request.", 
+      "example": {
+        "identifier_for_something": "9614b191-9e1b-4b7d-9cbc-5b9204ac2a2a"
+      }
+    }, 
+    "reference_id": {
+      "type": "string", 
+      "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be treated as a \"confirmation\" id.", 
+      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
+    }, 
+    "checkin_date": {
+      "description": "The user's check-in date in YYYY-MM-DD.", 
+      "type": "string", 
+      "example": "2016-01-25", 
+      "format": "date"
+    }, 
+    "party": {
+      "items": {
+        "$ref": "party.json"
+      }, 
+      "type": "array", 
+      "description": "An array of Party"
+    }, 
+    "checkout_date": {
+      "description": "The user's check-out date in YYYY-MM-DD.", 
+      "type": "string", 
+      "example": "2016-01-26", 
+      "format": "date"
+    }, 
+    "api_version": {
+      "type": "integer", 
+      "description": "Version of the API used.", 
+      "example": "1"
+    }
+  }
 }

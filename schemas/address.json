@@ -1,0 +1,42 @@
+{
+  "description": "Schema of an billing address.", 
+  "title": "Billing Address object", 
+  "required": [
+    "address1", 
+    "city", 
+    "country"
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "city": {
+      "type": "string", 
+      "description": "City of addres", 
+      "example": "Santa Cruz"
+    }, 
+    "address1": {
+      "type": "string", 
+      "description": "Street and number of address", 
+      "example": "12 Johnson Junction"
+    }, 
+    "address2": {
+      "type": "string", 
+      "description": "Additional address information"
+    }, 
+    "state": {
+      "type": "string", 
+      "description": "State or province\nState is required for all addresses from the United States (US), Australia (AU), Canada (CA), Malaysia (MY),\nPhilippines (PH) and Italy (IT). For addresses from the United Kingdom (UK), New Zealand (NZ), Ireland (IE),\nSingapore (SG), South Africa (ZA), France (FR) and others the state is optional. required for addresses\nfrom United States.", 
+      "example": "Maryland"
+    }, 
+    "postal_code": {
+      "type": "string", 
+      "description": "Zip code or postal code\nrequired for addresses from United States", 
+      "example": "97897"
+    }, 
+    "country": {
+      "type": "string", 
+      "description": "ISO 3166 country code", 
+      "example": "US"
+    }
+  }
+}

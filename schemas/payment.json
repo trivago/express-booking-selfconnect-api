@@ -1,0 +1,40 @@
+{
+  "description": "Schema of payment", 
+  "title": "Payment Object", 
+  "required": [
+    "method", 
+    "parameters", 
+    "billing_address"
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "method": {
+      "$ref": "payment-method.json"
+    }, 
+    "parameters": {
+      "oneOf": [
+        {
+          "$ref": "payment-card-parameters.json"
+        }, 
+        {
+          "$ref": "external-provider-parameters.json"
+        }, 
+        {
+          "$ref": "tokenization-parameters.json"
+        }, 
+        {
+          "$ref": "bank-account-parameters.json"
+        }, 
+        {
+          "$ref": "manual-payment-parameters.json"
+        }
+      ], 
+      "description": "Contains the parameters corresponding to the selected payment method."
+    }, 
+    "billingAddress": {
+      "description": "Billing address of the user submitting the booking.", 
+      "$ref": "address.json"
+    }
+  }
+}

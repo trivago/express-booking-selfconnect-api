@@ -1,0 +1,35 @@
+{
+  "description": "Schema for an occupancy object", 
+  "title": "Occupancy Object", 
+  "required": [
+    "max_persons", 
+    "standard_persons", 
+    "max_adults", 
+    "max_children", 
+    "max_children_age"
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "standard_persons": {
+      "type": "integer", 
+      "description": "The standard occupancy for this room"
+    }, 
+    "max_adults": {
+      "type": "integer", 
+      "description": "The maximum number of adults allowed to stay in the room."
+    }, 
+    "max_persons": {
+      "type": "integer", 
+      "description": "The maximum number of persons (adults and children) allowed to stay in the room."
+    }, 
+    "max_children": {
+      "type": "integer", 
+      "description": "The maximum number of children allowed to stay in the room"
+    }, 
+    "max_children_age": {
+      "type": "integer", 
+      "description": "The maximum age for a person to be considered as child"
+    }
+  }
+}

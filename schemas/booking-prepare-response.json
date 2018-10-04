@@ -1,10 +1,14 @@
 {
-    "title": "Booking Prepare",
-    "description": "Schema of a booking preparation.",
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "object",
-    "oneOf": [
-        { "$ref": "booking-prepare-response-available.json#" },
-        { "$ref": "booking-prepare-response-sold-out.json#" }
-    ]
+  "oneOf": [
+    {
+      "$ref": "booking-prepare-response-available.json"
+    }, 
+    {
+      "$ref": "booking-prepare-response-sold-out.json"
+    }
+  ], 
+  "type": "object", 
+  "description": "Schema of a booking preparation.", 
+  "$schema": "http://json-schema.org/schema#", 
+  "title": "Booking Prepare"
 }
