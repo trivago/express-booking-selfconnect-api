@@ -1,17 +1,14 @@
 # Changelog
 
+## 1.5.1
+- Fix CHANGELOG
+
 ## 1.5.0
 - tEB (Self-Connect): automate the creation of schema files from swagger
 - tEB (Self-Connect): improve swagger usage documentation
 - tEB (Self-Connect): automatic creation of changelog file
 - Provide guidelines how to implement new features to self-connect-entities
 - Improve Swagger annotations
-
-## 1.4.0
-- tEB (Self-Connect): move to use stable swagger-php library
-
-## 1.3.1
-- tBE (Self Connect): Fix typo for NSPK MIR
 
 ## 1.4.0
 - tEB (Self-Connect): move to use stable swagger-php library
