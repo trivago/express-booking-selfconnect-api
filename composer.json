@@ -1,8 +1,8 @@
 {
-    "name": "trivago/ota-self-connect-json-schema",
+    "name": "trivago/express-booking-selfconnect-api",
     "type": "project",
-    "description": "JSON schemas for trivago express booking API.",
-    "keywords": ["teb", "json", "schema"],
+    "description": "Documentation trivago express booking API.",
+    "keywords": ["express", "openapi", "swagger", "json", "schema"],
     "homepage": "http://developer.trivago.com/expressbooking/express-booking-overview.html",
     "license": "Apache-2.0",
     "authors": [
