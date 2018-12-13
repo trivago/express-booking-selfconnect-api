@@ -10,7 +10,7 @@
     "adults": {
       "type": "integer", 
       "description": "The number of adults staying in the room.", 
-      "example": "2"
+      "example": 2
     }, 
     "children": {
       "items": {
@@ -18,7 +18,9 @@
       }, 
       "type": "array", 
       "description": "The ages of any children staying in the room.", 
-      "example": "[1]"
+      "example": [
+        1
+      ]
     }
   }
 }

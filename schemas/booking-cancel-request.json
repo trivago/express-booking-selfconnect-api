@@ -14,7 +14,7 @@
     "partner_reference": {
       "type": "string", 
       "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.", 
-      "example": "zzz123"
+      "example": "1"
     }
   }
 }

@@ -11,8 +11,7 @@
   "type": "object", 
   "properties": {
     "price": {
-      "type": "object", 
-      "description": "This should be calculated based on price for total number of rooms and/or total number of nights from users\nrequest (also if applicable for number total number of persons) and delivered accordingly."
+      "$ref": "price.json"
     }, 
     "type": {
       "enum": [
@@ -23,7 +22,10 @@
         "resort_fee", 
         "service_fee", 
         "booking_fee", 
-        "others"
+        "others", 
+        "rate", 
+        "tax", 
+        "fee"
       ], 
       "type": "string", 
       "description": "Describes the charge. Must be one of these values:\n- \"net_rate\" - Net rate (required)\n- \"city_tax\" - City taxes (required, if city tax applied)\n- \"vat\" - VAT amount\n- \"hotel_fee\" - Additional fees the users need to pay the hotel.\n- \"resort_fee\" - Additional fees the users need to pay the resort.\n- \"service_fee\" - Additional service charges the user has to pay, e.g. for a transfer to hotel.\n- \"booking_fee\" - Additional booking fees the users need to pay the advertiser.\n- \"others\" - If you can not break down, use \"others\""

@@ -10,11 +10,13 @@
   "properties": {
     "item_id": {
       "type": "integer", 
-      "description": "trivago item id"
+      "description": "trivago item id", 
+      "example": 1
     }, 
     "partner_reference": {
       "type": "string", 
-      "description": "Advertiser's unique partner reference"
+      "description": "Advertiser's unique partner reference", 
+      "example": "1"
     }
   }
 }

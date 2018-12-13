@@ -8,8 +8,7 @@
   "type": "object", 
   "properties": {
     "fee": {
-      "type": "object", 
-      "description": "Object containing amount & currency of the fee the user has to pay if rate is being cancelled.\nA rate will be considered as non-refundable, if the penalty fee is the same as the gross price. The gross price\nis the sum of \"net_rate\" + \"vat\" + \"booking_fee\" + \"service_fee\" defined on LineItems. All other line\nLineItems are not considered as part of the gross price."
+      "$ref": "price.json"
     }, 
     "from": {
       "type": "string", 

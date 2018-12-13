@@ -19,6 +19,9 @@
       "$ref": "booking-cancel-request.json"
     }, 
     {
+      "$ref": "cancellation-penalty.json"
+    }, 
+    {
       "$ref": "booking-payment-authorise-response.json"
     }, 
     {
@@ -58,7 +61,7 @@
       "$ref": "booking-availability-response-success.json"
     }, 
     {
-      "$ref": "Reservation.json"
+      "$ref": "booking-prepare-response-available.json"
     }, 
     {
       "$ref": "external-provider-parameters.json"
@@ -88,10 +91,10 @@
       "$ref": "discount.json"
     }, 
     {
-      "$ref": "booking-prepare-response-available.json"
+      "$ref": "address.json"
     }, 
     {
-      "$ref": "cancellation-penalty.json"
+      "$ref": "reservation.json"
     }, 
     {
       "$ref": "payment.json"
@@ -149,9 +152,6 @@
     }, 
     {
       "$ref": "cancellation.json"
-    }, 
-    {
-      "$ref": "address.json"
     }
   ]
 }

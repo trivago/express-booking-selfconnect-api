@@ -35,7 +35,7 @@
     "partner_reference": {
       "type": "string", 
       "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.", 
-      "example": "zzz123"
+      "example": "1"
     }, 
     "legal_text": {
       "deprecated": true, 
@@ -47,7 +47,8 @@
     }, 
     "confirmation_url": {
       "type": "string", 
-      "description": "Deep link to the reservation confirmation page. The confirmation URL is displayed to the user after a booking has\nbeen confirmed.\nSince this URL is displayed to the user, it has to redirect to a page owned by the booked property which\ndisplays any relevant confirmation codes, and confirms the dates, rooms and final price for the booking.\nPlease provide an empty string, if the confirmation page should be hosted by trivago."
+      "description": "Deep link to the reservation confirmation page. The confirmation URL is displayed to the user after a booking has\nbeen confirmed.\nSince this URL is displayed to the user, it has to redirect to a page owned by the booked property which\ndisplays any relevant confirmation codes, and confirms the dates, rooms and final price for the booking.\nPlease provide an empty string, if the confirmation page should be hosted by trivago.", 
+      "example": "https://advertiser.com/confirmation"
     }, 
     "comments": {
       "deprecated": true, 
@@ -62,13 +63,15 @@
       "description": "An array of RoomStay objects."
     }, 
     "checkin_date": {
-      "type": "string", 
       "description": "The check-in date of the user in YYYY-MM-DD.", 
+      "type": "string", 
+      "example": "2019-01-01", 
       "format": "date"
     }, 
     "checkout_date": {
-      "type": "string", 
       "description": "The check-out date of the user in YYYY-MM-DD.", 
+      "type": "string", 
+      "example": "2019-01-02", 
       "format": "date"
     }, 
     "reservation_id": {

@@ -9,6 +9,9 @@
   "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
   "properties": {
+    "customer_support": {
+      "$ref": "customer-support.json"
+    }, 
     "status": {
       "enum": [
         "Success", 
@@ -17,10 +20,6 @@
         "UnknownReference"
       ], 
       "example": "Success"
-    }, 
-    "reservation": {
-      "type": "object", 
-      "description": "Contains details associated with the reservation."
     }, 
     "problems": {
       "items": {
@@ -31,7 +30,11 @@
     }, 
     "reference_id": {
       "type": "string", 
-      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful."
+      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.", 
+      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
+    }, 
+    "reservation": {
+      "$ref": "reservation.json"
     }
   }
 }

@@ -9,7 +9,6 @@
     "country", 
     "phone", 
     "amenities", 
-    "photos", 
     "checkinout_policy"
   ], 
   "$schema": "http://json-schema.org/schema#", 

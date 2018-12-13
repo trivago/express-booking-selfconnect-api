@@ -12,31 +12,38 @@
   "properties": {
     "expiration_month": {
       "type": "string", 
-      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)"
+      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)", 
+      "example": "12"
     }, 
     "callback_cancel": {
       "type": "string", 
-      "description": "Callback for canceled 3ds-authorisation (if necessary)."
+      "description": "Callback for canceled 3ds-authorisation (if necessary).", 
+      "example": "https://advertiser.com/callback/cancel"
     }, 
     "expiration_year": {
       "type": "string", 
-      "description": "Expiration year as four digit string."
+      "description": "Expiration year as four digit string.", 
+      "example": "2019"
     }, 
     "cvv": {
       "type": "string", 
-      "description": "The cvv number of the credit card used for the booking."
+      "description": "The cvv number of the credit card used for the booking.", 
+      "example": "123"
     }, 
     "callback_success": {
       "type": "string", 
-      "description": "Callback for successful 3ds-authorisation (if necessary)."
+      "description": "Callback for successful 3ds-authorisation (if necessary).", 
+      "example": "https://advertiser.com/callback/success"
     }, 
     "callback_error": {
       "type": "string", 
-      "description": "Callback for failed 3ds-authorisation (if necessary)."
+      "description": "Callback for failed 3ds-authorisation (if necessary).", 
+      "example": "https://advertiser.com/callback/error"
     }, 
     "cardholder_name": {
       "type": "string", 
-      "description": "Name on the credit card holder."
+      "description": "Name on the credit card holder.", 
+      "example": "Christopher Palmer"
     }, 
     "type": {
       "enum": [
@@ -46,7 +53,8 @@
     }, 
     "card_number": {
       "type": "string", 
-      "description": "Credit card number used for the booking."
+      "description": "Credit card number used for the booking.", 
+      "example": "41111111111111"
     }
   }
 }

@@ -14,14 +14,10 @@
     "partner_reference": {
       "type": "string", 
       "description": "Advertiser's unique hotel id.", 
-      "example": "abc123"
+      "example": "1"
     }, 
     "partner_data": {
-      "type": "object", 
-      "description": "Echoed partner_data from the booking availability request.", 
-      "example": {
-        "identifier_for_something": "9614b191-9e1b-4b7d-9cbc-5b9204ac2a2a"
-      }
+      "$ref": "partner-data.json"
     }, 
     "reference_id": {
       "type": "string", 
@@ -31,10 +27,11 @@
     "checkin_date": {
       "description": "The user's check-in date in YYYY-MM-DD.", 
       "type": "string", 
-      "example": "2016-01-25", 
+      "example": "2019-01-01", 
       "format": "date"
     }, 
     "party": {
+      "minItems": 1, 
       "items": {
         "$ref": "party.json"
       }, 
@@ -44,13 +41,13 @@
     "checkout_date": {
       "description": "The user's check-out date in YYYY-MM-DD.", 
       "type": "string", 
-      "example": "2016-01-26", 
+      "example": "2019-01-02", 
       "format": "date"
     }, 
     "api_version": {
       "type": "integer", 
       "description": "Version of the API used.", 
-      "example": "1"
+      "example": 1
     }
   }
 }

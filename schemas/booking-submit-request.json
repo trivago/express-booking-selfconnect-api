@@ -37,7 +37,7 @@
     "partner_reference": {
       "type": "string", 
       "description": "Advertiser's unique hotel id.\nPartner hotel id.", 
-      "example": "abc123"
+      "example": "1"
     }, 
     "final_price_at_checkout": {
       "$ref": "price.json", 
@@ -52,11 +52,7 @@
       "$ref": "booking-submit-request-payment-method.json"
     }, 
     "partner_data": {
-      "type": "object", 
-      "description": "Echoed partner_data from the booking availability request. This data will not be interpreted by TripAdvisor,\nbut will be sent back to the partner as-is when we attempt a booking. For example this might be used to store a\npartner ''rate key,'' ''room key,'' and/or ''product key''. It can consist of arbitrary nested JSON, or a single\nstring or number.", 
-      "example": {
-        "identifier_for_something": "9614b191-9e1b-4b7d-9cbc-5b9204ac2a2a"
-      }
+      "$ref": "partner-data.json"
     }, 
     "reference_id": {
       "type": "string", 
@@ -66,13 +62,13 @@
     "checkin_date": {
       "description": "The user's check-in date in YYYY-MM-DD.\nThe check-in date of the traveler.", 
       "type": "string", 
-      "example": "2016-01-25", 
+      "example": "2019-01-01", 
       "format": "date"
     }, 
     "checkout_date": {
       "description": "The user's check-out date in YYYY-MM-DD.\nThe check-out date of the traveler.", 
       "type": "string", 
-      "example": "2016-01-26", 
+      "example": "2019-01-02", 
       "format": "date"
     }, 
     "ip_address": {
@@ -86,9 +82,10 @@
     "api_version": {
       "type": "integer", 
       "description": "Version of the API used.", 
-      "example": "1"
+      "example": 1
     }, 
     "rooms": {
+      "minItems": 1, 
       "items": {
         "$ref": "room-stay.json"
       }, 

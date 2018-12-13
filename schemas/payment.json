@@ -9,6 +9,10 @@
   "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
   "properties": {
+    "billing_address": {
+      "description": "Billing address of the user submitting the booking.", 
+      "$ref": "address.json"
+    }, 
     "method": {
       "$ref": "payment-method.json"
     }, 
@@ -31,10 +35,6 @@
         }
       ], 
       "description": "Contains the parameters corresponding to the selected payment method."
-    }, 
-    "billingAddress": {
-      "description": "Billing address of the user submitting the booking.", 
-      "$ref": "address.json"
     }
   }
 }

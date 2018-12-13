@@ -23,7 +23,7 @@
     "partner_reference": {
       "type": "string", 
       "description": "Advertiser's unique hotel id.", 
-      "example": "abc123"
+      "example": "1"
     }, 
     "customer_support": {
       "$ref": "customer-support.json"
@@ -31,13 +31,13 @@
     "checkin_date": {
       "description": "The user's check-in date in YYYY-MM-DD.", 
       "type": "string", 
-      "example": "2016-01-25", 
+      "example": "2019-01-01", 
       "format": "date"
     }, 
     "checkout_date": {
       "description": "The user's check-out date in YYYY-MM-DD.", 
       "type": "string", 
-      "example": "2016-01-26", 
+      "example": "2019-01-02", 
       "format": "date"
     }, 
     "room_type": {

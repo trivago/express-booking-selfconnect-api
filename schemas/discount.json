@@ -22,8 +22,7 @@
       "format": "float"
     }, 
     "total": {
-      "type": "object", 
-      "description": "Absolute value of the discount. Mandatory, only if percentage is not provided."
+      "$ref": "price.json"
     }
   }
 }

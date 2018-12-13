@@ -20,7 +20,8 @@
     }, 
     "lang": {
       "type": "string", 
-      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS."
+      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.", 
+      "example": "en_US"
     }, 
     "errors": {
       "items": {
@@ -37,8 +38,9 @@
       "description": "An array of objects detailing the different kinds of rooms that are available for the entire party.\nThe short description must be unique for each room type available in the hotel."
     }, 
     "end_date": {
-      "type": "string", 
       "description": "The user's check-out date in YYYY-MM-DD", 
+      "type": "string", 
+      "example": "2019-01-02", 
       "format": "date"
     }, 
     "customer_support": {
@@ -54,7 +56,8 @@
     }, 
     "currency": {
       "type": "string", 
-      "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency."
+      "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency.", 
+      "example": "USD"
     }, 
     "terms_and_conditions_url": {
       "type": "string", 
@@ -62,9 +65,11 @@
     }, 
     "user_country": {
       "type": "string", 
-      "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request."
+      "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request.", 
+      "example": "US"
     }, 
-    "parties": {
+    "party": {
+      "minItems": 1, 
       "items": {
         "$ref": "party.json"
       }, 
@@ -83,14 +88,15 @@
       "description": "Accepted Credit Cards"
     }, 
     "start_date": {
-      "type": "string", 
       "description": "The user's check-in date in YYYY-MM-DD", 
+      "type": "string", 
+      "example": "2019-01-01", 
       "format": "date"
     }, 
     "api_version": {
       "type": "integer", 
       "description": "Version of the API used.", 
-      "example": "1"
+      "example": 1
     }, 
     "other_policy": {
       "type": "string", 

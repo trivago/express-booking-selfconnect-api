@@ -9,25 +9,23 @@
   ], 
   "type": "object", 
   "properties": {
-    "interestCharge": {
-      "type": "number", 
-      "description": "Interest rate per installment", 
-      "format": "float"
+    "extra_charge": {
+      "$ref": "price.json"
     }, 
-    "extraCharge": {
+    "first_installment": {
+      "type": "integer", 
+      "description": "First installment starts after x iterations according to the frequency value"
+    }, 
+    "initial_rate": {
+      "$ref": "price.json"
+    }, 
+    "installment_amount": {
       "$ref": "price.json"
     }, 
     "number": {
       "type": "integer", 
       "description": "Number of installments (must be >1)", 
       "example": 8
-    }, 
-    "swiftCode": {
-      "type": "string", 
-      "description": "SWIFT-BIC - Bank Identifier Code"
-    }, 
-    "installmentAmount": {
-      "$ref": "price.json"
     }, 
     "discount": {
       "$ref": "price.json"
@@ -42,20 +40,22 @@
       "description": "Frequency of the installment payments. Must be one of the following values:\n- B: Biweekly\n- M: Monthly (default)\n- W: Weekly", 
       "example": "M"
     }, 
-    "initialRate": {
-      "$ref": "price.json"
+    "swift_code": {
+      "type": "string", 
+      "description": "SWIFT-BIC - Bank Identifier Code"
     }, 
-    "firstInstallment": {
-      "type": "integer", 
-      "description": "First installment starts after x iterations according to the frequency value"
+    "interest_charge": {
+      "type": "number", 
+      "description": "Interest rate per installment", 
+      "format": "float"
+    }, 
+    "last_rate": {
+      "$ref": "price.json"
     }, 
     "id": {
       "type": "string", 
       "description": "Identifier for that installment plan", 
       "example": "1-M-EUR"
-    }, 
-    "lastRate": {
-      "$ref": "price.json"
     }
   }
 }

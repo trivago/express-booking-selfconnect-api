@@ -216,7 +216,7 @@
                     "api_version": {
                         "description": "Version of the API used.",
                         "type": "integer",
-                        "example": "1"
+                        "example": 1
                     },
                     "hotel": {
                         "$ref": "#/components/schemas/hotel"
@@ -224,31 +224,37 @@
                     "start_date": {
                         "description": "The user's check-in date in YYYY-MM-DD",
                         "type": "string",
-                        "format": "date"
+                        "format": "date",
+                        "example": "2019-01-01"
                     },
                     "end_date": {
                         "description": "The user's check-out date in YYYY-MM-DD",
                         "type": "string",
-                        "format": "date"
+                        "format": "date",
+                        "example": "2019-01-02"
                     },
-                    "parties": {
+                    "party": {
                         "description": "Array of JSON objects inlcuding number of adults and children requested.\nEach party object represents the occupation for a separate room.\nFor example, \"party\":[{\"adults\": 3}] is a request for one room that accommodates three adults,\nor \"party\":[{\"adults\": 2},{\"adults\": 2, \"children\": [11,8]}] is a request for one room for two adults\nand one room for two adults and two children aged 11 and 8.",
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/party"
-                        }
+                        },
+                        "minItems": 1
                     },
                     "lang": {
                         "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "en_US"
                     },
                     "currency": {
                         "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "USD"
                     },
                     "user_country": {
                         "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "US"
                     }
                 },
                 "type": "object"
@@ -271,7 +277,7 @@
                     "api_version": {
                         "description": "Version of the API used.",
                         "type": "integer",
-                        "example": "1"
+                        "example": 1
                     },
                     "customer_support": {
                         "$ref": "#/components/schemas/customer-support"
@@ -323,31 +329,37 @@
                     "start_date": {
                         "description": "The user's check-in date in YYYY-MM-DD",
                         "type": "string",
-                        "format": "date"
+                        "format": "date",
+                        "example": "2019-01-01"
                     },
                     "end_date": {
                         "description": "The user's check-out date in YYYY-MM-DD",
                         "type": "string",
-                        "format": "date"
+                        "format": "date",
+                        "example": "2019-01-02"
                     },
-                    "parties": {
+                    "party": {
                         "description": "Array of JSON objects inlcuding number of adults and children requested.\nEach party object represents the occupation for a separate room.\nFor example, \"party\":[{\"adults\": 3}] is a request for one room that accommodates three adults,\nor \"party\":[{\"adults\": 2},{\"adults\": 2, \"children\": [11,8]}] is a request for one room for two adults\nand one room for two adults and two children aged 11 and 8.",
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/party"
-                        }
+                        },
+                        "minItems": 1
                     },
                     "lang": {
                         "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "en_US"
                     },
                     "currency": {
                         "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "USD"
                     },
                     "user_country": {
                         "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "US"
                     }
                 },
                 "type": "object"
@@ -378,7 +390,7 @@
                     "partner_reference": {
                         "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.",
                         "type": "string",
-                        "example": "zzz123"
+                        "example": "1"
                     }
                 },
                 "type": "object"
@@ -405,7 +417,7 @@
                     "partner_reference": {
                         "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.",
                         "type": "string",
-                        "example": "zzz123"
+                        "example": "1"
                     },
                     "status": {
                         "enum": [
@@ -438,7 +450,7 @@
                     "api_version": {
                         "description": "Version of the API used.",
                         "type": "integer",
-                        "example": "1"
+                        "example": 1
                     },
                     "reservation_id": {
                         "description": "The advertiser's unique id for the reservation.",
@@ -467,11 +479,11 @@
                     },
                     "reference_id": {
                         "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
                     },
                     "reservation": {
-                        "description": "Contains details associated with the reservation.",
-                        "type": "object"
+                        "$ref": "#/components/schemas/reservation"
                     }
                 },
                 "allOf": [
@@ -487,6 +499,9 @@
                             "customer_support"
                         ],
                         "properties": {
+                            "customer_support": {
+                                "$ref": "#/components/schemas/customer-support"
+                            },
                             "status": {
                                 "enum": [
                                     "Success",
@@ -514,7 +529,7 @@
                     "api_version": {
                         "description": "Version of the API used.",
                         "type": "integer",
-                        "example": "1"
+                        "example": 1
                     },
                     "reference_id": {
                         "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be treated as a \"confirmation\" id.",
@@ -522,35 +537,32 @@
                         "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
                     },
                     "partner_data": {
-                        "description": "Echoed partner_data from the booking availability request.",
-                        "type": "object",
-                        "example": {
-                            "identifier_for_something": "9614b191-9e1b-4b7d-9cbc-5b9204ac2a2a"
-                        }
+                        "$ref": "#/components/schemas/partner-data"
                     },
                     "party": {
                         "description": "An array of Party",
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/party"
-                        }
+                        },
+                        "minItems": 1
                     },
                     "checkin_date": {
                         "description": "The user's check-in date in YYYY-MM-DD.",
                         "type": "string",
                         "format": "date",
-                        "example": "2016-01-25"
+                        "example": "2019-01-01"
                     },
                     "checkout_date": {
                         "description": "The user's check-out date in YYYY-MM-DD.",
                         "type": "string",
                         "format": "date",
-                        "example": "2016-01-26"
+                        "example": "2019-01-02"
                     },
                     "partner_reference": {
                         "description": "Advertiser's unique hotel id.",
                         "type": "string",
-                        "example": "abc123"
+                        "example": "1"
                     }
                 },
                 "type": "object"
@@ -585,18 +597,18 @@
                         "description": "The user's check-in date in YYYY-MM-DD.",
                         "type": "string",
                         "format": "date",
-                        "example": "2016-01-25"
+                        "example": "2019-01-01"
                     },
                     "checkout_date": {
                         "description": "The user's check-out date in YYYY-MM-DD.",
                         "type": "string",
                         "format": "date",
-                        "example": "2016-01-26"
+                        "example": "2019-01-02"
                     },
                     "partner_reference": {
                         "description": "Advertiser's unique hotel id.",
                         "type": "string",
-                        "example": "abc123"
+                        "example": "1"
                     }
                 },
                 "type": "object"
@@ -639,18 +651,18 @@
                         "description": "The user's check-in date in YYYY-MM-DD.",
                         "type": "string",
                         "format": "date",
-                        "example": "2016-01-25"
+                        "example": "2019-01-01"
                     },
                     "checkout_date": {
                         "description": "The user's check-out date in YYYY-MM-DD.",
                         "type": "string",
                         "format": "date",
-                        "example": "2016-01-26"
+                        "example": "2019-01-02"
                     },
                     "partner_reference": {
                         "description": "Advertiser's unique hotel id.",
                         "type": "string",
-                        "example": "abc123"
+                        "example": "1"
                     }
                 },
                 "type": "object"
@@ -674,24 +686,24 @@
                     "api_version": {
                         "description": "Version of the API used.",
                         "type": "integer",
-                        "example": "1"
+                        "example": 1
                     },
                     "checkin_date": {
                         "description": "The user's check-in date in YYYY-MM-DD.\nThe check-in date of the traveler.",
                         "type": "string",
                         "format": "date",
-                        "example": "2016-01-25"
+                        "example": "2019-01-01"
                     },
                     "checkout_date": {
                         "description": "The user's check-out date in YYYY-MM-DD.\nThe check-out date of the traveler.",
                         "type": "string",
                         "format": "date",
-                        "example": "2016-01-26"
+                        "example": "2019-01-02"
                     },
                     "partner_reference": {
                         "description": "Advertiser's unique hotel id.\nPartner hotel id.",
                         "type": "string",
-                        "example": "abc123"
+                        "example": "1"
                     },
                     "ip_address": {
                         "description": "Sending IP address.",
@@ -710,7 +722,8 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/room-stay"
-                        }
+                        },
+                        "minItems": 1
                     },
                     "payment_method": {
                         "description": "An object containing the credit card details for payment of the reservation.",
@@ -737,11 +750,7 @@
                         "$ref": "#/components/schemas/price"
                     },
                     "partner_data": {
-                        "description": "Echoed partner_data from the booking availability request. This data will not be interpreted by TripAdvisor,\nbut will be sent back to the partner as-is when we attempt a booking. For example this might be used to store a\npartner ''rate key,'' ''room key,'' and/or ''product key''. It can consist of arbitrary nested JSON, or a single\nstring or number.",
-                        "type": "object",
-                        "example": {
-                            "identifier_for_something": "9614b191-9e1b-4b7d-9cbc-5b9204ac2a2a"
-                        }
+                        "$ref": "#/components/schemas/partner-data"
                     },
                     "tracking_data": {
                         "description": "Enables advertisers to receive specific information for tracking purpose. Fields supported here can be static fields as given by advertiser or can be dynamic fields as supported for tracking pixel which can be fired from express landing page. Refer here for tracking parameters supported from trivago side at submit e.g:\n\"tracking_data\": {\n\"actor\": \"trivago\",\n\"tracking_id\": \"3125354\"\n}",
@@ -762,6 +771,9 @@
                     "customer_support"
                 ],
                 "properties": {
+                    "customer_support": {
+                        "$ref": "#/components/schemas/customer-support"
+                    },
                     "status": {
                         "enum": [
                             "Success",
@@ -783,11 +795,11 @@
                     },
                     "reference_id": {
                         "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
                     },
                     "reservation": {
-                        "description": "Contains details associated with the reservation.",
-                        "type": "object"
+                        "$ref": "#/components/schemas/reservation"
                     }
                 },
                 "type": "object"
@@ -807,11 +819,12 @@
                     "partner_reference": {
                         "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.",
                         "type": "string",
-                        "example": "zzz123"
+                        "example": "1"
                     },
                     "reference_id": {
                         "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be\ntreated as a \"confirmation\" id.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
                     }
                 },
                 "type": "object"
@@ -825,6 +838,9 @@
                     "customer_support"
                 ],
                 "properties": {
+                    "customer_support": {
+                        "$ref": "#/components/schemas/customer-support"
+                    },
                     "status": {
                         "enum": [
                             "Success",
@@ -843,11 +859,11 @@
                     },
                     "reference_id": {
                         "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
                     },
                     "reservation": {
-                        "description": "Contains details associated with the reservation.",
-                        "type": "object"
+                        "$ref": "#/components/schemas/reservation"
                     }
                 },
                 "type": "object"
@@ -977,8 +993,7 @@
                         "format": "date-time"
                     },
                     "fee": {
-                        "description": "Object containing amount & currency of the fee the user has to pay if rate is being cancelled.\nA rate will be considered as non-refundable, if the penalty fee is the same as the gross price. The gross price\nis the sum of \"net_rate\" + \"vat\" + \"booking_fee\" + \"service_fee\" defined on LineItems. All other line\nLineItems are not considered as part of the gross price.",
-                        "type": "object"
+                        "$ref": "#/components/schemas/price"
                     }
                 },
                 "type": "object"
@@ -1094,8 +1109,7 @@
                         "format": "float"
                     },
                     "total": {
-                        "description": "Absolute value of the discount. Mandatory, only if percentage is not provided.",
-                        "type": "object"
+                        "$ref": "#/components/schemas/price"
                     }
                 },
                 "type": "object",
@@ -1151,11 +1165,13 @@
                 "properties": {
                     "item_id": {
                         "description": "trivago item id",
-                        "type": "integer"
+                        "type": "integer",
+                        "example": 1
                     },
                     "partner_reference": {
                         "description": "Advertiser's unique partner reference",
-                        "type": "string"
+                        "type": "string",
+                        "example": "1"
                     }
                 },
                 "type": "object"
@@ -1170,7 +1186,6 @@
                     "country",
                     "phone",
                     "amenities",
-                    "photos",
                     "checkinout_policy"
                 ],
                 "properties": {
@@ -1253,8 +1268,7 @@
                 ],
                 "properties": {
                     "price": {
-                        "description": "This should be calculated based on price for total number of rooms and/or total number of nights from users\nrequest (also if applicable for number total number of persons) and delivered accordingly.",
-                        "type": "object"
+                        "$ref": "#/components/schemas/price"
                     },
                     "type": {
                         "description": "Describes the charge. Must be one of these values:\n- \"net_rate\" - Net rate (required)\n- \"city_tax\" - City taxes (required, if city tax applied)\n- \"vat\" - VAT amount\n- \"hotel_fee\" - Additional fees the users need to pay the hotel.\n- \"resort_fee\" - Additional fees the users need to pay the resort.\n- \"service_fee\" - Additional service charges the user has to pay, e.g. for a transfer to hotel.\n- \"booking_fee\" - Additional booking fees the users need to pay the advertiser.\n- \"others\" - If you can not break down, use \"others\"",
@@ -1267,7 +1281,10 @@
                             "resort_fee",
                             "service_fee",
                             "booking_fee",
-                            "others"
+                            "others",
+                            "rate",
+                            "tax",
+                            "fee"
                         ]
                     },
                     "paid_at_checkout": {
@@ -1284,15 +1301,9 @@
             "partner-data": {
                 "title": "Partner Data object",
                 "description": "Schema of partner data",
-                "properties": {
-                    "data": {
-                        "description": "TODO",
-                        "example": {
-                            "test": "Frühstück"
-                        }
-                    }
+                "example": {
+                    "rate_key": "53f3"
                 },
-                "type": "object",
                 "oneOf": [
                     {
                         "type": "integer"
@@ -1302,12 +1313,6 @@
                     },
                     {
                         "type": "string"
-                    },
-                    {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/partner-data"
-                        }
                     },
                     {
                         "type": "object"
@@ -1324,7 +1329,7 @@
                     "adults": {
                         "description": "The number of adults staying in the room.",
                         "type": "integer",
-                        "example": "2"
+                        "example": 2
                     },
                     "children": {
                         "description": "The ages of any children staying in the room.",
@@ -1332,7 +1337,9 @@
                         "items": {
                             "type": "integer"
                         },
-                        "example": "[1]"
+                        "example": [
+                            1
+                        ]
                     }
                 },
                 "type": "object"
@@ -1369,7 +1376,7 @@
                             }
                         ]
                     },
-                    "billingAddress": {
+                    "billing_address": {
                         "description": "Billing address of the user submitting the booking.",
                         "$ref": "#/components/schemas/address"
                     }
@@ -1390,12 +1397,14 @@
                         "example": "BankAccount"
                     },
                     "holder_name": {
-                        "description": "TODO",
-                        "type": "string"
+                        "description": "Name of account holder.",
+                        "type": "string",
+                        "example": "Christopher Palmer"
                     },
                     "iban": {
-                        "description": "TODO",
-                        "type": "string"
+                        "description": "IBAN of bank account.",
+                        "type": "string",
+                        "example": "DE27100777770209299700"
                     }
                 },
                 "type": "object"
@@ -1410,15 +1419,18 @@
                 "properties": {
                     "callback_success": {
                         "description": "Callback for successful 3ds-authorisation (if necessary).",
-                        "type": "string"
+                        "type": "string",
+                        "example": "https://advertiser.com/callback/success"
                     },
                     "callback_cancel": {
                         "description": "Callback for canceled 3ds-authorisation (if necessary).",
-                        "type": "string"
+                        "type": "string",
+                        "example": "https://advertiser.com/callback/cancel"
                     },
                     "callback_error": {
                         "description": "Callback for failed 3ds-authorisation (if necessary).",
-                        "type": "string"
+                        "type": "string",
+                        "example": "https://advertiser.com/callback/error"
                     },
                     "type": {
                         "enum": [
@@ -1455,15 +1467,18 @@
                 "properties": {
                     "callback_success": {
                         "description": "Callback for successful 3ds-authorisation (if necessary).",
-                        "type": "string"
+                        "type": "string",
+                        "example": "https://advertiser.com/callback/success"
                     },
                     "callback_cancel": {
                         "description": "Callback for canceled 3ds-authorisation (if necessary).",
-                        "type": "string"
+                        "type": "string",
+                        "example": "https://advertiser.com/callback/cancel"
                     },
                     "callback_error": {
                         "description": "Callback for failed 3ds-authorisation (if necessary).",
-                        "type": "string"
+                        "type": "string",
+                        "example": "https://advertiser.com/callback/error"
                     },
                     "type": {
                         "enum": [
@@ -1473,23 +1488,28 @@
                     },
                     "card_number": {
                         "description": "Credit card number used for the booking.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "41111111111111"
                     },
                     "cardholder_name": {
                         "description": "Name on the credit card holder.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "Christopher Palmer"
                     },
                     "expiration_month": {
                         "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)",
-                        "type": "string"
+                        "type": "string",
+                        "example": "12"
                     },
                     "expiration_year": {
                         "description": "Expiration year as four digit string.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "2019"
                     },
                     "cvv": {
                         "description": "The cvv number of the credit card used for the booking.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "123"
                     }
                 },
                 "type": "object"
@@ -1503,15 +1523,18 @@
                 "properties": {
                     "callback_success": {
                         "description": "Callback for successful 3ds-authorisation (if necessary).",
-                        "type": "string"
+                        "type": "string",
+                        "example": "https://advertiser.com/callback/success"
                     },
                     "callback_cancel": {
                         "description": "Callback for canceled 3ds-authorisation (if necessary).",
-                        "type": "string"
+                        "type": "string",
+                        "example": "https://advertiser.com/callback/cancel"
                     },
                     "callback_error": {
                         "description": "Callback for failed 3ds-authorisation (if necessary).",
-                        "type": "string"
+                        "type": "string",
+                        "example": "https://advertiser.com/callback/error"
                     },
                     "type": {
                         "enum": [
@@ -1521,15 +1544,18 @@
                     },
                     "token": {
                         "description": "Token trivago has received from the advertiser's payment service provider.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "tolken_123"
                     },
-                    "orderId": {
+                    "order_id": {
                         "description": "Order id trivago has created when requesting the token from the advertiser's payment service provider.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "1234"
                     },
                     "cvv": {
                         "description": "CVV/CVC - mandatory if the advertiser's payment service provider's tokenization does not include CVV/CVC.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "123"
                     }
                 },
                 "type": "object"
@@ -1713,31 +1739,31 @@
                         ],
                         "example": "M"
                     },
-                    "installmentAmount": {
+                    "installment_amount": {
                         "$ref": "#/components/schemas/price"
                     },
-                    "interestCharge": {
+                    "interest_charge": {
                         "description": "Interest rate per installment",
                         "type": "number",
                         "format": "float"
                     },
-                    "extraCharge": {
+                    "extra_charge": {
                         "$ref": "#/components/schemas/price"
                     },
-                    "swiftCode": {
+                    "swift_code": {
                         "description": "SWIFT-BIC - Bank Identifier Code",
                         "type": "string"
                     },
                     "discount": {
                         "$ref": "#/components/schemas/price"
                     },
-                    "initialRate": {
+                    "initial_rate": {
                         "$ref": "#/components/schemas/price"
                     },
-                    "lastRate": {
+                    "last_rate": {
                         "$ref": "#/components/schemas/price"
                     },
-                    "firstInstallment": {
+                    "first_installment": {
                         "description": "First installment starts after x iterations according to the frequency value",
                         "type": "integer"
                     }
@@ -1756,35 +1782,35 @@
                 ],
                 "properties": {
                     "billing_address": {
-                        "description": "TODO",
-                        "type": "object"
+                        "$ref": "#/components/schemas/address"
                     },
                     "card_type": {
                         "description": "The type of credit card used.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "Visa"
                     },
                     "card_number": {
-                        "description": "TODO",
+                        "description": "Credit card number used for the booking.",
                         "type": "string",
-                        "example": "6011111111111117"
+                        "example": "4111111111111111"
                     },
                     "cardholder_name": {
-                        "description": "TODO",
+                        "description": "Name on the credit card holder.",
                         "type": "string",
                         "example": "Christopher Palmer"
                     },
                     "expiration_month": {
-                        "description": "TODO",
+                        "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12).",
                         "type": "string",
                         "example": "09"
                     },
                     "expiration_year": {
-                        "description": "TODO",
+                        "description": "Expiration year as four digit string.",
                         "type": "string",
                         "example": "2025"
                     },
                     "cvv": {
-                        "description": "TODO",
+                        "description": "The cvv number of the credit card used for the booking.",
                         "type": "string",
                         "example": "507"
                     }
@@ -1962,7 +1988,7 @@
                 },
                 "type": "object"
             },
-            "Reservation": {
+            "reservation": {
                 "title": "Reservation object",
                 "description": "Schema of an reservation.",
                 "required": [
@@ -1986,7 +2012,7 @@
                     "partner_reference": {
                         "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.",
                         "type": "string",
-                        "example": "zzz123"
+                        "example": "1"
                     },
                     "status": {
                         "enum": [
@@ -1999,17 +2025,20 @@
                     },
                     "confirmation_url": {
                         "description": "Deep link to the reservation confirmation page. The confirmation URL is displayed to the user after a booking has\nbeen confirmed.\nSince this URL is displayed to the user, it has to redirect to a page owned by the booked property which\ndisplays any relevant confirmation codes, and confirms the dates, rooms and final price for the booking.\nPlease provide an empty string, if the confirmation page should be hosted by trivago.",
-                        "type": "string"
+                        "type": "string",
+                        "example": "https://advertiser.com/confirmation"
                     },
                     "checkin_date": {
                         "description": "The check-in date of the user in YYYY-MM-DD.",
                         "type": "string",
-                        "format": "date"
+                        "format": "date",
+                        "example": "2019-01-01"
                     },
                     "checkout_date": {
                         "description": "The check-out date of the user in YYYY-MM-DD.",
                         "type": "string",
-                        "format": "date"
+                        "format": "date",
+                        "example": "2019-01-02"
                     },
                     "hotel": {
                         "$ref": "#/components/schemas/hotel-details"
@@ -2320,9 +2349,7 @@
                 "required": true,
                 "schema": {
                     "type": "string",
-                    "items": {
-                        "type": "string"
-                    }
+                    "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
                 }
             },
             "reservation_id": {
@@ -2331,9 +2358,7 @@
                 "required": true,
                 "schema": {
                     "type": "string",
-                    "items": {
-                        "type": "string"
-                    }
+                    "example": "XXX123"
                 }
             },
             "partner_reference": {
@@ -2342,9 +2367,7 @@
                 "required": true,
                 "schema": {
                     "type": "string",
-                    "items": {
-                        "type": "string"
-                    }
+                    "example": "1"
                 }
             }
         }

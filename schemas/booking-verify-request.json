@@ -15,11 +15,12 @@
     "partner_reference": {
       "type": "string", 
       "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.", 
-      "example": "zzz123"
+      "example": "1"
     }, 
     "reference_id": {
       "type": "string", 
-      "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be\ntreated as a \"confirmation\" id."
+      "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be\ntreated as a \"confirmation\" id.", 
+      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
     }
   }
 }
