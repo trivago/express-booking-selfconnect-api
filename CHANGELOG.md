@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.6.0
+- Added new Cancellation type field
+
 ## 1.5.1
 - Fix CHANGELOG
 
