@@ -2,20 +2,28 @@
     "name": "trivago/express-booking-selfconnect-api",
     "type": "project",
     "description": "Documentation trivago express booking API.",
-    "keywords": ["express", "openapi", "swagger", "json", "schema"],
+    "keywords": [
+        "express",
+        "openapi",
+        "swagger",
+        "json",
+        "schema"
+    ],
     "homepage": "http://developer.trivago.com/expressbooking/express-booking-overview.html",
     "license": "Apache-2.0",
     "authors": [
         {
-            "name": "Roman Lasinski",
-            "email": "roman.lasinski@trivago.com",
-            "role": "Developer"
+            "name": "LSE",
+            "email": "tbe.lse@trivago.com"
         }
     ],
     "require-dev": {
         "php": "^7.0",
-
-        "phpunit/phpunit": "~7.1",
+        "phpunit/phpunit": "~5.7",
         "stefk/jval": "dev-master"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit -c tests/phpunit.xml --no-coverage --log-junit ./junit.xml",
+        "test-coverage": "vendor/bin/phpunit -c tests/phpunit.xml --log-junit ./junit.xml --coverage-html ./coverage --coverage-clover ./test-coverage.xml"
     }
 }
