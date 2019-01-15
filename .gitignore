@@ -1,3 +1,17 @@
+_build
+build
 vendor
 .idea
 composer.lock
+junit.xml
+docs/node_modules
+docs/build
+Docs
+docs/api
+bin/*
+tags
+tests/Kernel/cache
+tests/Kernel/logs
+Tests/Kernel/cache
+Tests/Kernel/logs
+coverage.clover
