@@ -6,9 +6,9 @@ composer.lock
 junit.xml
 docs/node_modules
 docs/build
+docs
 Docs
 docs/api
-docs
 bin/*
 tags
 tests/Kernel/cache
