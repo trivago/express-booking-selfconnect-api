@@ -1,36 +1,31 @@
-MAKEFLAGS += --warn-undefined-variables
-SHELL := bash
-.SHELLFLAGS := -eu -o pipefail -c
-.DEFAULT_GOAL := all
-.DELETE_ON_ERROR:
-.SUFFIXES:
-.PHONY: _build
+UID ?= $(shell id -u)
+GID ?= $(shell id -g)
+COMPOSER := docker run \
+			--rm \
+			--volume $(CURDIR):/app \
+			--user $(UID):$(GID) \
+			 composer
 
-RM := rm
-TEST := test
-YES := yes
-COMPOSER := composer
-PHPUNIT := vendor/bin/phpunit
+help:
+	@echo "\e[32m Usage make [target] "
+	@echo "If you want to run another version of PHP, just update the PHP_VERSION var below \e[0m"
+	@echo
+	@echo "\e[1m targets:"
+	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
-all:
-	# tEB API: JSON schemas
-	#
-	# install           Install all dependencies for development
-	# reinstall         Clean the working tree and install all dependencies again
-	# distclean         Remove all build outputs and dependencies
-	# test              Run the test suite
 
-install:
-	# Install dependencies
-	@$(TEST) -d vendor || $(COMPOSER) install
+install: ## Will install the dependencies in the vendor folder with composer docker image
+	@echo "\033[1;36m Running COMPOSER \e[0m "
+	@$(COMPOSER) install --ignore-platform-reqs --no-scripts
+.PHONY: install
 
-reinstall: distclean install
+clean: ## Will composer.lock and the vendor folder
+	@rm -f composer.lock && rm -rf vendor || true
+.PHONY: clean
 
-distclean:
-	# Clean all installed dependencies
-	@($(TEST) -f composer.lock && $(RM) composer.lock) || true
-	@($(TEST) -d vendor && $(RM) -rf vendor) || true
-
+test: ## Will run the test inside the composer docker image
 test: install
-	# Run the test suite
-	@$(PHPUNIT) -c tests/phpunit.xml
+	@$(COMPOSER) run-script test
+.PHONY: test
+
+.DEFAULT_GOAL := help
