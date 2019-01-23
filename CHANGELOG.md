@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.6.4
+- Added usage of composer docker image for testing
+
+## 1.6.3
+- Marked api_version in booking_prepare as deprecated
+
+## 1.6.2
+- Marked credit card type ChinaUnionPay as deprecated
+
+## 1.6.1
+- Fixed Makefile issue
+
 ## 1.6.0
 - Added new Cancellation type field
 
