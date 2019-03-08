@@ -111,7 +111,7 @@ To generate a client for php, you can execute the following :
 
 ```bash
 java -jar swagger-codegen-cli-3.0.0.jar generate \
-   -i https://raw.githubusercontent.com/trivago/express-booking-selfconnect-api/master/openapi.json \
+   -i https://raw.githubusercontent.com/trivago/express-booking-selfconnect-api/master/open-api.json \
    -l php \
    -o /var/tmp/php_api_client
 ```
@@ -130,7 +130,7 @@ In case we want to generate a server stub for the PHP Silex framework, the comma
 
 ```bash
 java -jar swagger-codegen-cli-3.0.0.jar generate \
-   -i https://raw.githubusercontent.com/trivago/express-booking-selfconnect-api/master/openapi.json \
+   -i https://raw.githubusercontent.com/trivago/express-booking-selfconnect-api/master/open-api.json \
    -l php-silex \
    -o /var/tmp/php_api_client
 ```
