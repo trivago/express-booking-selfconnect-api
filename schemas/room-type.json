@@ -5,12 +5,8 @@
     "name", 
     "final_price_at_booking", 
     "final_price_at_checkout", 
-    "description", 
     "partner_data", 
     "line_items", 
-    "payment_methods", 
-    "value_adds", 
-    "cancellation", 
     "occupancy"
   ], 
   "$schema": "http://json-schema.org/schema#", 

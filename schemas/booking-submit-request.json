@@ -5,10 +5,8 @@
     "checkin_date", 
     "checkout_date", 
     "partner_reference", 
-    "reference_id", 
     "customer", 
     "rooms", 
-    "payment", 
     "final_price_at_booking", 
     "final_price_at_checkout", 
     "partner_data"

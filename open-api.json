@@ -327,6 +327,16 @@
                             "$ref": "#/components/schemas/error"
                         }
                     },
+                    "query_key": {
+                        "description": "Query Key",
+                        "type": "string",
+                        "deprecated": true
+                    },
+                    "device_type": {
+                        "description": "Device Type",
+                        "type": "string",
+                        "deprecated": true
+                    },
                     "start_date": {
                         "description": "The user's check-in date in YYYY-MM-DD",
                         "type": "string",
@@ -524,7 +534,8 @@
                     "checkout_date",
                     "partner_reference",
                     "reference_id",
-                    "partner_data"
+                    "partner_data",
+                    "party"
                 ],
                 "properties": {
                     "api_version": {
@@ -675,10 +686,8 @@
                     "checkin_date",
                     "checkout_date",
                     "partner_reference",
-                    "reference_id",
                     "customer",
                     "rooms",
-                    "payment",
                     "final_price_at_booking",
                     "final_price_at_checkout",
                     "partner_data"
@@ -1156,7 +1165,7 @@
                         "description": "Number of seconds trivago should stop sending requests (for use with Error Code 4).",
                         "type": "integer"
                     },
-                    "hotelIds": {
+                    "hotel_ids": {
                         "description": "Array of hotels ids for which this error occurs.",
                         "type": "array",
                         "items": {
@@ -1895,44 +1904,56 @@
                         "description": "One of the supported problem types:",
                         "type": "string",
                         "enum": [
+                            "AgentAttention",
+                            "AuthorizationDeclinedByAcquirer",
+                            "AuthorizationDeclinedByIssuer",
                             "CreditCardDeclined",
                             "CreditCardTypeNotSupported",
-                            "MissingTravelerFirstName",
-                            "MissingTravelerLastName",
-                            "MissingEmail",
-                            "MissingReservationFirstName",
-                            "MissingReservationLastName",
-                            "MissingWorkPhone",
-                            "MissingHomePhone",
-                            "MissingAddress",
-                            "MissingCity",
-                            "MissingStateProvince",
-                            "MissingCountry",
-                            "MissingPostalCode",
-                            "MissingCardholderName",
-                            "InvalidTravelerFirstName",
-                            "InvalidTravelerLastName",
+                            "InvalidAddress",
+                            "InvalidCardholderName",
+                            "InvalidCity",
+                            "InvalidCountry",
+                            "InvalidCreditCardExpiry",
+                            "InvalidCreditCardNumber",
+                            "InvalidCreditCardSecurityCode",
                             "InvalidEmail",
+                            "InvalidHomePhone",
+                            "InvalidPostalCode",
                             "InvalidReservationFirstName",
                             "InvalidReservationLastName",
-                            "InvalidWorkPhone",
-                            "InvalidHomePhone",
-                            "InvalidAddress",
-                            "InvalidCity",
                             "InvalidStateProvince",
-                            "InvalidCountry",
-                            "InvalidPostalCode",
-                            "InvalidCardholderName",
-                            "UnknownUserProblem",
-                            "RoomNotAvailable",
+                            "InvalidTimeRange",
+                            "InvalidTravelerFirstName",
+                            "InvalidTravelerLastName",
+                            "InvalidWorkPhone",
+                            "MissingAddress",
+                            "MissingCardholderName",
+                            "MissingCity",
+                            "MissingCountry",
+                            "MissingEmail",
+                            "MissingHomePhone",
+                            "MissingPostalCode",
+                            "MissingReservationFirstName",
+                            "MissingReservationLastName",
+                            "MissingStateProvince",
+                            "MissingTravelerFirstName",
+                            "MissingTravelerLastName",
+                            "MissingWorkPhone",
+                            "MultipleBookingAttempts",
                             "PartnerDown",
                             "PartnerTimeout",
+                            "PaymentInsufficientFunds",
+                            "PaymentRejectedByFraudDetection",
+                            "PaymentSessionExpired",
                             "PendingSupplier",
-                            "AgentAttention",
-                            "PropertyNotSupported",
                             "PriceMismatch",
+                            "PropertyNotSupported",
+                            "RoomNotAvailable",
+                            "UnknownPartnerProblem",
                             "UnknownReference",
-                            "UnknownPartnerProblem"
+                            "UnknownUserProblem",
+                            "UnsupportedCharSet",
+                            "UnsupportedOccupancy"
                         ]
                     },
                     "explanation": {
@@ -2113,12 +2134,8 @@
                     "name",
                     "final_price_at_booking",
                     "final_price_at_checkout",
-                    "description",
                     "partner_data",
                     "line_items",
-                    "payment_methods",
-                    "value_adds",
-                    "cancellation",
                     "occupancy"
                 ],
                 "properties": {

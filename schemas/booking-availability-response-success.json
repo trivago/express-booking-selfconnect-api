@@ -18,10 +18,10 @@
     "hotel_details": {
       "$ref": "hotel-details.json"
     }, 
-    "lang": {
+    "query_key": {
+      "deprecated": true, 
       "type": "string", 
-      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.", 
-      "example": "en_US"
+      "description": "Query Key"
     }, 
     "errors": {
       "items": {
@@ -46,6 +46,10 @@
     "customer_support": {
       "$ref": "customer-support.json"
     }, 
+    "other_policy": {
+      "type": "string", 
+      "description": "Miscellaneous policies\nText field.\nLength limit of 1000 characters."
+    }, 
     "terms_and_conditions": {
       "type": "string", 
       "description": "General terms and conditions.\nText field.\nLength limit of 1000 characters."
@@ -67,6 +71,11 @@
       "type": "string", 
       "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request.", 
       "example": "US"
+    }, 
+    "device_type": {
+      "deprecated": true, 
+      "type": "string", 
+      "description": "Device Type"
     }, 
     "party": {
       "minItems": 1, 
@@ -98,9 +107,10 @@
       "description": "Version of the API used.", 
       "example": 1
     }, 
-    "other_policy": {
+    "lang": {
       "type": "string", 
-      "description": "Miscellaneous policies\nText field.\nLength limit of 1000 characters."
+      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.", 
+      "example": "en_US"
     }
   }
 }

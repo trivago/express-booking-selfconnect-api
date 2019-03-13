@@ -6,7 +6,8 @@
     "checkout_date", 
     "partner_reference", 
     "reference_id", 
-    "partner_data"
+    "partner_data", 
+    "party"
   ], 
   "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
