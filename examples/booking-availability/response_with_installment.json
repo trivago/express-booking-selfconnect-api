@@ -88,6 +88,13 @@
               "fee": {
                 "amount": 2.77,
                 "currency": "USD"
+              }
+            },
+            {
+              "code": "Visa",
+              "fee": {
+                "amount": 2.77,
+                "currency": "USD"
               },
               "installments": [
                 {
