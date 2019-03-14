@@ -477,7 +477,8 @@
                         "$ref": "#/components/schemas/partner-data"
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "additionalProperties": false
             },
             "booking-payment-authorise-response": {
                 "properties": {
@@ -770,7 +771,8 @@
                         }
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "additionalProperties": false
             },
             "booking-submit-response": {
                 "title": "Booking Submit Response",
@@ -917,7 +919,8 @@
                         "example": "US"
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "additionalProperties": false
             },
             "authorisation": {
                 "title": "Authorisation object",
@@ -939,7 +942,8 @@
                         "$ref": "#/components/schemas/authorisation-target"
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "additionalProperties": false
             },
             "authorisation-target": {
                 "title": "Authorisation Target object",
@@ -967,7 +971,8 @@
                         "type": "object"
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "additionalProperties": false
             },
             "cancellation": {
                 "title": "Cancellation object",
@@ -1427,7 +1432,8 @@
                         "example": "DE27100777770209299700"
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "additionalProperties": false
             },
             "external-provider-parameters": {
                 "required": [
@@ -1459,7 +1465,8 @@
                         "example": "ExternalProvider"
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "additionalProperties": false
             },
             "manual-payment-parameters": {
                 "required": [
@@ -1473,7 +1480,8 @@
                         "example": "ManualPayment"
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "additionalProperties": false
             },
             "payment-card-parameters": {
                 "required": [
@@ -1532,7 +1540,8 @@
                         "example": "123"
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "additionalProperties": false
             },
             "tokenization-parameters": {
                 "required": [
@@ -1578,7 +1587,8 @@
                         "example": "123"
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "additionalProperties": false
             },
             "payment-method": {
                 "title": "Payment Method object",
@@ -2148,7 +2158,7 @@
                         "type": "string"
                     },
                     "room_type": {
-                        "description": "Must be one of:\n- STANDARD\n- COMFORT\n- FAMILY\n- DELUXE\n- SUPERIOR\n- EXECUTIVE\n- JUNIOR_SUITE\n- SUITE\n- EXECUTIVE_SUITE\n- STUDIO\n- APARTMENT\n- BUNGALOW\n- VILLA\n- SHARED\nIf room_type field is not provided, room_group.name is used. If room_group.name is missing as well, the field \"name\" of the RoomType object is used.",
+                        "description": "Must be one of:\n- STANDARD\n- COMFORT\n- FAMILY\n- DELUXE\n- SUPERIOR\n- EXECUTIVE\n- JUNIOR_SUITE\n- SUITE\n- EXECUTIVE_SUITE\n- STUDIO\n- APARTMENT\n- BUNGALOW\n- VILLA\n- SHARED\n- OTHERS\nIf room_type field is not provided, room_group.name is used. If room_group.name is missing as well, the field \"name\" of the RoomType object is used.",
                         "type": "string",
                         "enum": [
                             "STANDARD",
@@ -2164,7 +2174,8 @@
                             "APARTMENT",
                             "BUNGALOW",
                             "VILLA",
-                            "SHARED"
+                            "SHARED",
+                            "OTHERS"
                         ]
                     },
                     "room_group": {
@@ -2367,7 +2378,8 @@
                         "$ref": "#/components/schemas/customer-support"
                     }
                 },
-                "type": "object"
+                "type": "object",
+                "additionalProperties": false
             }
         },
         "parameters": {
