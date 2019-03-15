@@ -88,15 +88,18 @@
               "fee": {
                 "amount": 2.77,
                 "currency": "USD"
-              }
-            },
-            {
-              "code": "Visa",
-              "fee": {
-                "amount": 2.77,
-                "currency": "USD"
               },
               "installments": [
+                {
+                  "id": "2",
+                  "number": 1,
+                  "frequency": "M",
+                  "installment_amount": {
+                    "amount": 2.77,
+                    "currency": "USD"
+                  },
+                  "interest_charge": 0.0
+                },
                 {
                   "id": "1",
                   "swift_code": "ABC",
