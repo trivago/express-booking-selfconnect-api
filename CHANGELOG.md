@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.6.8
+- Fixed example for one shot installment payment 
+
+## 1.6.7
+- Added missing "OTHER" to the room types
+- Added missing additionalProperties
+
+## 1.6.6
+- Updated JSON Schema with new booking-error types 
+- Find the divergences between the shipped version of the schemas and the entities
+
+## 1.6.5
+- Inconsistency between json schema and validation rules
+
 ## 1.6.4
 - Added usage of composer docker image for testing
 
