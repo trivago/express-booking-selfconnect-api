@@ -6,10 +6,7 @@
     "name", 
     "address1", 
     "city", 
-    "country", 
-    "phone", 
-    "amenities", 
-    "checkinout_policy"
+    "country"
   ], 
   "$schema": "http://json-schema.org/schema#", 
   "type": "object", 

@@ -134,23 +134,6 @@
       "$ref": "cancellation.json"
     }, 
     "room_type": {
-      "enum": [
-        "STANDARD", 
-        "COMFORT", 
-        "FAMILY", 
-        "DELUXE", 
-        "SUPERIOR", 
-        "EXECUTIVE", 
-        "JUNIOR_SUITE", 
-        "SUITE", 
-        "EXECUTIVE_SUITE", 
-        "STUDIO", 
-        "APARTMENT", 
-        "BUNGALOW", 
-        "VILLA", 
-        "SHARED", 
-        "OTHERS"
-      ], 
       "type": "string", 
       "description": "Must be one of:\n- STANDARD\n- COMFORT\n- FAMILY\n- DELUXE\n- SUPERIOR\n- EXECUTIVE\n- JUNIOR_SUITE\n- SUITE\n- EXECUTIVE_SUITE\n- STUDIO\n- APARTMENT\n- BUNGALOW\n- VILLA\n- SHARED\n- OTHERS\nIf room_type field is not provided, room_group.name is used. If room_group.name is missing as well, the field \"name\" of the RoomType object is used."
     }, 

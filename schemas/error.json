@@ -9,7 +9,14 @@
   "properties": {
     "hotel_ids": {
       "items": {
-        "type": "integer"
+        "oneOf": [
+          {
+            "type": "integer"
+          }, 
+          {
+            "type": "string"
+          }
+        ]
       }, 
       "type": "array", 
       "description": "Array of hotels ids for which this error occurs."

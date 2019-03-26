@@ -994,13 +994,7 @@
                     },
                     "type": {
                         "description": "Specifies the penalty users have to pay at time of booking. Must be of one of the following strings :\n- unknown\n- full_refundable\n- partial_refundable\n- non_refundable",
-                        "type": "string",
-                        "enum": [
-                            "unknown",
-                            "full_refundable",
-                            "partial_refundable",
-                            "non_refundable"
-                        ]
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -1174,7 +1168,14 @@
                         "description": "Array of hotels ids for which this error occurs.",
                         "type": "array",
                         "items": {
-                            "type": "integer"
+                            "oneOf": [
+                                {
+                                    "type": "integer"
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
                         }
                     }
                 },
@@ -1208,10 +1209,7 @@
                     "name",
                     "address1",
                     "city",
-                    "country",
-                    "phone",
-                    "amenities",
-                    "checkinout_policy"
+                    "country"
                 ],
                 "properties": {
                     "name": {
@@ -1326,23 +1324,15 @@
             "partner-data": {
                 "title": "Partner Data object",
                 "description": "Schema of partner data",
+                "type": [
+                    "number",
+                    "string",
+                    "object",
+                    "integer"
+                ],
                 "example": {
                     "rate_key": "53f3"
-                },
-                "oneOf": [
-                    {
-                        "type": "integer"
-                    },
-                    {
-                        "type": "number"
-                    },
-                    {
-                        "type": "string"
-                    },
-                    {
-                        "type": "object"
-                    }
-                ]
+                }
             },
             "party": {
                 "title": "Party Object",
@@ -2159,24 +2149,7 @@
                     },
                     "room_type": {
                         "description": "Must be one of:\n- STANDARD\n- COMFORT\n- FAMILY\n- DELUXE\n- SUPERIOR\n- EXECUTIVE\n- JUNIOR_SUITE\n- SUITE\n- EXECUTIVE_SUITE\n- STUDIO\n- APARTMENT\n- BUNGALOW\n- VILLA\n- SHARED\n- OTHERS\nIf room_type field is not provided, room_group.name is used. If room_group.name is missing as well, the field \"name\" of the RoomType object is used.",
-                        "type": "string",
-                        "enum": [
-                            "STANDARD",
-                            "COMFORT",
-                            "FAMILY",
-                            "DELUXE",
-                            "SUPERIOR",
-                            "EXECUTIVE",
-                            "JUNIOR_SUITE",
-                            "SUITE",
-                            "EXECUTIVE_SUITE",
-                            "STUDIO",
-                            "APARTMENT",
-                            "BUNGALOW",
-                            "VILLA",
-                            "SHARED",
-                            "OTHERS"
-                        ]
+                        "type": "string"
                     },
                     "room_group": {
                         "description": "An identifier, which groups different rates to a specified room. All elements with the same room_group.code relates to the same real room (physical).",

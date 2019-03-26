@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.6.9
+- Ensured compatibility with the previous schema
+
 ## 1.6.8
 - Fixed example for one shot installment payment 
 

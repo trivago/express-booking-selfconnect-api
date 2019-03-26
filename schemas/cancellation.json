@@ -19,12 +19,6 @@
       "description": "Array to describe the costs user has to pay if the rate is being cancelled."
     }, 
     "type": {
-      "enum": [
-        "unknown", 
-        "full_refundable", 
-        "partial_refundable", 
-        "non_refundable"
-      ], 
       "type": "string", 
       "description": "Specifies the penalty users have to pay at time of booking. Must be of one of the following strings :\n- unknown\n- full_refundable\n- partial_refundable\n- non_refundable"
     }
