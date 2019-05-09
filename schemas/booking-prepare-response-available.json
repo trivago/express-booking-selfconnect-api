@@ -1,47 +1,47 @@
 {
-  "description": "Schema of a booking preparation.", 
-  "title": "Booking Prepare Available", 
-  "required": [
-    "status", 
-    "checkin_date", 
-    "checkout_date", 
-    "partner_reference", 
-    "room_type", 
-    "customer_support"
-  ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "properties": {
-    "status": {
-      "enum": [
-        "ADJUSTED", 
-        "AVAILABLE", 
-        "SOLD_OUT"
-      ], 
-      "example": "AVAILABLE"
-    }, 
-    "partner_reference": {
-      "type": "string", 
-      "description": "Advertiser's unique hotel id.", 
-      "example": "1"
-    }, 
     "customer_support": {
       "$ref": "customer-support.json"
-    }, 
-    "checkin_date": {
-      "description": "The user's check-in date in YYYY-MM-DD.", 
-      "type": "string", 
-      "example": "2019-01-01", 
-      "format": "date"
-    }, 
+    },
     "checkout_date": {
-      "description": "The user's check-out date in YYYY-MM-DD.", 
-      "type": "string", 
-      "example": "2019-01-02", 
+      "example": "2019-01-02",
+      "description": "The user's check-out date in YYYY-MM-DD.",
+      "type": "string",
       "format": "date"
-    }, 
+    },
+    "checkin_date": {
+      "example": "2019-01-01",
+      "description": "The user's check-in date in YYYY-MM-DD.",
+      "type": "string",
+      "format": "date"
+    },
     "room_type": {
       "$ref": "room-type.json"
+    },
+    "status": {
+      "enum": [
+        "ADJUSTED",
+        "AVAILABLE",
+        "SOLD_OUT"
+      ],
+      "example": "AVAILABLE"
+    },
+    "partner_reference": {
+      "example": "1",
+      "description": "Advertiser's unique hotel id.",
+      "type": "string"
     }
-  }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of a booking preparation.",
+  "title": "Booking Prepare Available",
+  "required": [
+    "status",
+    "checkin_date",
+    "checkout_date",
+    "partner_reference",
+    "room_type",
+    "customer_support"
+  ]
 }

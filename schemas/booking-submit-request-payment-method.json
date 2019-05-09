@@ -1,49 +1,49 @@
 {
-  "deprecated": true, 
-  "$schema": "http://json-schema.org/schema#", 
-  "required": [
-    "card_type", 
-    "card_number", 
-    "cardholder_name", 
-    "expiration_month", 
-    "expiration_year", 
-    "cvv", 
-    "billing_address"
-  ], 
-  "type": "object", 
   "properties": {
+    "expiration_year": {
+      "example": "2025",
+      "description": "Expiration year as four digit string.",
+      "type": "string"
+    },
     "card_type": {
-      "type": "string", 
-      "description": "The type of credit card used.", 
-      "example": "Visa"
-    }, 
+      "example": "Visa",
+      "description": "The type of credit card used.",
+      "type": "string"
+    },
+    "cardholder_name": {
+      "example": "Christopher Palmer",
+      "description": "Name on the credit card holder.",
+      "type": "string"
+    },
+    "card_number": {
+      "example": "4111111111111111",
+      "description": "Credit card number used for the booking.",
+      "type": "string"
+    },
+    "expiration_month": {
+      "example": "09",
+      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12).",
+      "type": "string"
+    },
+    "cvv": {
+      "example": "507",
+      "description": "The cvv number of the credit card used for the booking.",
+      "type": "string"
+    },
     "billing_address": {
       "$ref": "address.json"
-    }, 
-    "expiration_year": {
-      "type": "string", 
-      "description": "Expiration year as four digit string.", 
-      "example": "2025"
-    }, 
-    "cvv": {
-      "type": "string", 
-      "description": "The cvv number of the credit card used for the booking.", 
-      "example": "507"
-    }, 
-    "expiration_month": {
-      "type": "string", 
-      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12).", 
-      "example": "09"
-    }, 
-    "cardholder_name": {
-      "type": "string", 
-      "description": "Name on the credit card holder.", 
-      "example": "Christopher Palmer"
-    }, 
-    "card_number": {
-      "type": "string", 
-      "description": "Credit card number used for the booking.", 
-      "example": "4111111111111111"
     }
-  }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "deprecated": true,
+  "required": [
+    "card_type",
+    "card_number",
+    "cardholder_name",
+    "expiration_month",
+    "expiration_year",
+    "cvv",
+    "billing_address"
+  ]
 }

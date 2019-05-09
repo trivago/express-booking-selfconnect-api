@@ -1294,7 +1294,7 @@
                         "$ref": "#/components/schemas/price"
                     },
                     "type": {
-                        "description": "Describes the charge. Must be one of these values:\n- \"net_rate\" - Net rate (required)\n- \"city_tax\" - City taxes (required, if city tax applied)\n- \"vat\" - VAT amount\n- \"hotel_fee\" - Additional fees the users need to pay the hotel.\n- \"resort_fee\" - Additional fees the users need to pay the resort.\n- \"service_fee\" - Additional service charges the user has to pay, e.g. for a transfer to hotel.\n- \"booking_fee\" - Additional booking fees the users need to pay the advertiser.\n- \"others\" - If you can not break down, use \"others\"",
+                        "description": "Please note that fields rate, tax and fee are deprecated and should not be used",
                         "type": "string",
                         "enum": [
                             "net_rate",

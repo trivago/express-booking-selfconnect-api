@@ -1,26 +1,26 @@
 {
-  "description": "Schema of an cancellation.", 
-  "title": "Cancellation object", 
-  "required": [
-    "penalties"
-  ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "properties": {
+    "type": {
+      "description": "Specifies the penalty users have to pay at time of booking. Must be of one of the following strings :\n- unknown\n- full_refundable\n- partial_refundable\n- non_refundable",
+      "type": "string"
+    },
     "policy": {
-      "type": "string", 
-      "description": "Advertiser's text to describe the cancellation policy."
-    }, 
+      "description": "Advertiser's text to describe the cancellation policy.",
+      "type": "string"
+    },
     "penalties": {
       "items": {
         "$ref": "cancellation-penalty.json"
-      }, 
-      "type": "array", 
-      "description": "Array to describe the costs user has to pay if the rate is being cancelled."
-    }, 
-    "type": {
-      "type": "string", 
-      "description": "Specifies the penalty users have to pay at time of booking. Must be of one of the following strings :\n- unknown\n- full_refundable\n- partial_refundable\n- non_refundable"
+      },
+      "description": "Array to describe the costs user has to pay if the rate is being cancelled.",
+      "type": "array"
     }
-  }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an cancellation.",
+  "title": "Cancellation object",
+  "required": [
+    "penalties"
+  ]
 }

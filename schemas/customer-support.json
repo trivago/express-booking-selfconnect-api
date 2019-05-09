@@ -1,42 +1,42 @@
 {
-  "description": "Schema of an customer support.", 
-  "title": "Customer Support object", 
-  "required": [
-    "phone_numbers", 
-    "emails"
-  ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "properties": {
-    "phone_numbers": {
-      "items": {
-        "$ref": "contact.json"
-      }, 
-      "type": "array", 
-      "description": "Array of customer support phone numbers. The first Contact of the phone_numbers array will be display to the user."
-    }, 
     "emails": {
       "items": {
         "$ref": "contact.json"
-      }, 
-      "type": "array", 
-      "description": "Array of customer support e-mail addresses.", 
+      },
       "example": {
-        "contact": "thomas.mair@trivago.com", 
-        "description": "Email"
-      }
-    }, 
+        "description": "Email",
+        "contact": "thomas.mair@trivago.com"
+      },
+      "description": "Array of customer support e-mail addresses.",
+      "type": "array"
+    },
     "urls": {
       "items": {
         "$ref": "contact.json"
-      }, 
-      "deprecated": true, 
-      "type": "array", 
+      },
       "example": {
-        "contact": "http://www.trivago.com", 
-        "description": "Url"
-      }, 
-      "description": "Array of url redirecting to customer support information."
+        "description": "Url",
+        "contact": "http://www.trivago.com"
+      },
+      "description": "Array of url redirecting to customer support information.",
+      "type": "array",
+      "deprecated": true
+    },
+    "phone_numbers": {
+      "items": {
+        "$ref": "contact.json"
+      },
+      "description": "Array of customer support phone numbers. The first Contact of the phone_numbers array will be display to the user.",
+      "type": "array"
     }
-  }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an customer support.",
+  "title": "Customer Support object",
+  "required": [
+    "phone_numbers",
+    "emails"
+  ]
 }

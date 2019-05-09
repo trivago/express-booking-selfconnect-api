@@ -1,40 +1,40 @@
 {
-  "description": "Schema of an customer.", 
-  "title": "Customer object", 
-  "required": [
-    "first_name", 
-    "last_name", 
-    "phone_number", 
-    "email", 
-    "country"
-  ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "properties": {
-    "phone_number": {
-      "type": "string", 
-      "description": "Phone number of the user submitting the booking.", 
-      "example": "9-(590)311-9256"
-    }, 
     "country": {
-      "type": "string", 
-      "description": "ISO 3166 country code of the user submitting the booking.", 
-      "example": "US"
-    }, 
-    "first_name": {
-      "type": "string", 
-      "description": "First name of the user submitting the booking.", 
-      "example": "Christopher"
-    }, 
+      "example": "US",
+      "description": "ISO 3166 country code of the user submitting the booking.",
+      "type": "string"
+    },
+    "phone_number": {
+      "example": "9-(590)311-9256",
+      "description": "Phone number of the user submitting the booking.",
+      "type": "string"
+    },
     "last_name": {
-      "type": "string", 
-      "description": "Last name of the user submitting the booking.", 
-      "example": "Palmer"
-    }, 
+      "example": "Palmer",
+      "description": "Last name of the user submitting the booking.",
+      "type": "string"
+    },
+    "first_name": {
+      "example": "Christopher",
+      "description": "First name of the user submitting the booking.",
+      "type": "string"
+    },
     "email": {
-      "type": "string", 
-      "description": "E-mail address of the user submitting the booking.", 
-      "example": "Christopher.Palmer@test.trivago.com"
+      "example": "Christopher.Palmer@test.trivago.com",
+      "description": "E-mail address of the user submitting the booking.",
+      "type": "string"
     }
-  }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an customer.",
+  "title": "Customer object",
+  "required": [
+    "first_name",
+    "last_name",
+    "phone_number",
+    "email",
+    "country"
+  ]
 }

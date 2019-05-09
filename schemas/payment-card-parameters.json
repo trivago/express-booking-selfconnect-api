@@ -1,61 +1,61 @@
 {
-  "additionalProperties": false, 
-  "$schema": "http://json-schema.org/schema#", 
-  "required": [
-    "card_number", 
-    "cardholder_name", 
-    "expiration_month", 
-    "expiration_year", 
-    "cvv", 
-    "type"
-  ], 
-  "type": "object", 
   "properties": {
-    "expiration_month": {
-      "type": "string", 
-      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)", 
-      "example": "12"
-    }, 
-    "callback_cancel": {
-      "type": "string", 
-      "description": "Callback for canceled 3ds-authorisation (if necessary).", 
-      "example": "https://advertiser.com/callback/cancel"
-    }, 
     "expiration_year": {
-      "type": "string", 
-      "description": "Expiration year as four digit string.", 
-      "example": "2019"
-    }, 
-    "cvv": {
-      "type": "string", 
-      "description": "The cvv number of the credit card used for the booking.", 
-      "example": "123"
-    }, 
-    "callback_success": {
-      "type": "string", 
-      "description": "Callback for successful 3ds-authorisation (if necessary).", 
-      "example": "https://advertiser.com/callback/success"
-    }, 
-    "callback_error": {
-      "type": "string", 
-      "description": "Callback for failed 3ds-authorisation (if necessary).", 
-      "example": "https://advertiser.com/callback/error"
-    }, 
-    "cardholder_name": {
-      "type": "string", 
-      "description": "Name on the credit card holder.", 
-      "example": "Christopher Palmer"
-    }, 
+      "example": "2019",
+      "description": "Expiration year as four digit string.",
+      "type": "string"
+    },
     "type": {
       "enum": [
         "PaymentCard"
-      ], 
+      ],
       "example": "PaymentCard"
-    }, 
+    },
     "card_number": {
-      "type": "string", 
-      "description": "Credit card number used for the booking.", 
-      "example": "41111111111111"
+      "example": "41111111111111",
+      "description": "Credit card number used for the booking.",
+      "type": "string"
+    },
+    "callback_success": {
+      "example": "https://advertiser.com/callback/success",
+      "description": "Callback for successful 3ds-authorisation (if necessary).",
+      "type": "string"
+    },
+    "expiration_month": {
+      "example": "12",
+      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)",
+      "type": "string"
+    },
+    "cvv": {
+      "example": "123",
+      "description": "The cvv number of the credit card used for the booking.",
+      "type": "string"
+    },
+    "callback_error": {
+      "example": "https://advertiser.com/callback/error",
+      "description": "Callback for failed 3ds-authorisation (if necessary).",
+      "type": "string"
+    },
+    "callback_cancel": {
+      "example": "https://advertiser.com/callback/cancel",
+      "description": "Callback for canceled 3ds-authorisation (if necessary).",
+      "type": "string"
+    },
+    "cardholder_name": {
+      "example": "Christopher Palmer",
+      "description": "Name on the credit card holder.",
+      "type": "string"
     }
-  }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "card_number",
+    "cardholder_name",
+    "expiration_month",
+    "expiration_year",
+    "cvv",
+    "type"
+  ],
+  "$schema": "http://json-schema.org/schema#"
 }

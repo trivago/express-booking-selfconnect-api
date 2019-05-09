@@ -1,16 +1,16 @@
 {
-  "additionalProperties": false, 
-  "$schema": "http://json-schema.org/schema#", 
-  "required": [
-    "type"
-  ], 
-  "type": "object", 
   "properties": {
     "type": {
       "enum": [
         "ManualPayment"
-      ], 
+      ],
       "example": "ManualPayment"
     }
-  }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "$schema": "http://json-schema.org/schema#"
 }

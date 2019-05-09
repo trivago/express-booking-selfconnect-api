@@ -1,43 +1,43 @@
 {
-  "description": "Schema of a booking cancellation.", 
-  "title": "Booking Cancel", 
-  "required": [
-    "partner_reference", 
-    "reservation_id", 
-    "status", 
-    "cancellation_number", 
-    "customer_support"
-  ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "properties": {
     "customer_support": {
       "$ref": "customer-support.json"
-    }, 
+    },
     "status": {
       "enum": [
-        "Success", 
-        "AlreadyCancelled", 
-        "UnknownReference", 
-        "CannotBeCancelled", 
+        "Success",
+        "AlreadyCancelled",
+        "UnknownReference",
+        "CannotBeCancelled",
         "Error"
-      ], 
+      ],
       "example": "Success"
-    }, 
-    "reservation_id": {
-      "type": "string", 
-      "description": "The advertiser's unique id for this reservation. Must be used as booking_id in the tracking pixel.", 
-      "example": "XXX123"
-    }, 
+    },
     "partner_reference": {
-      "type": "string", 
-      "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.", 
-      "example": "1"
-    }, 
+      "example": "1",
+      "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.",
+      "type": "string"
+    },
     "cancellation_number": {
-      "type": "string", 
-      "description": "Unique identifier for the cancellation. Required if status is \"Success\" or \"AlreadyCancelled.\"", 
-      "example": "12345678"
+      "example": "12345678",
+      "description": "Unique identifier for the cancellation. Required if status is \"Success\" or \"AlreadyCancelled.\"",
+      "type": "string"
+    },
+    "reservation_id": {
+      "example": "XXX123",
+      "description": "The advertiser's unique id for this reservation. Must be used as booking_id in the tracking pixel.",
+      "type": "string"
     }
-  }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of a booking cancellation.",
+  "title": "Booking Cancel",
+  "required": [
+    "partner_reference",
+    "reservation_id",
+    "status",
+    "cancellation_number",
+    "customer_support"
+  ]
 }

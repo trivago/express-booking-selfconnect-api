@@ -1,61 +1,61 @@
 {
-  "description": "Schema of booking availability request object", 
-  "title": "Booking Availability Request", 
-  "required": [
-    "api_version", 
-    "hotel", 
-    "start_date", 
-    "end_date", 
-    "party", 
-    "lang", 
-    "currency", 
-    "user_country"
-  ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "properties": {
-    "lang": {
-      "type": "string", 
-      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.", 
-      "example": "en_US"
-    }, 
-    "end_date": {
-      "description": "The user's check-out date in YYYY-MM-DD", 
-      "type": "string", 
-      "example": "2019-01-02", 
-      "format": "date"
-    }, 
-    "hotel": {
-      "$ref": "hotel.json"
-    }, 
-    "user_country": {
-      "type": "string", 
-      "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request.", 
-      "example": "US"
-    }, 
     "currency": {
-      "type": "string", 
-      "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency.", 
-      "example": "USD"
-    }, 
+      "example": "USD",
+      "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency.",
+      "type": "string"
+    },
+    "end_date": {
+      "example": "2019-01-02",
+      "description": "The user's check-out date in YYYY-MM-DD",
+      "type": "string",
+      "format": "date"
+    },
+    "user_country": {
+      "example": "US",
+      "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request.",
+      "type": "string"
+    },
+    "lang": {
+      "example": "en_US",
+      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.",
+      "type": "string"
+    },
     "party": {
-      "minItems": 1, 
       "items": {
         "$ref": "party.json"
-      }, 
-      "type": "array", 
-      "description": "Array of JSON objects inlcuding number of adults and children requested.\nEach party object represents the occupation for a separate room.\nFor example, \"party\":[{\"adults\": 3}] is a request for one room that accommodates three adults,\nor \"party\":[{\"adults\": 2},{\"adults\": 2, \"children\": [11,8]}] is a request for one room for two adults\nand one room for two adults and two children aged 11 and 8."
-    }, 
-    "start_date": {
-      "description": "The user's check-in date in YYYY-MM-DD", 
-      "type": "string", 
-      "example": "2019-01-01", 
-      "format": "date"
-    }, 
+      },
+      "description": "Array of JSON objects inlcuding number of adults and children requested.\nEach party object represents the occupation for a separate room.\nFor example, \"party\":[{\"adults\": 3}] is a request for one room that accommodates three adults,\nor \"party\":[{\"adults\": 2},{\"adults\": 2, \"children\": [11,8]}] is a request for one room for two adults\nand one room for two adults and two children aged 11 and 8.",
+      "type": "array",
+      "minItems": 1
+    },
     "api_version": {
-      "type": "integer", 
-      "description": "Version of the API used.", 
-      "example": 1
+      "example": 1,
+      "description": "Version of the API used.",
+      "type": "integer"
+    },
+    "hotel": {
+      "$ref": "hotel.json"
+    },
+    "start_date": {
+      "example": "2019-01-01",
+      "description": "The user's check-in date in YYYY-MM-DD",
+      "type": "string",
+      "format": "date"
     }
-  }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of booking availability request object",
+  "title": "Booking Availability Request",
+  "required": [
+    "api_version",
+    "hotel",
+    "start_date",
+    "end_date",
+    "party",
+    "lang",
+    "currency",
+    "user_country"
+  ]
 }

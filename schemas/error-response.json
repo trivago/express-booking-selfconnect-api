@@ -1,24 +1,24 @@
 {
-  "description": "Schema response is not OK", 
-  "title": "Error Response", 
-  "required": [
-    "errors", 
-    "customer_support"
-  ], 
-  "additionalProperties": false, 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "properties": {
     "customer_support": {
-      "description": "Contains the hotel\u2019s customer support contact information for guests. Must be returned on both\n     *     successes and failures.", 
-      "$ref": "customer-support.json"
-    }, 
+      "$ref": "customer-support.json",
+      "description": "Contains the hotel\u2019s customer support contact information for guests. Must be returned on both\n     *     successes and failures."
+    },
     "errors": {
       "items": {
         "$ref": "error.json"
-      }, 
-      "type": "array", 
-      "description": "Array of errors"
+      },
+      "description": "Array of errors",
+      "type": "array"
     }
-  }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false,
+  "description": "Schema response is not OK",
+  "title": "Error Response",
+  "required": [
+    "errors",
+    "customer_support"
+  ]
 }

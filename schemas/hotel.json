@@ -1,22 +1,22 @@
 {
-  "description": "Schema of an hotel.", 
-  "title": "Hotel object", 
-  "required": [
-    "item_id", 
-    "partner_reference"
-  ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "properties": {
     "item_id": {
-      "type": "integer", 
-      "description": "trivago item id", 
-      "example": 1
-    }, 
+      "example": 1,
+      "description": "trivago item id",
+      "type": "integer"
+    },
     "partner_reference": {
-      "type": "string", 
-      "description": "Advertiser's unique partner reference", 
-      "example": "1"
+      "example": "1",
+      "description": "Advertiser's unique partner reference",
+      "type": "string"
     }
-  }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an hotel.",
+  "title": "Hotel object",
+  "required": [
+    "item_id",
+    "partner_reference"
+  ]
 }
