@@ -1,18 +1,7 @@
 {
-  "properties": {
-    "total": {
-      "$ref": "price.json"
-    },
-    "percentage": {
-      "description": "Percentage value of the discount. Mandatory, only if total is not provided.",
-      "type": "number",
-      "format": "float"
-    }
-  },
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of a discount object.",
   "title": "Discount object",
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
   "anyOf": [
     {
       "required": [
@@ -24,5 +13,16 @@
         "total"
       ]
     }
-  ]
+  ],
+  "description": "Schema of a discount object.",
+  "properties": {
+    "percentage": {
+      "type": "number",
+      "description": "Percentage value of the discount. Mandatory, only if total is not provided.",
+      "format": "float"
+    },
+    "total": {
+      "$ref": "price.json"
+    }
+  }
 }

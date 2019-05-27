@@ -1,9 +1,22 @@
 {
+  "type": "object",
+  "required": [
+    "token",
+    "order_id",
+    "type"
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
   "properties": {
+    "callback_success": {
+      "type": "string",
+      "example": "https://advertiser.com/callback/success",
+      "description": "Callback for successful 3ds-authorisation (if necessary)."
+    },
     "cvv": {
+      "type": "string",
       "example": "123",
-      "description": "CVV/CVC - mandatory if the advertiser's payment service provider's tokenization does not include CVV/CVC.",
-      "type": "string"
+      "description": "CVV/CVC - mandatory if the advertiser's payment service provider's tokenization does not include CVV/CVC."
     },
     "type": {
       "enum": [
@@ -11,38 +24,25 @@
       ],
       "example": "Tokenization"
     },
-    "callback_cancel": {
-      "example": "https://advertiser.com/callback/cancel",
-      "description": "Callback for canceled 3ds-authorisation (if necessary).",
-      "type": "string"
+    "callback_error": {
+      "type": "string",
+      "example": "https://advertiser.com/callback/error",
+      "description": "Callback for failed 3ds-authorisation (if necessary)."
     },
-    "callback_success": {
-      "example": "https://advertiser.com/callback/success",
-      "description": "Callback for successful 3ds-authorisation (if necessary).",
-      "type": "string"
+    "callback_cancel": {
+      "type": "string",
+      "example": "https://advertiser.com/callback/cancel",
+      "description": "Callback for canceled 3ds-authorisation (if necessary)."
     },
     "order_id": {
+      "type": "string",
       "example": "1234",
-      "description": "Order id trivago has created when requesting the token from the advertiser's payment service provider.",
-      "type": "string"
-    },
-    "callback_error": {
-      "example": "https://advertiser.com/callback/error",
-      "description": "Callback for failed 3ds-authorisation (if necessary).",
-      "type": "string"
+      "description": "Order id trivago has created when requesting the token from the advertiser's payment service provider."
     },
     "token": {
+      "type": "string",
       "example": "tolken_123",
-      "description": "Token trivago has received from the advertiser's payment service provider.",
-      "type": "string"
+      "description": "Token trivago has received from the advertiser's payment service provider."
     }
-  },
-  "additionalProperties": false,
-  "type": "object",
-  "required": [
-    "token",
-    "order_id",
-    "type"
-  ],
-  "$schema": "http://json-schema.org/schema#"
+  }
 }

@@ -1,10 +1,26 @@
 {
+  "title": "Error object",
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "required": [
+    "error_code"
+  ],
+  "description": "Schema of an error.",
   "properties": {
     "message": {
-      "description": "String describing the error (maximum length of 1000 characters).",
-      "type": "string"
+      "type": "string",
+      "description": "String describing the error (maximum length of 1000 characters)."
+    },
+    "timeout": {
+      "type": "integer",
+      "description": "Number of seconds trivago should stop sending requests (for use with Error Code 4)."
+    },
+    "error_code": {
+      "type": "integer",
+      "description": "One of the error codes described below :\n1. Unknown Error\n2. Request cannot be parsed\n3. Invalid Hotel ID (Should be returned if partner_reference is unknown).\n4. Timeout requested (stops requests for the specified time).\n5. Recoverable Error (equivalent to http 503)."
     },
     "hotel_ids": {
+      "type": "array",
       "items": {
         "oneOf": [
           {
@@ -15,23 +31,7 @@
           }
         ]
       },
-      "description": "Array of hotels ids for which this error occurs.",
-      "type": "array"
-    },
-    "timeout": {
-      "description": "Number of seconds trivago should stop sending requests (for use with Error Code 4).",
-      "type": "integer"
-    },
-    "error_code": {
-      "description": "One of the error codes described below :\n1. Unknown Error\n2. Request cannot be parsed\n3. Invalid Hotel ID (Should be returned if partner_reference is unknown).\n4. Timeout requested (stops requests for the specified time).\n5. Recoverable Error (equivalent to http 503).",
-      "type": "integer"
+      "description": "Array of hotels ids for which this error occurs."
     }
-  },
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of an error.",
-  "title": "Error object",
-  "required": [
-    "error_code"
-  ]
+  }
 }

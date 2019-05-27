@@ -1,28 +1,17 @@
 {
-  "properties": {
-    "reference_id": {
-      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
-      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
-      "type": "string"
-    },
-    "problems": {
-      "items": {
-        "$ref": "problem.json"
-      },
-      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\"",
-      "type": "array"
-    },
-    "reservation": {
-      "$ref": "reservation.json"
-    }
-  },
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
   "allOf": [
     {
       "$ref": "booking-submit-response.json"
     },
     {
+      "title": "Booking Payment Confirm",
+      "required": [
+        "reference_id",
+        "status",
+        "customer_support"
+      ],
+      "description": "Schema of an booking payment confirm.",
+      "type": "object",
       "properties": {
         "customer_support": {
           "$ref": "customer-support.json"
@@ -35,15 +24,26 @@
           ],
           "example": "Success"
         }
-      },
-      "description": "Schema of an booking payment confirm.",
-      "type": "object",
-      "title": "Booking Payment Confirm",
-      "required": [
-        "reference_id",
-        "status",
-        "customer_support"
-      ]
+      }
     }
-  ]
+  ],
+  "properties": {
+    "reference_id": {
+      "type": "string",
+      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
+      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful."
+    },
+    "reservation": {
+      "$ref": "reservation.json"
+    },
+    "problems": {
+      "type": "array",
+      "items": {
+        "$ref": "problem.json"
+      },
+      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\""
+    }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

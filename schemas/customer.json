@@ -1,40 +1,40 @@
 {
-  "properties": {
-    "country": {
-      "example": "US",
-      "description": "ISO 3166 country code of the user submitting the booking.",
-      "type": "string"
-    },
-    "phone_number": {
-      "example": "9-(590)311-9256",
-      "description": "Phone number of the user submitting the booking.",
-      "type": "string"
-    },
-    "last_name": {
-      "example": "Palmer",
-      "description": "Last name of the user submitting the booking.",
-      "type": "string"
-    },
-    "first_name": {
-      "example": "Christopher",
-      "description": "First name of the user submitting the booking.",
-      "type": "string"
-    },
-    "email": {
-      "example": "Christopher.Palmer@test.trivago.com",
-      "description": "E-mail address of the user submitting the booking.",
-      "type": "string"
-    }
-  },
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of an customer.",
   "title": "Customer object",
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
   "required": [
     "first_name",
     "last_name",
     "phone_number",
     "email",
     "country"
-  ]
+  ],
+  "description": "Schema of an customer.",
+  "properties": {
+    "email": {
+      "type": "string",
+      "example": "Christopher.Palmer@test.trivago.com",
+      "description": "E-mail address of the user submitting the booking."
+    },
+    "phone_number": {
+      "type": "string",
+      "example": "9-(590)311-9256",
+      "description": "Phone number of the user submitting the booking."
+    },
+    "last_name": {
+      "type": "string",
+      "example": "Palmer",
+      "description": "Last name of the user submitting the booking."
+    },
+    "first_name": {
+      "type": "string",
+      "example": "Christopher",
+      "description": "First name of the user submitting the booking."
+    },
+    "country": {
+      "type": "string",
+      "example": "US",
+      "description": "ISO 3166 country code of the user submitting the booking."
+    }
+  }
 }

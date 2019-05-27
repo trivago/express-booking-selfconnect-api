@@ -1,28 +1,4 @@
 {
-  "properties": {
-    "type": {
-      "enum": [
-        "ExternalProvider"
-      ],
-      "example": "ExternalProvider"
-    },
-    "callback_error": {
-      "example": "https://advertiser.com/callback/error",
-      "description": "Callback for failed 3ds-authorisation (if necessary).",
-      "type": "string"
-    },
-    "callback_cancel": {
-      "example": "https://advertiser.com/callback/cancel",
-      "description": "Callback for canceled 3ds-authorisation (if necessary).",
-      "type": "string"
-    },
-    "callback_success": {
-      "example": "https://advertiser.com/callback/success",
-      "description": "Callback for successful 3ds-authorisation (if necessary).",
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
   "type": "object",
   "required": [
     "callback_success",
@@ -30,5 +6,29 @@
     "callback_error",
     "type"
   ],
-  "$schema": "http://json-schema.org/schema#"
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "properties": {
+    "callback_error": {
+      "type": "string",
+      "example": "https://advertiser.com/callback/error",
+      "description": "Callback for failed 3ds-authorisation (if necessary)."
+    },
+    "callback_success": {
+      "type": "string",
+      "example": "https://advertiser.com/callback/success",
+      "description": "Callback for successful 3ds-authorisation (if necessary)."
+    },
+    "callback_cancel": {
+      "type": "string",
+      "example": "https://advertiser.com/callback/cancel",
+      "description": "Callback for canceled 3ds-authorisation (if necessary)."
+    },
+    "type": {
+      "enum": [
+        "ExternalProvider"
+      ],
+      "example": "ExternalProvider"
+    }
+  }
 }

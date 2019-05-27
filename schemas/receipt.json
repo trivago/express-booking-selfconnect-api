@@ -1,14 +1,23 @@
 {
+  "title": "Receipt object",
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "required": [
+    "line_items",
+    "final_price_at_booking",
+    "final_price_at_checkout"
+  ],
+  "description": "Schema of an receipt.",
   "properties": {
     "profit_margin": {
       "$ref": "price.json"
     },
     "line_items": {
+      "type": "array",
       "items": {
         "$ref": "line-item.json"
       },
-      "description": "An array of LineItem objects containing a separate LineItem for each of rate, tax, and fee types.",
-      "type": "array"
+      "description": "An array of LineItem objects containing a separate LineItem for each of rate, tax, and fee types."
     },
     "final_price_at_booking": {
       "$ref": "price.json"
@@ -16,14 +25,5 @@
     "final_price_at_checkout": {
       "$ref": "price.json"
     }
-  },
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of an receipt.",
-  "title": "Receipt object",
-  "required": [
-    "line_items",
-    "final_price_at_booking",
-    "final_price_at_checkout"
-  ]
+  }
 }

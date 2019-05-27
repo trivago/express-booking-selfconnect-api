@@ -1,33 +1,33 @@
 {
-  "properties": {
-    "partner_data": {
-      "$ref": "partner-data.json"
-    },
-    "api_version": {
-      "example": 1,
-      "description": "Version of the API used.",
-      "type": "integer"
-    },
-    "callback_parameters": {
-      "example": "a=1&b=2",
-      "description": "Params added by the PSP to the callback URL.",
-      "type": "string"
-    },
-    "reservation_id": {
-      "example": "1234",
-      "description": "The advertiser's unique id for the reservation.",
-      "type": "string"
-    }
-  },
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "additionalProperties": false,
-  "description": "Schema of an booking payment confirm request.",
   "title": "Booking Payment Confirm Request",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
   "required": [
     "api_version",
     "reservation_id",
     "callback_parameters",
     "partner_data"
-  ]
+  ],
+  "description": "Schema of an booking payment confirm request.",
+  "properties": {
+    "partner_data": {
+      "$ref": "partner-data.json"
+    },
+    "reservation_id": {
+      "type": "string",
+      "example": "1234",
+      "description": "The advertiser's unique id for the reservation."
+    },
+    "callback_parameters": {
+      "type": "string",
+      "example": "a=1&b=2",
+      "description": "Params added by the PSP to the callback URL."
+    },
+    "api_version": {
+      "type": "integer",
+      "example": 1,
+      "description": "Version of the API used."
+    }
+  }
 }

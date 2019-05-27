@@ -1,13 +1,24 @@
 {
+  "title": "Booking Submit Response",
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "required": [
+    "reference_id",
+    "status",
+    "customer_support"
+  ],
+  "description": "Schema of booking submit response.",
   "properties": {
-    "customer_support": {
-      "$ref": "customer-support.json"
-    },
-    "authorisation": {
-      "$ref": "authorisation.json"
+    "reference_id": {
+      "type": "string",
+      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
+      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful."
     },
     "reservation": {
       "$ref": "reservation.json"
+    },
+    "authorisation": {
+      "$ref": "authorisation.json"
     },
     "status": {
       "enum": [
@@ -18,26 +29,15 @@
       ],
       "example": "Success"
     },
+    "customer_support": {
+      "$ref": "customer-support.json"
+    },
     "problems": {
+      "type": "array",
       "items": {
         "$ref": "problem.json"
       },
-      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\"",
-      "type": "array"
-    },
-    "reference_id": {
-      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
-      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
-      "type": "string"
+      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\""
     }
-  },
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of booking submit response.",
-  "title": "Booking Submit Response",
-  "required": [
-    "reference_id",
-    "status",
-    "customer_support"
-  ]
+  }
 }
