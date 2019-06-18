@@ -1,0 +1,9 @@
+{
+  "problems": [
+    {
+      "problem": "InvalidTimeRange",
+      "explanation": "Hotel code 114134 is no longer used.",
+      "detail" : "long detail about the problem"
+    }
+  ]
+}
