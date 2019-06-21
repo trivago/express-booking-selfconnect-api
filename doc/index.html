@@ -1628,12 +1628,47 @@ var n=this.pipeline.run(e.tokenizer(t)),r=new e.Vector,i=[],o=this._fields.reduc
                   </li>
                 
                   <li>
-                    <a href="#tocSpaymentmethod" class="toc-h2 toc-link" data-title="PaymentMethod">PaymentMethod</a>
+                    <a href="#tocSpaymentmethodpaymentcard" class="toc-h2 toc-link" data-title="PaymentMethodPaymentCard">PaymentMethodPaymentCard</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#tocSpaymentmethodexternalprovider" class="toc-h2 toc-link" data-title="PaymentMethodExternalProvider">PaymentMethodExternalProvider</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#tocSpaymentmethodbankaccount" class="toc-h2 toc-link" data-title="PaymentMethodBankAccount">PaymentMethodBankAccount</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#tocSpaymentmethodmanualpayment" class="toc-h2 toc-link" data-title="PaymentMethodManualPayment">PaymentMethodManualPayment</a>
                     
                   </li>
                 
                   <li>
                     <a href="#tocSpaymentoption" class="toc-h2 toc-link" data-title="PaymentOption">PaymentOption</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#tocSpaymentoptionpaymentcard" class="toc-h2 toc-link" data-title="PaymentOptionPaymentCard">PaymentOptionPaymentCard</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#tocSpaymentoptionexternalprovider" class="toc-h2 toc-link" data-title="PaymentOptionExternalProvider">PaymentOptionExternalProvider</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#tocSpaymentoptionbankaccount" class="toc-h2 toc-link" data-title="PaymentOptionBankAccount">PaymentOptionBankAccount</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#tocSpaymentoptionmanualpayment" class="toc-h2 toc-link" data-title="PaymentOptionManualPayment">PaymentOptionManualPayment</a>
                     
                   </li>
                 
@@ -1740,11 +1775,11 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X GET /booking_availability?item_id=abc123&amp;checkin_date=2019-06-18&amp;checkout_date=2019-06-18&amp;occupancies=%5Bobject%20Object%5D&amp;locale=en_US¤cy=USD \
+curl -X GET /booking_availability?item_id=abc123&amp;checkin_date=2019-06-21&amp;checkout_date=2019-06-21&amp;occupancies=%5Bobject%20Object%5D&amp;locale_code=en_US¤cy_code=USD \
   -H <span class="hljs-string">'Accept: application/json'</span>
 
 </code></pre>
-<pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/booking_availability?item_id=abc123&amp;checkin_date=2019-06-18&amp;checkout_date=2019-06-18&amp;occupancies=%5Bobject%20Object%5D&amp;locale=en_US¤cy=USD</span> HTTP/1.1
+<pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/booking_availability?item_id=abc123&amp;checkin_date=2019-06-21&amp;checkout_date=2019-06-21&amp;occupancies=%5Bobject%20Object%5D&amp;locale_code=en_US¤cy_code=USD</span> HTTP/1.1
 
 <span class="http"><span class="hljs-attribute">Accept</span>: application/json
 
@@ -1757,7 +1792,7 @@ curl -X GET /booking_availability?item_id=abc123&amp;checkin_date=2019-06-18&amp
 $.ajax({
   <span class="hljs-attr">url</span>: <span class="hljs-string">'/booking_availability'</span>,
   <span class="hljs-attr">method</span>: <span class="hljs-string">'get'</span>,
-  <span class="hljs-attr">data</span>: <span class="hljs-string">'?item_id=abc123&amp;checkin_date=2019-06-18&amp;checkout_date=2019-06-18&amp;occupancies=%5Bobject%20Object%5D&amp;locale=en_US¤cy=USD'</span>,
+  <span class="hljs-attr">data</span>: <span class="hljs-string">'?item_id=abc123&amp;checkin_date=2019-06-21&amp;checkout_date=2019-06-21&amp;occupancies=%5Bobject%20Object%5D&amp;locale_code=en_US¤cy_code=USD'</span>,
   <span class="hljs-attr">headers</span>: headers,
   <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
@@ -1772,7 +1807,7 @@ $.ajax({
 
 };
 
-fetch(<span class="hljs-string">'/booking_availability?item_id=abc123&amp;checkin_date=2019-06-18&amp;checkout_date=2019-06-18&amp;occupancies=%5Bobject%20Object%5D&amp;locale=en_US¤cy=USD'</span>,
+fetch(<span class="hljs-string">'/booking_availability?item_id=abc123&amp;checkin_date=2019-06-21&amp;checkout_date=2019-06-21&amp;occupancies=%5Bobject%20Object%5D&amp;locale_code=en_US¤cy_code=USD'</span>,
 {
   <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
 
@@ -1798,8 +1833,8 @@ result = RestClient.get <span class="hljs-string">'/booking_availability'</span>
 <span class="hljs-string">'checkin_date'</span> =&gt; <span class="hljs-string">'string(date)'</span>,
 <span class="hljs-string">'checkout_date'</span> =&gt; <span class="hljs-string">'string(date)'</span>,
 <span class="hljs-string">'occupancies'</span> =&gt; <span class="hljs-string">'array[object]'</span>,
-<span class="hljs-string">'locale'</span> =&gt; <span class="hljs-string">'[LocaleCode](#schemalocalecode)'</span>,
-<span class="hljs-string">'currency'</span> =&gt; <span class="hljs-string">'[CurrencyCode](#schemacurrencycode)'</span>
+<span class="hljs-string">'locale_code'</span> =&gt; <span class="hljs-string">'[LocaleCode](#schemalocalecode)'</span>,
+<span class="hljs-string">'currency_code'</span> =&gt; <span class="hljs-string">'[CurrencyCode](#schemacurrencycode)'</span>
 }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -1811,7 +1846,7 @@ headers = {
 }
 
 r = requests.get(<span class="hljs-string">'/booking_availability'</span>, params={
-  <span class="hljs-string">'item_id'</span>: <span class="hljs-string">'abc123'</span>,  <span class="hljs-string">'checkin_date'</span>: <span class="hljs-string">'2019-06-18'</span>,  <span class="hljs-string">'checkout_date'</span>: <span class="hljs-string">'2019-06-18'</span>,  <span class="hljs-string">'occupancies'</span>: [
+  <span class="hljs-string">'item_id'</span>: <span class="hljs-string">'abc123'</span>,  <span class="hljs-string">'checkin_date'</span>: <span class="hljs-string">'2019-06-21'</span>,  <span class="hljs-string">'checkout_date'</span>: <span class="hljs-string">'2019-06-21'</span>,  <span class="hljs-string">'occupancies'</span>: [
   {
     <span class="hljs-string">"adults"</span>: <span class="hljs-number">2</span>,
     <span class="hljs-string">"children"</span>: [
@@ -1819,13 +1854,13 @@ r = requests.get(<span class="hljs-string">'/booking_availability'</span>, param
       <span class="hljs-number">15</span>
     ]
   }
-],  <span class="hljs-string">'locale'</span>: <span class="hljs-string">'en_US'</span>,  <span class="hljs-string">'currency'</span>: <span class="hljs-string">'USD'</span>
+],  <span class="hljs-string">'locale_code'</span>: <span class="hljs-string">'en_US'</span>,  <span class="hljs-string">'currency_code'</span>: <span class="hljs-string">'USD'</span>
 }, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 
 </code></pre>
-<pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"/booking_availability?item_id=abc123&amp;checkin_date=2019-06-18&amp;checkout_date=2019-06-18&amp;occupancies=%5Bobject%20Object%5D&amp;locale=en_US¤cy=USD"</span>);
+<pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"/booking_availability?item_id=abc123&amp;checkin_date=2019-06-21&amp;checkout_date=2019-06-21&amp;occupancies=%5Bobject%20Object%5D&amp;locale_code=en_US¤cy_code=USD"</span>);
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod(<span class="hljs-string">"GET"</span>);
 <span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
@@ -1908,21 +1943,21 @@ System.out.println(response.toString());
 <td>List of occupancy object, each object represents the occupation for a separate room.</td>
 </tr>
 <tr>
-<td>locale</td>
+<td>locale_code</td>
 <td>query</td>
 <td><a href="#schemalocalecode">LocaleCode</a></td>
 <td>true</td>
 <td>Locale code (see Supported Languages)[<a href="http://developer.trivago.com/expressbooking/supported-languages.html">http://developer.trivago.com/expressbooking/supported-languages.html</a>], which identifies the corresponding language and POS.</td>
 </tr>
 <tr>
-<td>currency</td>
+<td>currency_code</td>
 <td>query</td>
 <td><a href="#schemacurrencycode">CurrencyCode</a></td>
 <td>true</td>
 <td>ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency.</td>
 </tr>
 <tr>
-<td>user_country</td>
+<td>user_country_code</td>
 <td>query</td>
 <td><a href="#schemacountrycode">CountryCode</a></td>
 <td>false</td>
@@ -1944,17 +1979,17 @@ System.out.println(response.toString());
 <p>200 Response</p>
 </blockquote>
 <pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"session_key"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"session_key"</span>: <span class="hljs-string">"0f9792a2-4ac9-4510-8ce3-cf8292ce0848"</span>,
   <span class="hljs-attr">"rooms"</span>: [
     {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"abc123"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"ROOM#1"</span>,
       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Standard Room"</span>,
       <span class="hljs-attr">"type"</span>: <span class="hljs-string">"DOUBLE"</span>,
-      <span class="hljs-attr">"category"</span>: <span class="hljs-string">"ECONOMY"</span>,
-      <span class="hljs-attr">"location"</span>: <span class="hljs-string">"UPPER_FLOOR"</span>,
+      <span class="hljs-attr">"category_type"</span>: <span class="hljs-string">"ECONOMY"</span>,
+      <span class="hljs-attr">"location_type"</span>: <span class="hljs-string">"UPPER_FLOOR"</span>,
       <span class="hljs-attr">"bed_type"</span>: <span class="hljs-string">"SINGLE"</span>,
       <span class="hljs-attr">"non_smoking"</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">"view"</span>: <span class="hljs-string">"SEA"</span>,
+      <span class="hljs-attr">"view_type"</span>: <span class="hljs-string">"SEA"</span>,
       <span class="hljs-attr">"size"</span>: {
         <span class="hljs-attr">"value"</span>: <span class="hljs-number">44.5</span>,
         <span class="hljs-attr">"unit"</span>: <span class="hljs-string">"SQM"</span>
@@ -1992,7 +2027,7 @@ System.out.println(response.toString());
     {
       <span class="hljs-attr">"id"</span>: <span class="hljs-string">"RATE#1"</span>,
       <span class="hljs-attr">"description"</span>: <span class="hljs-string">"special text"</span>,
-      <span class="hljs-attr">"room_id"</span>: <span class="hljs-string">"STANDARD_DBL"</span>,
+      <span class="hljs-attr">"room_id"</span>: <span class="hljs-string">"ROOM#1"</span>,
       <span class="hljs-attr">"amenities"</span>: [
         {
           <span class="hljs-attr">"type"</span>: <span class="hljs-string">"FREE_PARKING"</span>
@@ -2001,15 +2036,15 @@ System.out.println(response.toString());
       <span class="hljs-attr">"board_type"</span>: <span class="hljs-string">"FULL_BOARD"</span>,
       <span class="hljs-attr">"rate_total"</span>: {
         <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-        <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+        <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
       },
       <span class="hljs-attr">"cancellation"</span>: {
         <span class="hljs-attr">"type"</span>: <span class="hljs-string">"FULL_REFUNDABLE"</span>,
         <span class="hljs-attr">"description"</span>: <span class="hljs-string">"free text"</span>,
         <span class="hljs-attr">"penalties"</span>: [
           {
-            <span class="hljs-attr">"from"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-            <span class="hljs-attr">"to"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
+            <span class="hljs-attr">"from"</span>: <span class="hljs-string">"2019-06-21T09:04:17Z"</span>,
+            <span class="hljs-attr">"to"</span>: <span class="hljs-string">"2019-06-21T09:04:17Z"</span>,
             <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
           }
         ]
@@ -2035,15 +2070,15 @@ System.out.println(response.toString());
       ],
       <span class="hljs-attr">"original_price_at_booking"</span>: {
         <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-        <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+        <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
       },
       <span class="hljs-attr">"price_at_booking"</span>: {
         <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-        <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+        <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
       },
       <span class="hljs-attr">"price_on_site"</span>: {
         <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-        <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+        <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
       },
       <span class="hljs-attr">"upselling"</span>: [
         {
@@ -2060,7 +2095,7 @@ System.out.println(response.toString());
         {
           <span class="hljs-attr">"price"</span>: {
             <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-            <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+            <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
           },
           <span class="hljs-attr">"type"</span>: <span class="hljs-string">"NET_RATE"</span>,
           <span class="hljs-attr">"paid_on_site"</span>: <span class="hljs-literal">true</span>,
@@ -2076,17 +2111,16 @@ System.out.println(response.toString());
           },
           <span class="hljs-attr">"methods"</span>: [
             {
-              <span class="hljs-attr">"code"</span>: <span class="hljs-string">"PaymentCard"</span>,
+              <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PAYMENT_CARD"</span>,
               <span class="hljs-attr">"options"</span>: [
                 {
-                  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"AmericanExpress"</span>,
                   <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
                   <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-                  <span class="hljs-attr">"hold_time"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-                  <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"Bonus"</span>,
                   <span class="hljs-attr">"discount"</span>: {
                     <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
                   },
+                  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"AMERICAN_EXPRESS"</span>,
+                  <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"BONUS"</span>,
                   <span class="hljs-attr">"installments"</span>: [
                     {
                       <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
@@ -2248,9 +2282,10 @@ This operation does not require authentication
 </table>
 <h2 id="tocSsessionkey">SessionKey</h2>
 <p><a id="schemasessionkey"></a></p>
-<pre class="highlight tab tab-json"><code><span class="hljs-string">"string"</span>
+<pre class="highlight tab tab-json"><code><span class="hljs-string">"0f9792a2-4ac9-4510-8ce3-cf8292ce0848"</span>
 
 </code></pre>
+<p><em>Session id generated by the advertiser</em></p>
 <h3 id="properties">Properties</h3>
 <table>
 <thead>
@@ -2268,7 +2303,7 @@ This operation does not require authentication
 <td>string</td>
 <td>false</td>
 <td>none</td>
-<td>none</td>
+<td>Session id generated by the advertiser</td>
 </tr>
 </tbody>
 </table>
@@ -2314,17 +2349,17 @@ This operation does not require authentication
 <h2 id="tocSavailabilityresponse">AvailabilityResponse</h2>
 <p><a id="schemaavailabilityresponse"></a></p>
 <pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"session_key"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"session_key"</span>: <span class="hljs-string">"0f9792a2-4ac9-4510-8ce3-cf8292ce0848"</span>,
   <span class="hljs-attr">"rooms"</span>: [
     {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"abc123"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"ROOM#1"</span>,
       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Standard Room"</span>,
       <span class="hljs-attr">"type"</span>: <span class="hljs-string">"DOUBLE"</span>,
-      <span class="hljs-attr">"category"</span>: <span class="hljs-string">"ECONOMY"</span>,
-      <span class="hljs-attr">"location"</span>: <span class="hljs-string">"UPPER_FLOOR"</span>,
+      <span class="hljs-attr">"category_type"</span>: <span class="hljs-string">"ECONOMY"</span>,
+      <span class="hljs-attr">"location_type"</span>: <span class="hljs-string">"UPPER_FLOOR"</span>,
       <span class="hljs-attr">"bed_type"</span>: <span class="hljs-string">"SINGLE"</span>,
       <span class="hljs-attr">"non_smoking"</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">"view"</span>: <span class="hljs-string">"SEA"</span>,
+      <span class="hljs-attr">"view_type"</span>: <span class="hljs-string">"SEA"</span>,
       <span class="hljs-attr">"size"</span>: {
         <span class="hljs-attr">"value"</span>: <span class="hljs-number">44.5</span>,
         <span class="hljs-attr">"unit"</span>: <span class="hljs-string">"SQM"</span>
@@ -2362,7 +2397,7 @@ This operation does not require authentication
     {
       <span class="hljs-attr">"id"</span>: <span class="hljs-string">"RATE#1"</span>,
       <span class="hljs-attr">"description"</span>: <span class="hljs-string">"special text"</span>,
-      <span class="hljs-attr">"room_id"</span>: <span class="hljs-string">"STANDARD_DBL"</span>,
+      <span class="hljs-attr">"room_id"</span>: <span class="hljs-string">"ROOM#1"</span>,
       <span class="hljs-attr">"amenities"</span>: [
         {
           <span class="hljs-attr">"type"</span>: <span class="hljs-string">"FREE_PARKING"</span>
@@ -2371,15 +2406,15 @@ This operation does not require authentication
       <span class="hljs-attr">"board_type"</span>: <span class="hljs-string">"FULL_BOARD"</span>,
       <span class="hljs-attr">"rate_total"</span>: {
         <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-        <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+        <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
       },
       <span class="hljs-attr">"cancellation"</span>: {
         <span class="hljs-attr">"type"</span>: <span class="hljs-string">"FULL_REFUNDABLE"</span>,
         <span class="hljs-attr">"description"</span>: <span class="hljs-string">"free text"</span>,
         <span class="hljs-attr">"penalties"</span>: [
           {
-            <span class="hljs-attr">"from"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-            <span class="hljs-attr">"to"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
+            <span class="hljs-attr">"from"</span>: <span class="hljs-string">"2019-06-21T09:04:18Z"</span>,
+            <span class="hljs-attr">"to"</span>: <span class="hljs-string">"2019-06-21T09:04:18Z"</span>,
             <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
           }
         ]
@@ -2405,15 +2440,15 @@ This operation does not require authentication
       ],
       <span class="hljs-attr">"original_price_at_booking"</span>: {
         <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-        <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+        <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
       },
       <span class="hljs-attr">"price_at_booking"</span>: {
         <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-        <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+        <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
       },
       <span class="hljs-attr">"price_on_site"</span>: {
         <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-        <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+        <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
       },
       <span class="hljs-attr">"upselling"</span>: [
         {
@@ -2430,7 +2465,7 @@ This operation does not require authentication
         {
           <span class="hljs-attr">"price"</span>: {
             <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-            <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+            <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
           },
           <span class="hljs-attr">"type"</span>: <span class="hljs-string">"NET_RATE"</span>,
           <span class="hljs-attr">"paid_on_site"</span>: <span class="hljs-literal">true</span>,
@@ -2446,17 +2481,16 @@ This operation does not require authentication
           },
           <span class="hljs-attr">"methods"</span>: [
             {
-              <span class="hljs-attr">"code"</span>: <span class="hljs-string">"PaymentCard"</span>,
+              <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PAYMENT_CARD"</span>,
               <span class="hljs-attr">"options"</span>: [
                 {
-                  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"AmericanExpress"</span>,
                   <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
                   <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-                  <span class="hljs-attr">"hold_time"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-                  <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"Bonus"</span>,
                   <span class="hljs-attr">"discount"</span>: {
                     <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
                   },
+                  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"AMERICAN_EXPRESS"</span>,
+                  <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"BONUS"</span>,
                   <span class="hljs-attr">"installments"</span>: [
                     {
                       <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
@@ -2519,7 +2553,7 @@ This operation does not require authentication
 <td><a href="#schemasessionkey">SessionKey</a></td>
 <td>false</td>
 <td>none</td>
-<td>none</td>
+<td>Session id generated by the advertiser</td>
 </tr>
 <tr>
 <td>rooms</td>
@@ -2556,9 +2590,8 @@ This operation does not require authentication
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"problems"</span>: [
     {
-      <span class="hljs-attr">"problem"</span>: <span class="hljs-string">"AgentAttention"</span>,
-      <span class="hljs-attr">"explanation"</span>: <span class="hljs-string">"string"</span>,
-      <span class="hljs-attr">"detail"</span>: <span class="hljs-string">"string"</span>
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"AGENT_ATTENTION"</span>,
+      <span class="hljs-attr">"explanation"</span>: <span class="hljs-string">"string"</span>
     }
   ],
   <span class="hljs-attr">"customer_support"</span>: {
@@ -2613,8 +2646,8 @@ This operation does not require authentication
   <span class="hljs-attr">"description"</span>: <span class="hljs-string">"free text"</span>,
   <span class="hljs-attr">"penalties"</span>: [
     {
-      <span class="hljs-attr">"from"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-      <span class="hljs-attr">"to"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
+      <span class="hljs-attr">"from"</span>: <span class="hljs-string">"2019-06-21T09:04:18Z"</span>,
+      <span class="hljs-attr">"to"</span>: <span class="hljs-string">"2019-06-21T09:04:18Z"</span>,
       <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
     }
   ]
@@ -2680,19 +2713,19 @@ This operation does not require authentication
 </tr>
 <tr>
 <td>type</td>
-<td>UNKNOWN</td>
+<td>SPECIAL_CONDITION</td>
 </tr>
 <tr>
 <td>type</td>
-<td>UNDEFINED?</td>
+<td>UNKNOWN</td>
 </tr>
 </tbody>
 </table>
 <h2 id="tocScancellationpenalty">CancellationPenalty</h2>
 <p><a id="schemacancellationpenalty"></a></p>
 <pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"from"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
+  <span class="hljs-attr">"from"</span>: <span class="hljs-string">"2019-06-21T09:04:18Z"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"2019-06-21T09:04:18Z"</span>,
   <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
 }
 
@@ -2737,7 +2770,7 @@ This operation does not require authentication
 <p><a id="schemacustomtype"></a></p>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"type"</span>: <span class="hljs-string">"CUSTOM"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Custom type"</span>
 }
 
 </code></pre>
@@ -2766,7 +2799,7 @@ This operation does not require authentication
 <td>string</td>
 <td>true</td>
 <td>none</td>
-<td>none</td>
+<td>Name of the custom type in the requested language</td>
 </tr>
 </tbody>
 </table>
@@ -3048,15 +3081,15 @@ This operation does not require authentication
   ],
   <span class="hljs-attr">"original_price_at_booking"</span>: {
     <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-    <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+    <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
   },
   <span class="hljs-attr">"price_at_booking"</span>: {
     <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-    <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+    <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
   },
   <span class="hljs-attr">"price_on_site"</span>: {
     <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-    <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+    <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
   },
   <span class="hljs-attr">"upselling"</span>: [
     {
@@ -3073,7 +3106,7 @@ This operation does not require authentication
     {
       <span class="hljs-attr">"price"</span>: {
         <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-        <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+        <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
       },
       <span class="hljs-attr">"type"</span>: <span class="hljs-string">"NET_RATE"</span>,
       <span class="hljs-attr">"paid_on_site"</span>: <span class="hljs-literal">true</span>,
@@ -3089,17 +3122,16 @@ This operation does not require authentication
       },
       <span class="hljs-attr">"methods"</span>: [
         {
-          <span class="hljs-attr">"code"</span>: <span class="hljs-string">"PaymentCard"</span>,
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PAYMENT_CARD"</span>,
           <span class="hljs-attr">"options"</span>: [
             {
-              <span class="hljs-attr">"code"</span>: <span class="hljs-string">"AmericanExpress"</span>,
               <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
               <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-              <span class="hljs-attr">"hold_time"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-              <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"Bonus"</span>,
               <span class="hljs-attr">"discount"</span>: {
                 <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
               },
+              <span class="hljs-attr">"type"</span>: <span class="hljs-string">"AMERICAN_EXPRESS"</span>,
+              <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"BONUS"</span>,
               <span class="hljs-attr">"installments"</span>: [
                 {
                   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
@@ -3201,7 +3233,7 @@ This operation does not require authentication
 <tr>
 <td>upselling</td>
 <td>[<a href="#schemaupsellingitem">UpsellingItem</a>]</td>
-<td>true</td>
+<td>false</td>
 <td>none</td>
 <td>none</td>
 </tr>
@@ -3308,20 +3340,19 @@ This operation does not require authentication
 </tr>
 </tbody>
 </table>
-<h2 id="tocSpaymentmethod">PaymentMethod</h2>
-<p><a id="schemapaymentmethod"></a></p>
+<h2 id="tocSpaymentmethodpaymentcard">PaymentMethodPaymentCard</h2>
+<p><a id="schemapaymentmethodpaymentcard"></a></p>
 <pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"PaymentCard"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PAYMENT_CARD"</span>,
   <span class="hljs-attr">"options"</span>: [
     {
-      <span class="hljs-attr">"code"</span>: <span class="hljs-string">"AmericanExpress"</span>,
       <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
       <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-      <span class="hljs-attr">"hold_time"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-      <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"Bonus"</span>,
       <span class="hljs-attr">"discount"</span>: {
         <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
       },
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"AMERICAN_EXPRESS"</span>,
+      <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"BONUS"</span>,
       <span class="hljs-attr">"installments"</span>: [
         {
           <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
@@ -3344,7 +3375,7 @@ This operation does not require authentication
 }
 
 </code></pre>
-<p><em>The PaymentMethod Schema</em></p>
+<p><em>The PaymentMethod Schema for PaymentCard</em></p>
 <h3 id="properties">Properties</h3>
 <table>
 <thead>
@@ -3358,18 +3389,18 @@ This operation does not require authentication
 </thead>
 <tbody>
 <tr>
-<td>code</td>
+<td>type</td>
 <td>string</td>
 <td>true</td>
 <td>none</td>
-<td>Defines the payment method. Must be on of these values (case sensitive): - PaymentCard - ExternalProvider - BankAccount - ManualPayment</td>
+<td>Defines the payment method.</td>
 </tr>
 <tr>
 <td>options</td>
-<td>[<a href="#schemapaymentoption">PaymentOption</a>]</td>
+<td>[<a href="#schemapaymentoptionpaymentcard">PaymentOptionPaymentCard</a>]</td>
 <td>true</td>
 <td>none</td>
-<td>Specifies the accepted payment cards or the external payment provider, as well as the extra fees the users have to pay for using specific payment cards/payment providers.</td>
+<td>Specifies the payment method, as well as the extra fees the users have to pay.</td>
 </tr>
 </tbody>
 </table>
@@ -3383,34 +3414,251 @@ This operation does not require authentication
 </thead>
 <tbody>
 <tr>
-<td>code</td>
-<td>PaymentCard</td>
+<td>type</td>
+<td>PAYMENT_CARD</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocSpaymentmethodexternalprovider">PaymentMethodExternalProvider</h2>
+<p><a id="schemapaymentmethodexternalprovider"></a></p>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"EXTERNAL_PROVIDER"</span>,
+  <span class="hljs-attr">"options"</span>: [
+    {
+      <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"discount"</span>: {
+        <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
+      },
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PAYPAL"</span>
+    }
+  ]
+}
+
+</code></pre>
+<p><em>The PaymentMethod Schema for ExternalProvider</em></p>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Defines the payment method.</td>
 </tr>
 <tr>
-<td>code</td>
-<td>ExternalProvider</td>
+<td>options</td>
+<td>[<a href="#schemapaymentoptionexternalprovider">PaymentOptionExternalProvider</a>]</td>
+<td>true</td>
+<td>none</td>
+<td>Specifies the payment method, as well as the extra fees the users have to pay.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="enumerated-values">Enumerated Values</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>EXTERNAL_PROVIDER</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocSpaymentmethodbankaccount">PaymentMethodBankAccount</h2>
+<p><a id="schemapaymentmethodbankaccount"></a></p>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"BANK_ACCOUNT"</span>,
+  <span class="hljs-attr">"options"</span>: [
+    {
+      <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"discount"</span>: {
+        <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
+      },
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"DIRECT_DEBIT"</span>
+    }
+  ]
+}
+
+</code></pre>
+<p><em>The PaymentMethod Schema for BankAccount</em></p>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Defines the payment method.</td>
 </tr>
 <tr>
-<td>code</td>
-<td>BankAccount</td>
+<td>options</td>
+<td>[<a href="#schemapaymentoptionbankaccount">PaymentOptionBankAccount</a>]</td>
+<td>true</td>
+<td>none</td>
+<td>Specifies the payment method, as well as the extra fees the users have to pay.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="enumerated-values">Enumerated Values</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>BANK_ACCOUNT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocSpaymentmethodmanualpayment">PaymentMethodManualPayment</h2>
+<p><a id="schemapaymentmethodmanualpayment"></a></p>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"MANUAL_PAYMENT"</span>,
+  <span class="hljs-attr">"options"</span>: [
+    {
+      <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"discount"</span>: {
+        <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
+      },
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"BANK_TRANSFER"</span>
+    }
+  ]
+}
+
+</code></pre>
+<p><em>The PaymentMethod Schema for ManualPayment</em></p>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Defines the payment method.</td>
 </tr>
 <tr>
-<td>code</td>
-<td>ManualPayment</td>
+<td>options</td>
+<td>[<a href="#schemapaymentoptionmanualpayment">PaymentOptionManualPayment</a>]</td>
+<td>true</td>
+<td>none</td>
+<td>Specifies the payment method, as well as the extra fees the users have to pay.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="enumerated-values">Enumerated Values</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>MANUAL_PAYMENT</td>
 </tr>
 </tbody>
 </table>
 <h2 id="tocSpaymentoption">PaymentOption</h2>
 <p><a id="schemapaymentoption"></a></p>
 <pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"AmericanExpress"</span>,
   <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
   <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"hold_time"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-  <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"Bonus"</span>,
+  <span class="hljs-attr">"discount"</span>: {
+    <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
+  }
+}
+
+</code></pre>
+<p><em>The PaymentOption Schema</em></p>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fee</td>
+<td>number(float)</td>
+<td>true</td>
+<td>none</td>
+<td>The value of the price. If there is no fee please send an amount of 0.0</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Description or statement for the payment option to be shown to the customer, e.g. For late arrivals after 16:00\n(local time) the reservation must be guaranteed.</td>
+</tr>
+<tr>
+<td>discount</td>
+<td><a href="#schemadiscount">Discount</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocSpaymentoptionpaymentcard">PaymentOptionPaymentCard</h2>
+<p><a id="schemapaymentoptionpaymentcard"></a></p>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
   <span class="hljs-attr">"discount"</span>: {
     <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
   },
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"AMERICAN_EXPRESS"</span>,
+  <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"BONUS"</span>,
   <span class="hljs-attr">"installments"</span>: [
     {
       <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
@@ -3431,8 +3679,8 @@ This operation does not require authentication
 }
 
 </code></pre>
-<p><em>The PaymentOption Schema</em></p>
 <h3 id="properties">Properties</h3>
+<p><em>allOf</em></p>
 <table>
 <thead>
 <tr>
@@ -3445,49 +3693,49 @@ This operation does not require authentication
 </thead>
 <tbody>
 <tr>
-<td>code</td>
+<td><em>anonymous</em></td>
+<td><a href="#schemapaymentoption">PaymentOption</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p><em>and</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» type</td>
 <td>string</td>
 <td>true</td>
 <td>none</td>
-<td>For documentation on supported Payment Methods, refer to the SC documentation:[<a href="http://git.trivago.trv/projects/SRT/repos/connectivity-suite-documentation/browse/expressbooking/api-ob">http://git.trivago.trv/projects/SRT/repos/connectivity-suite-documentation/browse/expressbooking/api-ob</a>   jects.html?at=d91542b7c62845dbad7853634a0d5fc3767f06da#1031-1078]</td>
-</tr>
-<tr>
-<td>fee</td>
-<td>number(float)</td>
-<td>true</td>
 <td>none</td>
-<td>The value of the price. If there is no fee please send an amount of 0.0</td>
 </tr>
 <tr>
-<td>description</td>
+<td>» brand</td>
 <td>string</td>
 <td>false</td>
 <td>none</td>
-<td>Description or statement for the payment option to be shown to the customer, e.g. For late arrivals after 16:00\n(local time) the reservation must be guaranteed.</td>
+<td>Specifies the brand of this option.</td>
 </tr>
 <tr>
-<td>hold_time</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>none</td>
-<td>Date and time for the hold time of the reservation. Must be in ISO-8601 format, e.g. 2018-05-25T16:00:00+0000.</td>
-</tr>
-<tr>
-<td>brand</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>Specifies the brand of this option. Must be one of the following values:\n- Bonus\n- Axess\n- CardFinans\n- Maximum\n- Paraf\n- World\n- Advantage</td>
-</tr>
-<tr>
-<td>discount</td>
-<td><a href="#schemadiscount">Discount</a></td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>installments</td>
+<td>» installments</td>
 <td>[<a href="#schemainstallment">Installment</a>]</td>
 <td>false</td>
 <td>none</td>
@@ -3505,168 +3753,387 @@ This operation does not require authentication
 </thead>
 <tbody>
 <tr>
-<td>code</td>
-<td>AmericanExpress</td>
+<td>type</td>
+<td>AMERICAN_EXPRESS</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Aura</td>
+<td>type</td>
+<td>AURA</td>
 </tr>
 <tr>
-<td>code</td>
-<td>BankTransfer</td>
+<td>type</td>
+<td>CABAL</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Cabal</td>
+<td>type</td>
+<td>CARNET</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Carnet</td>
+<td>type</td>
+<td>CHINA_UNION_PAY</td>
 </tr>
 <tr>
-<td>code</td>
-<td>ChinaUnionPay</td>
+<td>type</td>
+<td>CIRRUS</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Cirrus</td>
+<td>type</td>
+<td>DANKORT</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Dankort</td>
+<td>type</td>
+<td>DINERS</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Diners</td>
+<td>type</td>
+<td>DISCOVER</td>
 </tr>
 <tr>
-<td>code</td>
-<td>DirectDebit</td>
+<td>type</td>
+<td>DUET</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Discover</td>
+<td>type</td>
+<td>EFTPOS</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Duet</td>
+<td>type</td>
+<td>ELO</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Eftpos</td>
+<td>type</td>
+<td>GE_CAPITAL</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Elo</td>
+<td>type</td>
+<td>HIPERCARD</td>
 </tr>
 <tr>
-<td>code</td>
-<td>GeCapital</td>
-</tr>
-<tr>
-<td>code</td>
-<td>Hipercard</td>
-</tr>
-<tr>
-<td>code</td>
-<td>Invoice</td>
-</tr>
-<tr>
-<td>code</td>
+<td>type</td>
 <td>JCB</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Lukoil</td>
+<td>type</td>
+<td>LUKOIL</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Maestro</td>
+<td>type</td>
+<td>MAESTRO</td>
 </tr>
 <tr>
-<td>code</td>
-<td>MasterCard</td>
+<td>type</td>
+<td>MASTER_CARD</td>
 </tr>
 <tr>
-<td>code</td>
-<td>MasterCardDebit</td>
+<td>type</td>
+<td>MASTER_CARD_DEBIT</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Newday</td>
+<td>type</td>
+<td>NEWDAY</td>
 </tr>
 <tr>
-<td>code</td>
+<td>type</td>
 <td>NSPK MIR</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Ourocard</td>
+<td>type</td>
+<td>OUROCARD</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Paypal</td>
+<td>type</td>
+<td>RU_PAY</td>
 </tr>
 <tr>
-<td>code</td>
-<td>RuPay</td>
+<td>type</td>
+<td>SBERCARD</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Sbercard</td>
+<td>type</td>
+<td>SODEXO</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Sodexo</td>
+<td>type</td>
+<td>TROY</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Troy</td>
+<td>type</td>
+<td>UATP</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Uatp</td>
+<td>type</td>
+<td>UNION_PAY</td>
 </tr>
 <tr>
-<td>code</td>
-<td>UnionPay</td>
+<td>type</td>
+<td>VISA</td>
 </tr>
 <tr>
-<td>code</td>
-<td>Visa</td>
-</tr>
-<tr>
-<td>code</td>
-<td>VisaDebit</td>
+<td>type</td>
+<td>VISA_DEBIT</td>
 </tr>
 <tr>
 <td>brand</td>
-<td>Bonus</td>
+<td>BONUS</td>
 </tr>
 <tr>
 <td>brand</td>
-<td>Axess</td>
+<td>AXESS</td>
 </tr>
 <tr>
 <td>brand</td>
-<td>CardFinans</td>
+<td>CARD_FINANS</td>
 </tr>
 <tr>
 <td>brand</td>
-<td>Maximum</td>
+<td>MAXIMUM</td>
 </tr>
 <tr>
 <td>brand</td>
-<td>Paraf</td>
+<td>PARAF</td>
 </tr>
 <tr>
 <td>brand</td>
-<td>World</td>
+<td>WORLD</td>
 </tr>
 <tr>
 <td>brand</td>
-<td>Advantage</td>
+<td>ADVANTAGE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocSpaymentoptionexternalprovider">PaymentOptionExternalProvider</h2>
+<p><a id="schemapaymentoptionexternalprovider"></a></p>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"discount"</span>: {
+    <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
+  },
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PAYPAL"</span>
+}
+
+</code></pre>
+<h3 id="properties">Properties</h3>
+<p><em>allOf</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td><a href="#schemapaymentoption">PaymentOption</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p><em>and</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» type</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h4 id="enumerated-values">Enumerated Values</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>PAYPAL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocSpaymentoptionbankaccount">PaymentOptionBankAccount</h2>
+<p><a id="schemapaymentoptionbankaccount"></a></p>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"discount"</span>: {
+    <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
+  },
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"DIRECT_DEBIT"</span>
+}
+
+</code></pre>
+<h3 id="properties">Properties</h3>
+<p><em>allOf</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td><a href="#schemapaymentoption">PaymentOption</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p><em>and</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» type</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h4 id="enumerated-values">Enumerated Values</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>DIRECT_DEBIT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocSpaymentoptionmanualpayment">PaymentOptionManualPayment</h2>
+<p><a id="schemapaymentoptionmanualpayment"></a></p>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"discount"</span>: {
+    <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
+  },
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"BANK_TRANSFER"</span>
+}
+
+</code></pre>
+<h3 id="properties">Properties</h3>
+<p><em>allOf</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td><a href="#schemapaymentoption">PaymentOption</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p><em>and</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» type</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h4 id="enumerated-values">Enumerated Values</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>BANK_TRANSFER</td>
+</tr>
+<tr>
+<td>type</td>
+<td>INVOICE</td>
 </tr>
 </tbody>
 </table>
@@ -3680,17 +4147,16 @@ This operation does not require authentication
   },
   <span class="hljs-attr">"methods"</span>: [
     {
-      <span class="hljs-attr">"code"</span>: <span class="hljs-string">"PaymentCard"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PAYMENT_CARD"</span>,
       <span class="hljs-attr">"options"</span>: [
         {
-          <span class="hljs-attr">"code"</span>: <span class="hljs-string">"AmericanExpress"</span>,
           <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
           <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-          <span class="hljs-attr">"hold_time"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-          <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"Bonus"</span>,
           <span class="hljs-attr">"discount"</span>: {
             <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
           },
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"AMERICAN_EXPRESS"</span>,
+          <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"BONUS"</span>,
           <span class="hljs-attr">"installments"</span>: [
             {
               <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
@@ -3790,17 +4256,16 @@ This operation does not require authentication
   },
   <span class="hljs-attr">"methods"</span>: [
     {
-      <span class="hljs-attr">"code"</span>: <span class="hljs-string">"PaymentCard"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PAYMENT_CARD"</span>,
       <span class="hljs-attr">"options"</span>: [
         {
-          <span class="hljs-attr">"code"</span>: <span class="hljs-string">"AmericanExpress"</span>,
           <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
           <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-          <span class="hljs-attr">"hold_time"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-          <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"Bonus"</span>,
           <span class="hljs-attr">"discount"</span>: {
             <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
           },
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"AMERICAN_EXPRESS"</span>,
+          <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"BONUS"</span>,
           <span class="hljs-attr">"installments"</span>: [
             {
               <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
@@ -3861,8 +4326,71 @@ This operation does not require authentication
 </tr>
 <tr>
 <td>methods</td>
-<td>[<a href="#schemapaymentmethod">PaymentMethod</a>]</td>
+<td>[oneOf]</td>
 <td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p><em>oneOf</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>» <em>anonymous</em></td>
+<td><a href="#schemapaymentmethodpaymentcard">PaymentMethodPaymentCard</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p><em>xor</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>» <em>anonymous</em></td>
+<td><a href="#schemapaymentmethodexternalprovider">PaymentMethodExternalProvider</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p><em>xor</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>» <em>anonymous</em></td>
+<td><a href="#schemapaymentmethodbankaccount">PaymentMethodBankAccount</a></td>
+<td>false</td>
 <td>none</td>
 <td>none</td>
 </tr>
@@ -3898,17 +4426,16 @@ This operation does not require authentication
   <span class="hljs-attr">"amount"</span>: <span class="hljs-number">150.25</span>,
   <span class="hljs-attr">"methods"</span>: [
     {
-      <span class="hljs-attr">"code"</span>: <span class="hljs-string">"PaymentCard"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PAYMENT_CARD"</span>,
       <span class="hljs-attr">"options"</span>: [
         {
-          <span class="hljs-attr">"code"</span>: <span class="hljs-string">"AmericanExpress"</span>,
           <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
           <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-          <span class="hljs-attr">"hold_time"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-          <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"Bonus"</span>,
           <span class="hljs-attr">"discount"</span>: {
             <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
           },
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"AMERICAN_EXPRESS"</span>,
+          <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"BONUS"</span>,
           <span class="hljs-attr">"installments"</span>: [
             {
               <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
@@ -3976,8 +4503,92 @@ This operation does not require authentication
 </tr>
 <tr>
 <td>methods</td>
-<td>[<a href="#schemapaymentmethod">PaymentMethod</a>]</td>
+<td>[oneOf]</td>
 <td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p><em>oneOf</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>» <em>anonymous</em></td>
+<td><a href="#schemapaymentmethodpaymentcard">PaymentMethodPaymentCard</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p><em>xor</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>» <em>anonymous</em></td>
+<td><a href="#schemapaymentmethodexternalprovider">PaymentMethodExternalProvider</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p><em>xor</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>» <em>anonymous</em></td>
+<td><a href="#schemapaymentmethodbankaccount">PaymentMethodBankAccount</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p><em>xor</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>» <em>anonymous</em></td>
+<td><a href="#schemapaymentmethodmanualpayment">PaymentMethodManualPayment</a></td>
+<td>false</td>
 <td>none</td>
 <td>none</td>
 </tr>
@@ -4006,44 +4617,10 @@ This operation does not require authentication
   <span class="hljs-attr">"discount"</span>: {
     <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
   },
-  <span class="hljs-attr">"methods"</span>: [
-    {
-      <span class="hljs-attr">"code"</span>: <span class="hljs-string">"PaymentCard"</span>,
-      <span class="hljs-attr">"options"</span>: [
-        {
-          <span class="hljs-attr">"code"</span>: <span class="hljs-string">"AmericanExpress"</span>,
-          <span class="hljs-attr">"fee"</span>: <span class="hljs-number">4.5</span>,
-          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-          <span class="hljs-attr">"hold_time"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-          <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"Bonus"</span>,
-          <span class="hljs-attr">"discount"</span>: {
-            <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
-          },
-          <span class="hljs-attr">"installments"</span>: [
-            {
-              <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
-              <span class="hljs-attr">"number"</span>: <span class="hljs-number">1</span>,
-              <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"P1M"</span>,
-              <span class="hljs-attr">"swift_code"</span>: <span class="hljs-string">"string"</span>,
-              <span class="hljs-attr">"amount"</span>: <span class="hljs-number">2.77</span>,
-              <span class="hljs-attr">"deposit"</span>: <span class="hljs-number">2.77</span>,
-              <span class="hljs-attr">"final_amount"</span>: <span class="hljs-number">2.77</span>,
-              <span class="hljs-attr">"extra_charge"</span>: <span class="hljs-number">2.77</span>,
-              <span class="hljs-attr">"discount"</span>: {
-                <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
-              },
-              <span class="hljs-attr">"interest_charge"</span>: <span class="hljs-number">2.77</span>,
-              <span class="hljs-attr">"start"</span>: <span class="hljs-string">"P4D"</span>
-            }
-          ]
-        }
-      ]
-    }
-  ],
   <span class="hljs-attr">"required_fields"</span>: [
     <span class="hljs-string">"string"</span>
   ],
-  <span class="hljs-attr">"hold_time"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>
+  <span class="hljs-attr">"hold_time"</span>: <span class="hljs-string">"2019-06-21T09:04:18Z"</span>
 }
 
 </code></pre>
@@ -4077,13 +4654,6 @@ This operation does not require authentication
 <tr>
 <td>discount</td>
 <td><a href="#schemadiscount">Discount</a></td>
-<td>true</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>methods</td>
-<td>[<a href="#schemapaymentmethod">PaymentMethod</a>]</td>
 <td>true</td>
 <td>none</td>
 <td>none</td>
@@ -4176,7 +4746,7 @@ This operation does not require authentication
 <p><a id="schemaprice"></a></p>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+  <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
 }
 
 </code></pre>
@@ -4201,9 +4771,9 @@ This operation does not require authentication
 <td>The value of the price.</td>
 </tr>
 <tr>
-<td>currency</td>
+<td>currency_code</td>
 <td><a href="#schemacurrencycode">CurrencyCode</a></td>
-<td>true</td>
+<td>false</td>
 <td>none</td>
 <td>ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency.</td>
 </tr>
@@ -4214,7 +4784,7 @@ This operation does not require authentication
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"price"</span>: {
     <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-    <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+    <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
   },
   <span class="hljs-attr">"type"</span>: <span class="hljs-string">"NET_RATE"</span>,
   <span class="hljs-attr">"paid_on_site"</span>: <span class="hljs-literal">true</span>,
@@ -4302,10 +4872,6 @@ This operation does not require authentication
 <td>type</td>
 <td>BOOKING_FEE</td>
 </tr>
-<tr>
-<td>type</td>
-<td>OTHERS</td>
-</tr>
 </tbody>
 </table>
 <h2 id="tocSrate">Rate</h2>
@@ -4313,7 +4879,7 @@ This operation does not require authentication
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"RATE#1"</span>,
   <span class="hljs-attr">"description"</span>: <span class="hljs-string">"special text"</span>,
-  <span class="hljs-attr">"room_id"</span>: <span class="hljs-string">"STANDARD_DBL"</span>,
+  <span class="hljs-attr">"room_id"</span>: <span class="hljs-string">"ROOM#1"</span>,
   <span class="hljs-attr">"amenities"</span>: [
     {
       <span class="hljs-attr">"type"</span>: <span class="hljs-string">"FREE_PARKING"</span>
@@ -4322,15 +4888,15 @@ This operation does not require authentication
   <span class="hljs-attr">"board_type"</span>: <span class="hljs-string">"FULL_BOARD"</span>,
   <span class="hljs-attr">"rate_total"</span>: {
     <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100.1</span>,
-    <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD"</span>
+    <span class="hljs-attr">"currency_code"</span>: <span class="hljs-string">"USD"</span>
   },
   <span class="hljs-attr">"cancellation"</span>: {
     <span class="hljs-attr">"type"</span>: <span class="hljs-string">"FULL_REFUNDABLE"</span>,
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"free text"</span>,
     <span class="hljs-attr">"penalties"</span>: [
       {
-        <span class="hljs-attr">"from"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
-        <span class="hljs-attr">"to"</span>: <span class="hljs-string">"2019-06-18T08:14:26Z"</span>,
+        <span class="hljs-attr">"from"</span>: <span class="hljs-string">"2019-06-21T09:04:18Z"</span>,
+        <span class="hljs-attr">"to"</span>: <span class="hljs-string">"2019-06-21T09:04:18Z"</span>,
         <span class="hljs-attr">"percentage"</span>: <span class="hljs-number">10</span>
       }
     ]
@@ -4370,7 +4936,7 @@ This operation does not require authentication
 <td>string</td>
 <td>true</td>
 <td>none</td>
-<td>none</td>
+<td>Reference to a room provided in the response</td>
 </tr>
 <tr>
 <td>amenities</td>
@@ -4517,14 +5083,14 @@ This operation does not require authentication
 <h2 id="tocSroom">Room</h2>
 <p><a id="schemaroom"></a></p>
 <pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"ROOM#1"</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Standard Room"</span>,
   <span class="hljs-attr">"type"</span>: <span class="hljs-string">"DOUBLE"</span>,
-  <span class="hljs-attr">"category"</span>: <span class="hljs-string">"ECONOMY"</span>,
-  <span class="hljs-attr">"location"</span>: <span class="hljs-string">"UPPER_FLOOR"</span>,
+  <span class="hljs-attr">"category_type"</span>: <span class="hljs-string">"ECONOMY"</span>,
+  <span class="hljs-attr">"location_type"</span>: <span class="hljs-string">"UPPER_FLOOR"</span>,
   <span class="hljs-attr">"bed_type"</span>: <span class="hljs-string">"SINGLE"</span>,
   <span class="hljs-attr">"non_smoking"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"view"</span>: <span class="hljs-string">"SEA"</span>,
+  <span class="hljs-attr">"view_type"</span>: <span class="hljs-string">"SEA"</span>,
   <span class="hljs-attr">"size"</span>: {
     <span class="hljs-attr">"value"</span>: <span class="hljs-number">44.5</span>,
     <span class="hljs-attr">"unit"</span>: <span class="hljs-string">"SQM"</span>
@@ -4594,14 +5160,14 @@ This operation does not require authentication
 <td>Room type</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>string</td>
 <td>true</td>
 <td>none</td>
 <td>Room category</td>
 </tr>
 <tr>
-<td>location</td>
+<td>location_type</td>
 <td>string</td>
 <td>true</td>
 <td>none</td>
@@ -4622,7 +5188,7 @@ This operation does not require authentication
 <td>none</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>string</td>
 <td>true</td>
 <td>none</td>
@@ -4745,127 +5311,127 @@ This operation does not require authentication
 <td>SHARED</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>ECONOMY</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>BUDGET</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>STANDARD</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>CLASSIC</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>BASIC</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>DELUXE</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>SUPERIOR</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>COMFORT</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>EXECUTIVE</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>PREMIUM</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>LUXURY</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>PRIVILEGE</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>ROYAL</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>VIP</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>JUNIOR_SUITE</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>SUITE</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>EXECUTIVE_SUITE</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>MASTER_SUITE</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>PRESIDENT_SUITE</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>STUDIO</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>APARTMENT</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>BUNGALOW</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>VILLA</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>CHALET</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>RUN_OF_THE_HOUSE</td>
 </tr>
 <tr>
-<td>category</td>
+<td>category_type</td>
 <td>DORMITORY</td>
 </tr>
 <tr>
-<td>location</td>
+<td>location_type</td>
 <td>UPPER_FLOOR</td>
 </tr>
 <tr>
-<td>location</td>
+<td>location_type</td>
 <td>LOWER_FLOOR</td>
 </tr>
 <tr>
-<td>location</td>
+<td>location_type</td>
 <td>SEA_FRONT</td>
 </tr>
 <tr>
-<td>location</td>
+<td>location_type</td>
 <td>SEA_SIDE</td>
 </tr>
 <tr>
-<td>location</td>
+<td>location_type</td>
 <td>ANNEX</td>
 </tr>
 <tr>
@@ -4889,55 +5455,55 @@ This operation does not require authentication
 <td>BUNK</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>SEA</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>LATERAL_SEA</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>PARTIAL_SEA</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>GARDEN</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>CITY</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>MOUNTAIN</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>FOREST</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>BEACH</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>BAY</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>LAKE</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>POOL</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>VALLEY</td>
 </tr>
 <tr>
-<td>view</td>
+<td>view_type</td>
 <td>RESORT</td>
 </tr>
 <tr>
@@ -5237,9 +5803,8 @@ This operation does not require authentication
 <h2 id="tocSproblem">Problem</h2>
 <p><a id="schemaproblem"></a></p>
 <pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"problem"</span>: <span class="hljs-string">"AgentAttention"</span>,
-  <span class="hljs-attr">"explanation"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"detail"</span>: <span class="hljs-string">"string"</span>
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"AGENT_ATTENTION"</span>,
+  <span class="hljs-attr">"explanation"</span>: <span class="hljs-string">"string"</span>
 }
 
 </code></pre>
@@ -5257,7 +5822,7 @@ This operation does not require authentication
 </thead>
 <tbody>
 <tr>
-<td>problem</td>
+<td>type</td>
 <td>string</td>
 <td>true</td>
 <td>none</td>
@@ -5268,14 +5833,7 @@ This operation does not require authentication
 <td>string</td>
 <td>true</td>
 <td>none</td>
-<td>Advertiser-specific message to be displayed to the user providing details of the problem, and should be in the language of the 'lang' parameter of the request.</td>
-</tr>
-<tr>
-<td>detail</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>Advertiser-specific message providing details of the problem that will not be displayed to the user. Intended for logging purposes.</td>
+<td>Advertiser-specific message for internal usage providing details of the problem.</td>
 </tr>
 </tbody>
 </table>
@@ -5289,204 +5847,180 @@ This operation does not require authentication
 </thead>
 <tbody>
 <tr>
-<td>problem</td>
-<td>AgentAttention</td>
+<td>type</td>
+<td>AGENT_ATTENTION</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>AuthorizationDeclinedByAcquirer</td>
+<td>type</td>
+<td>AUTHORIZATION_DECLINED_BY_ACQUIRER</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>AuthorizationDeclinedByIssuer</td>
+<td>type</td>
+<td>AUTHORIZATION_DECLINED_BY_ISSUER</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>CreditCardDeclined</td>
+<td>type</td>
+<td>CREDIT_CARD_DECLINED</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>CreditCardTypeNotSupported</td>
+<td>type</td>
+<td>CREDIT_CARD_TYPE_NOT_SUPPORTED</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidAddress</td>
+<td>type</td>
+<td>INVALID_ADDRESS</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidCardholderName</td>
+<td>type</td>
+<td>INVALID_CARDHOLDER_NAME</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidCity</td>
+<td>type</td>
+<td>INVALID_CITY</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidCountry</td>
+<td>type</td>
+<td>INVALID_COUNTRY</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidCreditCardExpiry</td>
+<td>type</td>
+<td>INVALID_CREDIT_CARD_EXPIRY</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidCreditCardNumber</td>
+<td>type</td>
+<td>INVALID_CREDIT_CARD_NUMBER</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidCreditCardSecurityCode</td>
+<td>type</td>
+<td>INVALID_CREDIT_CARD_SECURITY_CODE</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidEmail</td>
+<td>type</td>
+<td>INVALID_EMAIL</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidHomePhone</td>
+<td>type</td>
+<td>INVALID_HOME_PHONE</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidPostalCode</td>
+<td>type</td>
+<td>INVALID_POSTAL_CODE</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidReservationFirstName</td>
+<td>type</td>
+<td>INVALID_RESERVATION_FIRST_NAME</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidReservationLastName</td>
+<td>type</td>
+<td>INVALID_RESERVATION_LAST_NAME</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidStateProvince</td>
+<td>type</td>
+<td>INVALID_STATE_PROVINCE</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidTimeRange</td>
+<td>type</td>
+<td>INVALID_TIME_RANGE</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidTravelerFirstName</td>
+<td>type</td>
+<td>INVALID_TRAVELER_FIRST_NAME</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidTravelerLastName</td>
+<td>type</td>
+<td>INVALID_TRAVELER_LAST_NAME</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>InvalidWorkPhone</td>
+<td>type</td>
+<td>MISSING_ADDRESS</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingAddress</td>
+<td>type</td>
+<td>MISSING_CITY</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingCardholderName</td>
+<td>type</td>
+<td>MISSING_COUNTRY</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingCity</td>
+<td>type</td>
+<td>MISSING_HOME_PHONE</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingCountry</td>
+<td>type</td>
+<td>MISSING_POSTAL_CODE</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingEmail</td>
+<td>type</td>
+<td>MISSING_RESERVATION_FIRST_NAME</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingHomePhone</td>
+<td>type</td>
+<td>MISSING_RESERVATION_LAST_NAME</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingPostalCode</td>
+<td>type</td>
+<td>MISSING_STATE_PROVINCE</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingReservationFirstName</td>
+<td>type</td>
+<td>MISSING_TRAVELER_FIRST_NAME</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingReservationLastName</td>
+<td>type</td>
+<td>MISSING_TRAVELER_LAST_NAME</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingStateProvince</td>
+<td>type</td>
+<td>MULTIPLE_BOOKING_ATTEMPTS</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingTravelerFirstName</td>
+<td>type</td>
+<td>PARTNER_DOWN</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingTravelerLastName</td>
+<td>type</td>
+<td>PARTNER_TIMEOUT</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MissingWorkPhone</td>
+<td>type</td>
+<td>PAYMENT_INSUFFICIENT_FUNDS</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>MultipleBookingAttempts</td>
+<td>type</td>
+<td>PAYMENT_REJECTED_BY_FRAUD_DETECTION</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>PartnerDown</td>
+<td>type</td>
+<td>PAYMENT_SESSION_EXPIRED</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>PartnerTimeout</td>
+<td>type</td>
+<td>PENDING_SUPPLIER</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>PaymentInsufficientFunds</td>
+<td>type</td>
+<td>PRICE_MISMATCH</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>PaymentRejectedByFraudDetection</td>
+<td>type</td>
+<td>PROPERTY_NOT_SUPPORTED</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>PaymentSessionExpired</td>
+<td>type</td>
+<td>ROOM_NOT_AVAILABLE</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>PendingSupplier</td>
+<td>type</td>
+<td>UNKNOWN_PARTNER_PROBLEM</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>PriceMismatch</td>
+<td>type</td>
+<td>UNSUPPORTED_CHAR_SET</td>
 </tr>
 <tr>
-<td>problem</td>
-<td>PropertyNotSupported</td>
-</tr>
-<tr>
-<td>problem</td>
-<td>RoomNotAvailable</td>
-</tr>
-<tr>
-<td>problem</td>
-<td>UnknownPartnerProblem</td>
-</tr>
-<tr>
-<td>problem</td>
-<td>UnknownReference</td>
-</tr>
-<tr>
-<td>problem</td>
-<td>UnknownUserProblem</td>
-</tr>
-<tr>
-<td>problem</td>
-<td>UnsupportedCharSet</td>
-</tr>
-<tr>
-<td>problem</td>
-<td>UnsupportedOccupancy</td>
+<td>type</td>
+<td>UNSUPPORTED_OCCUPANCY</td>
 </tr>
 </tbody>
 </table>
