@@ -1,0 +1,1501 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Trivago Express Booking API",
+    "contact": {
+      "email": "api@trivago.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "2.0.0"
+  },
+  "tags": [
+    {
+      "name": "Booking"
+    }
+  ],
+  "paths": {
+    "/booking_availability": {
+      "get": {
+        "operationId": "booking-availability",
+        "tags": ["Booking"],
+        "summary": "Trivago Express Booking API",
+        "description": "To check if an advertised offer is still bookable trivago sends out \"/booking_availability\" POST requests to the advertiser's API. When the booking availability results are returned, they are presented to the user on the trivago Express Booking landing page opened in an additional browser window. The user can then choose the offer they want to book. Please click on one of the flags below to see how the trivago Express Booking landing page would look like for the corresponding point of sale.",
+        "parameters": [
+          {
+            "name": "item_id",
+            "description": "Advertiser's unique item id",
+            "in": "query",
+            "required": true,
+            "example": "abc123",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "checkin_date",
+            "description": "The user's check-in date in YYYY-MM-DD",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "checkout_date",
+            "description": "The user's check-out date in YYYY-MM-DD",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "occupancies",
+            "description": "List of occupancy object, each object represents the occupation for a separate room.",
+            "in": "query",
+            "required": true,
+            "style": "deepObject",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/OccupancyRequest"
+              }
+            }
+          },
+          {
+            "name": "locale_code",
+            "description": "Locale code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/LocaleCode"
+            }
+          },
+          {
+            "name": "currency_code",
+            "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency.",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CurrencyCode"
+            }
+          },
+          {
+            "name": "user_country_code",
+            "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/CountryCode"
+            }
+          },
+          {
+            "name": "session_key",
+            "description": "Session key from a previous availability request.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/SessionKey"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvailabilityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvailabilityErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvailabilityErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LocaleCode": {
+        "type": "string",
+        "description": "Locale code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.",
+        "example": "en_US"
+      },
+      "CurrencyCode": {
+        "type": "string",
+        "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency.",
+        "example": "USD"
+      },
+      "CountryCode": {
+        "type": "string",
+        "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request.",
+        "example": "US"
+      },
+      "SessionKey": {
+        "type": "string",
+        "description": "Session id generated by the advertiser",
+        "example": "0f9792a2-4ac9-4510-8ce3-cf8292ce0848"
+      },
+      "OccupancyRequest": {
+        "type": "object",
+        "required": [
+          "adults"
+        ],
+        "properties": {
+          "adults": {
+            "type": "integer",
+            "description": "The number of adults staying in the room.",
+            "example": 2
+          },
+          "children": {
+            "type": "array",
+            "description": "The ages of any children staying in the room.",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              10,
+              15
+            ]
+          }
+        }
+      },
+      "AvailabilityResponse": {
+        "type": "object",
+        "title": "Booking availability response",
+        "required": [
+          "rooms",
+          "rates",
+          "offers",
+          "customer_support"
+        ],
+        "properties": {
+          "session_key": {
+            "$ref": "#/components/schemas/SessionKey"
+          },
+          "rooms": {
+            "type": "array",
+            "description": "List of available rooms.",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/Room"
+            }
+          },
+          "rates": {
+            "type": "array",
+            "description": "List of available rates.",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/Rate"
+            }
+          },
+          "offers": {
+            "type": "array",
+            "description": "List of available offers.",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/Offer"
+            }
+          },
+          "customer_support": {
+            "$ref": "#/components/schemas/CustomerSupport"
+          }
+        }
+      },
+      "AvailabilityErrorResponse": {
+        "type": "object",
+        "title": "Booking availability error response",
+        "required": [
+          "problems",
+          "customer_support"
+        ],
+        "properties": {
+          "problems": {
+            "description": "A list containing issues that occurred.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/Problem"
+            }
+          },
+          "customer_support": {
+            "$ref": "#/components/schemas/CustomerSupport"
+          }
+        }
+      },
+      "Cancellation": {
+        "type": "object",
+        "title": "The Cancellation Schema",
+        "required": [
+          "type",
+          "description",
+          "penalties"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Specifies the penalty users have to pay at time of booking.",
+            "enum": [
+              "FULL_REFUNDABLE",
+              "PARTIAL_REFUNDABLE",
+              "NON_REFUNDABLE",
+              "SPECIAL_CONDITION",
+              "UNKNOWN"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "Advertiser's text to describe the cancellation policy.",
+            "example": "free text"
+          },
+          "penalties": {
+            "type": "array",
+            "description": "Array to describe the costs user has to pay if the rate is being cancelled.",
+            "items": {
+              "$ref": "#/components/schemas/CancellationPenalty"
+            }
+          }
+        }
+      },
+      "CancellationPenalty": {
+        "type": "object",
+        "title": "The CancellationPenalty Schema",
+        "required": [
+          "percentage"
+        ],
+        "properties": {
+          "from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date determined from which time stamp this penalty is applied. Must be in ISO-8601 format, e.g.\n2015-05-25T16:00:00+0000. If the penalty is applied at the time of booking, this field must not be provided."
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date determined to which time stamp this penalty is applied. Must be in ISO-8601 format, e.g.\n2015-05-25T16:00:00+0000. If the penalty is applied to arrival time, this field must not be provided."
+          },
+          "percentage": {
+            "type": "number",
+            "format": "float",
+            "description": "Penalty fee as a percentage of the booking amount.",
+            "example": 10
+          }
+        }
+      },
+      "CustomType": {
+        "type": "object",
+        "title": "The CustomType Schema",
+        "required": [
+          "type",
+          "name"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "CUSTOM"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the custom type in the requested language",
+            "example": "Custom type"
+          }
+        }
+      },
+      "CustomerSupport": {
+        "type": "object",
+        "title": "The CustomerSupport Schema",
+        "required": [
+          "phone_numbers",
+          "emails"
+        ],
+        "properties": {
+          "phone_numbers": {
+            "type": "array",
+            "description": "Array of customer support phone numbers. The first Contact of the phone_numbers array will be display to the user.",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "contact",
+                "description"
+              ],
+              "properties": {
+                "contact": {
+                  "type": "string",
+                  "description": "Phone number",
+                  "example": "1-153-072-9237 x6907"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Description of this contact, e.g. cost to call the phone number from abroad",
+                  "example": "24h"
+                }
+              }
+            }
+          },
+          "emails": {
+            "type": "array",
+            "description": "Array of customer support e-mail addresses.",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "contact"
+              ],
+              "properties": {
+                "contact": {
+                  "type": "string",
+                  "description": "Email address",
+                  "example": "Roxane.McKenzie@gmail.com"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Discount": {
+        "type": "object",
+        "title": "The Discount Schema",
+        "oneOf": [
+          {
+            "required": ["percentage"],
+            "properties": {
+              "percentage": {
+                "type": "number",
+                "format": "float",
+                "description": "Percentage value of the discount. Mandatory, only if amount is not provided.",
+                "example": 10
+              }
+            }
+          },
+          {
+            "required": ["amount"],
+            "properties": {
+              "amount": {
+                "type": "number",
+                "format": "float",
+                "description": "Absolute amount of the discount. Mandatory, only if percentage is not provided.",
+                "example": 35.50
+              }
+            }
+          }
+        ]
+      },
+      "Installment": {
+        "type": "object",
+        "title": "The Installment Schema",
+        "required": [
+          "id",
+          "number",
+          "frequency",
+          "amount",
+          "interest_charge"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifier for that installment plan",
+            "example": "2"
+          },
+          "number": {
+            "type": "integer",
+            "description": "Number of installments (must be >1)",
+            "example": 1
+          },
+          "frequency": {
+            "type": "string",
+            "description": "Frequency of the installment payments. Must be in ISO-8601 format.",
+            "example": "P1M"
+          },
+          "swift_code": {
+            "type": "string",
+            "description": "SWIFT-BIC - Bank Identifier Code"
+          },
+          "amount": {
+            "type": "number",
+            "format": "float",
+            "description": "Amount per installment.",
+            "example": 2.77
+          },
+          "deposit": {
+            "type": "number",
+            "format": "float",
+            "description": "Initial payment amount.",
+            "example": 2.77
+          },
+          "final_amount": {
+            "type": "number",
+            "format": "float",
+            "description": "Final payment amount.",
+            "example": 2.77
+          },
+          "extra_charge": {
+            "type": "number",
+            "format": "float",
+            "description": "Extra charge already included in the installment amount.",
+            "example": 2.77
+          },
+          "discount": {
+            "$ref": "#/components/schemas/Discount"
+          },
+          "interest_charge": {
+            "type": "number",
+            "format": "float",
+            "description": "Interest rate per installment",
+            "example": 2.77
+          },
+          "start": {
+            "type": "string",
+            "title": "Start date of the installment plan. Must be in ISO-8601 format. Refers to the booking_date.",
+            "example": "P4D"
+          }
+        }
+      },
+      "Offer": {
+        "type": "object",
+        "title": "The Offer Schema",
+        "required": [
+          "id",
+          "rate_ids",
+          "url",
+          "mobile_url",
+          "promotions",
+          "original_price_at_booking",
+          "price_at_booking",
+          "price_on_site",
+          "price_breakdown",
+          "payment_types",
+          "partner_data"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "OFFER#1"
+          },
+          "rate_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "RATE#1"
+            }
+          },
+          "url": {
+            "type": "string",
+            "description": "The deep link redirecting to the advertisers landing page.",
+            "example": "http://advertiser.com/offer"
+          },
+          "mobile_url": {
+            "type": "string",
+            "description": "The deep link redirecting to the advertisers mobile landing page.",
+            "example": "http://advertiser.com/mobile/offer"
+          },
+          "promotions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OfferPromotion"
+            }
+          },
+          "original_price_at_booking": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "price_at_booking": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "price_on_site": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "upselling": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpsellingItem"
+            }
+          },
+          "price_breakdown": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/PriceBreakdown"
+            }
+          },
+          "payment_types": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/PaymentType"
+            }
+          },
+          "partner_data": {
+            "$ref": "#/components/schemas/PartnerData"
+          }
+        }
+      },
+      "PartnerData": {
+        "type": "object",
+        "description": "Advertiser specific offer information which is necessary to handle the reservation. This is an optional field in addition to the rate_key.",
+        "example": {
+          "rate_key": "53f3"
+        }
+      },
+      "OfferPromotion": {
+        "type": "object",
+        "title": "The OfferPromotion Schema",
+        "required": [
+          "type",
+          "description",
+          "discount"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "MOBILE_ONLY",
+              "TRIVAGO_MEMBER",
+              "CUSTOM"
+            ],
+            "description": "Type of the promotion."
+          },
+          "description": {
+            "type": "string",
+            "description": "A textual description of the promotion. This may be displayed to users and should be in the language indicated\nby the 'lang' parameter provided in the response.",
+            "example": "marketing text"
+          },
+          "discount": {
+            "$ref": "#/components/schemas/Discount"
+          }
+        }
+      },
+      "PaymentMethodPaymentCard": {
+        "type": "object",
+        "title": "The PaymentMethod Schema for PaymentCard",
+        "required": [
+          "type",
+          "options"
+        ],
+        "properties": {
+          "type": {
+            "description": "Defines the payment method.",
+            "type": "string",
+            "enum": [
+              "PAYMENT_CARD"
+            ]
+          },
+          "options": {
+            "description": "Specifies the payment method, as well as the extra fees the users have\nto pay.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/PaymentOptionPaymentCard"
+            }
+          }
+        }
+      },
+      "PaymentMethodExternalProvider": {
+        "type": "object",
+        "title": "The PaymentMethod Schema for ExternalProvider",
+        "required": [
+          "type",
+          "options"
+        ],
+        "properties": {
+          "type": {
+            "description": "Defines the payment method.",
+            "type": "string",
+            "enum": [
+              "EXTERNAL_PROVIDER"
+            ]
+          },
+          "options": {
+            "description": "Specifies the payment method, as well as the extra fees the users have\nto pay.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/PaymentOptionExternalProvider"
+            }
+          }
+        }
+      },
+      "PaymentMethodBankAccount": {
+        "type": "object",
+        "title": "The PaymentMethod Schema for BankAccount",
+        "required": [
+          "type",
+          "options"
+        ],
+        "properties": {
+          "type": {
+            "description": "Defines the payment method.",
+            "type": "string",
+            "enum": [
+              "BANK_ACCOUNT"
+            ]
+          },
+          "options": {
+            "description": "Specifies the payment method, as well as the extra fees the users have\nto pay.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/PaymentOptionBankAccount"
+            }
+          }
+        }
+      },
+      "PaymentMethodManualPayment": {
+        "type": "object",
+        "title": "The PaymentMethod Schema for ManualPayment",
+        "required": [
+          "type",
+          "options"
+        ],
+        "properties": {
+          "type": {
+            "description": "Defines the payment method.",
+            "type": "string",
+            "enum": [
+              "MANUAL_PAYMENT"
+            ]
+          },
+          "options": {
+            "description": "Specifies the payment method, as well as the extra fees the users have\nto pay.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/PaymentOptionManualPayment"
+            }
+          }
+        }
+      },
+      "PaymentOption": {
+        "type": "object",
+        "title": "The PaymentOption Schema",
+        "required": [
+          "fee"
+        ],
+        "properties": {
+          "fee": {
+            "description": "The value of the price. If there is no fee please send an amount of 0.0",
+            "type": "number",
+            "format": "float",
+            "example": 4.5
+          },
+          "description": {
+            "description": "Description or statement for the payment option to be shown to the customer, e.g. For late arrivals after 16:00\\n(local time) the reservation must be guaranteed.",
+            "type": "string"
+          },
+          "discount": {
+            "$ref": "#/components/schemas/Discount"
+          }
+        }
+      },
+      "PaymentOptionPaymentCard": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PaymentOption"
+          },
+          {
+            "type": "object",
+            "title": "The PaymentOption Schema for a payment card",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "AMERICAN_EXPRESS",
+                  "AURA",
+                  "CABAL",
+                  "CARNET",
+                  "CHINA_UNION_PAY",
+                  "CIRRUS",
+                  "DANKORT",
+                  "DINERS",
+                  "DISCOVER",
+                  "DUET",
+                  "EFTPOS",
+                  "ELO",
+                  "GE_CAPITAL",
+                  "HIPERCARD",
+                  "JCB",
+                  "LUKOIL",
+                  "MAESTRO",
+                  "MASTER_CARD",
+                  "MASTER_CARD_DEBIT",
+                  "NEWDAY",
+                  "NSPK MIR",
+                  "OUROCARD",
+                  "RU_PAY",
+                  "SBERCARD",
+                  "SODEXO",
+                  "TROY",
+                  "UATP",
+                  "UNION_PAY",
+                  "VISA",
+                  "VISA_DEBIT"
+                ]
+              },
+              "brand": {
+                "description": "Specifies the brand of this option.",
+                "type": "string",
+                "enum": [
+                  "BONUS",
+                  "AXESS",
+                  "CARD_FINANS",
+                  "MAXIMUM",
+                  "PARAF",
+                  "WORLD",
+                  "ADVANTAGE"
+                ]
+              },
+              "installments": {
+                "description": "List of installment plans",
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/components/schemas/Installment"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "PaymentOptionExternalProvider": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PaymentOption"
+          },
+          {
+            "type": "object",
+            "title": "The PaymentOption Schema for external provider",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "PAYPAL"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "PaymentOptionBankAccount": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PaymentOption"
+          },
+          {
+            "type": "object",
+            "title": "The PaymentOption Schema for bank account",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "DIRECT_DEBIT"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "PaymentOptionManualPayment": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PaymentOption"
+          },
+          {
+            "type": "object",
+            "title": "The PaymentOption Schema for manual payment",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "BANK_TRANSFER",
+                  "INVOICE"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "PaymentType": {
+        "type": "object",
+        "title": "The PaymentType Schema",
+        "oneOf": [
+          {"$ref": "#/components/schemas/PaymentTypeGuarantee"},
+          {"$ref": "#/components/schemas/PaymentTypeDeposit"},
+          {"$ref": "#/components/schemas/PaymentTypeNoGuarantee"}
+        ]
+      },
+      "PaymentTypeGuarantee": {
+        "type": "object",
+        "title": "The PaymentTypeGuarantee Schema",
+        "required": [
+          "type",
+          "description",
+          "discount",
+          "methods"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "PREPAY",
+              "GUARANTEE"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "Description or statement for the payment option to be shown to the customer, e.g. For late arrivals after 16:00\\n(local time) the reservation must be guaranteed."
+          },
+          "discount": {
+            "$ref": "#/components/schemas/Discount"
+          },
+          "methods": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "oneOf": [
+                {"$ref": "#/components/schemas/PaymentMethodPaymentCard"},
+                {"$ref": "#/components/schemas/PaymentMethodExternalProvider"},
+                {"$ref": "#/components/schemas/PaymentMethodBankAccount"}
+              ]
+            }
+          }
+        }
+      },
+      "PaymentTypeDeposit": {
+        "type": "object",
+        "title": "The PaymentType Schema",
+        "required": [
+          "type",
+          "description",
+          "discount",
+          "methods",
+          "amount"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "DEPOSIT"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "Description or statement for the payment option to be shown to the customer, e.g. For late arrivals after 16:00\\n(local time) the reservation must be guaranteed."
+          },
+          "discount": {
+            "$ref": "#/components/schemas/Discount"
+          },
+          "amount": {
+            "type": "number",
+            "format": "float",
+            "example": 150.25
+          },
+          "methods": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "oneOf": [
+                {"$ref": "#/components/schemas/PaymentMethodPaymentCard"},
+                {"$ref": "#/components/schemas/PaymentMethodExternalProvider"},
+                {"$ref": "#/components/schemas/PaymentMethodBankAccount"},
+                {"$ref": "#/components/schemas/PaymentMethodManualPayment"}
+              ]
+            }
+          }
+        }
+      },
+      "PaymentTypeNoGuarantee": {
+        "type": "object",
+        "title": "The PaymentTypeNoGuarantee Schema",
+        "required": [
+          "type",
+          "description",
+          "discount",
+          "required_fields",
+          "hold_time"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "NO_GUARANTEE"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "Description or statement for the payment option to be shown to the customer, e.g. For late arrivals after 16:00\\n(local time) the reservation must be guaranteed."
+          },
+          "discount": {
+            "$ref": "#/components/schemas/Discount"
+          },
+          "required_fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "hold_time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time for the hold time of the reservation. Must be in ISO-8601 format, e.g. 2018-05-25T16:00:00+0000."
+          }
+        }
+      },
+      "Photo": {
+        "type": "object",
+        "title": "The Photo Schema",
+        "required": [
+          "url",
+          "caption",
+          "width",
+          "height"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL for the image. Please assure your images are available with https. The minimum width is 280px, while the\nminimum height is 170px.",
+            "example": "https://trv-companypages.s3-eu-central-1.amazonaws.com/wp-content/uploads/sites/2/2015/07/trivago_logo_twitter-1024x512.png"
+          },
+          "caption": {
+            "type": "string",
+            "description": "Caption for the photo. Should be in the language indicated by the 'lang' parameter in the request.",
+            "example": "Trivago logo"
+          },
+          "width": {
+            "type": "integer",
+            "description": "Width in pixels of full size image",
+            "example": 1024
+          },
+          "height": {
+            "type": "integer",
+            "description": "Height in pixels of full size image",
+            "example": 512
+          }
+        }
+      },
+      "Price": {
+        "type": "object",
+        "title": "The Price Schema",
+        "required": [
+          "amount",
+          "currency"
+        ],
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "float",
+            "description": "The value of the price.",
+            "example": 100.1
+          },
+          "currency_code": {
+            "$ref": "#/components/schemas/CurrencyCode"
+          }
+        }
+      },
+      "PriceBreakdown": {
+        "type": "object",
+        "title": "The PriceBreakdown Schema",
+        "required": [
+          "price",
+          "type",
+          "paid_on_site"
+        ],
+        "properties": {
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "NET_RATE",
+              "CITY_TAX",
+              "VAT",
+              "HOTEL_FEE",
+              "RESORT_FEE",
+              "SERVICE_FEE",
+              "BOOKING_FEE"
+            ]
+          },
+          "paid_on_site": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "description": "A textual description of the charge. This may be displayed to users and should be in the language indicated by the\n'lang' parameter provided in the response.",
+            "example": "base price"
+          }
+        }
+      },
+      "Rate": {
+        "type": "object",
+        "title": "The Rate Schema",
+        "required": [
+          "id",
+          "description",
+          "room_id",
+          "amenities",
+          "board_type",
+          "rate_total",
+          "cancellation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "RATE#1"
+          },
+          "description": {
+            "type": "string",
+            "example": "special text"
+          },
+          "room_id": {
+            "type": "string",
+            "description": "Reference to a room provided in the response",
+            "example": "ROOM#1"
+          },
+          "amenities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RateAmenity"
+            }
+          },
+          "board_type": {
+            "type": "string",
+            "enum": [
+              "FULL_BOARD",
+              "HALF_BOARD",
+              "BED_AND_BREAKFAST",
+              "SELF_CATERING",
+              "AS_BROCHURE",
+              "ALL_INCLUSIVE",
+              "ROOM_ONLY"
+            ]
+          },
+          "rate_total": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "cancellation": {
+            "$ref": "#/components/schemas/Cancellation"
+          }
+        }
+      },
+      "RateAmenity": {
+        "type": "object",
+        "title": "The RateAmenity Schema",
+        "oneOf": [
+          {
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "FREE_PARKING"
+                ]
+              }
+            }
+          },
+          {
+            "$ref": "#/components/schemas/CustomType"
+          }
+        ]
+      },
+      "Room": {
+        "type": "object",
+        "title": "Room",
+        "required": [
+          "id",
+          "name",
+          "type",
+          "category_type",
+          "location_type",
+          "bed_type",
+          "non_smoking",
+          "view_type",
+          "size",
+          "number_of_bed_rooms",
+          "number_of_living_rooms",
+          "number_of_bath_rooms",
+          "number_of_beds",
+          "amenities",
+          "description",
+          "gender",
+          "wheelchair_accessible",
+          "occupancy"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "ROOM#1"
+          },
+          "name": {
+            "type": "string",
+            "description": "Short description of the room type. This will be displayed to users, and should be in the language indicated by\nthe 'lang' parameter (max length of 120 characters).",
+            "example": "Standard Room"
+          },
+          "type": {
+            "type": "string",
+            "description": "Room type",
+            "enum": [
+              "DOUBLE",
+              "SINGLE",
+              "TRIPLE",
+              "QUADRUPLE",
+              "FAMILY",
+              "HOUSE",
+              "SHARED"
+            ]
+          },
+          "category_type": {
+            "type": "string",
+            "description": "Room category",
+            "enum": [
+              "ECONOMY",
+              "BUDGET",
+              "STANDARD",
+              "CLASSIC",
+              "BASIC",
+              "DELUXE",
+              "SUPERIOR",
+              "COMFORT",
+              "EXECUTIVE",
+              "PREMIUM",
+              "LUXURY",
+              "PRIVILEGE",
+              "ROYAL",
+              "VIP",
+              "JUNIOR_SUITE",
+              "SUITE",
+              "EXECUTIVE_SUITE",
+              "MASTER_SUITE",
+              "PRESIDENT_SUITE",
+              "STUDIO",
+              "APARTMENT",
+              "BUNGALOW",
+              "VILLA",
+              "CHALET",
+              "RUN_OF_THE_HOUSE",
+              "DORMITORY"
+            ]
+          },
+          "location_type": {
+            "type": "string",
+            "description": "Room location",
+            "enum": [
+              "UPPER_FLOOR",
+              "LOWER_FLOOR",
+              "SEA_FRONT",
+              "SEA_SIDE",
+              "ANNEX"
+            ]
+          },
+          "bed_type": {
+            "type": "string",
+            "enum": [
+              "SINGLE",
+              "TWIN",
+              "QUEEN_SIZE",
+              "KING_SIZE",
+              "BUNK"
+            ]
+          },
+          "non_smoking": {
+            "type": "boolean"
+          },
+          "view_type": {
+            "type": "string",
+            "enum": [
+              "SEA",
+              "LATERAL_SEA",
+              "PARTIAL_SEA",
+              "GARDEN",
+              "CITY",
+              "MOUNTAIN",
+              "FOREST",
+              "BEACH",
+              "BAY",
+              "LAKE",
+              "POOL",
+              "VALLEY",
+              "RESORT"
+            ]
+          },
+          "size": {
+            "$ref": "#/components/schemas/RoomSize"
+          },
+          "number_of_bed_rooms": {
+            "type": "integer",
+            "example": 1
+          },
+          "number_of_living_rooms": {
+            "type": "integer",
+            "example": 0
+          },
+          "number_of_bath_rooms": {
+            "type": "integer",
+            "example": 1
+          },
+          "number_of_beds": {
+            "type": "integer",
+            "example": 1
+          },
+          "amenities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RoomAmenity"
+            }
+          },
+          "description": {
+            "type": "string",
+            "description": "Longer room description. Will be displayed to users, and should be in the language indicated by the 'lang' parameter (max length of 1000 characters).",
+            "example": "Air-conditioned room with a minibar, desk and private bathroom."
+          },
+          "gender": {
+            "type": "string",
+            "enum": [
+              "MALE",
+              "FEMALE",
+              "DIVERSE",
+              "MIXED"
+            ]
+          },
+          "wheelchair_accessible": {
+            "type": "boolean"
+          },
+          "photos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Photo"
+            }
+          },
+          "occupancy": {
+            "$ref": "#/components/schemas/RoomOccupancy"
+          }
+        }
+      },
+      "RoomAmenity": {
+        "type": "object",
+        "title": "The RoomAmenity Schema",
+        "oneOf": [
+          {
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "BOILER",
+                  "HAIRDRYER"
+                ]
+              }
+            }
+          },
+          {
+            "$ref": "#/components/schemas/CustomType"
+          }
+        ]
+      },
+      "RoomOccupancy": {
+        "type": "object",
+        "title": "The RoomOccupancy Schema",
+        "required": [
+          "standard_persons",
+          "max_persons",
+          "max_adults",
+          "max_children",
+          "max_children_age"
+        ],
+        "properties": {
+          "standard_persons": {
+            "type": "integer",
+            "description": "The standard occupancy for this room",
+            "example": 2
+          },
+          "max_persons": {
+            "type": "integer",
+            "description": "The maximum number of persons (adults and children) allowed to stay in the room.",
+            "example": 3
+          },
+          "max_adults": {
+            "type": "integer",
+            "description": "The maximum number of adults allowed to stay in the room.",
+            "example": 2
+          },
+          "max_children": {
+            "type": "integer",
+            "description": "The maximum number of children allowed to stay in the room",
+            "example": 2
+          },
+          "max_children_age": {
+            "type": "integer",
+            "description": "The maximum age for a person to be considered as child",
+            "example": 16
+          }
+        }
+      },
+      "RoomSize": {
+        "type": "object",
+        "title": "The RoomSize Schema",
+        "required": [
+          "value",
+          "unit"
+        ],
+        "properties": {
+          "value": {
+            "type": "number",
+            "example": 44.5
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "SQM",
+              "SQFT"
+            ]
+          }
+        }
+      },
+      "UpsellingItem": {
+        "type": "object",
+        "title": "The UpsellingItem Schema",
+        "required": [
+          "id",
+          "amount",
+          "type",
+          "description",
+          "exclusion_list"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "up#1"
+          },
+          "amount": {
+            "type": "number",
+            "example": 5.5
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "TYPE_1",
+              "TYPE_2"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "example": "elephant in the room"
+          },
+          "exclusion_list": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "up#2"
+            }
+          }
+        }
+      },
+      "Problem": {
+        "title": "Problem Object",
+        "description": "Schema of an problem",
+        "required": [
+          "type",
+          "explanation"
+        ],
+        "properties": {
+          "type": {
+            "description": "One of the supported problem types:",
+            "type": "string",
+            "enum": [
+              "AGENT_ATTENTION",
+              "AUTHORIZATION_DECLINED_BY_ACQUIRER",
+              "AUTHORIZATION_DECLINED_BY_ISSUER",
+              "CREDIT_CARD_DECLINED",
+              "CREDIT_CARD_TYPE_NOT_SUPPORTED",
+              "INVALID_ADDRESS",
+              "INVALID_CARDHOLDER_NAME",
+              "INVALID_CITY",
+              "INVALID_COUNTRY",
+              "INVALID_CREDIT_CARD_EXPIRY",
+              "INVALID_CREDIT_CARD_NUMBER",
+              "INVALID_CREDIT_CARD_SECURITY_CODE",
+              "INVALID_EMAIL",
+              "INVALID_HOME_PHONE",
+              "INVALID_POSTAL_CODE",
+              "INVALID_RESERVATION_FIRST_NAME",
+              "INVALID_RESERVATION_LAST_NAME",
+              "INVALID_STATE_PROVINCE",
+              "INVALID_TIME_RANGE",
+              "INVALID_TRAVELER_FIRST_NAME",
+              "INVALID_TRAVELER_LAST_NAME",
+              "MISSING_ADDRESS",
+              "MISSING_CITY",
+              "MISSING_COUNTRY",
+              "MISSING_HOME_PHONE",
+              "MISSING_POSTAL_CODE",
+              "MISSING_RESERVATION_FIRST_NAME",
+              "MISSING_RESERVATION_LAST_NAME",
+              "MISSING_STATE_PROVINCE",
+              "MISSING_TRAVELER_FIRST_NAME",
+              "MISSING_TRAVELER_LAST_NAME",
+              "MULTIPLE_BOOKING_ATTEMPTS",
+              "PARTNER_DOWN",
+              "PARTNER_TIMEOUT",
+              "PAYMENT_INSUFFICIENT_FUNDS",
+              "PAYMENT_REJECTED_BY_FRAUD_DETECTION",
+              "PAYMENT_SESSION_EXPIRED",
+              "PENDING_SUPPLIER",
+              "PRICE_MISMATCH",
+              "PROPERTY_NOT_SUPPORTED",
+              "ROOM_NOT_AVAILABLE",
+              "UNKNOWN_PARTNER_PROBLEM",
+              "UNSUPPORTED_CHAR_SET",
+              "UNSUPPORTED_OCCUPANCY"
+            ]
+          },
+          "explanation": {
+            "description": "Advertiser-specific message for internal usage providing details of the problem.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}

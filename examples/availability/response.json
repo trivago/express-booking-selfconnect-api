@@ -1,0 +1,342 @@
+{
+  "session_key": "xxxxx",
+  "rooms": [
+    {
+      "id": "abc123",
+      "name": "Shitti Standard Room",
+      "type": "ENUM_DOUBLE",
+      "category": "ENUM_DELUX",
+      "location": "ENUM_ROOF_TOP",
+      "bed_type": "ENUM_QUEEN",
+      "non_smoking": true,
+      "view": "ENUM_SEA_VIEW",
+      "size": {
+        "value": 44.5,
+        "unit": "ENUM[SQM|SQFT]"
+      },
+      "number_of_bed_rooms": 3,
+      "number_of_living_rooms": 3,
+      "number_of_bath_rooms": 3,
+      "number_of_beds": 3,
+      "amenities": [
+        {
+          "type": "ENUM_HAIRDRYER"
+        },
+        {
+          "type": "CUSTOM",
+          "name": "Hauskatze"
+        },
+        {
+          "type": "ENUM_BOILER"
+        }
+      ],
+      "description": "Air-conditioned room with a minibar, desk and private bathroom.",
+      "gender": "ENUM[FEMALE|MALE|DIVERS|MIXED]",
+      "wheelchair_accessible": true,
+      "photos": [
+        {
+          "url": "https://trv-companypages.s3-eu-central-1.amazonaws.com/wp-content/uploads/sites/2/2015/07/trivago_logo_twitter-1024x512.png",
+          "caption": "Trivago logo",
+          "width": 1024,
+          "height": 512
+        }
+      ],
+      "occupancy": {
+        "standard_persons": 2,
+        "max_persons": 3,
+        "max_adults": 2,
+        "max_children": 2,
+        "max_children_age": 16
+      }
+    }
+  ],
+  "rates": [
+    {
+      "id": "RATE#1",
+      "description": " special text",
+      "room_id": "STANDARD_DBL",
+      "amenities": [
+        {
+          "type": "ENUM_FREE_PARKING"
+        },
+        {
+          "type": "ENUM_CUSTOM",
+          "name": "Free usage of boats"
+        },
+        {
+          "type": "ENUM_FREE_WIFI"
+        }
+      ],
+      "board_type": "ENUM_HALF_BOARD",
+      "rate_total": {
+        "amount": 100,
+        "currency": "USD"
+      },
+      "cancellation": {
+        "type": "ENUM_predefined",
+        "description": "free text",
+        "penalties": [
+          {
+            "to": "2016-01-18T16:00:00+0000",
+            "percentage": 10
+          },
+          {
+            "from": "2016-01-18T16:00:00+0000",
+            "to": "2016-03-18T16:00:00+0000",
+            "percentage": 30
+          }
+        ]
+      }
+    }
+  ],
+  "offers": [
+    {
+      "id": "OFFER#1",
+      "rate_ids": [
+        "RATE#1"
+      ],
+      "url": "http://offer url ",
+      "mobile_url": "http://mobile offer url",
+      "promotions": [
+        {
+          "type": "ENUM_MOBILE_ONLY",
+          "description": "marketing text",
+          "discount": {
+            "percentage": 10,
+            "amount": 35
+          }
+        },
+        {
+          "type": "ENUM_TRIVAGO_MEMBER",
+          "description": "marketing text",
+          "discount": {
+            "percentage": 10,
+            "amount": 35
+          }
+        },
+        {
+          "type": "ENUM_CUSTOM",
+          "description": "marketing text",
+          "discount": {
+            "percentage": 10,
+            "amount": 35
+          }
+        }
+      ],
+      "original_price_at_booking": {
+        "amount": 135,
+        "currency": "USD"
+      },
+      "price_at_booking": {
+        "amount": 100,
+        "currency": "USD"
+      },
+      "price_on_site": {
+        "amount": 5,
+        "currency": "USD"
+      },
+      "upselling": [
+        {
+          "id": "up#1",
+          "amount": 5,
+          "type": "ENUM_possible pre defined code",
+          "description": "elephant in the room",
+          "exclusion_list": [
+            "up#2"
+          ]
+        },
+        {
+          "id": "up#2",
+          "amount": 7,
+          "type": "ENUM_custom",
+          "description": "two elephants in the room!"
+        }
+      ],
+      "price_breakdown": [
+        {
+          "price": {
+            "amount": 60,
+            "currency": "USD"
+          },
+          "type": "ENUM_service_fee",
+          "paid_on_site": false,
+          "description": "base price"
+        },
+        {
+          "price": {
+            "amount": 40,
+            "currency": "USD"
+          },
+          "type": "ENUM_net_rate",
+          "paid_on_site": false,
+          "description": "base price"
+        },
+        {
+          "price": {
+            "amount": 5,
+            "currency": "USD"
+          },
+          "type": "ENUM_city_tax",
+          "paid_on_site": true,
+          "description": "city tax"
+        }
+      ],
+      "payment_types": [
+        {
+          "type": "ENUM_PREPAY",
+          "description": "how is it going to work, conditions, Markdown?",
+          "discount": {
+            "percentage": 10,
+            "amount": 35
+          },
+          "methods": [
+            {
+              "code": "ExternalProvider",
+              "options": [
+                {
+                  "code": "ENUM_PayPal",
+                  "installments": [
+                    {
+                      "id": "2",
+                      "number": 1,
+                      "frequency": "M",
+                      "amount": 2.77,
+                      "interest_charge": 0
+                    },
+                    {
+                      "id": "1",
+                      "swift_code": "ABC",
+                      "number": 8,
+                      "frequency": "P1M",
+                      // use ISO 8601
+                      "amount": 130,
+                      "deposit": 20,
+                      "final_amount": 1000,
+                      "extra_charge": 50,
+                      "discount": {
+                        "percentage": 10,
+                        "amount": 35
+                      },
+                      "interest_charge": 30,
+                      "start": "P4D"
+                      // use ISO_8601 to represent date ranges, it starts from booking date
+                    },
+                    {
+                      "id": "2",
+                      "number": 6,
+                      "frequency": "M",
+                      "amount": 50,
+                      "interest_charge": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "ENUM_GUARANTEE",
+          // supports everything except manual payment
+          "description": "aaaaa",
+          "discount": {
+            "percentage": 10,
+            "amount": 35
+          },
+          "methods": [
+            {
+              "code": "ENUM_PaymentCard",
+              "options": [
+                {
+                  "code": "ENUM_Visa",
+                  "fee": 2.77,
+                  "token_provider": "ENUM_"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "ENUM_DEPOSIT",
+          "description": "asfsafafd",
+          "discount": {
+            "percentage": 10,
+            "amount": 35
+          },
+          "amount": 70,
+          "methods": [
+            {
+              "code": "PaymentCard",
+              "options": [
+                {
+                  "code": "Visa",
+                  "fee": 2.77,
+                  "installments": [
+                    {
+                      "id": "2",
+                      "number": 1,
+                      "frequency": "M",
+                      "amount": 2.77,
+                      "interest_charge": 0
+                    },
+                    {
+                      "id": "1",
+                      "swift_code": "ABC",
+                      "number": 8,
+                      "frequency": "P1M",
+                      // use ISO 8601
+                      "amount": 130,
+                      "deposit": 20,
+                      "final_amount": 1000,
+                      "extra_charge": 50,
+                      "discount": {
+                        "percentage": 10,
+                        "amount": 35
+                      },
+                      "interest_charge": 30,
+                      "start": "P4D"
+                      // use ISO_8601 to represent date ranges, it starts from booking date
+                    },
+                    {
+                      "id": "2",
+                      "number": 6,
+                      "frequency": "M",
+                      "amount": 50,
+                      "interest_charge": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "ENUM_NO_GUARANTEE",
+          "required_fields": [
+            "email",
+            "phone_number",
+            "first_name",
+            "last_name"
+          ],
+          "hold_time": "datetimetz",
+          "description": "how is it going to work, conditions, Markdown?"
+        }
+      ],
+      "partner_data": {
+        "identifier_for_something": "9614b191-9e1b-4b7d-9cbc-5b9204ac2a2a"
+      }
+    }
+  ],
+  "customer_support": {
+    "phone_numbers": [
+      {
+        "contact": "1-153-072-9237 x6907",
+        "description": "cost to call the phone number from abroad"
+      }
+    ],
+    "emails": [
+      {
+        "contact": "Roxane.McKenzie@gmail.com"
+      }
+    ]
+  }
+}
