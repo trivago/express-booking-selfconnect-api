@@ -1,7 +1,41 @@
 {
-  "title": "Booking Prepare Available",
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
+  "description": "Schema of a booking preparation.",
+  "properties": {
+    "room_type": {
+      "$ref": "room-type.json"
+    },
+    "customer_support": {
+      "$ref": "customer-support.json"
+    },
+    "partner_reference": {
+      "example": "1",
+      "type": "string",
+      "description": "Advertiser's unique hotel id."
+    },
+    "checkin_date": {
+      "format": "date",
+      "example": "2019-01-01",
+      "type": "string",
+      "description": "The user's check-in date in YYYY-MM-DD."
+    },
+    "checkout_date": {
+      "format": "date",
+      "example": "2019-01-02",
+      "type": "string",
+      "description": "The user's check-out date in YYYY-MM-DD."
+    },
+    "status": {
+      "example": "AVAILABLE",
+      "enum": [
+        "ADJUSTED",
+        "AVAILABLE",
+        "SOLD_OUT"
+      ]
+    }
+  },
+  "title": "Booking Prepare Available",
   "required": [
     "status",
     "checkin_date",
@@ -9,39 +43,5 @@
     "partner_reference",
     "room_type",
     "customer_support"
-  ],
-  "description": "Schema of a booking preparation.",
-  "properties": {
-    "status": {
-      "enum": [
-        "ADJUSTED",
-        "AVAILABLE",
-        "SOLD_OUT"
-      ],
-      "example": "AVAILABLE"
-    },
-    "customer_support": {
-      "$ref": "customer-support.json"
-    },
-    "partner_reference": {
-      "type": "string",
-      "example": "1",
-      "description": "Advertiser's unique hotel id."
-    },
-    "room_type": {
-      "$ref": "room-type.json"
-    },
-    "checkout_date": {
-      "type": "string",
-      "example": "2019-01-02",
-      "description": "The user's check-out date in YYYY-MM-DD.",
-      "format": "date"
-    },
-    "checkin_date": {
-      "type": "string",
-      "example": "2019-01-01",
-      "description": "The user's check-in date in YYYY-MM-DD.",
-      "format": "date"
-    }
-  }
+  ]
 }

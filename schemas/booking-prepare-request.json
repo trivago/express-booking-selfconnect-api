@@ -1,7 +1,48 @@
 {
-  "title": "Booking Prepare",
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
+  "description": "Schema of a booking preparation request.",
+  "properties": {
+    "partner_reference": {
+      "example": "1",
+      "type": "string",
+      "description": "Advertiser's unique hotel id."
+    },
+    "partner_data": {
+      "$ref": "partner-data.json"
+    },
+    "reference_id": {
+      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
+      "type": "string",
+      "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be treated as a \"confirmation\" id."
+    },
+    "party": {
+      "items": {
+        "$ref": "party.json"
+      },
+      "minItems": 1,
+      "type": "array",
+      "description": "An array of Party"
+    },
+    "checkin_date": {
+      "format": "date",
+      "example": "2019-01-01",
+      "type": "string",
+      "description": "The user's check-in date in YYYY-MM-DD."
+    },
+    "checkout_date": {
+      "format": "date",
+      "example": "2019-01-02",
+      "type": "string",
+      "description": "The user's check-out date in YYYY-MM-DD."
+    },
+    "api_version": {
+      "example": 1,
+      "type": "integer",
+      "description": "Version of the API used."
+    }
+  },
+  "title": "Booking Prepare",
   "required": [
     "checkin_date",
     "checkout_date",
@@ -9,46 +50,5 @@
     "reference_id",
     "partner_data",
     "party"
-  ],
-  "description": "Schema of a booking preparation request.",
-  "properties": {
-    "reference_id": {
-      "type": "string",
-      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
-      "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be treated as a \"confirmation\" id."
-    },
-    "partner_data": {
-      "$ref": "partner-data.json"
-    },
-    "party": {
-      "type": "array",
-      "items": {
-        "$ref": "party.json"
-      },
-      "minItems": 1,
-      "description": "An array of Party"
-    },
-    "partner_reference": {
-      "type": "string",
-      "example": "1",
-      "description": "Advertiser's unique hotel id."
-    },
-    "api_version": {
-      "type": "integer",
-      "example": 1,
-      "description": "Version of the API used."
-    },
-    "checkout_date": {
-      "type": "string",
-      "example": "2019-01-02",
-      "description": "The user's check-out date in YYYY-MM-DD.",
-      "format": "date"
-    },
-    "checkin_date": {
-      "type": "string",
-      "example": "2019-01-01",
-      "description": "The user's check-in date in YYYY-MM-DD.",
-      "format": "date"
-    }
-  }
+  ]
 }

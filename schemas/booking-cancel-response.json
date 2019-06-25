@@ -1,43 +1,43 @@
 {
-  "title": "Booking Cancel",
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
-  "required": [
-    "partner_reference",
-    "reservation_id",
-    "status",
-    "cancellation_number",
-    "customer_support"
-  ],
   "description": "Schema of a booking cancellation.",
   "properties": {
+    "partner_reference": {
+      "example": "1",
+      "type": "string",
+      "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request."
+    },
+    "cancellation_number": {
+      "example": "12345678",
+      "type": "string",
+      "description": "Unique identifier for the cancellation. Required if status is \"Success\" or \"AlreadyCancelled.\""
+    },
     "customer_support": {
       "$ref": "customer-support.json"
     },
-    "partner_reference": {
-      "type": "string",
-      "example": "1",
-      "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request."
-    },
     "status": {
+      "example": "Success",
       "enum": [
         "Success",
         "AlreadyCancelled",
         "UnknownReference",
         "CannotBeCancelled",
         "Error"
-      ],
-      "example": "Success"
-    },
-    "cancellation_number": {
-      "type": "string",
-      "example": "12345678",
-      "description": "Unique identifier for the cancellation. Required if status is \"Success\" or \"AlreadyCancelled.\""
+      ]
     },
     "reservation_id": {
-      "type": "string",
       "example": "XXX123",
+      "type": "string",
       "description": "The advertiser's unique id for this reservation. Must be used as booking_id in the tracking pixel."
     }
-  }
+  },
+  "title": "Booking Cancel",
+  "required": [
+    "partner_reference",
+    "reservation_id",
+    "status",
+    "cancellation_number",
+    "customer_support"
+  ]
 }

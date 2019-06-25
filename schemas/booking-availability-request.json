@@ -1,7 +1,53 @@
 {
-  "title": "Booking Availability Request",
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
+  "description": "Schema of booking availability request object",
+  "properties": {
+    "user_country": {
+      "example": "US",
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request."
+    },
+    "start_date": {
+      "format": "date",
+      "example": "2019-01-01",
+      "type": "string",
+      "description": "The user's check-in date in YYYY-MM-DD"
+    },
+    "currency": {
+      "example": "USD",
+      "type": "string",
+      "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency."
+    },
+    "hotel": {
+      "$ref": "hotel.json"
+    },
+    "end_date": {
+      "format": "date",
+      "example": "2019-01-02",
+      "type": "string",
+      "description": "The user's check-out date in YYYY-MM-DD"
+    },
+    "party": {
+      "items": {
+        "$ref": "party.json"
+      },
+      "minItems": 1,
+      "type": "array",
+      "description": "Array of JSON objects inlcuding number of adults and children requested.\nEach party object represents the occupation for a separate room.\nFor example, \"party\":[{\"adults\": 3}] is a request for one room that accommodates three adults,\nor \"party\":[{\"adults\": 2},{\"adults\": 2, \"children\": [11,8]}] is a request for one room for two adults\nand one room for two adults and two children aged 11 and 8."
+    },
+    "lang": {
+      "example": "en_US",
+      "type": "string",
+      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS."
+    },
+    "api_version": {
+      "example": 1,
+      "type": "integer",
+      "description": "Version of the API used."
+    }
+  },
+  "title": "Booking Availability Request",
   "required": [
     "api_version",
     "hotel",
@@ -11,51 +57,5 @@
     "lang",
     "currency",
     "user_country"
-  ],
-  "description": "Schema of booking availability request object",
-  "properties": {
-    "hotel": {
-      "$ref": "hotel.json"
-    },
-    "user_country": {
-      "type": "string",
-      "example": "US",
-      "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request."
-    },
-    "start_date": {
-      "type": "string",
-      "example": "2019-01-01",
-      "description": "The user's check-in date in YYYY-MM-DD",
-      "format": "date"
-    },
-    "currency": {
-      "type": "string",
-      "example": "USD",
-      "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency."
-    },
-    "lang": {
-      "type": "string",
-      "example": "en_US",
-      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS."
-    },
-    "party": {
-      "type": "array",
-      "items": {
-        "$ref": "party.json"
-      },
-      "minItems": 1,
-      "description": "Array of JSON objects inlcuding number of adults and children requested.\nEach party object represents the occupation for a separate room.\nFor example, \"party\":[{\"adults\": 3}] is a request for one room that accommodates three adults,\nor \"party\":[{\"adults\": 2},{\"adults\": 2, \"children\": [11,8]}] is a request for one room for two adults\nand one room for two adults and two children aged 11 and 8."
-    },
-    "api_version": {
-      "type": "integer",
-      "example": 1,
-      "description": "Version of the API used."
-    },
-    "end_date": {
-      "type": "string",
-      "example": "2019-01-02",
-      "description": "The user's check-out date in YYYY-MM-DD",
-      "format": "date"
-    }
-  }
+  ]
 }

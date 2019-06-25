@@ -1,5 +1,4 @@
 {
-  "title": "Booking Prepare",
   "oneOf": [
     {
       "$ref": "booking-prepare-response-available.json"
@@ -8,7 +7,8 @@
       "$ref": "booking-prepare-response-sold-out.json"
     }
   ],
-  "description": "Schema of a booking preparation.",
   "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "title": "Booking Prepare",
+  "type": "object",
+  "description": "Schema of a booking preparation."
 }
