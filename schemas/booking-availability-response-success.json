@@ -1,107 +1,7 @@
 {
-  "$schema": "http://json-schema.org/schema#",
   "type": "object",
-  "description": "Schema Booking availability when response is OK",
-  "properties": {
-    "user_country": {
-      "example": "US",
-      "type": "string",
-      "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request."
-    },
-    "currency": {
-      "example": "USD",
-      "type": "string",
-      "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency."
-    },
-    "customer_support": {
-      "$ref": "customer-support.json"
-    },
-    "query_key": {
-      "type": "string",
-      "description": "Query Key",
-      "deprecated": true
-    },
-    "terms_and_conditions_url": {
-      "type": "string",
-      "description": "Link to the advertiser's terms and conditions page."
-    },
-    "device_type": {
-      "type": "string",
-      "description": "Device Type",
-      "deprecated": true
-    },
-    "hotel_details": {
-      "$ref": "hotel-details.json"
-    },
-    "other_policy": {
-      "type": "string",
-      "description": "Miscellaneous policies\nText field.\nLength limit of 1000 characters."
-    },
-    "api_version": {
-      "example": 1,
-      "type": "integer",
-      "description": "Version of the API used."
-    },
-    "start_date": {
-      "format": "date",
-      "example": "2019-01-01",
-      "type": "string",
-      "description": "The user's check-in date in YYYY-MM-DD"
-    },
-    "party": {
-      "items": {
-        "$ref": "party.json"
-      },
-      "minItems": 1,
-      "type": "array",
-      "description": "Array of JSON objects inlcuding number of adults and children requested.\nEach party object represents the occupation for a separate room.\nFor example, \"party\":[{\"adults\": 3}] is a request for one room that accommodates three adults,\nor \"party\":[{\"adults\": 2},{\"adults\": 2, \"children\": [11,8]}] is a request for one room for two adults\nand one room for two adults and two children aged 11 and 8."
-    },
-    "accepted_credit_cards": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array",
-      "description": "Accepted Credit Cards"
-    },
-    "hotel_id": {
-      "type": "integer",
-      "description": "Echo the item_id (not partner_reference) provided by trivago in the corresponding request."
-    },
-    "end_date": {
-      "format": "date",
-      "example": "2019-01-02",
-      "type": "string",
-      "description": "The user's check-out date in YYYY-MM-DD"
-    },
-    "errors": {
-      "items": {
-        "$ref": "error.json"
-      },
-      "type": "array",
-      "description": "Array of errors"
-    },
-    "room_types_array": {
-      "items": {
-        "$ref": "room-type.json"
-      },
-      "type": "array",
-      "description": "An array of objects detailing the different kinds of rooms that are available for the entire party.\nThe short description must be unique for each room type available in the hotel."
-    },
-    "terms_and_conditions": {
-      "type": "string",
-      "description": "General terms and conditions.\nText field.\nLength limit of 1000 characters."
-    },
-    "lang": {
-      "example": "en_US",
-      "type": "string",
-      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS."
-    },
-    "payment_policy": {
-      "type": "string",
-      "description": "Describes how the advertiser will use the credit card information, e.g. charged immediately or hold.\nText field.\nLength limit of 1000 characters."
-    }
-  },
   "title": "Booking Availability Ok",
+  "$schema": "http://json-schema.org/schema#",
   "required": [
     "api_version",
     "hotel_id",
@@ -112,5 +12,105 @@
     "user_country",
     "room_types_array",
     "customer_support"
-  ]
+  ],
+  "properties": {
+    "terms_and_conditions_url": {
+      "description": "Link to the advertiser's terms and conditions page.",
+      "type": "string"
+    },
+    "hotel_id": {
+      "description": "Echo the item_id (not partner_reference) provided by trivago in the corresponding request.",
+      "type": "integer"
+    },
+    "lang": {
+      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.",
+      "example": "en_US",
+      "type": "string"
+    },
+    "end_date": {
+      "description": "The user's check-out date in YYYY-MM-DD",
+      "example": "2019-01-02",
+      "format": "date",
+      "type": "string"
+    },
+    "query_key": {
+      "description": "Query Key",
+      "deprecated": true,
+      "type": "string"
+    },
+    "currency": {
+      "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency.",
+      "example": "USD",
+      "type": "string"
+    },
+    "terms_and_conditions": {
+      "description": "General terms and conditions.\nText field.\nLength limit of 1000 characters.",
+      "type": "string"
+    },
+    "customer_support": {
+      "$ref": "customer-support.json"
+    },
+    "payment_policy": {
+      "description": "Describes how the advertiser will use the credit card information, e.g. charged immediately or hold.\nText field.\nLength limit of 1000 characters.",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "The user's check-in date in YYYY-MM-DD",
+      "example": "2019-01-01",
+      "format": "date",
+      "type": "string"
+    },
+    "errors": {
+      "description": "Array of errors",
+      "items": {
+        "$ref": "error.json"
+      },
+      "type": "array"
+    },
+    "hotel_details": {
+      "$ref": "hotel-details.json"
+    },
+    "room_types_array": {
+      "description": "An array of objects detailing the different kinds of rooms that are available for the entire party.\nThe short description must be unique for each room type available in the hotel.",
+      "items": {
+        "$ref": "room-type.json"
+      },
+      "type": "array"
+    },
+    "other_policy": {
+      "description": "Miscellaneous policies\nText field.\nLength limit of 1000 characters.",
+      "type": "string"
+    },
+    "user_country": {
+      "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request.",
+      "example": "US",
+      "type": "string"
+    },
+    "api_version": {
+      "description": "Version of the API used.",
+      "example": 1,
+      "type": "integer"
+    },
+    "device_type": {
+      "description": "Device Type",
+      "deprecated": true,
+      "type": "string"
+    },
+    "party": {
+      "description": "Array of JSON objects inlcuding number of adults and children requested.\nEach party object represents the occupation for a separate room.\nFor example, \"party\":[{\"adults\": 3}] is a request for one room that accommodates three adults,\nor \"party\":[{\"adults\": 2},{\"adults\": 2, \"children\": [11,8]}] is a request for one room for two adults\nand one room for two adults and two children aged 11 and 8.",
+      "items": {
+        "$ref": "party.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "accepted_credit_cards": {
+      "description": "Accepted Credit Cards",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "description": "Schema Booking availability when response is OK"
 }

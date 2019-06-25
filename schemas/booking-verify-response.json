@@ -1,40 +1,40 @@
 {
-  "$schema": "http://json-schema.org/schema#",
   "type": "object",
-  "description": "Schema of an booking verify.",
+  "title": "Booking Verify",
+  "$schema": "http://json-schema.org/schema#",
+  "required": [
+    "reference_id",
+    "status",
+    "customer_support"
+  ],
   "properties": {
-    "reservation": {
-      "$ref": "reservation.json"
-    },
     "problems": {
+      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\"",
       "items": {
         "$ref": "problem.json"
       },
-      "type": "array",
-      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\""
-    },
-    "customer_support": {
-      "$ref": "customer-support.json"
+      "type": "array"
     },
     "status": {
-      "example": "Success",
       "enum": [
         "Success",
         "Failure",
         "PaymentPending",
         "UnknownReference"
-      ]
+      ],
+      "example": "Success"
+    },
+    "reservation": {
+      "$ref": "reservation.json"
+    },
+    "customer_support": {
+      "$ref": "customer-support.json"
     },
     "reference_id": {
+      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
       "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
-      "type": "string",
-      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful."
+      "type": "string"
     }
   },
-  "title": "Booking Verify",
-  "required": [
-    "reference_id",
-    "status",
-    "customer_support"
-  ]
+  "description": "Schema of an booking verify."
 }

@@ -1,41 +1,41 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object",
   "properties": {
     "cvv": {
+      "description": "The cvv number of the credit card used for the booking.",
       "example": "507",
-      "type": "string",
-      "description": "The cvv number of the credit card used for the booking."
-    },
-    "expiration_month": {
-      "example": "09",
-      "type": "string",
-      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)."
-    },
-    "expiration_year": {
-      "example": "2025",
-      "type": "string",
-      "description": "Expiration year as four digit string."
-    },
-    "card_type": {
-      "example": "Visa",
-      "type": "string",
-      "description": "The type of credit card used."
+      "type": "string"
     },
     "billing_address": {
       "$ref": "address.json"
     },
+    "expiration_year": {
+      "description": "Expiration year as four digit string.",
+      "example": "2025",
+      "type": "string"
+    },
+    "card_type": {
+      "description": "The type of credit card used.",
+      "example": "Visa",
+      "type": "string"
+    },
+    "expiration_month": {
+      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12).",
+      "example": "09",
+      "type": "string"
+    },
     "cardholder_name": {
+      "description": "Name on the credit card holder.",
       "example": "Christopher Palmer",
-      "type": "string",
-      "description": "Name on the credit card holder."
+      "type": "string"
     },
     "card_number": {
+      "description": "Credit card number used for the booking.",
       "example": "4111111111111111",
-      "type": "string",
-      "description": "Credit card number used for the booking."
+      "type": "string"
     }
   },
+  "$schema": "http://json-schema.org/schema#",
+  "deprecated": true,
   "required": [
     "card_type",
     "card_number",
@@ -45,5 +45,5 @@
     "cvv",
     "billing_address"
   ],
-  "deprecated": true
+  "type": "object"
 }

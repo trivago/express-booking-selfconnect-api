@@ -1,18 +1,18 @@
 {
-  "$schema": "http://json-schema.org/schema#",
   "type": "object",
-  "description": "Schema of an problem",
+  "title": "Problem Object",
+  "$schema": "http://json-schema.org/schema#",
+  "required": [
+    "problem",
+    "explanation"
+  ],
   "properties": {
     "detail": {
-      "type": "string",
-      "description": "Advertiser-specific message providing details of the problem that will not be displayed to the user. Intended\nfor logging purposes."
-    },
-    "explanation": {
-      "type": "string",
-      "description": "Advertiser-specific message to be displayed to the user providing details of the problem, and should be in the\nlanguage of the 'lang' parameter of the request."
+      "description": "Advertiser-specific message providing details of the problem that will not be displayed to the user. Intended\nfor logging purposes.",
+      "type": "string"
     },
     "problem": {
-      "type": "string",
+      "description": "One of the supported problem types:",
       "enum": [
         "AgentAttention",
         "AuthorizationDeclinedByAcquirer",
@@ -65,12 +65,12 @@
         "UnsupportedCharSet",
         "UnsupportedOccupancy"
       ],
-      "description": "One of the supported problem types:"
+      "type": "string"
+    },
+    "explanation": {
+      "description": "Advertiser-specific message to be displayed to the user providing details of the problem, and should be in the\nlanguage of the 'lang' parameter of the request.",
+      "type": "string"
     }
   },
-  "title": "Problem Object",
-  "required": [
-    "problem",
-    "explanation"
-  ]
+  "description": "Schema of an problem"
 }

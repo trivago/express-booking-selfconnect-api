@@ -1,14 +1,10 @@
 {
+  "description": "Schema of payment option",
   "oneOf": [
     {
-      "type": "object",
       "properties": {
-        "discount": {
-          "$ref": "price.json",
-          "description": "Absolute discount for this option"
-        },
         "code": {
-          "type": "string",
+          "description": "For documentation on supported Payment Methods, refer to the SC documentation:[http://git.trivago.trv/projects/SRT/repos/connectivity-suite-documentation/browse/expressbooking/api-ob   jects.html?at=d91542b7c62845dbad7853634a0d5fc3767f06da#1031-1078]",
           "enum": [
             "AmericanExpress",
             "Aura",
@@ -45,23 +41,18 @@
             "Visa",
             "VisaDebit"
           ],
-          "description": "For documentation on supported Payment Methods, refer to the SC documentation:[http://git.trivago.trv/projects/SRT/repos/connectivity-suite-documentation/browse/expressbooking/api-ob   jects.html?at=d91542b7c62845dbad7853634a0d5fc3767f06da#1031-1078]"
-        },
-        "hold_time": {
-          "format": "date-time",
-          "type": "string",
-          "description": "Date and time for the hold time of the reservation. Must be in ISO-8601 format, e.g. 2018-05-25T16:00:00+0000."
+          "type": "string"
         },
         "description": {
-          "type": "string",
-          "description": "Description or statement for the payment option to be shown to the customer, e.g. For late arrivals after 16:00\\n(local time) the reservation must be guaranteed."
+          "description": "Description or statement for the payment option to be shown to the customer, e.g. For late arrivals after 16:00\\n(local time) the reservation must be guaranteed.",
+          "type": "string"
         },
         "fee": {
-          "$ref": "price.json",
-          "description": "The value of the price. If there is no fee please send the Price-object with an amount of 0.0"
+          "description": "The value of the price. If there is no fee please send the Price-object with an amount of 0.0",
+          "$ref": "price.json"
         },
         "brand": {
-          "type": "string",
+          "description": "Specifies the brand of this option. Must be one of the following values:\\n- Bonus\\n- Axess\\n- CardFinans\\n- Maximum\\n- Paraf\\n- World\\n- Advantage",
           "enum": [
             "Bonus",
             "Axess",
@@ -71,54 +62,63 @@
             "World",
             "Advantage"
           ],
-          "description": "Specifies the brand of this option. Must be one of the following values:\\n- Bonus\\n- Axess\\n- CardFinans\\n- Maximum\\n- Paraf\\n- World\\n- Advantage"
+          "type": "string"
         },
         "installments": {
+          "description": "List of installment plans",
           "items": {
             "$ref": "installment.json"
           },
-          "type": "array",
-          "description": "List of installment plans"
+          "type": "array"
+        },
+        "hold_time": {
+          "description": "Date and time for the hold time of the reservation. Must be in ISO-8601 format, e.g. 2018-05-25T16:00:00+0000.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "discount": {
+          "description": "Absolute discount for this option",
+          "$ref": "price.json"
         }
       },
       "required": [
         "code",
         "fee"
-      ]
+      ],
+      "type": "object"
     },
     {
-      "type": "object",
       "properties": {
         "code": {
-          "type": "string",
+          "description": "For documentation on supported Payment Methods, refer to the SC documentation:[http://git.trivago.trv/projects/SRT/repos/connectivity-suite-documentation/browse/expressbooking/api-ob   jects.html?at=d91542b7c62845dbad7853634a0d5fc3767f06da#1031-1078]",
           "enum": [
             "NoGuarantee"
           ],
-          "description": "For documentation on supported Payment Methods, refer to the SC documentation:[http://git.trivago.trv/projects/SRT/repos/connectivity-suite-documentation/browse/expressbooking/api-ob   jects.html?at=d91542b7c62845dbad7853634a0d5fc3767f06da#1031-1078]"
-        },
-        "hold_time": {
-          "format": "date-time",
-          "type": "string",
-          "description": "Date and time for the hold time of the reservation. Must be in ISO-8601 format, e.g. 2018-05-25T16:00:00+0000."
+          "type": "string"
         },
         "description": {
-          "type": "string",
-          "description": "Description or statement for the payment option to be shown to the customer, e.g. For late arrivals after 16:00\\n(local time) the reservation must be guaranteed."
+          "description": "Description or statement for the payment option to be shown to the customer, e.g. For late arrivals after 16:00\\n(local time) the reservation must be guaranteed.",
+          "type": "string"
         },
         "fee": {
-          "$ref": "price.json",
-          "description": "The value of the price. If there is no fee please send the Price-object with an amount of 0.0"
+          "description": "The value of the price. If there is no fee please send the Price-object with an amount of 0.0",
+          "$ref": "price.json"
+        },
+        "hold_time": {
+          "description": "Date and time for the hold time of the reservation. Must be in ISO-8601 format, e.g. 2018-05-25T16:00:00+0000.",
+          "format": "date-time",
+          "type": "string"
         }
       },
       "required": [
         "code",
         "fee",
         "hold_time"
-      ]
+      ],
+      "type": "object"
     }
   ],
-  "$schema": "http://json-schema.org/schema#",
   "title": "PaymentOption object",
-  "type": "object",
-  "description": "Schema of payment option"
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

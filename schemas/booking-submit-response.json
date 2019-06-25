@@ -1,43 +1,43 @@
 {
-  "$schema": "http://json-schema.org/schema#",
   "type": "object",
-  "description": "Schema of booking submit response.",
+  "title": "Booking Submit Response",
+  "$schema": "http://json-schema.org/schema#",
+  "required": [
+    "reference_id",
+    "status",
+    "customer_support"
+  ],
   "properties": {
-    "problems": {
-      "items": {
-        "$ref": "problem.json"
-      },
-      "type": "array",
-      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\""
+    "reservation": {
+      "$ref": "reservation.json"
     },
     "customer_support": {
       "$ref": "customer-support.json"
     },
-    "reservation": {
-      "$ref": "reservation.json"
-    },
     "reference_id": {
+      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
       "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
-      "type": "string",
-      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful."
+      "type": "string"
     },
-    "authorisation": {
-      "$ref": "authorisation.json"
+    "problems": {
+      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\"",
+      "items": {
+        "$ref": "problem.json"
+      },
+      "type": "array"
     },
     "status": {
-      "example": "Success",
       "enum": [
         "Success",
         "Failure",
         "PaymentPending",
         "UnknownReference"
-      ]
+      ],
+      "example": "Success"
+    },
+    "authorisation": {
+      "$ref": "authorisation.json"
     }
   },
-  "title": "Booking Submit Response",
-  "required": [
-    "reference_id",
-    "status",
-    "customer_support"
-  ]
+  "description": "Schema of booking submit response."
 }

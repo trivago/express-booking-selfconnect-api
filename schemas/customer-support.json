@@ -1,42 +1,42 @@
 {
-  "$schema": "http://json-schema.org/schema#",
   "type": "object",
-  "description": "Schema of an customer support.",
-  "properties": {
-    "emails": {
-      "items": {
-        "$ref": "contact.json"
-      },
-      "example": {
-        "contact": "thomas.mair@trivago.com",
-        "description": "Email"
-      },
-      "type": "array",
-      "description": "Array of customer support e-mail addresses."
-    },
-    "phone_numbers": {
-      "items": {
-        "$ref": "contact.json"
-      },
-      "type": "array",
-      "description": "Array of customer support phone numbers. The first Contact of the phone_numbers array will be display to the user."
-    },
-    "urls": {
-      "items": {
-        "$ref": "contact.json"
-      },
-      "example": {
-        "contact": "http://www.trivago.com",
-        "description": "Url"
-      },
-      "type": "array",
-      "description": "Array of url redirecting to customer support information.",
-      "deprecated": true
-    }
-  },
   "title": "Customer Support object",
+  "$schema": "http://json-schema.org/schema#",
   "required": [
     "phone_numbers",
     "emails"
-  ]
+  ],
+  "properties": {
+    "urls": {
+      "type": "array",
+      "example": {
+        "description": "Url",
+        "contact": "http://www.trivago.com"
+      },
+      "items": {
+        "$ref": "contact.json"
+      },
+      "deprecated": true,
+      "description": "Array of url redirecting to customer support information."
+    },
+    "emails": {
+      "type": "array",
+      "example": {
+        "description": "Email",
+        "contact": "thomas.mair@trivago.com"
+      },
+      "items": {
+        "$ref": "contact.json"
+      },
+      "description": "Array of customer support e-mail addresses."
+    },
+    "phone_numbers": {
+      "description": "Array of customer support phone numbers. The first Contact of the phone_numbers array will be display to the user.",
+      "items": {
+        "$ref": "contact.json"
+      },
+      "type": "array"
+    }
+  },
+  "description": "Schema of an customer support."
 }

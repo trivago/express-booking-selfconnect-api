@@ -1,29 +1,29 @@
 {
-  "$schema": "http://json-schema.org/schema#",
   "type": "object",
-  "description": "Schema of payment method.",
+  "title": "Payment Method object",
+  "$schema": "http://json-schema.org/schema#",
+  "required": [
+    "code",
+    "options"
+  ],
   "properties": {
     "code": {
-      "type": "string",
+      "description": "Defines the payment method. Must be on of these values (case sensitive):\n- PaymentCard\n- ExternalProvider\n- BankAccount\n- ManualPayment",
       "enum": [
         "PaymentCard",
         "ExternalProvider",
         "BankAccount",
         "ManualPayment"
       ],
-      "description": "Defines the payment method. Must be on of these values (case sensitive):\n- PaymentCard\n- ExternalProvider\n- BankAccount\n- ManualPayment"
+      "type": "string"
     },
     "options": {
+      "description": "Specifies the accepted payment cards or the external payment provider, as well as the extra fees the users have\nto pay for using specific payment cards/payment providers.",
       "items": {
         "$ref": "payment-option.json"
       },
-      "type": "array",
-      "description": "Specifies the accepted payment cards or the external payment provider, as well as the extra fees the users have\nto pay for using specific payment cards/payment providers."
+      "type": "array"
     }
   },
-  "title": "Payment Method object",
-  "required": [
-    "code",
-    "options"
-  ]
+  "description": "Schema of payment method."
 }
