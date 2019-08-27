@@ -1398,6 +1398,53 @@
                 },
                 "type": "object"
             },
+            "payment-authentication-adyen": {
+                "title": "Adyen authentication object",
+                "description": "Schema of Adyen specific authorisation",
+                "required": [
+                    "authentication_value",
+                    "ds_trans_id",
+                    "eci",
+                    "three_ds_server_trans_id",
+                    "trans_status",
+                    "message_version"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "Adyen"
+                        ],
+                        "example": "Adyen"
+                    },
+                    "authentication_value": {
+                        "description": "The `authenticationValue` value as defined in the 3D Secure 2 specification.",
+                        "type": "string"
+                    },
+                    "ds_trans_id": {
+                        "description": "The `dsTransID` value as defined in the 3D Secure 2 specification.",
+                        "type": "string"
+                    },
+                    "eci": {
+                        "description": "The `eci` value as defined in the 3D Secure 2 specification.",
+                        "type": "string"
+                    },
+                    "three_ds_server_trans_id": {
+                        "description": "The `threeDSServerTransID` value as defined in the 3D Secure 2 specification.",
+                        "type": "string"
+                    },
+                    "trans_status": {
+                        "description": "The `transStatus` value as defined in the 3D Secure 2 specification.",
+                        "type": "string"
+                    },
+                    "message_version": {
+                        "description": "The `messageVersion` value as defined in the 3D Secure 2 specification.",
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "additionalProperties": false
+            },
             "bank-account-parameters": {
                 "required": [
                     "holder_name",
@@ -1499,6 +1546,8 @@
                         "example": "https://advertiser.com/callback/error"
                     },
                     "type": {
+                        "description": "Payment type",
+                        "type": "string",
                         "enum": [
                             "PaymentCard"
                         ],
@@ -1528,6 +1577,15 @@
                         "description": "The cvv number of the credit card used for the booking.",
                         "type": "string",
                         "example": "123"
+                    },
+                    "authentication": {
+                        "description": "The type of PSD2 authentication to use.",
+                        "type": "object",
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/payment-authentication-adyen"
+                            }
+                        ]
                     }
                 },
                 "type": "object",

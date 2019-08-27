@@ -1,5 +1,10 @@
 {
-  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "token",
+    "order_id",
+    "type"
+  ],
   "properties": {
     "type": {
       "enum": [
@@ -7,42 +12,37 @@
       ],
       "example": "Tokenization"
     },
-    "order_id": {
-      "description": "Order id trivago has created when requesting the token from the advertiser's payment service provider.",
-      "example": "1234",
-      "type": "string"
+    "cvv": {
+      "description": "CVV/CVC - mandatory if the advertiser's payment service provider's tokenization does not include CVV/CVC.",
+      "type": "string",
+      "example": "123"
     },
     "callback_error": {
       "description": "Callback for failed 3ds-authorisation (if necessary).",
-      "example": "https://advertiser.com/callback/error",
-      "type": "string"
+      "type": "string",
+      "example": "https://advertiser.com/callback/error"
     },
     "callback_success": {
       "description": "Callback for successful 3ds-authorisation (if necessary).",
-      "example": "https://advertiser.com/callback/success",
-      "type": "string"
+      "type": "string",
+      "example": "https://advertiser.com/callback/success"
     },
-    "cvv": {
-      "description": "CVV/CVC - mandatory if the advertiser's payment service provider's tokenization does not include CVV/CVC.",
-      "example": "123",
-      "type": "string"
+    "order_id": {
+      "description": "Order id trivago has created when requesting the token from the advertiser's payment service provider.",
+      "type": "string",
+      "example": "1234"
     },
     "callback_cancel": {
       "description": "Callback for canceled 3ds-authorisation (if necessary).",
-      "example": "https://advertiser.com/callback/cancel",
-      "type": "string"
+      "type": "string",
+      "example": "https://advertiser.com/callback/cancel"
     },
     "token": {
       "description": "Token trivago has received from the advertiser's payment service provider.",
-      "example": "tolken_123",
-      "type": "string"
+      "type": "string",
+      "example": "tolken_123"
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "required": [
-    "token",
-    "order_id",
-    "type"
-  ],
-  "type": "object"
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
 }

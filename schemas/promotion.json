@@ -1,26 +1,26 @@
 {
-  "type": "object",
   "title": "Promotion object",
+  "type": "object",
   "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of a promotion object",
   "required": [
     "type",
     "description"
   ],
   "properties": {
-    "type": {
-      "description": "Type of the promotion. A string value must be one of: MOBILE_TYPE",
-      "enum": [
-        "MOBILE_ONLY"
-      ],
-      "type": "string"
-    },
     "discount": {
       "$ref": "discount.json"
+    },
+    "type": {
+      "description": "Type of the promotion. A string value must be one of: MOBILE_TYPE",
+      "type": "string",
+      "enum": [
+        "MOBILE_ONLY"
+      ]
     },
     "description": {
       "description": "A textual description of the promotion. This may be displayed to users and should be in the language indicated\nby the 'lang' parameter provided in the response.",
       "type": "string"
     }
-  },
-  "description": "Schema of a promotion object"
+  }
 }

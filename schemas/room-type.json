@@ -1,7 +1,8 @@
 {
-  "type": "object",
   "title": "RoomType object",
+  "type": "object",
   "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an room type.",
   "required": [
     "name",
     "final_price_at_booking",
@@ -11,34 +12,28 @@
     "occupancy"
   ],
   "properties": {
-    "rooms_available": {
-      "description": "The number of rooms remaining/available.",
-      "type": "integer"
+    "room_group": {
+      "description": "An identifier, which groups different rates to a specified room. All elements with the same room_group.code relates to the same real room (physical).",
+      "$ref": "room-group.json"
     },
-    "cancellation": {
-      "$ref": "cancellation.json"
-    },
-    "refundable": {
-      "description": "Must be one of:\n- full: Until day of arrival the reservation may be cancelled without any charge to the user.\n- partial: At time of booking, the reservation may be cancelled but will incur a charge less than the total reservation amount.\n- none: At time of booking, the reservation may be cancelled but no refund will be provided.  If the customer has not yet been charged, the full amount will be deducted.\n- unknown: Indicates that the refundable value cannot be identified as one of the other states.",
-      "enum": [
-        "full",
-        "partial",
-        "none",
-        "unknown"
-      ],
-      "deprecated": true,
-      "type": "string"
-    },
-    "payment_policy": {
-      "description": "Describes how the advertiser will use the credit card information, e.g. charged immediately or hold.\n(Length limit: 1000 characters).",
-      "type": "string"
+    "occupancy": {
+      "description": "The occupancy for this room",
+      "$ref": "occupancy.json"
     },
     "partner_data": {
       "description": "This data will not be interpreted by trivago, but will be provided to the advertiser when a booking submit request is sent. For example this object can be used to store an advertiser 'rate key,\u2019 \u2018room key,\u2019 and/or \u2018product key\u2019 . It can consist of a nested JSON objects, or a single string or number.",
       "$ref": "partner-data.json"
     },
+    "line_items": {
+      "description": "Contains the detailed breakdown of charges. An array of LineItem objects will contain a separate LineItem for each of rate, tax, and fee types.",
+      "type": "array",
+      "items": {
+        "$ref": "line-item.json"
+      }
+    },
     "value_adds": {
       "description": "A string value must be one of:\n- FREE_BREAKFAST\n- FREE_HALF_BOARD\n- FREE_FULL_BOARD\n- FREE_ALL_INCLUSIVE\n- FREE_PARKING\n- FREE_INTERNET\nIf no value adds are supported, an empty array has to be provided.",
+      "type": "array",
       "items": {
         "enum": [
           "FREE_BREAKFAST",
@@ -48,101 +43,106 @@
           "FREE_PARKING",
           "FREE_INTERNET"
         ]
-      },
-      "type": "array"
-    },
-    "cancellation_deadline": {
-      "description": "The datetime after which it is not free to cancel a reservation.The format must match YYYY-MM-DDThh:mm:ss. Note\nthere is no timezone info because it's localized to the property.\nExample: \"cancellation_deadline\": \"2015-05-25T16:00:00\"",
-      "deprecated": true,
-      "type": "string"
-    },
-    "paymentOptions": {
-      "description": "An array of payment options for the room",
-      "items": {
-        "$ref": "payment-option.json"
-      },
-      "type": "array"
-    },
-    "other_policy": {
-      "description": "Miscellaneous policies.Text field (Length limit: 1000 characters).",
-      "type": "string"
-    },
-    "photos": {
-      "description": "An array of photo objects for the room",
-      "items": {
-        "$ref": "photo.json"
-      },
-      "type": "array"
-    },
-    "amenities": {
-      "description": "Array of Strings (no html tags allowed). Each String describes an amenity and should be in the language indicated\nby the 'lang' parameter provided in the response.",
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "cancellation_policy": {
-      "description": "Text describing the cancellation policy for the room. Should be in the language indicated by the 'lang'\nparameter. Text field.Length limit: 1000 characters.",
-      "deprecated": true,
-      "type": "string"
-    },
-    "promotions": {
-      "description": "Array of promotions",
-      "items": {
-        "$ref": "promotion.json"
-      },
-      "type": "array"
-    },
-    "occupancy": {
-      "description": "The occupancy for this room",
-      "$ref": "occupancy.json"
-    },
-    "line_items": {
-      "description": "Contains the detailed breakdown of charges. An array of LineItem objects will contain a separate LineItem for each of rate, tax, and fee types.",
-      "items": {
-        "$ref": "line-item.json"
-      },
-      "type": "array"
-    },
-    "final_price_at_checkout": {
-      "description": "Contains the entire price to be paid at time of stay, including taxes and fees. This will be used to validate the line items. If the full price is paid at the time of booking, this element must still be included, with an amount of 0 or 0.00.",
-      "$ref": "price.json"
-    },
-    "payment_methods": {
-      "description": "Specifies the payment method.",
-      "items": {
-        "$ref": "payment-method.json"
-      },
-      "type": "array"
-    },
-    "description": {
-      "description": "Longer room description. Will be displayed to users, and should be in the language indicated by the 'lang' parameter (max length of 1000 characters).",
-      "type": "string"
-    },
-    "final_price_at_booking": {
-      "description": "Contains the entire price to be paid at time of booking, including taxes and fees. This will be used to validate the line items.",
-      "$ref": "price.json"
-    },
-    "rate_key": {
-      "description": "Unique identifier for this rate. Used to identify a rate across several \"/booking_availability\" requests. E.g.\nif an user stays on the landing page for a longer period of time before clicking on a specific rate another\n\"/booking_availability\" request is submitted to ensure that the rate clicked is still bookable.\nIf no rate_key is provided a rate is identified based on rate attributes and rate components.",
-      "type": "string"
-    },
-    "room_group": {
-      "description": "An identifier, which groups different rates to a specified room. All elements with the same room_group.code relates to the same real room (physical).",
-      "$ref": "room-group.json"
+      }
     },
     "occupancy_policy": {
       "description": "Occupancy policies for this room e.g. maximum number of adults, minimum ages.Text field.Length\nlimit: 1000 characters.",
       "type": "string"
     },
+    "rooms_available": {
+      "description": "The number of rooms remaining/available.",
+      "type": "integer"
+    },
     "name": {
       "description": "Short description of the room type. This will be displayed to users, and should be in the language indicated by\nthe 'lang' parameter (max length of 120 characters).",
       "type": "string"
     },
+    "paymentOptions": {
+      "description": "An array of payment options for the room",
+      "type": "array",
+      "items": {
+        "$ref": "payment-option.json"
+      }
+    },
+    "payment_methods": {
+      "description": "Specifies the payment method.",
+      "type": "array",
+      "items": {
+        "$ref": "payment-method.json"
+      }
+    },
+    "rate_key": {
+      "description": "Unique identifier for this rate. Used to identify a rate across several \"/booking_availability\" requests. E.g.\nif an user stays on the landing page for a longer period of time before clicking on a specific rate another\n\"/booking_availability\" request is submitted to ensure that the rate clicked is still bookable.\nIf no rate_key is provided a rate is identified based on rate attributes and rate components.",
+      "type": "string"
+    },
+    "payment_policy": {
+      "description": "Describes how the advertiser will use the credit card information, e.g. charged immediately or hold.\n(Length limit: 1000 characters).",
+      "type": "string"
+    },
+    "final_price_at_checkout": {
+      "description": "Contains the entire price to be paid at time of stay, including taxes and fees. This will be used to validate the line items. If the full price is paid at the time of booking, this element must still be included, with an amount of 0 or 0.00.",
+      "$ref": "price.json"
+    },
+    "final_price_at_booking": {
+      "description": "Contains the entire price to be paid at time of booking, including taxes and fees. This will be used to validate the line items.",
+      "$ref": "price.json"
+    },
+    "photos": {
+      "description": "An array of photo objects for the room",
+      "type": "array",
+      "items": {
+        "$ref": "photo.json"
+      }
+    },
+    "refundable": {
+      "description": "Must be one of:\n- full: Until day of arrival the reservation may be cancelled without any charge to the user.\n- partial: At time of booking, the reservation may be cancelled but will incur a charge less than the total reservation amount.\n- none: At time of booking, the reservation may be cancelled but no refund will be provided.  If the customer has not yet been charged, the full amount will be deducted.\n- unknown: Indicates that the refundable value cannot be identified as one of the other states.",
+      "deprecated": true,
+      "type": "string",
+      "enum": [
+        "full",
+        "partial",
+        "none",
+        "unknown"
+      ]
+    },
     "room_type": {
       "description": "Must be one of:\n- STANDARD\n- COMFORT\n- FAMILY\n- DELUXE\n- SUPERIOR\n- EXECUTIVE\n- JUNIOR_SUITE\n- SUITE\n- EXECUTIVE_SUITE\n- STUDIO\n- APARTMENT\n- BUNGALOW\n- VILLA\n- SHARED\n- OTHERS\nIf room_type field is not provided, room_group.name is used. If room_group.name is missing as well, the field \"name\" of the RoomType object is used.",
       "type": "string"
+    },
+    "description": {
+      "description": "Longer room description. Will be displayed to users, and should be in the language indicated by the 'lang' parameter (max length of 1000 characters).",
+      "type": "string"
+    },
+    "amenities": {
+      "description": "Array of Strings (no html tags allowed). Each String describes an amenity and should be in the language indicated\nby the 'lang' parameter provided in the response.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "other_policy": {
+      "description": "Miscellaneous policies.Text field (Length limit: 1000 characters).",
+      "type": "string"
+    },
+    "cancellation": {
+      "$ref": "cancellation.json"
+    },
+    "cancellation_policy": {
+      "description": "Text describing the cancellation policy for the room. Should be in the language indicated by the 'lang'\nparameter. Text field.Length limit: 1000 characters.",
+      "type": "string",
+      "deprecated": true
+    },
+    "cancellation_deadline": {
+      "description": "The datetime after which it is not free to cancel a reservation.The format must match YYYY-MM-DDThh:mm:ss. Note\nthere is no timezone info because it's localized to the property.\nExample: \"cancellation_deadline\": \"2015-05-25T16:00:00\"",
+      "type": "string",
+      "deprecated": true
+    },
+    "promotions": {
+      "description": "Array of promotions",
+      "type": "array",
+      "items": {
+        "$ref": "promotion.json"
+      }
     }
-  },
-  "description": "Schema of an room type."
+  }
 }

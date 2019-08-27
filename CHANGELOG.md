@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.7.0
+- Added Adyen payment Authentication for PSD2 
+
 ## 1.6.9
 - Ensured compatibility with the previous schema
 

@@ -1,41 +1,5 @@
 {
-  "properties": {
-    "cvv": {
-      "description": "The cvv number of the credit card used for the booking.",
-      "example": "507",
-      "type": "string"
-    },
-    "billing_address": {
-      "$ref": "address.json"
-    },
-    "expiration_year": {
-      "description": "Expiration year as four digit string.",
-      "example": "2025",
-      "type": "string"
-    },
-    "card_type": {
-      "description": "The type of credit card used.",
-      "example": "Visa",
-      "type": "string"
-    },
-    "expiration_month": {
-      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12).",
-      "example": "09",
-      "type": "string"
-    },
-    "cardholder_name": {
-      "description": "Name on the credit card holder.",
-      "example": "Christopher Palmer",
-      "type": "string"
-    },
-    "card_number": {
-      "description": "Credit card number used for the booking.",
-      "example": "4111111111111111",
-      "type": "string"
-    }
-  },
-  "$schema": "http://json-schema.org/schema#",
-  "deprecated": true,
+  "type": "object",
   "required": [
     "card_type",
     "card_number",
@@ -45,5 +9,41 @@
     "cvv",
     "billing_address"
   ],
-  "type": "object"
+  "properties": {
+    "cardholder_name": {
+      "description": "Name on the credit card holder.",
+      "type": "string",
+      "example": "Christopher Palmer"
+    },
+    "card_number": {
+      "description": "Credit card number used for the booking.",
+      "type": "string",
+      "example": "4111111111111111"
+    },
+    "cvv": {
+      "description": "The cvv number of the credit card used for the booking.",
+      "type": "string",
+      "example": "507"
+    },
+    "expiration_year": {
+      "description": "Expiration year as four digit string.",
+      "type": "string",
+      "example": "2025"
+    },
+    "card_type": {
+      "description": "The type of credit card used.",
+      "type": "string",
+      "example": "Visa"
+    },
+    "expiration_month": {
+      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12).",
+      "type": "string",
+      "example": "09"
+    },
+    "billing_address": {
+      "$ref": "address.json"
+    }
+  },
+  "deprecated": true,
+  "$schema": "http://json-schema.org/schema#"
 }

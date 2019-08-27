@@ -1,5 +1,8 @@
 {
-  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "type"
+  ],
   "properties": {
     "type": {
       "enum": [
@@ -8,9 +11,6 @@
       "example": "ManualPayment"
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "required": [
-    "type"
-  ],
-  "type": "object"
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
 }

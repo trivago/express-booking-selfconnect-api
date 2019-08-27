@@ -1,7 +1,8 @@
 {
-  "additionalProperties": false,
-  "type": "object",
   "title": "Booking Submit Request",
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an booking submit request.",
   "required": [
     "checkin_date",
     "checkout_date",
@@ -12,84 +13,83 @@
     "final_price_at_checkout",
     "partner_data"
   ],
-  "description": "Schema of an booking submit request.",
-  "$schema": "http://json-schema.org/schema#",
   "properties": {
+    "rooms": {
+      "minItems": 1,
+      "description": "An array of rooms to be booked.",
+      "type": "array",
+      "items": {
+        "$ref": "room-stay.json"
+      }
+    },
+    "checkin_date": {
+      "description": "The user's check-in date in YYYY-MM-DD.\nThe check-in date of the traveler.",
+      "type": "string",
+      "format": "date",
+      "example": "2019-01-01"
+    },
+    "customer": {
+      "$ref": "customer.json"
+    },
     "checkout_date": {
       "description": "The user's check-out date in YYYY-MM-DD.\nThe check-out date of the traveler.",
-      "example": "2019-01-02",
+      "type": "string",
       "format": "date",
-      "type": "string"
+      "example": "2019-01-02"
+    },
+    "partner_reference": {
+      "description": "Advertiser's unique hotel id.\nPartner hotel id.",
+      "type": "string",
+      "example": "1"
+    },
+    "partner_data": {
+      "$ref": "partner-data.json"
     },
     "payment": {
       "description": "Defines the selected payment method of the user.",
       "$ref": "payment.json"
     },
-    "payment_method": {
-      "description": "An object containing the credit card details for payment of the reservation.",
-      "$ref": "booking-submit-request-payment-method.json"
-    },
-    "customer": {
-      "$ref": "customer.json"
-    },
-    "partner_data": {
-      "$ref": "partner-data.json"
-    },
-    "rooms": {
-      "description": "An array of rooms to be booked.",
-      "items": {
-        "$ref": "room-stay.json"
-      },
-      "minItems": 1,
-      "type": "array"
-    },
-    "checkin_date": {
-      "description": "The user's check-in date in YYYY-MM-DD.\nThe check-in date of the traveler.",
-      "example": "2019-01-01",
-      "format": "date",
-      "type": "string"
-    },
-    "partner_reference": {
-      "description": "Advertiser's unique hotel id.\nPartner hotel id.",
-      "example": "1",
-      "type": "string"
-    },
     "final_price_at_booking": {
       "description": "An object containing the entire price to be paid at time of booking, including taxes and fees.\\nThis will be used to validate the line items.",
       "$ref": "price.json",
       "example": {
-        "amount": 100,
-        "currency": "USD"
+        "currency": "USD",
+        "amount": 100
       }
+    },
+    "api_version": {
+      "description": "Version of the API used.",
+      "type": "integer",
+      "example": 1
+    },
+    "reference_id": {
+      "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be\ntreated as a \"confirmation\" id. Identifier for the booking session",
+      "type": "string",
+      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
     },
     "tracking_data": {
       "description": "Enables advertisers to receive specific information for tracking purpose. Fields supported here can be static fields as given by advertiser or can be dynamic fields as supported for tracking pixel which can be fired from express landing page. Refer here for tracking parameters supported from trivago side at submit e.g:\n\"tracking_data\": {\n\"actor\": \"trivago\",\n\"tracking_id\": \"3125354\"\n}",
       "example": {
-        "actor": "trivago",
-        "advLink": "http://advertiser-site.com/hoteladlon/Executive_Brilliant_Doppelzimmer?start_date=2016-12-28&end_date=2016-12-29"
+        "advLink": "http://advertiser-site.com/hoteladlon/Executive_Brilliant_Doppelzimmer?start_date=2016-12-28&end_date=2016-12-29",
+        "actor": "trivago"
       }
+    },
+    "payment_method": {
+      "description": "An object containing the credit card details for payment of the reservation.",
+      "$ref": "booking-submit-request-payment-method.json"
     },
     "final_price_at_checkout": {
       "description": "An object containing the entire price to be paid at time of stay, including taxes and fees.\\nThis will be used to validate the line items. If the full price is paid at the time of booking,\\nthis element must still be included, with an amount of 0 or 0.00.",
       "$ref": "price.json",
       "example": {
-        "amount": 5,
-        "currency": "USD"
+        "currency": "USD",
+        "amount": 5
       }
     },
     "ip_address": {
       "description": "Sending IP address.",
       "type": "string"
-    },
-    "reference_id": {
-      "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be\ntreated as a \"confirmation\" id. Identifier for the booking session",
-      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
-      "type": "string"
-    },
-    "api_version": {
-      "description": "Version of the API used.",
-      "example": 1,
-      "type": "integer"
     }
-  }
+  },
+  "additionalProperties": false
 }

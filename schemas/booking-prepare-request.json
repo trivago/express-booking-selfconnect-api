@@ -1,7 +1,8 @@
 {
-  "type": "object",
   "title": "Booking Prepare",
+  "type": "object",
   "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of a booking preparation request.",
   "required": [
     "checkin_date",
     "checkout_date",
@@ -11,44 +12,43 @@
     "party"
   ],
   "properties": {
+    "api_version": {
+      "description": "Version of the API used.",
+      "type": "integer",
+      "example": 1
+    },
+    "party": {
+      "minItems": 1,
+      "description": "An array of Party",
+      "type": "array",
+      "items": {
+        "$ref": "party.json"
+      }
+    },
     "reference_id": {
       "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be treated as a \"confirmation\" id.",
-      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
-      "type": "string"
+      "type": "string",
+      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
     },
-    "checkout_date": {
-      "description": "The user's check-out date in YYYY-MM-DD.",
-      "example": "2019-01-02",
+    "checkin_date": {
+      "description": "The user's check-in date in YYYY-MM-DD.",
+      "type": "string",
       "format": "date",
-      "type": "string"
-    },
-    "partner_reference": {
-      "description": "Advertiser's unique hotel id.",
-      "example": "1",
-      "type": "string"
+      "example": "2019-01-01"
     },
     "partner_data": {
       "$ref": "partner-data.json"
     },
-    "checkin_date": {
-      "description": "The user's check-in date in YYYY-MM-DD.",
-      "example": "2019-01-01",
+    "partner_reference": {
+      "description": "Advertiser's unique hotel id.",
+      "type": "string",
+      "example": "1"
+    },
+    "checkout_date": {
+      "description": "The user's check-out date in YYYY-MM-DD.",
+      "type": "string",
       "format": "date",
-      "type": "string"
-    },
-    "api_version": {
-      "description": "Version of the API used.",
-      "example": 1,
-      "type": "integer"
-    },
-    "party": {
-      "description": "An array of Party",
-      "items": {
-        "$ref": "party.json"
-      },
-      "minItems": 1,
-      "type": "array"
+      "example": "2019-01-02"
     }
-  },
-  "description": "Schema of a booking preparation request."
+  }
 }

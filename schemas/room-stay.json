@@ -1,26 +1,26 @@
 {
-  "type": "object",
   "title": "RoomStay Object",
+  "type": "object",
   "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an room stay.",
   "required": [
     "party",
     "traveler_first_name",
     "traveler_last_name"
   ],
   "properties": {
+    "party": {
+      "$ref": "party.json"
+    },
     "traveler_last_name": {
       "description": "Last name of the primary user staying in this room.",
-      "example": "Palmer",
-      "type": "string"
+      "type": "string",
+      "example": "Palmer"
     },
     "traveler_first_name": {
       "description": "First name of the primary user staying in this room.",
-      "example": "Christopher",
-      "type": "string"
-    },
-    "party": {
-      "$ref": "party.json"
+      "type": "string",
+      "example": "Christopher"
     }
-  },
-  "description": "Schema of an room stay."
+  }
 }

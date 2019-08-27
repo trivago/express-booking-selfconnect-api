@@ -1,7 +1,8 @@
 {
-  "type": "object",
   "title": "Reservation object",
+  "type": "object",
   "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an reservation.",
   "required": [
     "reservation_id",
     "status",
@@ -15,32 +16,31 @@
     "receipt"
   ],
   "properties": {
-    "checkout_date": {
-      "description": "The check-out date of the user in YYYY-MM-DD.",
-      "example": "2019-01-02",
+    "rooms": {
+      "description": "An array of RoomStay objects.",
+      "type": "array",
+      "items": {
+        "$ref": "room-stay.json"
+      }
+    },
+    "checkin_date": {
+      "description": "The check-in date of the user in YYYY-MM-DD.",
+      "type": "string",
       "format": "date",
-      "type": "string"
+      "example": "2019-01-01"
     },
     "receipt": {
       "description": "Information about the pricing on the reservation.",
       "$ref": "receipt.json"
     },
-    "comments": {
-      "description": "Generic reservation comments field.",
-      "deprecated": true,
-      "type": "string"
+    "customer": {
+      "$ref": "customer.json"
     },
-    "rooms": {
-      "description": "An array of RoomStay objects.",
-      "items": {
-        "$ref": "room-stay.json"
-      },
-      "type": "array"
-    },
-    "legal_text": {
-      "description": "Describes any legal requirements for the hotel. If an advertiser has a single policy across all bookings, return\nthe advertiser's legal text here (e. g. Terms of Service and Privacy Policy).",
-      "deprecated": true,
-      "type": "string"
+    "checkout_date": {
+      "description": "The check-out date of the user in YYYY-MM-DD.",
+      "type": "string",
+      "format": "date",
+      "example": "2019-01-02"
     },
     "status": {
       "enum": [
@@ -51,33 +51,33 @@
       ],
       "example": "Booked"
     },
-    "hotel": {
-      "$ref": "hotel-details.json"
-    },
-    "customer": {
-      "$ref": "customer.json"
-    },
-    "checkin_date": {
-      "description": "The check-in date of the user in YYYY-MM-DD.",
-      "example": "2019-01-01",
-      "format": "date",
-      "type": "string"
-    },
     "partner_reference": {
       "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.",
-      "example": "1",
-      "type": "string"
+      "type": "string",
+      "example": "1"
     },
-    "reservation_id": {
-      "description": "The advertiser's unique id for this reservation. Must be used as booking_id in the tracking pixel.",
-      "example": "XXX123",
-      "type": "string"
+    "comments": {
+      "description": "Generic reservation comments field.",
+      "type": "string",
+      "deprecated": true
     },
     "confirmation_url": {
       "description": "Deep link to the reservation confirmation page. The confirmation URL is displayed to the user after a booking has\nbeen confirmed.\nSince this URL is displayed to the user, it has to redirect to a page owned by the booked property which\ndisplays any relevant confirmation codes, and confirms the dates, rooms and final price for the booking.\nPlease provide an empty string, if the confirmation page should be hosted by trivago.",
-      "example": "https://advertiser.com/confirmation",
-      "type": "string"
+      "type": "string",
+      "example": "https://advertiser.com/confirmation"
+    },
+    "hotel": {
+      "$ref": "hotel-details.json"
+    },
+    "reservation_id": {
+      "description": "The advertiser's unique id for this reservation. Must be used as booking_id in the tracking pixel.",
+      "type": "string",
+      "example": "XXX123"
+    },
+    "legal_text": {
+      "description": "Describes any legal requirements for the hotel. If an advertiser has a single policy across all bookings, return\nthe advertiser's legal text here (e. g. Terms of Service and Privacy Policy).",
+      "type": "string",
+      "deprecated": true
     }
-  },
-  "description": "Schema of an reservation."
+  }
 }

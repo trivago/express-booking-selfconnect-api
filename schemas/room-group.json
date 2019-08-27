@@ -1,24 +1,24 @@
 {
-  "type": "object",
   "title": "RoomGroup Object",
+  "type": "object",
   "$schema": "http://json-schema.org/schema#",
+  "description": "Schema for a Room Group object",
   "required": [
     "code",
     "name"
   ],
   "properties": {
-    "code": {
-      "description": "A unique room indentifier",
-      "type": "string"
-    },
     "description": {
       "description": "Description of the real room limited to 1000 characters.",
+      "type": "string"
+    },
+    "code": {
+      "description": "A unique room indentifier",
       "type": "string"
     },
     "name": {
       "description": "Name of the real room (without amenity/rate relations).",
       "type": "string"
     }
-  },
-  "description": "Schema for a Room Group object"
+  }
 }
