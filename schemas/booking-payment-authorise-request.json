@@ -1,10 +1,15 @@
 {
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an booking payment confirm request.",
+  "additionalProperties": false,
   "required": [
     "api_version",
     "reservation_id",
     "callback_parameters",
     "partner_data"
   ],
+  "type": "object",
+  "title": "Booking Payment Confirm Request",
   "properties": {
     "callback_parameters": {
       "description": "Params added by the PSP to the callback URL.",
@@ -24,10 +29,5 @@
       "type": "string",
       "example": "1234"
     }
-  },
-  "description": "Schema of an booking payment confirm request.",
-  "type": "object",
-  "title": "Booking Payment Confirm Request",
-  "$schema": "http://json-schema.org/schema#",
-  "additionalProperties": false
+  }
 }

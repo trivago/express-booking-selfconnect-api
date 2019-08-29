@@ -4,8 +4,26 @@
     "order_id",
     "type"
   ],
+  "additionalProperties": false,
   "type": "object",
+  "$schema": "http://json-schema.org/schema#",
   "properties": {
+    "callback_error": {
+      "description": "Callback for failed 3ds-authorisation (if necessary).",
+      "type": "string",
+      "example": "https://advertiser.com/callback/error"
+    },
+    "type": {
+      "enum": [
+        "Tokenization"
+      ],
+      "example": "Tokenization"
+    },
+    "cvv": {
+      "description": "CVV/CVC - mandatory if the advertiser's payment service provider's tokenization does not include CVV/CVC.",
+      "type": "string",
+      "example": "123"
+    },
     "order_id": {
       "description": "Order id trivago has created when requesting the token from the advertiser's payment service provider.",
       "type": "string",
@@ -16,33 +34,15 @@
       "type": "string",
       "example": "https://advertiser.com/callback/success"
     },
-    "type": {
-      "enum": [
-        "Tokenization"
-      ],
-      "example": "Tokenization"
-    },
-    "callback_cancel": {
-      "description": "Callback for canceled 3ds-authorisation (if necessary).",
-      "type": "string",
-      "example": "https://advertiser.com/callback/cancel"
-    },
     "token": {
       "description": "Token trivago has received from the advertiser's payment service provider.",
       "type": "string",
       "example": "tolken_123"
     },
-    "cvv": {
-      "description": "CVV/CVC - mandatory if the advertiser's payment service provider's tokenization does not include CVV/CVC.",
+    "callback_cancel": {
+      "description": "Callback for canceled 3ds-authorisation (if necessary).",
       "type": "string",
-      "example": "123"
-    },
-    "callback_error": {
-      "description": "Callback for failed 3ds-authorisation (if necessary).",
-      "type": "string",
-      "example": "https://advertiser.com/callback/error"
+      "example": "https://advertiser.com/callback/cancel"
     }
-  },
-  "$schema": "http://json-schema.org/schema#",
-  "additionalProperties": false
+  }
 }

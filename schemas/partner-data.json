@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/schema#",
   "description": "Schema of partner data",
   "type": [
     "number",
@@ -7,7 +8,6 @@
     "integer"
   ],
   "title": "Partner Data object",
-  "$schema": "http://json-schema.org/schema#",
   "example": {
     "rate_key": "53f3"
   }

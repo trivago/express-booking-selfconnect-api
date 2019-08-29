@@ -1,9 +1,13 @@
 {
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an room stay.",
+  "type": "object",
   "required": [
     "party",
     "traveler_first_name",
     "traveler_last_name"
   ],
+  "title": "RoomStay Object",
   "properties": {
     "traveler_first_name": {
       "description": "First name of the primary user staying in this room.",
@@ -18,9 +22,5 @@
     "party": {
       "$ref": "party.json"
     }
-  },
-  "description": "Schema of an room stay.",
-  "type": "object",
-  "title": "RoomStay Object",
-  "$schema": "http://json-schema.org/schema#"
+  }
 }

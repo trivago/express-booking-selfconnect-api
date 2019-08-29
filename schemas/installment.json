@@ -6,56 +6,56 @@
     "installment_amount",
     "interest_charge"
   ],
+  "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-    "id": {
-      "description": "Identifier for that installment plan",
-      "type": "string",
-      "example": "1-M-EUR"
-    },
-    "last_rate": {
-      "$ref": "price.json"
-    },
-    "extra_charge": {
-      "$ref": "price.json"
-    },
-    "discount": {
-      "$ref": "price.json"
+    "interest_charge": {
+      "format": "float",
+      "description": "Interest rate per installment",
+      "type": "number"
     },
     "installment_amount": {
+      "$ref": "price.json"
+    },
+    "number": {
+      "description": "Number of installments (must be >1)",
+      "type": "integer",
+      "example": 8
+    },
+    "last_rate": {
       "$ref": "price.json"
     },
     "swift_code": {
       "description": "SWIFT-BIC - Bank Identifier Code",
       "type": "string"
     },
-    "initial_rate": {
+    "discount": {
       "$ref": "price.json"
     },
     "frequency": {
-      "description": "Frequency of the installment payments. Must be one of the following values:\n- B: Biweekly\n- M: Monthly (default)\n- W: Weekly",
-      "type": "string",
       "enum": [
         "B",
         "M",
         "W"
       ],
+      "description": "Frequency of the installment payments. Must be one of the following values:\n- B: Biweekly\n- M: Monthly (default)\n- W: Weekly",
+      "type": "string",
       "example": "M"
     },
-    "interest_charge": {
-      "description": "Interest rate per installment",
-      "type": "number",
-      "format": "float"
+    "id": {
+      "description": "Identifier for that installment plan",
+      "type": "string",
+      "example": "1-M-EUR"
+    },
+    "extra_charge": {
+      "$ref": "price.json"
+    },
+    "initial_rate": {
+      "$ref": "price.json"
     },
     "first_installment": {
       "description": "First installment starts after x iterations according to the frequency value",
       "type": "integer"
-    },
-    "number": {
-      "description": "Number of installments (must be >1)",
-      "type": "integer",
-      "example": 8
     }
-  },
-  "$schema": "http://json-schema.org/schema#"
+  }
 }

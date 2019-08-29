@@ -7,8 +7,20 @@
     "cvv",
     "type"
   ],
+  "additionalProperties": false,
   "type": "object",
+  "$schema": "http://json-schema.org/schema#",
   "properties": {
+    "cardholder_name": {
+      "description": "Name on the credit card holder.",
+      "type": "string",
+      "example": "Christopher Palmer"
+    },
+    "callback_cancel": {
+      "description": "Callback for canceled 3ds-authorisation (if necessary).",
+      "type": "string",
+      "example": "https://advertiser.com/callback/cancel"
+    },
     "callback_error": {
       "description": "Callback for failed 3ds-authorisation (if necessary).",
       "type": "string",
@@ -18,24 +30,6 @@
       "description": "Credit card number used for the booking.",
       "type": "string",
       "example": "41111111111111"
-    },
-    "callback_success": {
-      "description": "Callback for successful 3ds-authorisation (if necessary).",
-      "type": "string",
-      "example": "https://advertiser.com/callback/success"
-    },
-    "callback_cancel": {
-      "description": "Callback for canceled 3ds-authorisation (if necessary).",
-      "type": "string",
-      "example": "https://advertiser.com/callback/cancel"
-    },
-    "type": {
-      "description": "Payment type",
-      "type": "string",
-      "enum": [
-        "PaymentCard"
-      ],
-      "example": "PaymentCard"
     },
     "authentication": {
       "description": "The type of 3DS authentication to use.",
@@ -52,6 +46,24 @@
         }
       ]
     },
+    "cvv": {
+      "description": "The cvv number of the credit card used for the booking.",
+      "type": "string",
+      "example": "123"
+    },
+    "type": {
+      "enum": [
+        "PaymentCard"
+      ],
+      "description": "Payment type",
+      "type": "string",
+      "example": "PaymentCard"
+    },
+    "callback_success": {
+      "description": "Callback for successful 3ds-authorisation (if necessary).",
+      "type": "string",
+      "example": "https://advertiser.com/callback/success"
+    },
     "expiration_year": {
       "description": "Expiration year as four digit string.",
       "type": "string",
@@ -61,18 +73,6 @@
       "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)",
       "type": "string",
       "example": "12"
-    },
-    "cvv": {
-      "description": "The cvv number of the credit card used for the booking.",
-      "type": "string",
-      "example": "123"
-    },
-    "cardholder_name": {
-      "description": "Name on the credit card holder.",
-      "type": "string",
-      "example": "Christopher Palmer"
     }
-  },
-  "$schema": "http://json-schema.org/schema#",
-  "additionalProperties": false
+  }
 }

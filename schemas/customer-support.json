@@ -1,42 +1,42 @@
 {
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an customer support.",
+  "type": "object",
   "required": [
     "phone_numbers",
     "emails"
   ],
+  "title": "Customer Support object",
   "properties": {
-    "emails": {
-      "description": "Array of customer support e-mail addresses.",
-      "type": "array",
-      "items": {
-        "$ref": "contact.json"
-      },
-      "example": {
-        "description": "Email",
-        "contact": "thomas.mair@trivago.com"
-      }
-    },
     "urls": {
-      "description": "Array of url redirecting to customer support information.",
-      "type": "array",
       "deprecated": true,
+      "description": "Array of url redirecting to customer support information.",
       "items": {
         "$ref": "contact.json"
       },
+      "type": "array",
       "example": {
         "description": "Url",
         "contact": "http://www.trivago.com"
       }
     },
-    "phone_numbers": {
-      "description": "Array of customer support phone numbers. The first Contact of the phone_numbers array will be display to the user.",
-      "type": "array",
+    "emails": {
+      "description": "Array of customer support e-mail addresses.",
       "items": {
         "$ref": "contact.json"
+      },
+      "type": "array",
+      "example": {
+        "description": "Email",
+        "contact": "thomas.mair@trivago.com"
       }
+    },
+    "phone_numbers": {
+      "description": "Array of customer support phone numbers. The first Contact of the phone_numbers array will be display to the user.",
+      "items": {
+        "$ref": "contact.json"
+      },
+      "type": "array"
     }
-  },
-  "description": "Schema of an customer support.",
-  "type": "object",
-  "title": "Customer Support object",
-  "$schema": "http://json-schema.org/schema#"
+  }
 }

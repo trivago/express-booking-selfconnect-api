@@ -1,8 +1,13 @@
 {
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema response is not OK",
+  "additionalProperties": false,
   "required": [
     "errors",
     "customer_support"
   ],
+  "type": "object",
+  "title": "Error Response",
   "properties": {
     "customer_support": {
       "$ref": "customer-support.json",
@@ -10,15 +15,10 @@
     },
     "errors": {
       "description": "Array of errors",
-      "type": "array",
       "items": {
         "$ref": "error.json"
-      }
+      },
+      "type": "array"
     }
-  },
-  "description": "Schema response is not OK",
-  "type": "object",
-  "title": "Error Response",
-  "$schema": "http://json-schema.org/schema#",
-  "additionalProperties": false
+  }
 }

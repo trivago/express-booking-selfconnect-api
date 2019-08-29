@@ -1,24 +1,24 @@
 {
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema of an authorisation.",
+  "additionalProperties": false,
   "required": [
     "reservation_id",
     "partner_data",
     "target"
   ],
+  "type": "object",
+  "title": "Authorisation object",
   "properties": {
+    "target": {
+      "$ref": "authorisation-target.json"
+    },
     "partner_data": {
       "$ref": "partner-data.json"
     },
     "reservation_id": {
       "description": "The advertiser's unique id for the corresponding reservation. Must be used as booking_id in the tracking pixel.",
       "type": "string"
-    },
-    "target": {
-      "$ref": "authorisation-target.json"
     }
-  },
-  "description": "Schema of an authorisation.",
-  "type": "object",
-  "title": "Authorisation object",
-  "$schema": "http://json-schema.org/schema#",
-  "additionalProperties": false
+  }
 }

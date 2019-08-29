@@ -8,8 +8,14 @@
     "cvv",
     "billing_address"
   ],
+  "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
+    "cardholder_name": {
+      "description": "Name on the credit card holder.",
+      "type": "string",
+      "example": "Christopher Palmer"
+    },
     "card_number": {
       "description": "Credit card number used for the booking.",
       "type": "string",
@@ -20,30 +26,24 @@
       "type": "string",
       "example": "2025"
     },
-    "billing_address": {
-      "$ref": "address.json"
+    "cvv": {
+      "description": "The cvv number of the credit card used for the booking.",
+      "type": "string",
+      "example": "507"
     },
     "card_type": {
       "description": "The type of credit card used.",
       "type": "string",
       "example": "Visa"
     },
+    "billing_address": {
+      "$ref": "address.json"
+    },
     "expiration_month": {
       "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12).",
       "type": "string",
       "example": "09"
-    },
-    "cvv": {
-      "description": "The cvv number of the credit card used for the booking.",
-      "type": "string",
-      "example": "507"
-    },
-    "cardholder_name": {
-      "description": "Name on the credit card holder.",
-      "type": "string",
-      "example": "Christopher Palmer"
     }
   },
-  "deprecated": true,
-  "$schema": "http://json-schema.org/schema#"
+  "deprecated": true
 }
