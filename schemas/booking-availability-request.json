@@ -1,8 +1,4 @@
 {
-  "title": "Booking Availability Request",
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of booking availability request object",
   "required": [
     "api_version",
     "hotel",
@@ -14,16 +10,37 @@
     "user_country"
   ],
   "properties": {
+    "api_version": {
+      "description": "Version of the API used.",
+      "type": "integer",
+      "example": 1
+    },
+    "hotel": {
+      "$ref": "hotel.json"
+    },
+    "lang": {
+      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.",
+      "type": "string",
+      "example": "en_US"
+    },
     "party": {
-      "minItems": 1,
       "description": "Array of JSON objects inlcuding number of adults and children requested.\nEach party object represents the occupation for a separate room.\nFor example, \"party\":[{\"adults\": 3}] is a request for one room that accommodates three adults,\nor \"party\":[{\"adults\": 2},{\"adults\": 2, \"children\": [11,8]}] is a request for one room for two adults\nand one room for two adults and two children aged 11 and 8.",
       "type": "array",
       "items": {
         "$ref": "party.json"
-      }
+      },
+      "minItems": 1
     },
-    "hotel": {
-      "$ref": "hotel.json"
+    "user_country": {
+      "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request.",
+      "type": "string",
+      "example": "US"
+    },
+    "end_date": {
+      "description": "The user's check-out date in YYYY-MM-DD",
+      "type": "string",
+      "example": "2019-01-02",
+      "format": "date"
     },
     "currency": {
       "description": "ISO 4217 currency code. All prices, taxes, fees, and discount amounts should be returned in this requested currency.",
@@ -33,29 +50,12 @@
     "start_date": {
       "description": "The user's check-in date in YYYY-MM-DD",
       "type": "string",
-      "format": "date",
-      "example": "2019-01-01"
-    },
-    "lang": {
-      "description": "Language code (see Supported Languages)[http://developer.trivago.com/expressbooking/supported-languages.html], which identifies the corresponding language and POS.",
-      "type": "string",
-      "example": "en_US"
-    },
-    "user_country": {
-      "description": "ISO 3166-1 alpha-2 country code corresponding to the user making this request.",
-      "type": "string",
-      "example": "US"
-    },
-    "api_version": {
-      "description": "Version of the API used.",
-      "type": "integer",
-      "example": 1
-    },
-    "end_date": {
-      "description": "The user's check-out date in YYYY-MM-DD",
-      "type": "string",
-      "format": "date",
-      "example": "2019-01-02"
+      "example": "2019-01-01",
+      "format": "date"
     }
-  }
+  },
+  "description": "Schema of booking availability request object",
+  "type": "object",
+  "title": "Booking Availability Request",
+  "$schema": "http://json-schema.org/schema#"
 }

@@ -1,8 +1,4 @@
 {
-  "title": "Adyen authentication object",
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of Adyen specific authorisation",
   "required": [
     "authentication_value",
     "ds_trans_id",
@@ -16,33 +12,37 @@
       "description": "The `threeDSServerTransID` value as defined in the 3D Secure 2 specification.",
       "type": "string"
     },
-    "type": {
-      "type": "string",
-      "enum": [
-        "Adyen"
-      ],
-      "example": "Adyen"
+    "message_version": {
+      "description": "The `messageVersion` value as defined in the 3D Secure 2 specification.",
+      "type": "string"
     },
     "eci": {
       "description": "The `eci` value as defined in the 3D Secure 2 specification.",
       "type": "string"
     },
-    "message_version": {
-      "description": "The `messageVersion` value as defined in the 3D Secure 2 specification.",
-      "type": "string"
+    "type": {
+      "type": "string",
+      "enum": [
+        "3DS2"
+      ],
+      "example": "3DS2"
     },
     "authentication_value": {
       "description": "The `authenticationValue` value as defined in the 3D Secure 2 specification.",
       "type": "string"
     },
-    "ds_trans_id": {
-      "description": "The `dsTransID` value as defined in the 3D Secure 2 specification.",
-      "type": "string"
-    },
     "trans_status": {
       "description": "The `transStatus` value as defined in the 3D Secure 2 specification.",
       "type": "string"
+    },
+    "ds_trans_id": {
+      "description": "The `dsTransID` value as defined in the 3D Secure 2 specification.",
+      "type": "string"
     }
   },
+  "description": "Schema of 3DS2 specific authorisation",
+  "type": "object",
+  "title": "3DS2 authentication object",
+  "$schema": "http://json-schema.org/schema#",
   "additionalProperties": false
 }

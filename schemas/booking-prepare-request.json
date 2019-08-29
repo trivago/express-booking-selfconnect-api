@@ -1,8 +1,4 @@
 {
-  "title": "Booking Prepare",
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of a booking preparation request.",
   "required": [
     "checkin_date",
     "checkout_date",
@@ -12,18 +8,32 @@
     "party"
   ],
   "properties": {
+    "partner_reference": {
+      "description": "Advertiser's unique hotel id.",
+      "type": "string",
+      "example": "1"
+    },
     "api_version": {
       "description": "Version of the API used.",
       "type": "integer",
       "example": 1
     },
     "party": {
-      "minItems": 1,
       "description": "An array of Party",
       "type": "array",
       "items": {
         "$ref": "party.json"
-      }
+      },
+      "minItems": 1
+    },
+    "checkout_date": {
+      "description": "The user's check-out date in YYYY-MM-DD.",
+      "type": "string",
+      "example": "2019-01-02",
+      "format": "date"
+    },
+    "partner_data": {
+      "$ref": "partner-data.json"
     },
     "reference_id": {
       "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be treated as a \"confirmation\" id.",
@@ -33,22 +43,12 @@
     "checkin_date": {
       "description": "The user's check-in date in YYYY-MM-DD.",
       "type": "string",
-      "format": "date",
-      "example": "2019-01-01"
-    },
-    "partner_data": {
-      "$ref": "partner-data.json"
-    },
-    "partner_reference": {
-      "description": "Advertiser's unique hotel id.",
-      "type": "string",
-      "example": "1"
-    },
-    "checkout_date": {
-      "description": "The user's check-out date in YYYY-MM-DD.",
-      "type": "string",
-      "format": "date",
-      "example": "2019-01-02"
+      "example": "2019-01-01",
+      "format": "date"
     }
-  }
+  },
+  "description": "Schema of a booking preparation request.",
+  "type": "object",
+  "title": "Booking Prepare",
+  "$schema": "http://json-schema.org/schema#"
 }

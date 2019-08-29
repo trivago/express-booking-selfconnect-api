@@ -1,21 +1,21 @@
 {
-  "type": "object",
   "required": [
     "holder_name",
     "iban",
     "type"
   ],
+  "type": "object",
   "properties": {
-    "holder_name": {
-      "description": "Name of account holder.",
-      "type": "string",
-      "example": "Christopher Palmer"
-    },
     "type": {
       "enum": [
         "BankAccount"
       ],
       "example": "BankAccount"
+    },
+    "holder_name": {
+      "description": "Name of account holder.",
+      "type": "string",
+      "example": "Christopher Palmer"
     },
     "iban": {
       "description": "IBAN of bank account.",
@@ -23,6 +23,6 @@
       "example": "DE27100777770209299700"
     }
   },
-  "additionalProperties": false,
-  "$schema": "http://json-schema.org/schema#"
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false
 }

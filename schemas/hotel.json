@@ -1,8 +1,4 @@
 {
-  "title": "Hotel object",
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of an hotel.",
   "required": [
     "item_id",
     "partner_reference"
@@ -18,5 +14,9 @@
       "type": "string",
       "example": "1"
     }
-  }
+  },
+  "description": "Schema of an hotel.",
+  "type": "object",
+  "title": "Hotel object",
+  "$schema": "http://json-schema.org/schema#"
 }

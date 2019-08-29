@@ -1398,9 +1398,80 @@
                 },
                 "type": "object"
             },
-            "payment-authentication-adyen": {
-                "title": "Adyen authentication object",
-                "description": "Schema of Adyen specific authorisation",
+            "payment-authentication-no-auth-required": {
+                "title": "No Authenticatoin Required response object",
+                "description": "Schema for No Authentication Required authorisation",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "NoAuthRequired"
+                        ],
+                        "example": "NoAuthRequired"
+                    }
+                },
+                "type": "object",
+                "additionalProperties": false
+            },
+            "payment-authentication-3ds1": {
+                "title": "3DS1 authentication object",
+                "description": "Schema of 3DS1 specific authorisation",
+                "required": [
+                    "cavv",
+                    "xid",
+                    "threed_authenticated_response",
+                    "cavv_algorithm",
+                    "threed_offered_response",
+                    "eci",
+                    "acquirer_code"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "3DS1"
+                        ],
+                        "example": "3DS1"
+                    },
+                    "cavv": {
+                        "description": "The Cardholder Authentication Verification Value for the 3DS authentication session",
+                        "type": "string"
+                    },
+                    "xid": {
+                        "description": "The 3DS transaction ID of the 3DS session",
+                        "type": "string"
+                    },
+                    "threed_authenticated_response": {
+                        "description": "The raw 3DS authentication result from the card issuer.",
+                        "type": "string"
+                    },
+                    "cavv_algorithm": {
+                        "description": "The algorithm used to generate the 3DS Cardholder Authentication Verification Value.",
+                        "type": "string"
+                    },
+                    "threed_offered_response": {
+                        "description": "The raw enrollment result from the 3DS directory services of the card schemes.",
+                        "type": "string"
+                    },
+                    "eci": {
+                        "description": "The Electronic Commerce Indicator returned from the schemes for the 3DS payment session.",
+                        "type": "string"
+                    },
+                    "authorisation_mid": {
+                        "description": "This is the MID of the acquirer account that you want to authorise the transaction with.",
+                        "type": "string"
+                    },
+                    "acquirer_code": {
+                        "description": "The name of the acquirer processing the payment request.",
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "additionalProperties": false
+            },
+            "payment-authentication-3ds2": {
+                "title": "3DS2 authentication object",
+                "description": "Schema of 3DS2 specific authorisation",
                 "required": [
                     "authentication_value",
                     "ds_trans_id",
@@ -1413,9 +1484,9 @@
                     "type": {
                         "type": "string",
                         "enum": [
-                            "Adyen"
+                            "3DS2"
                         ],
-                        "example": "Adyen"
+                        "example": "3DS2"
                     },
                     "authentication_value": {
                         "description": "The `authenticationValue` value as defined in the 3D Secure 2 specification.",
@@ -1579,11 +1650,17 @@
                         "example": "123"
                     },
                     "authentication": {
-                        "description": "The type of PSD2 authentication to use.",
+                        "description": "The type of 3DS authentication to use.",
                         "type": "object",
                         "oneOf": [
                             {
-                                "$ref": "#/components/schemas/payment-authentication-adyen"
+                                "$ref": "#/components/schemas/payment-authentication-3ds1"
+                            },
+                            {
+                                "$ref": "#/components/schemas/payment-authentication-3ds2"
+                            },
+                            {
+                                "$ref": "#/components/schemas/payment-authentication-no-auth-required"
                             }
                         ]
                     }

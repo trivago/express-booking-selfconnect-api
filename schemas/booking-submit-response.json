@@ -1,25 +1,19 @@
 {
-  "title": "Booking Submit Response",
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of booking submit response.",
   "required": [
     "reference_id",
     "status",
     "customer_support"
   ],
   "properties": {
+    "customer_support": {
+      "$ref": "customer-support.json"
+    },
     "problems": {
       "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\"",
       "type": "array",
       "items": {
         "$ref": "problem.json"
       }
-    },
-    "reference_id": {
-      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
-      "type": "string",
-      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
     },
     "status": {
       "enum": [
@@ -30,14 +24,20 @@
       ],
       "example": "Success"
     },
-    "authorisation": {
-      "$ref": "authorisation.json"
-    },
-    "customer_support": {
-      "$ref": "customer-support.json"
+    "reference_id": {
+      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
+      "type": "string",
+      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
     },
     "reservation": {
       "$ref": "reservation.json"
+    },
+    "authorisation": {
+      "$ref": "authorisation.json"
     }
-  }
+  },
+  "description": "Schema of booking submit response.",
+  "type": "object",
+  "title": "Booking Submit Response",
+  "$schema": "http://json-schema.org/schema#"
 }

@@ -1,8 +1,4 @@
 {
-  "title": "Customer object",
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of an customer.",
   "required": [
     "first_name",
     "last_name",
@@ -11,11 +7,6 @@
     "country"
   ],
   "properties": {
-    "first_name": {
-      "description": "First name of the user submitting the booking.",
-      "type": "string",
-      "example": "Christopher"
-    },
     "email": {
       "description": "E-mail address of the user submitting the booking.",
       "type": "string",
@@ -31,10 +22,19 @@
       "type": "string",
       "example": "US"
     },
+    "first_name": {
+      "description": "First name of the user submitting the booking.",
+      "type": "string",
+      "example": "Christopher"
+    },
     "phone_number": {
       "description": "Phone number of the user submitting the booking.",
       "type": "string",
       "example": "9-(590)311-9256"
     }
-  }
+  },
+  "description": "Schema of an customer.",
+  "type": "object",
+  "title": "Customer object",
+  "$schema": "http://json-schema.org/schema#"
 }

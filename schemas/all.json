@@ -1,91 +1,106 @@
 {
   "oneOf": [
     {
-      "$ref": "hotel.json"
-    },
-    {
-      "$ref": "booking-submit-request.json"
-    },
-    {
-      "$ref": "receipt.json"
-    },
-    {
-      "$ref": "payment-method.json"
-    },
-    {
-      "$ref": "payment.json"
+      "$ref": "booking-submit-response.json"
     },
     {
       "$ref": "booking-submit-request-payment-method.json"
     },
     {
-      "$ref": "booking-prepare-request.json"
+      "$ref": "hotel.json"
     },
     {
-      "$ref": "hotel-details.json"
+      "$ref": "booking-cancel-response.json"
     },
     {
-      "$ref": "payment-option.json"
+      "$ref": "contact.json"
     },
     {
-      "$ref": "manual-payment-parameters.json"
+      "$ref": "payment-method.json"
     },
     {
-      "$ref": "line-item.json"
+      "$ref": "booking-payment-authorise-response.json"
     },
     {
-      "$ref": "cancellation-penalty.json"
+      "$ref": "external-provider-parameters.json"
     },
     {
-      "$ref": "booking-availability-request.json"
+      "$ref": "discount.json"
+    },
+    {
+      "$ref": "room-group.json"
     },
     {
       "$ref": "booking-prepare-response-sold-out.json"
     },
     {
-      "$ref": "photo.json"
-    },
-    {
-      "$ref": "bank-account-parameters.json"
-    },
-    {
-      "$ref": "customer-support.json"
-    },
-    {
-      "$ref": "authorisation-target.json"
-    },
-    {
-      "$ref": "cancellation.json"
-    },
-    {
-      "$ref": "party.json"
-    },
-    {
-      "$ref": "installment.json"
-    },
-    {
-      "$ref": "payment-card-parameters.json"
-    },
-    {
-      "$ref": "room-type.json"
-    },
-    {
-      "$ref": "tokenization-parameters.json"
-    },
-    {
-      "$ref": "booking-prepare-response.json"
-    },
-    {
       "$ref": "booking-verify-response.json"
     },
     {
-      "$ref": "payment-authentication-adyen.json"
+      "$ref": "authorisation.json"
     },
     {
       "$ref": "occupancy.json"
     },
     {
+      "$ref": "installment.json"
+    },
+    {
+      "$ref": "payment-authentication-3ds1.json"
+    },
+    {
+      "$ref": "tokenization-parameters.json"
+    },
+    {
+      "$ref": "receipt.json"
+    },
+    {
+      "$ref": "payment-option.json"
+    },
+    {
+      "$ref": "price.json"
+    },
+    {
+      "$ref": "error-response.json"
+    },
+    {
+      "$ref": "customer.json"
+    },
+    {
+      "$ref": "error.json"
+    },
+    {
+      "$ref": "line-item.json"
+    },
+    {
+      "$ref": "booking-cancel-request.json"
+    },
+    {
+      "$ref": "cancellation.json"
+    },
+    {
+      "$ref": "booking-prepare-response-available.json"
+    },
+    {
+      "$ref": "address.json"
+    },
+    {
+      "$ref": "authorisation-target.json"
+    },
+    {
+      "$ref": "hotel-details.json"
+    },
+    {
+      "$ref": "bank-account-parameters.json"
+    },
+    {
       "$ref": "booking-availability-response-success.json"
+    },
+    {
+      "$ref": "booking-verify-request.json"
+    },
+    {
+      "$ref": "manual-payment-parameters.json"
     },
     {
       "$ref": "reservation.json"
@@ -94,67 +109,58 @@
       "$ref": "booking-payment-authorise-request.json"
     },
     {
-      "$ref": "address.json"
+      "$ref": "room-type.json"
     },
     {
-      "$ref": "booking-prepare-response-available.json"
+      "$ref": "booking-availability-request.json"
     },
     {
-      "$ref": "customer.json"
+      "$ref": "payment-card-parameters.json"
     },
     {
-      "$ref": "booking-cancel-response.json"
-    },
-    {
-      "$ref": "booking-submit-response.json"
-    },
-    {
-      "$ref": "problem.json"
-    },
-    {
-      "$ref": "price.json"
-    },
-    {
-      "$ref": "partner-data.json"
-    },
-    {
-      "$ref": "error-response.json"
-    },
-    {
-      "$ref": "discount.json"
-    },
-    {
-      "$ref": "authorisation.json"
-    },
-    {
-      "$ref": "room-group.json"
-    },
-    {
-      "$ref": "booking-verify-request.json"
-    },
-    {
-      "$ref": "promotion.json"
-    },
-    {
-      "$ref": "external-provider-parameters.json"
+      "$ref": "customer-support.json"
     },
     {
       "$ref": "room-stay.json"
     },
     {
+      "$ref": "payment.json"
+    },
+    {
+      "$ref": "party.json"
+    },
+    {
+      "$ref": "cancellation-penalty.json"
+    },
+    {
+      "$ref": "booking-prepare-request.json"
+    },
+    {
       "$ref": "booking-availability-response.json"
     },
     {
-      "$ref": "contact.json"
+      "$ref": "booking-submit-request.json"
     },
     {
-      "$ref": "error.json"
+      "$ref": "photo.json"
     },
     {
-      "$ref": "booking-cancel-request.json"
+      "$ref": "payment-authentication-no-auth-required.json"
     },
     {
-      "$ref": "booking-payment-authorise-response.json"
+      "$ref": "payment-authentication-3ds2.json"
+    },
+    {
+      "$ref": "booking-prepare-response.json"
+    },
+    {
+      "$ref": "partner-data.json"
+    },
+    {
+      "$ref": "promotion.json"
+    },
+    {
+      "$ref": "problem.json"
     }
   ]
 }

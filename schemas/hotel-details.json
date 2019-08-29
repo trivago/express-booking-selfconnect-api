@@ -1,8 +1,4 @@
 {
-  "title": "Hotel details object",
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of a hotel details object",
   "required": [
     "name",
     "address1",
@@ -10,6 +6,37 @@
     "country"
   ],
   "properties": {
+    "country": {
+      "description": "ISO 3166 country code",
+      "type": "string"
+    },
+    "address2": {
+      "description": "Additional address information about the hotel",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the hotel",
+      "type": "string"
+    },
+    "phone": {
+      "description": "Phone number of the hotel",
+      "type": "string"
+    },
+    "amenities": {
+      "description": "Amenities that are generally available at the hotel, not specific to a room. Each string is free text which\nshould be in the language indicated by the 'lang' parameter",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "url": {
+      "description": "URL for general hotel contact",
+      "type": "string"
+    },
+    "postal_code": {
+      "description": "Zip code or postal code",
+      "type": "string"
+    },
     "photos": {
       "description": "URLs for photos of the hotel to be displayed during the booking process. If no photos are available, an empty\narray should be returned.",
       "type": "array",
@@ -30,50 +57,23 @@
       "type": "number",
       "format": "float"
     },
-    "phone": {
-      "description": "Phone number of the hotel",
-      "type": "string"
-    },
     "state": {
       "description": "State or province",
-      "type": "string"
-    },
-    "postal_code": {
-      "description": "Zip code or postal code",
       "type": "string"
     },
     "city": {
       "description": "City of the hotel",
       "type": "string"
     },
-    "country": {
-      "description": "ISO 3166 country code",
-      "type": "string"
-    },
-    "name": {
-      "description": "Name of the hotel",
-      "type": "string"
-    },
-    "address2": {
-      "description": "Additional address information about the hotel",
-      "type": "string"
-    },
-    "url": {
-      "description": "URL for general hotel contact",
-      "type": "string"
-    },
     "latitude": {
       "description": "Latitude coordinate",
       "type": "number",
       "format": "float"
-    },
-    "amenities": {
-      "description": "Amenities that are generally available at the hotel, not specific to a room. Each string is free text which\nshould be in the language indicated by the 'lang' parameter",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
     }
   },
-  "deprecated": true
+  "deprecated": true,
+  "description": "Schema of a hotel details object",
+  "type": "object",
+  "title": "Hotel details object",
+  "$schema": "http://json-schema.org/schema#"
 }

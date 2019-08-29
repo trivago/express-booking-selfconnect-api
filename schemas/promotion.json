@@ -1,15 +1,12 @@
 {
-  "title": "Promotion object",
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of a promotion object",
   "required": [
     "type",
     "description"
   ],
   "properties": {
-    "discount": {
-      "$ref": "discount.json"
+    "description": {
+      "description": "A textual description of the promotion. This may be displayed to users and should be in the language indicated\nby the 'lang' parameter provided in the response.",
+      "type": "string"
     },
     "type": {
       "description": "Type of the promotion. A string value must be one of: MOBILE_TYPE",
@@ -18,9 +15,12 @@
         "MOBILE_ONLY"
       ]
     },
-    "description": {
-      "description": "A textual description of the promotion. This may be displayed to users and should be in the language indicated\nby the 'lang' parameter provided in the response.",
-      "type": "string"
+    "discount": {
+      "$ref": "discount.json"
     }
-  }
+  },
+  "description": "Schema of a promotion object",
+  "type": "object",
+  "title": "Promotion object",
+  "$schema": "http://json-schema.org/schema#"
 }

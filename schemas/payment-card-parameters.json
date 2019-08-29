@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "required": [
     "card_number",
     "cardholder_name",
@@ -8,30 +7,8 @@
     "cvv",
     "type"
   ],
+  "type": "object",
   "properties": {
-    "cardholder_name": {
-      "description": "Name on the credit card holder.",
-      "type": "string",
-      "example": "Christopher Palmer"
-    },
-    "type": {
-      "description": "Payment type",
-      "type": "string",
-      "enum": [
-        "PaymentCard"
-      ],
-      "example": "PaymentCard"
-    },
-    "expiration_year": {
-      "description": "Expiration year as four digit string.",
-      "type": "string",
-      "example": "2019"
-    },
-    "cvv": {
-      "description": "The cvv number of the credit card used for the booking.",
-      "type": "string",
-      "example": "123"
-    },
     "callback_error": {
       "description": "Callback for failed 3ds-authorisation (if necessary).",
       "type": "string",
@@ -42,31 +19,60 @@
       "type": "string",
       "example": "41111111111111"
     },
-    "authentication": {
-      "oneOf": [
-        {
-          "$ref": "payment-authentication-adyen.json"
-        }
-      ],
-      "description": "The type of PSD2 authentication to use.",
-      "type": "object"
+    "callback_success": {
+      "description": "Callback for successful 3ds-authorisation (if necessary).",
+      "type": "string",
+      "example": "https://advertiser.com/callback/success"
     },
     "callback_cancel": {
       "description": "Callback for canceled 3ds-authorisation (if necessary).",
       "type": "string",
       "example": "https://advertiser.com/callback/cancel"
     },
-    "callback_success": {
-      "description": "Callback for successful 3ds-authorisation (if necessary).",
+    "type": {
+      "description": "Payment type",
       "type": "string",
-      "example": "https://advertiser.com/callback/success"
+      "enum": [
+        "PaymentCard"
+      ],
+      "example": "PaymentCard"
+    },
+    "authentication": {
+      "description": "The type of 3DS authentication to use.",
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "payment-authentication-3ds1.json"
+        },
+        {
+          "$ref": "payment-authentication-3ds2.json"
+        },
+        {
+          "$ref": "payment-authentication-no-auth-required.json"
+        }
+      ]
+    },
+    "expiration_year": {
+      "description": "Expiration year as four digit string.",
+      "type": "string",
+      "example": "2019"
     },
     "expiration_month": {
       "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)",
       "type": "string",
       "example": "12"
+    },
+    "cvv": {
+      "description": "The cvv number of the credit card used for the booking.",
+      "type": "string",
+      "example": "123"
+    },
+    "cardholder_name": {
+      "description": "Name on the credit card holder.",
+      "type": "string",
+      "example": "Christopher Palmer"
     }
   },
-  "additionalProperties": false,
-  "$schema": "http://json-schema.org/schema#"
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false
 }

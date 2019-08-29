@@ -1,13 +1,13 @@
 {
-  "title": "Problem Object",
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of an problem",
   "required": [
     "problem",
     "explanation"
   ],
   "properties": {
+    "explanation": {
+      "description": "Advertiser-specific message to be displayed to the user providing details of the problem, and should be in the\nlanguage of the 'lang' parameter of the request.",
+      "type": "string"
+    },
     "detail": {
       "description": "Advertiser-specific message providing details of the problem that will not be displayed to the user. Intended\nfor logging purposes.",
       "type": "string"
@@ -67,10 +67,10 @@
         "UnsupportedCharSet",
         "UnsupportedOccupancy"
       ]
-    },
-    "explanation": {
-      "description": "Advertiser-specific message to be displayed to the user providing details of the problem, and should be in the\nlanguage of the 'lang' parameter of the request.",
-      "type": "string"
     }
-  }
+  },
+  "description": "Schema of an problem",
+  "type": "object",
+  "title": "Problem Object",
+  "$schema": "http://json-schema.org/schema#"
 }

@@ -1,7 +1,7 @@
 # Changelog
 
 ## 1.7.0
-- Added Adyen payment Authentication for PSD2 
+- Added 3DS authentication for different versions of 3DS
 
 ## 1.6.9
 - Ensured compatibility with the previous schema

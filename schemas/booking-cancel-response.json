@@ -1,8 +1,4 @@
 {
-  "title": "Booking Cancel",
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of a booking cancellation.",
   "required": [
     "partner_reference",
     "reservation_id",
@@ -11,6 +7,14 @@
     "customer_support"
   ],
   "properties": {
+    "customer_support": {
+      "$ref": "customer-support.json"
+    },
+    "partner_reference": {
+      "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.",
+      "type": "string",
+      "example": "1"
+    },
     "cancellation_number": {
       "description": "Unique identifier for the cancellation. Required if status is \"Success\" or \"AlreadyCancelled.\"",
       "type": "string",
@@ -30,14 +34,10 @@
         "Error"
       ],
       "example": "Success"
-    },
-    "customer_support": {
-      "$ref": "customer-support.json"
-    },
-    "partner_reference": {
-      "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.",
-      "type": "string",
-      "example": "1"
     }
-  }
+  },
+  "description": "Schema of a booking cancellation.",
+  "type": "object",
+  "title": "Booking Cancel",
+  "$schema": "http://json-schema.org/schema#"
 }
