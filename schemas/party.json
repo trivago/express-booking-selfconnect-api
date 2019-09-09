@@ -1,26 +1,26 @@
 {
   "properties": {
+    "adults": {
+      "type": "integer",
+      "example": 2,
+      "description": "The number of adults staying in the room."
+    },
     "children": {
-      "items": {
-        "type": "integer"
-      },
-      "description": "The ages of any children staying in the room.",
+      "type": "array",
       "example": [
         1
       ],
-      "type": "array"
-    },
-    "adults": {
-      "description": "The number of adults staying in the room.",
-      "example": 2,
-      "type": "integer"
+      "items": {
+        "type": "integer"
+      },
+      "description": "The ages of any children staying in the room."
     }
   },
-  "title": "Party Object",
   "required": [
     "adults"
   ],
   "description": "Schema of party object.",
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "title": "Party Object",
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
 }

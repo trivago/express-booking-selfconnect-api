@@ -1,49 +1,49 @@
 {
   "properties": {
-    "problems": {
-      "items": {
-        "$ref": "problem.json"
-      },
-      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\"",
-      "type": "array"
-    },
     "reference_id": {
-      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
+      "type": "string",
       "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
-      "type": "string"
+      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful."
     },
     "reservation": {
       "$ref": "reservation.json"
+    },
+    "problems": {
+      "type": "array",
+      "items": {
+        "$ref": "problem.json"
+      },
+      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\""
     }
   },
-  "$schema": "http://json-schema.org/schema#",
   "allOf": [
     {
       "$ref": "booking-submit-response.json"
     },
     {
+      "title": "Booking Payment Confirm",
       "required": [
         "reference_id",
         "status",
         "customer_support"
       ],
+      "type": "object",
       "properties": {
+        "customer_support": {
+          "$ref": "customer-support.json"
+        },
         "status": {
+          "example": "Success",
           "enum": [
             "Success",
             "Failure",
             "UnknownReference"
-          ],
-          "example": "Success"
-        },
-        "customer_support": {
-          "$ref": "customer-support.json"
+          ]
         }
       },
-      "title": "Booking Payment Confirm",
-      "description": "Schema of an booking payment confirm.",
-      "type": "object"
+      "description": "Schema of an booking payment confirm."
     }
   ],
-  "type": "object"
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
 }

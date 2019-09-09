@@ -1,38 +1,37 @@
 {
   "properties": {
-    "authentication_value": {
-      "description": "The `authenticationValue` value as defined in the 3D Secure 2 specification.",
-      "type": "string"
-    },
-    "three_ds_server_trans_id": {
-      "description": "The `threeDSServerTransID` value as defined in the 3D Secure 2 specification.",
-      "type": "string"
-    },
     "trans_status": {
-      "description": "The `transStatus` value as defined in the 3D Secure 2 specification.",
-      "type": "string"
-    },
-    "message_version": {
-      "description": "The `messageVersion` value as defined in the 3D Secure 2 specification.",
-      "type": "string"
-    },
-    "type": {
-      "enum": [
-        "3DS2"
-      ],
-      "example": "3DS2",
-      "type": "string"
-    },
-    "ds_trans_id": {
-      "description": "The `dsTransID` value as defined in the 3D Secure 2 specification.",
-      "type": "string"
+      "type": "string",
+      "description": "The `transStatus` value as defined in the 3D Secure 2 specification."
     },
     "eci": {
-      "description": "The `eci` value as defined in the 3D Secure 2 specification.",
-      "type": "string"
+      "type": "string",
+      "description": "The `eci` value as defined in the 3D Secure 2 specification."
+    },
+    "three_ds_server_trans_id": {
+      "type": "string",
+      "description": "The `threeDSServerTransID` value as defined in the 3D Secure 2 specification."
+    },
+    "authentication_value": {
+      "type": "string",
+      "description": "The `authenticationValue` value as defined in the 3D Secure 2 specification."
+    },
+    "type": {
+      "type": "string",
+      "example": "3DS2",
+      "enum": [
+        "3DS2"
+      ]
+    },
+    "message_version": {
+      "type": "string",
+      "description": "The `messageVersion` value as defined in the 3D Secure 2 specification."
+    },
+    "ds_trans_id": {
+      "type": "string",
+      "description": "The `dsTransID` value as defined in the 3D Secure 2 specification."
     }
   },
-  "description": "Schema of 3DS2 specific authorisation",
   "required": [
     "authentication_value",
     "ds_trans_id",
@@ -41,8 +40,9 @@
     "trans_status",
     "message_version"
   ],
-  "title": "3DS2 authentication object",
-  "$schema": "http://json-schema.org/schema#",
   "additionalProperties": false,
-  "type": "object"
+  "description": "Schema of 3DS2 specific authorisation",
+  "title": "3DS2 authentication object",
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
 }

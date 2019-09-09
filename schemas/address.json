@@ -1,43 +1,43 @@
 {
   "properties": {
-    "city": {
-      "description": "City of addres",
-      "example": "Santa Cruz",
-      "type": "string"
-    },
-    "address2": {
-      "description": "Additional address information",
-      "type": "string"
+    "address1": {
+      "type": "string",
+      "example": "12 Johnson Junction",
+      "description": "Street and number of address"
     },
     "country": {
-      "description": "ISO 3166 country code",
+      "type": "string",
       "example": "US",
-      "type": "string"
+      "description": "ISO 3166 country code"
     },
     "state": {
-      "description": "State or province\nState is required for all addresses from the United States (US), Australia (AU), Canada (CA), Malaysia (MY),\nPhilippines (PH) and Italy (IT). For addresses from the United Kingdom (UK), New Zealand (NZ), Ireland (IE),\nSingapore (SG), South Africa (ZA), France (FR) and others the state is optional. required for addresses\nfrom United States.",
+      "type": "string",
       "example": "Maryland",
-      "type": "string"
+      "description": "State or province\nState is required for all addresses from the United States (US), Australia (AU), Canada (CA), Malaysia (MY),\nPhilippines (PH) and Italy (IT). For addresses from the United Kingdom (UK), New Zealand (NZ), Ireland (IE),\nSingapore (SG), South Africa (ZA), France (FR) and others the state is optional. required for addresses\nfrom United States."
     },
     "postal_code": {
-      "description": "Zip code or postal code\nrequired for addresses from United States",
+      "type": "string",
       "example": "97897",
-      "type": "string"
+      "description": "Zip code or postal code\nrequired for addresses from United States"
     },
-    "address1": {
-      "description": "Street and number of address",
-      "example": "12 Johnson Junction",
-      "type": "string"
+    "city": {
+      "type": "string",
+      "example": "Santa Cruz",
+      "description": "City of addres"
+    },
+    "address2": {
+      "type": "string",
+      "description": "Additional address information"
     }
   },
-  "description": "Schema of an billing address.",
   "required": [
     "address1",
     "city",
     "country"
   ],
-  "title": "Billing Address object",
-  "$schema": "http://json-schema.org/schema#",
   "additionalProperties": false,
-  "type": "object"
+  "description": "Schema of an billing address.",
+  "title": "Billing Address object",
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
 }

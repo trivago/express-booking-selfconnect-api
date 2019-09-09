@@ -1,4 +1,39 @@
 {
+  "properties": {
+    "cvv": {
+      "type": "string",
+      "example": "507",
+      "description": "The cvv number of the credit card used for the booking."
+    },
+    "expiration_year": {
+      "type": "string",
+      "example": "2025",
+      "description": "Expiration year as four digit string."
+    },
+    "billing_address": {
+      "$ref": "address.json"
+    },
+    "card_number": {
+      "type": "string",
+      "example": "4111111111111111",
+      "description": "Credit card number used for the booking."
+    },
+    "expiration_month": {
+      "type": "string",
+      "example": "09",
+      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)."
+    },
+    "cardholder_name": {
+      "type": "string",
+      "example": "Christopher Palmer",
+      "description": "Name on the credit card holder."
+    },
+    "card_type": {
+      "type": "string",
+      "example": "Visa",
+      "description": "The type of credit card used."
+    }
+  },
   "required": [
     "card_type",
     "card_number",
@@ -8,42 +43,7 @@
     "cvv",
     "billing_address"
   ],
+  "type": "object",
   "deprecated": true,
-  "properties": {
-    "cardholder_name": {
-      "description": "Name on the credit card holder.",
-      "example": "Christopher Palmer",
-      "type": "string"
-    },
-    "billing_address": {
-      "$ref": "address.json"
-    },
-    "cvv": {
-      "description": "The cvv number of the credit card used for the booking.",
-      "example": "507",
-      "type": "string"
-    },
-    "card_type": {
-      "description": "The type of credit card used.",
-      "example": "Visa",
-      "type": "string"
-    },
-    "expiration_month": {
-      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12).",
-      "example": "09",
-      "type": "string"
-    },
-    "card_number": {
-      "description": "Credit card number used for the booking.",
-      "example": "4111111111111111",
-      "type": "string"
-    },
-    "expiration_year": {
-      "description": "Expiration year as four digit string.",
-      "example": "2025",
-      "type": "string"
-    }
-  },
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }

@@ -1,22 +1,22 @@
 {
   "properties": {
     "description": {
-      "description": "Description of this contact.",
+      "type": "string",
       "example": "Phone",
-      "type": "string"
+      "description": "Description of this contact."
     },
     "contact": {
-      "description": "Contact details (e.g. phone number or e-mail address).",
+      "type": "string",
       "example": "444444444",
-      "type": "string"
+      "description": "Contact details (e.g. phone number or e-mail address)."
     }
   },
-  "title": "Contact object",
   "required": [
     "contact",
     "description"
   ],
   "description": "Schema of an contact.",
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "title": "Contact object",
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
 }

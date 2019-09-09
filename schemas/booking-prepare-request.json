@@ -1,45 +1,44 @@
 {
   "properties": {
-    "checkout_date": {
-      "format": "date",
-      "description": "The user's check-out date in YYYY-MM-DD.",
-      "example": "2019-01-02",
-      "type": "string"
-    },
     "reference_id": {
-      "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be treated as a \"confirmation\" id.",
+      "type": "string",
       "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
-      "type": "string"
+      "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be treated as a \"confirmation\" id."
+    },
+    "party": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "party.json"
+      },
+      "description": "An array of Party"
+    },
+    "checkout_date": {
+      "type": "string",
+      "example": "2019-01-02",
+      "description": "The user's check-out date in YYYY-MM-DD.",
+      "format": "date"
     },
     "api_version": {
-      "description": "Version of the API used.",
+      "type": "integer",
       "example": 1,
-      "type": "integer"
-    },
-    "partner_reference": {
-      "description": "Advertiser's unique hotel id.",
-      "example": "1",
-      "type": "string"
+      "description": "Version of the API used."
     },
     "partner_data": {
       "$ref": "partner-data.json"
     },
-    "party": {
-      "items": {
-        "$ref": "party.json"
-      },
-      "minItems": 1,
-      "description": "An array of Party",
-      "type": "array"
+    "partner_reference": {
+      "type": "string",
+      "example": "1",
+      "description": "Advertiser's unique hotel id."
     },
     "checkin_date": {
-      "format": "date",
-      "description": "The user's check-in date in YYYY-MM-DD.",
+      "type": "string",
       "example": "2019-01-01",
-      "type": "string"
+      "description": "The user's check-in date in YYYY-MM-DD.",
+      "format": "date"
     }
   },
-  "title": "Booking Prepare",
   "required": [
     "checkin_date",
     "checkout_date",
@@ -49,6 +48,7 @@
     "party"
   ],
   "description": "Schema of a booking preparation request.",
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "title": "Booking Prepare",
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
 }
