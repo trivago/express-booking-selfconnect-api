@@ -1601,6 +1601,21 @@
                     "type"
                 ],
                 "properties": {
+                    "authentication": {
+                        "description": "The type of 3DS authentication to use.",
+                        "type": "object",
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/payment-authentication-3ds1"
+                            },
+                            {
+                                "$ref": "#/components/schemas/payment-authentication-3ds2"
+                            },
+                            {
+                                "$ref": "#/components/schemas/payment-authentication-no-auth-required"
+                            }
+                        ]
+                    },
                     "callback_success": {
                         "description": "Callback for successful 3ds-authorisation (if necessary).",
                         "type": "string",
@@ -1648,7 +1663,18 @@
                         "description": "The cvv number of the credit card used for the booking.",
                         "type": "string",
                         "example": "123"
-                    },
+                    }
+                },
+                "type": "object",
+                "additionalProperties": false
+            },
+            "tokenization-parameters": {
+                "required": [
+                    "token",
+                    "order_id",
+                    "type"
+                ],
+                "properties": {
                     "authentication": {
                         "description": "The type of 3DS authentication to use.",
                         "type": "object",
@@ -1663,18 +1689,7 @@
                                 "$ref": "#/components/schemas/payment-authentication-no-auth-required"
                             }
                         ]
-                    }
-                },
-                "type": "object",
-                "additionalProperties": false
-            },
-            "tokenization-parameters": {
-                "required": [
-                    "token",
-                    "order_id",
-                    "type"
-                ],
-                "properties": {
+                    },
                     "callback_success": {
                         "description": "Callback for successful 3ds-authorisation (if necessary).",
                         "type": "string",

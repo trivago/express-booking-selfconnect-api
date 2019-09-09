@@ -1,13 +1,13 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of an problem",
-  "type": "object",
-  "required": [
-    "problem",
-    "explanation"
-  ],
-  "title": "Problem Object",
   "properties": {
+    "explanation": {
+      "description": "Advertiser-specific message to be displayed to the user providing details of the problem, and should be in the\nlanguage of the 'lang' parameter of the request.",
+      "type": "string"
+    },
+    "detail": {
+      "description": "Advertiser-specific message providing details of the problem that will not be displayed to the user. Intended\nfor logging purposes.",
+      "type": "string"
+    },
     "problem": {
       "enum": [
         "AgentAttention",
@@ -63,14 +63,14 @@
       ],
       "description": "One of the supported problem types:",
       "type": "string"
-    },
-    "detail": {
-      "description": "Advertiser-specific message providing details of the problem that will not be displayed to the user. Intended\nfor logging purposes.",
-      "type": "string"
-    },
-    "explanation": {
-      "description": "Advertiser-specific message to be displayed to the user providing details of the problem, and should be in the\nlanguage of the 'lang' parameter of the request.",
-      "type": "string"
     }
-  }
+  },
+  "title": "Problem Object",
+  "required": [
+    "problem",
+    "explanation"
+  ],
+  "description": "Schema of an problem",
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

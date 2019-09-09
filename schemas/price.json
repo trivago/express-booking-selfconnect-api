@@ -1,25 +1,25 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "properties": {
+    "amount": {
+      "format": "float",
+      "description": "The value of the price.",
+      "type": "number"
+    },
+    "currency": {
+      "description": "ISO 4217 currency code for the price.",
+      "type": "string"
+    }
+  },
   "description": "Schema for the price",
-  "type": "object",
   "example": {
-    "currency": "USD",
-    "amount": 80
+    "amount": 80,
+    "currency": "USD"
   },
   "required": [
     "amount",
     "currency"
   ],
   "title": "Price Object",
-  "properties": {
-    "currency": {
-      "description": "ISO 4217 currency code for the price.",
-      "type": "string"
-    },
-    "amount": {
-      "format": "float",
-      "description": "The value of the price.",
-      "type": "number"
-    }
-  }
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

@@ -1,14 +1,14 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of partner data",
+  "title": "Partner Data object",
+  "example": {
+    "rate_key": "53f3"
+  },
   "type": [
     "number",
     "string",
     "object",
     "integer"
   ],
-  "title": "Partner Data object",
-  "example": {
-    "rate_key": "53f3"
-  }
+  "description": "Schema of partner data"
 }

@@ -1,15 +1,9 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of an authorisation target.",
-  "additionalProperties": false,
-  "required": [
-    "url",
-    "method",
-    "parameters"
-  ],
-  "type": "object",
-  "title": "Authorisation Target object",
   "properties": {
+    "parameters": {
+      "description": "Query/Post parameters as JSON object.",
+      "type": "object"
+    },
     "url": {
       "description": "The Authorisation target url.",
       "type": "string"
@@ -21,10 +15,16 @@
       ],
       "description": "HTTP method (POST or GET).",
       "type": "string"
-    },
-    "parameters": {
-      "description": "Query/Post parameters as JSON object.",
-      "type": "object"
     }
-  }
+  },
+  "description": "Schema of an authorisation target.",
+  "required": [
+    "url",
+    "method",
+    "parameters"
+  ],
+  "title": "Authorisation Target object",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false,
+  "type": "object"
 }

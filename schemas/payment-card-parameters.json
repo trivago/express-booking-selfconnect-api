@@ -7,29 +7,34 @@
     "cvv",
     "type"
   ],
-  "additionalProperties": false,
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
   "properties": {
+    "type": {
+      "enum": [
+        "PaymentCard"
+      ],
+      "description": "Payment type",
+      "example": "PaymentCard",
+      "type": "string"
+    },
+    "callback_success": {
+      "description": "Callback for successful 3ds-authorisation (if necessary).",
+      "example": "https://advertiser.com/callback/success",
+      "type": "string"
+    },
+    "expiration_month": {
+      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)",
+      "example": "12",
+      "type": "string"
+    },
     "cardholder_name": {
       "description": "Name on the credit card holder.",
-      "type": "string",
-      "example": "Christopher Palmer"
-    },
-    "callback_cancel": {
-      "description": "Callback for canceled 3ds-authorisation (if necessary).",
-      "type": "string",
-      "example": "https://advertiser.com/callback/cancel"
+      "example": "Christopher Palmer",
+      "type": "string"
     },
     "callback_error": {
       "description": "Callback for failed 3ds-authorisation (if necessary).",
-      "type": "string",
-      "example": "https://advertiser.com/callback/error"
-    },
-    "card_number": {
-      "description": "Credit card number used for the booking.",
-      "type": "string",
-      "example": "41111111111111"
+      "example": "https://advertiser.com/callback/error",
+      "type": "string"
     },
     "authentication": {
       "description": "The type of 3DS authentication to use.",
@@ -48,31 +53,26 @@
     },
     "cvv": {
       "description": "The cvv number of the credit card used for the booking.",
-      "type": "string",
-      "example": "123"
-    },
-    "type": {
-      "enum": [
-        "PaymentCard"
-      ],
-      "description": "Payment type",
-      "type": "string",
-      "example": "PaymentCard"
-    },
-    "callback_success": {
-      "description": "Callback for successful 3ds-authorisation (if necessary).",
-      "type": "string",
-      "example": "https://advertiser.com/callback/success"
+      "example": "123",
+      "type": "string"
     },
     "expiration_year": {
       "description": "Expiration year as four digit string.",
-      "type": "string",
-      "example": "2019"
+      "example": "2019",
+      "type": "string"
     },
-    "expiration_month": {
-      "description": "Expiration month as a two-digit string (e.g. 01, 02, .. 12)",
-      "type": "string",
-      "example": "12"
+    "callback_cancel": {
+      "description": "Callback for canceled 3ds-authorisation (if necessary).",
+      "example": "https://advertiser.com/callback/cancel",
+      "type": "string"
+    },
+    "card_number": {
+      "description": "Credit card number used for the booking.",
+      "example": "41111111111111",
+      "type": "string"
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false,
+  "type": "object"
 }

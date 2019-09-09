@@ -1,49 +1,8 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of a hotel details object",
-  "type": "object",
-  "required": [
-    "name",
-    "address1",
-    "city",
-    "country"
-  ],
-  "title": "Hotel details object",
+  "deprecated": true,
   "properties": {
-    "postal_code": {
-      "description": "Zip code or postal code",
-      "type": "string"
-    },
-    "phone": {
-      "description": "Phone number of the hotel",
-      "type": "string"
-    },
     "city": {
       "description": "City of the hotel",
-      "type": "string"
-    },
-    "amenities": {
-      "description": "Amenities that are generally available at the hotel, not specific to a room. Each string is free text which\nshould be in the language indicated by the 'lang' parameter",
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "country": {
-      "description": "ISO 3166 country code",
-      "type": "string"
-    },
-    "checkinout_policy": {
-      "description": "Describes the check-in/check-out policy for the hotel. Should be in the language indicated by the 'lang'\nparameter. Max length 1000 characters.",
-      "type": "string"
-    },
-    "latitude": {
-      "format": "float",
-      "description": "Latitude coordinate",
-      "type": "number"
-    },
-    "url": {
-      "description": "URL for general hotel contact",
       "type": "string"
     },
     "longitude": {
@@ -51,29 +10,70 @@
       "description": "Longitude coordinate",
       "type": "number"
     },
+    "phone": {
+      "description": "Phone number of the hotel",
+      "type": "string"
+    },
     "address2": {
       "description": "Additional address information about the hotel",
+      "type": "string"
+    },
+    "country": {
+      "description": "ISO 3166 country code",
       "type": "string"
     },
     "state": {
       "description": "State or province",
       "type": "string"
     },
+    "checkinout_policy": {
+      "description": "Describes the check-in/check-out policy for the hotel. Should be in the language indicated by the 'lang'\nparameter. Max length 1000 characters.",
+      "type": "string"
+    },
     "photos": {
-      "description": "URLs for photos of the hotel to be displayed during the booking process. If no photos are available, an empty\narray should be returned.",
       "items": {
         "$ref": "photo.json"
       },
+      "description": "URLs for photos of the hotel to be displayed during the booking process. If no photos are available, an empty\narray should be returned.",
       "type": "array"
     },
     "name": {
       "description": "Name of the hotel",
       "type": "string"
     },
+    "url": {
+      "description": "URL for general hotel contact",
+      "type": "string"
+    },
+    "amenities": {
+      "items": {
+        "type": "string"
+      },
+      "description": "Amenities that are generally available at the hotel, not specific to a room. Each string is free text which\nshould be in the language indicated by the 'lang' parameter",
+      "type": "array"
+    },
+    "postal_code": {
+      "description": "Zip code or postal code",
+      "type": "string"
+    },
+    "latitude": {
+      "format": "float",
+      "description": "Latitude coordinate",
+      "type": "number"
+    },
     "address1": {
       "description": "Street and number of the hotel",
       "type": "string"
     }
   },
-  "deprecated": true
+  "description": "Schema of a hotel details object",
+  "required": [
+    "name",
+    "address1",
+    "city",
+    "country"
+  ],
+  "title": "Hotel details object",
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

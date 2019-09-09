@@ -1,19 +1,19 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of an cancellation penalty.",
-  "type": "object",
-  "required": [
-    "fee"
-  ],
-  "title": "Cancellation Penalty object",
   "properties": {
-    "fee": {
-      "$ref": "price.json"
-    },
     "from": {
       "format": "date-time",
       "description": "Date determined from which time stamp this penalty is applied. Must be in ISO-8601 format, e.g.\n2015-05-25T16:00:00+0000. If the penalty is applied at the time of booking, this field must not be provided.",
       "type": "string"
+    },
+    "fee": {
+      "$ref": "price.json"
     }
-  }
+  },
+  "title": "Cancellation Penalty object",
+  "required": [
+    "fee"
+  ],
+  "description": "Schema of an cancellation penalty.",
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

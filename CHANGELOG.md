@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.8.0
+- Added 3DS authentication result to the tokenization parameters
+
 ## 1.7.0
 - Added 3DS authentication for different versions of 3DS
 

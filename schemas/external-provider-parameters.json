@@ -5,19 +5,11 @@
     "callback_error",
     "type"
   ],
-  "additionalProperties": false,
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
   "properties": {
-    "callback_error": {
-      "description": "Callback for failed 3ds-authorisation (if necessary).",
-      "type": "string",
-      "example": "https://advertiser.com/callback/error"
-    },
     "callback_success": {
       "description": "Callback for successful 3ds-authorisation (if necessary).",
-      "type": "string",
-      "example": "https://advertiser.com/callback/success"
+      "example": "https://advertiser.com/callback/success",
+      "type": "string"
     },
     "type": {
       "enum": [
@@ -27,8 +19,16 @@
     },
     "callback_cancel": {
       "description": "Callback for canceled 3ds-authorisation (if necessary).",
-      "type": "string",
-      "example": "https://advertiser.com/callback/cancel"
+      "example": "https://advertiser.com/callback/cancel",
+      "type": "string"
+    },
+    "callback_error": {
+      "description": "Callback for failed 3ds-authorisation (if necessary).",
+      "example": "https://advertiser.com/callback/error",
+      "type": "string"
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false,
+  "type": "object"
 }

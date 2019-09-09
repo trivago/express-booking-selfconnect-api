@@ -1,32 +1,5 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "description": "Schema of booking submit response.",
-  "type": "object",
-  "required": [
-    "reference_id",
-    "status",
-    "customer_support"
-  ],
-  "title": "Booking Submit Response",
   "properties": {
-    "reference_id": {
-      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
-      "type": "string",
-      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
-    },
-    "customer_support": {
-      "$ref": "customer-support.json"
-    },
-    "reservation": {
-      "$ref": "reservation.json"
-    },
-    "problems": {
-      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\"",
-      "items": {
-        "$ref": "problem.json"
-      },
-      "type": "array"
-    },
     "status": {
       "enum": [
         "Success",
@@ -36,8 +9,35 @@
       ],
       "example": "Success"
     },
+    "reference_id": {
+      "description": "Echo the reference_id provided by trivago in the corresponding request. If the request fails\n(timeout or otherwise), this id can be used in a booking verification request to determine if the call\nwas successful.",
+      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
+      "type": "string"
+    },
+    "customer_support": {
+      "$ref": "customer-support.json"
+    },
+    "problems": {
+      "items": {
+        "$ref": "problem.json"
+      },
+      "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\"",
+      "type": "array"
+    },
     "authorisation": {
       "$ref": "authorisation.json"
+    },
+    "reservation": {
+      "$ref": "reservation.json"
     }
-  }
+  },
+  "title": "Booking Submit Response",
+  "required": [
+    "reference_id",
+    "status",
+    "customer_support"
+  ],
+  "description": "Schema of booking submit response.",
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

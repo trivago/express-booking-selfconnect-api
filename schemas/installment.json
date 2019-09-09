@@ -6,30 +6,34 @@
     "installment_amount",
     "interest_charge"
   ],
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object",
   "properties": {
+    "id": {
+      "description": "Identifier for that installment plan",
+      "example": "1-M-EUR",
+      "type": "string"
+    },
+    "discount": {
+      "$ref": "price.json"
+    },
+    "first_installment": {
+      "description": "First installment starts after x iterations according to the frequency value",
+      "type": "integer"
+    },
+    "installment_amount": {
+      "$ref": "price.json"
+    },
     "interest_charge": {
       "format": "float",
       "description": "Interest rate per installment",
       "type": "number"
     },
-    "installment_amount": {
+    "extra_charge": {
       "$ref": "price.json"
     },
-    "number": {
-      "description": "Number of installments (must be >1)",
-      "type": "integer",
-      "example": 8
+    "initial_rate": {
+      "$ref": "price.json"
     },
     "last_rate": {
-      "$ref": "price.json"
-    },
-    "swift_code": {
-      "description": "SWIFT-BIC - Bank Identifier Code",
-      "type": "string"
-    },
-    "discount": {
       "$ref": "price.json"
     },
     "frequency": {
@@ -39,23 +43,19 @@
         "W"
       ],
       "description": "Frequency of the installment payments. Must be one of the following values:\n- B: Biweekly\n- M: Monthly (default)\n- W: Weekly",
-      "type": "string",
-      "example": "M"
+      "example": "M",
+      "type": "string"
     },
-    "id": {
-      "description": "Identifier for that installment plan",
-      "type": "string",
-      "example": "1-M-EUR"
+    "swift_code": {
+      "description": "SWIFT-BIC - Bank Identifier Code",
+      "type": "string"
     },
-    "extra_charge": {
-      "$ref": "price.json"
-    },
-    "initial_rate": {
-      "$ref": "price.json"
-    },
-    "first_installment": {
-      "description": "First installment starts after x iterations according to the frequency value",
+    "number": {
+      "description": "Number of installments (must be >1)",
+      "example": 8,
       "type": "integer"
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

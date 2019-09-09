@@ -4,25 +4,25 @@
     "iban",
     "type"
   ],
-  "additionalProperties": false,
-  "type": "object",
-  "$schema": "http://json-schema.org/schema#",
   "properties": {
     "holder_name": {
       "description": "Name of account holder.",
-      "type": "string",
-      "example": "Christopher Palmer"
-    },
-    "iban": {
-      "description": "IBAN of bank account.",
-      "type": "string",
-      "example": "DE27100777770209299700"
+      "example": "Christopher Palmer",
+      "type": "string"
     },
     "type": {
       "enum": [
         "BankAccount"
       ],
       "example": "BankAccount"
+    },
+    "iban": {
+      "description": "IBAN of bank account.",
+      "example": "DE27100777770209299700",
+      "type": "string"
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false,
+  "type": "object"
 }
