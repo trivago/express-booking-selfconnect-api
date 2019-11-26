@@ -1,45 +1,6 @@
 {
-  "properties": {
-    "threed_offered_response": {
-      "type": "string",
-      "description": "The raw enrollment result from the 3DS directory services of the card schemes."
-    },
-    "xid": {
-      "type": "string",
-      "description": "The 3DS transaction ID of the 3DS session"
-    },
-    "cavv": {
-      "type": "string",
-      "description": "The Cardholder Authentication Verification Value for the 3DS authentication session"
-    },
-    "cavv_algorithm": {
-      "type": "string",
-      "description": "The algorithm used to generate the 3DS Cardholder Authentication Verification Value."
-    },
-    "type": {
-      "type": "string",
-      "example": "3DS1",
-      "enum": [
-        "3DS1"
-      ]
-    },
-    "eci": {
-      "type": "string",
-      "description": "The Electronic Commerce Indicator returned from the schemes for the 3DS payment session."
-    },
-    "acquirer_code": {
-      "type": "string",
-      "description": "The name of the acquirer processing the payment request."
-    },
-    "authorisation_mid": {
-      "type": "string",
-      "description": "This is the MID of the acquirer account that you want to authorise the transaction with."
-    },
-    "threed_authenticated_response": {
-      "type": "string",
-      "description": "The raw 3DS authentication result from the card issuer."
-    }
-  },
+  "title": "3DS1 authentication object",
+  "description": "Schema of 3DS1 specific authorisation",
   "required": [
     "cavv",
     "xid",
@@ -49,9 +10,48 @@
     "eci",
     "acquirer_code"
   ],
-  "additionalProperties": false,
-  "description": "Schema of 3DS1 specific authorisation",
-  "title": "3DS1 authentication object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "3DS1"
+      ],
+      "example": "3DS1"
+    },
+    "cavv": {
+      "description": "The Cardholder Authentication Verification Value for the 3DS authentication session",
+      "type": "string"
+    },
+    "xid": {
+      "description": "The 3DS transaction ID of the 3DS session",
+      "type": "string"
+    },
+    "threed_authenticated_response": {
+      "description": "The raw 3DS authentication result from the card issuer.",
+      "type": "string"
+    },
+    "cavv_algorithm": {
+      "description": "The algorithm used to generate the 3DS Cardholder Authentication Verification Value.",
+      "type": "string"
+    },
+    "threed_offered_response": {
+      "description": "The raw enrollment result from the 3DS directory services of the card schemes.",
+      "type": "string"
+    },
+    "eci": {
+      "description": "The Electronic Commerce Indicator returned from the schemes for the 3DS payment session.",
+      "type": "string"
+    },
+    "authorisation_mid": {
+      "description": "This is the MID of the acquirer account that you want to authorise the transaction with.",
+      "type": "string"
+    },
+    "acquirer_code": {
+      "description": "The name of the acquirer processing the payment request.",
+      "type": "string"
+    }
+  },
   "type": "object",
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

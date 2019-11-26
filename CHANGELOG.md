@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.9.0
+- tEB Self-Connect: Invalid open api specification file
+
 ## 1.8.0
 - Added 3DS authentication result to the tokenization parameters
 

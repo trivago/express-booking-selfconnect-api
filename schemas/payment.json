@@ -1,13 +1,17 @@
 {
+  "title": "Payment Object",
+  "description": "Schema of payment",
+  "required": [
+    "method",
+    "parameters",
+    "billing_address"
+  ],
   "properties": {
     "method": {
       "$ref": "payment-method.json"
     },
-    "billing_address": {
-      "$ref": "address.json",
-      "description": "Billing address of the user submitting the booking."
-    },
     "parameters": {
+      "description": "Contains the parameters corresponding to the selected payment method.",
       "oneOf": [
         {
           "$ref": "payment-card-parameters.json"
@@ -24,17 +28,13 @@
         {
           "$ref": "manual-payment-parameters.json"
         }
-      ],
-      "description": "Contains the parameters corresponding to the selected payment method."
+      ]
+    },
+    "billing_address": {
+      "description": "Billing address of the user submitting the booking.",
+      "$ref": "address.json"
     }
   },
-  "required": [
-    "method",
-    "parameters",
-    "billing_address"
-  ],
-  "description": "Schema of payment",
-  "title": "Payment Object",
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

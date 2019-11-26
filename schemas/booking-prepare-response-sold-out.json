@@ -1,34 +1,6 @@
 {
-  "properties": {
-    "customer_support": {
-      "$ref": "customer-support.json"
-    },
-    "status": {
-      "type": "string",
-      "example": "SOLD_OUT",
-      "enum": [
-        "SOLD_OUT"
-      ],
-      "description": "Specifies the status of the Prepare response:\n- SOLD_OUT"
-    },
-    "checkout_date": {
-      "type": "string",
-      "example": "2019-01-02",
-      "description": "The user's check-out date in YYYY-MM-DD.",
-      "format": "date"
-    },
-    "checkin_date": {
-      "type": "string",
-      "example": "2019-01-01",
-      "description": "The user's check-in date in YYYY-MM-DD.",
-      "format": "date"
-    },
-    "partner_reference": {
-      "type": "string",
-      "example": "1",
-      "description": "Advertiser's unique hotel id."
-    }
-  },
+  "title": "Booking Prepare Sold-Out",
+  "description": "Schema of a booking preparation.",
   "required": [
     "checkin_date",
     "checkout_date",
@@ -36,8 +8,36 @@
     "status",
     "customer_support"
   ],
-  "description": "Schema of a booking preparation.",
-  "title": "Booking Prepare Sold-Out",
+  "properties": {
+    "status": {
+      "description": "Specifies the status of the Prepare response:\n- SOLD_OUT",
+      "type": "string",
+      "enum": [
+        "SOLD_OUT"
+      ],
+      "example": "SOLD_OUT"
+    },
+    "customer_support": {
+      "$ref": "customer-support.json"
+    },
+    "checkin_date": {
+      "description": "The user's check-in date in YYYY-MM-DD.",
+      "type": "string",
+      "format": "date",
+      "example": "2019-01-01"
+    },
+    "checkout_date": {
+      "description": "The user's check-out date in YYYY-MM-DD.",
+      "type": "string",
+      "format": "date",
+      "example": "2019-01-02"
+    },
+    "partner_reference": {
+      "description": "Advertiser's unique hotel id.",
+      "type": "string",
+      "example": "1"
+    }
+  },
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

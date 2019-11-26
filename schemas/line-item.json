@@ -1,9 +1,18 @@
 {
+  "title": "LineItem object",
+  "description": "Schema of a line item\\n\n|rate model|net_rate|vat|service_fee|booking_fee|hotel_fee|city_tax|resort_fee|others|\n|--- |--- |--- |--- |--- |--- |--- |--- |--- |\n|AI|x|x|x|x|x|x|x|x|\n|GROSS|x|x|x|x|||||\n|NET|x||||||||\n",
+  "required": [
+    "price",
+    "type",
+    "paid_at_checkout",
+    "description"
+  ],
   "properties": {
     "price": {
       "$ref": "price.json"
     },
     "type": {
+      "description": "Please note that fields rate, tax and fee are deprecated and should not be used",
       "type": "string",
       "enum": [
         "net_rate",
@@ -17,26 +26,17 @@
         "rate",
         "tax",
         "fee"
-      ],
-      "description": "Please note that fields rate, tax and fee are deprecated and should not be used"
-    },
-    "description": {
-      "type": "string",
-      "description": "A textual description of the charge. This may be displayed to users and should be in the language indicated by the\n'lang' parameter provided in the response."
+      ]
     },
     "paid_at_checkout": {
-      "type": "boolean",
-      "description": "true if the rate can be post-paid; false if rate has to be pre-paid."
+      "description": "true if the rate can be post-paid; false if rate has to be pre-paid.",
+      "type": "boolean"
+    },
+    "description": {
+      "description": "A textual description of the charge. This may be displayed to users and should be in the language indicated by the\n'lang' parameter provided in the response.",
+      "type": "string"
     }
   },
-  "required": [
-    "price",
-    "type",
-    "paid_at_checkout",
-    "description"
-  ],
-  "description": "Schema of a line item\\n\n|rate model|net_rate|vat|service_fee|booking_fee|hotel_fee|city_tax|resort_fee|others|\n|--- |--- |--- |--- |--- |--- |--- |--- |--- |\n|AI|x|x|x|x|x|x|x|x|\n|GROSS|x|x|x|x|||||\n|NET|x||||||||\n",
-  "title": "LineItem object",
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

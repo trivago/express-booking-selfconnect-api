@@ -2,6 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Trivago Express Booking API",
+        "description": "Trivago Express Booking API",
         "contact": {
             "email": "api@trivago.com"
         },
@@ -13,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "{schema}://advertiser-site.com/api_implementation/",
+            "url": "{schema}://advertiser-site.com/api_implementation",
             "description": "Booking availability",
             "variables": {
                 "schema": {
@@ -29,8 +30,12 @@
     "paths": {
         "/booking_availability": {
             "post": {
+                "tags": [
+                    "Booking"
+                ],
                 "summary": "Trivago Express Booking API",
                 "description": "To check if an advertised offer is still bookable trivago sends out \"/booking_availability\" POST requests to the advertiser's API. When the booking availability results are returned, they are presented to the user on the trivago Express Booking landing page opened in an additional browser window. The user can then choose the offer they want to book. Please click on one of the flags below to see how the trivago Express Booking landing page would look like for the corresponding point of sale.",
+                "operationId": "booking-availability",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -42,8 +47,8 @@
                     }
                 },
                 "responses": {
-                    "default": {
-                        "description": "",
+                    "200": {
+                        "description": "Booking Availability Response",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -57,8 +62,12 @@
         },
         "/booking_prepare": {
             "post": {
+                "tags": [
+                    "Booking"
+                ],
                 "summary": "Trivago Express Booking API",
                 "description": "If advertisers cannot provide non-cached rates or all required information (e.g. cancellation policy) in the booking_availability, trivago can optionally submit a \"/booking_prepare\" POST request to the advertiser's API. This request is submitted once users have selected a room after viewing the booking availability results and are being redirected to the trivago Express Booking checkout page where they fill in their details being mandatory to make a booking.",
+                "operationId": "booking-prepare",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -70,8 +79,8 @@
                     }
                 },
                 "responses": {
-                    "default": {
-                        "description": "",
+                    "200": {
+                        "description": "Booking Prepare Response",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -85,8 +94,12 @@
         },
         "/booking_submit": {
             "post": {
+                "tags": [
+                    "Booking"
+                ],
                 "summary": "Trivago Express Booking API",
                 "description": "To submit a booking, trivago sends out a \"/booking_submit\" POST request to the advertiser's API. Once users have selected a room after viewing the booking availability results, they go to the next step of the booking process where they fill in their details being mandatory to make a booking. These details are then sent to the advertiser's endpoint as part of the booking submit request.",
+                "operationId": "booking-submit",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -98,8 +111,8 @@
                     }
                 },
                 "responses": {
-                    "default": {
-                        "description": "",
+                    "200": {
+                        "description": "Booking Submit Response",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -113,8 +126,12 @@
         },
         "/booking_payment_authorise": {
             "post": {
+                "tags": [
+                    "Booking"
+                ],
                 "summary": "Trivago Express Booking API",
                 "description": "If additional information is needed to authorise a booking, trivago sends out a \"/booking_payment_authorise\" POST request to the advertiser's API.",
+                "operationId": "booking-payment-authorise",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -126,8 +143,8 @@
                     }
                 },
                 "responses": {
-                    "default": {
-                        "description": "",
+                    "200": {
+                        "description": "Booking Payment Authorise Response",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -141,8 +158,12 @@
         },
         "/booking_verify": {
             "get": {
+                "tags": [
+                    "Booking"
+                ],
                 "summary": "Trivago Express Booking API",
                 "description": "In order to check if a booking has been submitted successfully, trivago also offers the possibility to immediately verify the booking status once the booking has been confirmed by sending an additional \"/booking_verify\" request.\nBesides this, the **\"/booking_verify\"** GET request can be used to update trivago about any changes of the booking that have occurred on the hotel/property system. So in an upcoming feature where the booking status of a booking submitted via trivago Express booking, trivago will send out daily a \"/booking_verify\" GET request to the advertiser's API in order to verify which bookings have actually been consumed, cancelled or modified.\nSo for example, if a user decides to cancel a tEB booking over the customer service hotline, trivago would be able to update the booking status by doing daily \"/booking_verify\" requests.",
+                "operationId": "booking-verify",
                 "parameters": [
                     {
                         "$ref": "#/components/parameters/reference_id"
@@ -155,8 +176,8 @@
                     }
                 ],
                 "responses": {
-                    "default": {
-                        "description": "",
+                    "200": {
+                        "description": "Booking Verify Response",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -170,8 +191,12 @@
         },
         "/booking_cancel": {
             "post": {
+                "tags": [
+                    "Booking"
+                ],
                 "summary": "Trivago Express Booking API",
                 "description": "In an upcoming feature, users will be able to cancel a booking through the trivago member area. Trivago will then send out a \"/booking_cancel\" POST request to the advertiser's API.",
+                "operationId": "booking-cancel",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -183,8 +208,8 @@
                     }
                 },
                 "responses": {
-                    "default": {
-                        "description": "",
+                    "200": {
+                        "description": "Booking Cancellation Response",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -388,6 +413,7 @@
                 ]
             },
             "booking-cancel-request": {
+                "description": "Schema of booking cancel request object",
                 "required": [
                     "partner_reference",
                     "reservation_id"
@@ -481,7 +507,25 @@
                 "additionalProperties": false
             },
             "booking-payment-authorise-response": {
+                "title": "Booking Payment Confirm",
+                "description": "Schema of an booking payment confirm.",
+                "required": [
+                    "reference_id",
+                    "status",
+                    "customer_support"
+                ],
                 "properties": {
+                    "customer_support": {
+                        "$ref": "#/components/schemas/customer-support"
+                    },
+                    "status": {
+                        "enum": [
+                            "Success",
+                            "Failure",
+                            "UnknownReference"
+                        ],
+                        "example": "Success"
+                    },
                     "problems": {
                         "description": "An array containing issues that occurred\nRequired, if status = \"Failure.\"\nOptional, if status = \"Success\"",
                         "type": "array",
@@ -498,34 +542,7 @@
                         "$ref": "#/components/schemas/reservation"
                     }
                 },
-                "allOf": [
-                    {
-                        "$ref": "#/components/schemas/booking-submit-response"
-                    },
-                    {
-                        "title": "Booking Payment Confirm",
-                        "description": "Schema of an booking payment confirm.",
-                        "required": [
-                            "reference_id",
-                            "status",
-                            "customer_support"
-                        ],
-                        "properties": {
-                            "customer_support": {
-                                "$ref": "#/components/schemas/customer-support"
-                            },
-                            "status": {
-                                "enum": [
-                                    "Success",
-                                    "Failure",
-                                    "UnknownReference"
-                                ],
-                                "example": "Success"
-                            }
-                        },
-                        "type": "object"
-                    }
-                ]
+                "type": "object"
             },
             "booking-prepare-request": {
                 "title": "Booking Prepare",
@@ -817,6 +834,7 @@
                 "type": "object"
             },
             "booking-verify-request": {
+                "description": "Schema of booking verify request object",
                 "required": [
                     "partner_reference",
                     "reservation_id",
@@ -1097,10 +1115,6 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/contact"
-                        },
-                        "example": {
-                            "contact": "thomas.mair@trivago.com",
-                            "description": "Email"
                         }
                     },
                     "urls": {
@@ -1108,10 +1122,6 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/contact"
-                        },
-                        "example": {
-                            "contact": "http://www.trivago.com",
-                            "description": "Url"
                         },
                         "deprecated": true
                     }
@@ -1324,15 +1334,26 @@
             "partner-data": {
                 "title": "Partner Data object",
                 "description": "Schema of partner data",
-                "type": [
-                    "number",
-                    "string",
-                    "object",
-                    "integer"
-                ],
-                "example": {
-                    "rate_key": "53f3"
-                }
+                "oneOf": [
+                    {
+                        "type": "number",
+                        "example": 123
+                    },
+                    {
+                        "type": "string",
+                        "example": "rate-key"
+                    },
+                    {
+                        "type": "object",
+                        "example": {
+                            "rate_key": "53f3"
+                        }
+                    },
+                    {
+                        "type": "integer",
+                        "example": 123
+                    }
+                ]
             },
             "party": {
                 "title": "Party Object",
@@ -1517,6 +1538,7 @@
                 "additionalProperties": false
             },
             "bank-account-parameters": {
+                "description": "Bank account parameters",
                 "required": [
                     "holder_name",
                     "iban",
@@ -1544,6 +1566,7 @@
                 "additionalProperties": false
             },
             "external-provider-parameters": {
+                "description": "External provider parameters",
                 "required": [
                     "callback_success",
                     "callback_cancel",
@@ -1577,6 +1600,7 @@
                 "additionalProperties": false
             },
             "manual-payment-parameters": {
+                "description": "Manual payment parameters",
                 "required": [
                     "type"
                 ],
@@ -1592,6 +1616,7 @@
                 "additionalProperties": false
             },
             "payment-card-parameters": {
+                "description": "Payment card parameters",
                 "required": [
                     "card_number",
                     "cardholder_name",
@@ -1669,6 +1694,7 @@
                 "additionalProperties": false
             },
             "tokenization-parameters": {
+                "description": "Tokenization parameters",
                 "required": [
                     "token",
                     "order_id",
@@ -1881,6 +1907,7 @@
                 ]
             },
             "installment": {
+                "description": "Installment",
                 "required": [
                     "id",
                     "number",
@@ -1941,6 +1968,7 @@
                 "type": "object"
             },
             "booking-submit-request-payment-method": {
+                "description": "Deprecated payment method",
                 "required": [
                     "card_type",
                     "card_number",

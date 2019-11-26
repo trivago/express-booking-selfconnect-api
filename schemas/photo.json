@@ -1,31 +1,31 @@
 {
-  "properties": {
-    "height": {
-      "type": "integer",
-      "description": "Height in pixels of full size image"
-    },
-    "thumbnail_url": {
-      "type": "string",
-      "description": "URL for thumbnail of the image."
-    },
-    "width": {
-      "type": "integer",
-      "description": "Width in pixels of full size image"
-    },
-    "url": {
-      "type": "string",
-      "description": "URL for the image. Please assure your images are available with https. The minimum width is 280px, while the\nminimum height is 170px."
-    },
-    "caption": {
-      "type": "string",
-      "description": "Caption for the photo. Should be in the language indicated by the 'lang' parameter in the request."
-    }
-  },
+  "title": "Photo Object",
+  "description": "Schema for the photo",
   "required": [
     "url"
   ],
-  "description": "Schema for the photo",
-  "title": "Photo Object",
+  "properties": {
+    "url": {
+      "description": "URL for the image. Please assure your images are available with https. The minimum width is 280px, while the\nminimum height is 170px.",
+      "type": "string"
+    },
+    "thumbnail_url": {
+      "description": "URL for thumbnail of the image.",
+      "type": "string"
+    },
+    "caption": {
+      "description": "Caption for the photo. Should be in the language indicated by the 'lang' parameter in the request.",
+      "type": "string"
+    },
+    "width": {
+      "description": "Width in pixels of full size image",
+      "type": "integer"
+    },
+    "height": {
+      "description": "Height in pixels of full size image",
+      "type": "integer"
+    }
+  },
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

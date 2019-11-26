@@ -1,14 +1,25 @@
 {
   "title": "Partner Data object",
-  "type": [
-    "number",
-    "string",
-    "object",
-    "integer"
-  ],
-  "example": {
-    "rate_key": "53f3"
-  },
   "description": "Schema of partner data",
+  "oneOf": [
+    {
+      "type": "number",
+      "example": 123
+    },
+    {
+      "type": "string",
+      "example": "rate-key"
+    },
+    {
+      "type": "object",
+      "example": {
+        "rate_key": "53f3"
+      }
+    },
+    {
+      "type": "integer",
+      "example": 123
+    }
+  ],
   "$schema": "http://json-schema.org/schema#"
 }

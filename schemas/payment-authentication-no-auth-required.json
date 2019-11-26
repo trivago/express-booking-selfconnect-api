@@ -1,16 +1,16 @@
 {
+  "title": "No Authenticatoin Required response object",
+  "description": "Schema for No Authentication Required authorisation",
   "properties": {
     "type": {
       "type": "string",
-      "example": "NoAuthRequired",
       "enum": [
         "NoAuthRequired"
-      ]
+      ],
+      "example": "NoAuthRequired"
     }
   },
-  "title": "No Authenticatoin Required response object",
-  "additionalProperties": false,
-  "description": "Schema for No Authentication Required authorisation",
   "type": "object",
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

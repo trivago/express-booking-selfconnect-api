@@ -1,26 +1,27 @@
 {
-  "properties": {
-    "reference_id": {
-      "type": "string",
-      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f",
-      "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be\ntreated as a \"confirmation\" id."
-    },
-    "partner_reference": {
-      "type": "string",
-      "example": "1",
-      "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request."
-    },
-    "reservation_id": {
-      "type": "string",
-      "example": "XXX123",
-      "description": "The advertiser's unique id for this reservation. Must be used as booking_id in the tracking pixel."
-    }
-  },
+  "description": "Schema of booking verify request object",
   "required": [
     "partner_reference",
     "reservation_id",
     "reference_id"
   ],
+  "properties": {
+    "reservation_id": {
+      "description": "The advertiser's unique id for this reservation. Must be used as booking_id in the tracking pixel.",
+      "type": "string",
+      "example": "XXX123"
+    },
+    "partner_reference": {
+      "description": "The advertiser's unique identifier for this hotel. In a \"/booking_submit\" request this should be the same as\nin the request.",
+      "type": "string",
+      "example": "1"
+    },
+    "reference_id": {
+      "description": "trivago identifier for the booking session. Please consider that this id might not be unique and should not be\ntreated as a \"confirmation\" id.",
+      "type": "string",
+      "example": "692e8acc-d1d9-45dc-b50f-e7b824f3306f"
+    }
+  },
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }
