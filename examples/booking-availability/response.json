@@ -138,6 +138,7 @@
         }
       ],
       "cancellation": {
+        "type" : "unknown",
         "policy": "free text",
         "penalties": [
           {
