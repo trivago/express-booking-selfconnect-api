@@ -39,12 +39,12 @@
     "latitude": {
       "description": "Latitude coordinate",
       "type": "number",
-      "format": "float"
+      "format": "number"
     },
     "longitude": {
       "description": "Longitude coordinate",
       "type": "number",
-      "format": "float"
+      "format": "number"
     },
     "url": {
       "description": "URL for general hotel contact",
