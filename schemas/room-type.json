@@ -12,7 +12,8 @@
   "properties": {
     "name": {
       "description": "Short description of the room type. This will be displayed to users, and should be in the language indicated by\nthe 'lang' parameter (max length of 120 characters).",
-      "type": "string"
+      "type": "string",
+      "maxLength": 120
     },
     "rate_key": {
       "description": "Unique identifier for this rate. Used to identify a rate across several \"/booking_availability\" requests. E.g.\nif an user stays on the landing page for a longer period of time before clicking on a specific rate another\n\"/booking_availability\" request is submitted to ensure that the rate clicked is still bookable.\nIf no rate_key is provided a rate is identified based on rate attributes and rate components.",
@@ -40,7 +41,8 @@
     },
     "description": {
       "description": "Longer room description. Will be displayed to users, and should be in the language indicated by the 'lang' parameter (max length of 1000 characters).",
-      "type": "string"
+      "type": "string",
+      "maxLength": 1000
     },
     "rooms_available": {
       "description": "The number of rooms remaining/available.",
@@ -116,7 +118,8 @@
     "cancellation_policy": {
       "description": "Text describing the cancellation policy for the room. Should be in the language indicated by the 'lang'\nparameter. Text field.Length limit: 1000 characters.",
       "type": "string",
-      "deprecated": true
+      "deprecated": true,
+      "maxLength": 1000
     },
     "cancellation_deadline": {
       "description": "The datetime after which it is not free to cancel a reservation.The format must match YYYY-MM-DDThh:mm:ss. Note\nthere is no timezone info because it's localized to the property.\nExample: \"cancellation_deadline\": \"2015-05-25T16:00:00\"",
@@ -125,15 +128,18 @@
     },
     "occupancy_policy": {
       "description": "Occupancy policies for this room e.g. maximum number of adults, minimum ages.Text field.Length\nlimit: 1000 characters.",
-      "type": "string"
+      "type": "string",
+      "maxLength": 1000
     },
     "payment_policy": {
       "description": "Describes how the advertiser will use the credit card information, e.g. charged immediately or hold.\n(Length limit: 1000 characters).",
-      "type": "string"
+      "type": "string",
+      "maxLength": 1000
     },
     "other_policy": {
       "description": "Miscellaneous policies.Text field (Length limit: 1000 characters).",
-      "type": "string"
+      "type": "string",
+      "maxLength": 1000
     },
     "promotions": {
       "description": "Array of promotions",

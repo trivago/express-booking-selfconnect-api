@@ -331,7 +331,8 @@
                     },
                     "terms_and_conditions": {
                         "description": "General terms and conditions.\nText field.\nLength limit of 1000 characters.",
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 1000
                     },
                     "terms_and_conditions_url": {
                         "description": "Link to the advertiser's terms and conditions page.",
@@ -339,11 +340,13 @@
                     },
                     "payment_policy": {
                         "description": "Describes how the advertiser will use the credit card information, e.g. charged immediately or hold.\nText field.\nLength limit of 1000 characters.",
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 1000
                     },
                     "other_policy": {
                         "description": "Miscellaneous policies\nText field.\nLength limit of 1000 characters.",
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 1000
                     },
                     "errors": {
                         "description": "Array of errors",
@@ -1168,7 +1171,8 @@
                     },
                     "message": {
                         "description": "String describing the error (maximum length of 1000 characters).",
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 1000
                     },
                     "timeout": {
                         "description": "Number of seconds trivago should stop sending requests (for use with Error Code 4).",
@@ -2319,7 +2323,8 @@
                 "properties": {
                     "name": {
                         "description": "Short description of the room type. This will be displayed to users, and should be in the language indicated by\nthe 'lang' parameter (max length of 120 characters).",
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 120
                     },
                     "rate_key": {
                         "description": "Unique identifier for this rate. Used to identify a rate across several \"/booking_availability\" requests. E.g.\nif an user stays on the landing page for a longer period of time before clicking on a specific rate another\n\"/booking_availability\" request is submitted to ensure that the rate clicked is still bookable.\nIf no rate_key is provided a rate is identified based on rate attributes and rate components.",
@@ -2347,7 +2352,8 @@
                     },
                     "description": {
                         "description": "Longer room description. Will be displayed to users, and should be in the language indicated by the 'lang' parameter (max length of 1000 characters).",
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 1000
                     },
                     "rooms_available": {
                         "description": "The number of rooms remaining/available.",
@@ -2423,6 +2429,7 @@
                     "cancellation_policy": {
                         "description": "Text describing the cancellation policy for the room. Should be in the language indicated by the 'lang'\nparameter. Text field.Length limit: 1000 characters.",
                         "type": "string",
+                        "maxLength": 1000,
                         "deprecated": true
                     },
                     "cancellation_deadline": {
@@ -2432,15 +2439,18 @@
                     },
                     "occupancy_policy": {
                         "description": "Occupancy policies for this room e.g. maximum number of adults, minimum ages.Text field.Length\nlimit: 1000 characters.",
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 1000
                     },
                     "payment_policy": {
                         "description": "Describes how the advertiser will use the credit card information, e.g. charged immediately or hold.\n(Length limit: 1000 characters).",
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 1000
                     },
                     "other_policy": {
                         "description": "Miscellaneous policies.Text field (Length limit: 1000 characters).",
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 1000
                     },
                     "promotions": {
                         "description": "Array of promotions",
@@ -2504,7 +2514,8 @@
                     },
                     "description": {
                         "description": "Description of the real room limited to 1000 characters.",
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 1000
                     }
                 },
                 "type": "object"

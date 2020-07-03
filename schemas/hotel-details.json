@@ -70,7 +70,8 @@
     },
     "checkinout_policy": {
       "description": "Describes the check-in/check-out policy for the hotel. Should be in the language indicated by the 'lang'\nparameter. Max length 1000 characters.",
-      "type": "string"
+      "type": "string",
+      "maxLength": 1000
     }
   },
   "type": "object",
