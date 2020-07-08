@@ -111,16 +111,19 @@
         "none",
         "unknown"
       ],
+      "nullable": true,
       "deprecated": true
     },
     "cancellation_policy": {
       "description": "Text describing the cancellation policy for the room. Should be in the language indicated by the 'lang'\nparameter. Text field.Length limit: 1000 characters.",
       "type": "string",
+      "nullable": true,
       "deprecated": true
     },
     "cancellation_deadline": {
       "description": "The datetime after which it is not free to cancel a reservation.The format must match YYYY-MM-DDThh:mm:ss. Note\nthere is no timezone info because it's localized to the property.\nExample: \"cancellation_deadline\": \"2015-05-25T16:00:00\"",
       "type": "string",
+      "nullable": true,
       "deprecated": true
     },
     "occupancy_policy": {
