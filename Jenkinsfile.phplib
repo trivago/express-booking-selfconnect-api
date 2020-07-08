@@ -1,0 +1,6 @@
+@Library('shared-jenkins-libraries') _
+
+tebPHPLib(
+    latest: 'false',
+    githubRepo: 'trivago/express-booking-selfconnect-api'
+)
