@@ -1,8 +1,5 @@
 # Changelog
 
-## 0.0.0
-- Test
-
 ## 1.9.0
 - tEB Self-Connect: Invalid open api specification file
 
