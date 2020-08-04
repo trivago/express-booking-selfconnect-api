@@ -5,7 +5,7 @@
     "percentage": {
       "description": "Percentage value of the discount. Mandatory, only if total is not provided.",
       "type": "number",
-      "format": "float"
+      "format": "number"
     },
     "total": {
       "$ref": "price.json"

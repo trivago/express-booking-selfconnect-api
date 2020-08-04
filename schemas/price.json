@@ -9,7 +9,7 @@
     "amount": {
       "description": "The value of the price.",
       "type": "number",
-      "format": "float"
+      "format": "number"
     },
     "currency": {
       "description": "ISO 4217 currency code for the price.",
