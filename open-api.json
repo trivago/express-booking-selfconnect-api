@@ -1760,7 +1760,8 @@
                     "cvv": {
                         "description": "CVV/CVC - mandatory if the advertiser's payment service provider's tokenization does not include CVV/CVC.",
                         "type": "string",
-                        "example": "123"
+                        "example": "123",
+                        "nullable": true
                     }
                 },
                 "type": "object",
@@ -2447,6 +2448,7 @@
                             "none",
                             "unknown"
                         ],
+                        "nullable": true,
                         "deprecated": true
                     },
                     "cancellation_policy": {
@@ -2458,6 +2460,7 @@
                     "cancellation_deadline": {
                         "description": "The datetime after which it is not free to cancel a reservation.The format must match YYYY-MM-DDThh:mm:ss. Note\nthere is no timezone info because it's localized to the property.\nExample: \"cancellation_deadline\": \"2015-05-25T16:00:00\"",
                         "type": "string",
+                        "nullable": true,
                         "deprecated": true
                     },
                     "occupancy_policy": {

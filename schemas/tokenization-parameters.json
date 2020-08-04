@@ -55,7 +55,8 @@
     "cvv": {
       "description": "CVV/CVC - mandatory if the advertiser's payment service provider's tokenization does not include CVV/CVC.",
       "type": "string",
-      "example": "123"
+      "example": "123",
+      "nullable": true
     }
   },
   "type": "object",
