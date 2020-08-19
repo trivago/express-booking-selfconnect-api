@@ -146,3 +146,7 @@ A list of references which might be useful :
 - https://swagger.io/specification/
 - https://swagger.io/tools/open-source/open-source-integrations/
 - https://apis.guru/awesome-openapi3/
+
+### Deployment
+Keep in mind that Jenkins won't build this because there is nothing to build, therefore there are no "testing relaseses". 
+Your PR needs to be approved and then tagged live.
