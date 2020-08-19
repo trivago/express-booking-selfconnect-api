@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.11.0
+- tEB Self-Connect: Add user_agent as a valid parameter for booking submit request
+
 ## 1.9.0
 - tEB Self-Connect: Invalid open api specification file
 
