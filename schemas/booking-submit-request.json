@@ -87,6 +87,11 @@
         "actor": "trivago",
         "advLink": "http://advertiser-site.com/hoteladlon/Executive_Brilliant_Doppelzimmer?start_date=2016-12-28&end_date=2016-12-29"
       }
+    },
+    "user_agent": {
+      "description": "Customer User Agent.",
+      "type": "string",
+      "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
     }
   },
   "type": "object",

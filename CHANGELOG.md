@@ -1,10 +1,13 @@
 # Changelog
 
+## 1.11.2
+- tEB Self-Connect: Add User agent getter and setter
+
 ## 1.11.1
-- tEB Self-Connect: Roll back 1.11.0
+- tEB Self-Connect: Remove User agent getter and setter
 
 ## 1.11.0
-- tEB Self-Connect: Add user_agent as a valid parameter for booking submit request
+- tEB Self-Connect: Add User agent getter and setter
 
 ## 1.9.0
 - tEB Self-Connect: Invalid open api specification file

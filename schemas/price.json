@@ -8,8 +8,7 @@
   "properties": {
     "amount": {
       "description": "The value of the price.",
-      "type": "number",
-      "format": "number"
+      "type": "number"
     },
     "currency": {
       "description": "ISO 4217 currency code for the price.",

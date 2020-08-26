@@ -38,13 +38,11 @@
     },
     "latitude": {
       "description": "Latitude coordinate",
-      "type": "number",
-      "format": "number"
+      "type": "number"
     },
     "longitude": {
       "description": "Longitude coordinate",
-      "type": "number",
-      "format": "number"
+      "type": "number"
     },
     "url": {
       "description": "URL for general hotel contact",
@@ -70,8 +68,7 @@
     },
     "checkinout_policy": {
       "description": "Describes the check-in/check-out policy for the hotel. Should be in the language indicated by the 'lang'\nparameter. Max length 1000 characters.",
-      "type": "string",
-      "maxLength": 1000
+      "type": "string"
     }
   },
   "type": "object",

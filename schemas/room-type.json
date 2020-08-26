@@ -22,23 +22,25 @@
     "room_type": {
       "description": "Must be one of:\n- STANDARD\n- COMFORT\n- FAMILY\n- DELUXE\n- SUPERIOR\n- EXECUTIVE\n- JUNIOR_SUITE\n- SUITE\n- EXECUTIVE_SUITE\n- STUDIO\n- APARTMENT\n- BUNGALOW\n- VILLA\n- SHARED\n- OTHERS\nIf room_type field is not provided, room_group.name is used. If room_group.name is missing as well, the field \"name\" of the RoomType object is used.",
       "type": "string",
-      "enum": [
-        "STANDARD",
-        "COMFORT",
-        "FAMILY",
-        "DELUXE",
-        "SUPERIOR",
-        "EXECUTIVE",
-        "JUNIOR_SUITE",
-        "SUITE",
-        "EXECUTIVE_SUITE",
-        "STUDIO",
-        "APARTMENT",
-        "BUNGALOW",
-        "VILLA",
-        "SHARED",
-        "OTHERS"
-      ]
+      "items": {
+        "enum": [
+          "STANDARD",
+          "COMFORT",
+          "FAMILY",
+          "DELUXE",
+          "SUPERIOR",
+          "EXECUTIVE",
+          "JUNIOR_SUITE",
+          "SUITE",
+          "EXECUTIVE_SUITE",
+          "STUDIO",
+          "APARTMENT",
+          "BUNGALOW",
+          "VILLA",
+          "SHARED",
+          "OTHERS"
+        ]
+      }
     },
     "room_group": {
       "description": "An identifier, which groups different rates to a specified room. All elements with the same room_group.code relates to the same real room (physical).",
@@ -136,8 +138,9 @@
     "cancellation_policy": {
       "description": "Text describing the cancellation policy for the room. Should be in the language indicated by the 'lang'\nparameter. Text field.Length limit: 1000 characters.",
       "type": "string",
-      "deprecated": true,
-      "maxLength": 1000
+      "maxLength": 1000,
+      "nullable": true,
+      "deprecated": true
     },
     "cancellation_deadline": {
       "description": "The datetime after which it is not free to cancel a reservation.The format must match YYYY-MM-DDThh:mm:ss. Note\nthere is no timezone info because it's localized to the property.\nExample: \"cancellation_deadline\": \"2015-05-25T16:00:00\"",

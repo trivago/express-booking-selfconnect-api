@@ -11,8 +11,7 @@
     },
     "message": {
       "description": "String describing the error (maximum length of 1000 characters).",
-      "type": "string",
-      "maxLength": 1000
+      "type": "string"
     },
     "timeout": {
       "description": "Number of seconds trivago should stop sending requests (for use with Error Code 4).",

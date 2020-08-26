@@ -4,8 +4,7 @@
   "properties": {
     "percentage": {
       "description": "Percentage value of the discount. Mandatory, only if total is not provided.",
-      "type": "number",
-      "format": "number"
+      "type": "number"
     },
     "total": {
       "$ref": "price.json"

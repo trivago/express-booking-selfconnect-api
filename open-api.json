@@ -331,8 +331,7 @@
                     },
                     "terms_and_conditions": {
                         "description": "General terms and conditions.\nText field.\nLength limit of 1000 characters.",
-                        "type": "string",
-                        "maxLength": 1000
+                        "type": "string"
                     },
                     "terms_and_conditions_url": {
                         "description": "Link to the advertiser's terms and conditions page.",
@@ -340,13 +339,11 @@
                     },
                     "payment_policy": {
                         "description": "Describes how the advertiser will use the credit card information, e.g. charged immediately or hold.\nText field.\nLength limit of 1000 characters.",
-                        "type": "string",
-                        "maxLength": 1000
+                        "type": "string"
                     },
                     "other_policy": {
                         "description": "Miscellaneous policies\nText field.\nLength limit of 1000 characters.",
-                        "type": "string",
-                        "maxLength": 1000
+                        "type": "string"
                     },
                     "errors": {
                         "description": "Array of errors",
@@ -789,6 +786,11 @@
                             "actor": "trivago",
                             "advLink": "http://advertiser-site.com/hoteladlon/Executive_Brilliant_Doppelzimmer?start_date=2016-12-28&end_date=2016-12-29"
                         }
+                    },
+                    "user_agent": {
+                        "description": "Customer User Agent.",
+                        "type": "string",
+                        "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
                     }
                 },
                 "type": "object",
@@ -1016,12 +1018,14 @@
                     "type": {
                         "description": "Specifies the penalty users have to pay at time of booking. Must be of one of the following strings :\n- unknown\n- full_refundable\n- partial_refundable\n- non_refundable",
                         "type": "string",
-                        "enum": [
-                            "unknown",
-                            "full_refundable",
-                            "partial_refundable",
-                            "non_refundable"
-                        ]
+                        "items": {
+                            "enum": [
+                                "unknown",
+                                "full_refundable",
+                                "partial_refundable",
+                                "non_refundable"
+                            ]
+                        }
                     }
                 },
                 "type": "object"
@@ -1143,8 +1147,7 @@
                 "properties": {
                     "percentage": {
                         "description": "Percentage value of the discount. Mandatory, only if total is not provided.",
-                        "type": "number",
-                        "format": "number"
+                        "type": "number"
                     },
                     "total": {
                         "$ref": "#/components/schemas/price"
@@ -1177,8 +1180,7 @@
                     },
                     "message": {
                         "description": "String describing the error (maximum length of 1000 characters).",
-                        "type": "string",
-                        "maxLength": 1000
+                        "type": "string"
                     },
                     "timeout": {
                         "description": "Number of seconds trivago should stop sending requests (for use with Error Code 4).",
@@ -1262,13 +1264,11 @@
                     },
                     "latitude": {
                         "description": "Latitude coordinate",
-                        "type": "number",
-                        "format": "number"
+                        "type": "number"
                     },
                     "longitude": {
                         "description": "Longitude coordinate",
-                        "type": "number",
-                        "format": "number"
+                        "type": "number"
                     },
                     "url": {
                         "description": "URL for general hotel contact",
@@ -1952,8 +1952,7 @@
                     },
                     "interest_charge": {
                         "description": "Interest rate per installment",
-                        "type": "number",
-                        "format": "number"
+                        "type": "number"
                     },
                     "extra_charge": {
                         "$ref": "#/components/schemas/price"
@@ -2067,8 +2066,7 @@
                 "properties": {
                     "amount": {
                         "description": "The value of the price.",
-                        "type": "number",
-                        "format": "number"
+                        "type": "number"
                     },
                     "currency": {
                         "description": "ISO 4217 currency code for the price.",
@@ -2340,23 +2338,25 @@
                     "room_type": {
                         "description": "Must be one of:\n- STANDARD\n- COMFORT\n- FAMILY\n- DELUXE\n- SUPERIOR\n- EXECUTIVE\n- JUNIOR_SUITE\n- SUITE\n- EXECUTIVE_SUITE\n- STUDIO\n- APARTMENT\n- BUNGALOW\n- VILLA\n- SHARED\n- OTHERS\nIf room_type field is not provided, room_group.name is used. If room_group.name is missing as well, the field \"name\" of the RoomType object is used.",
                         "type": "string",
-                        "enum": [
-                            "STANDARD",
-                            "COMFORT",
-                            "FAMILY",
-                            "DELUXE",
-                            "SUPERIOR",
-                            "EXECUTIVE",
-                            "JUNIOR_SUITE",
-                            "SUITE",
-                            "EXECUTIVE_SUITE",
-                            "STUDIO",
-                            "APARTMENT",
-                            "BUNGALOW",
-                            "VILLA",
-                            "SHARED",
-                            "OTHERS"
-                        ]
+                        "items": {
+                            "enum": [
+                                "STANDARD",
+                                "COMFORT",
+                                "FAMILY",
+                                "DELUXE",
+                                "SUPERIOR",
+                                "EXECUTIVE",
+                                "JUNIOR_SUITE",
+                                "SUITE",
+                                "EXECUTIVE_SUITE",
+                                "STUDIO",
+                                "APARTMENT",
+                                "BUNGALOW",
+                                "VILLA",
+                                "SHARED",
+                                "OTHERS"
+                            ]
+                        }
                     },
                     "room_group": {
                         "description": "An identifier, which groups different rates to a specified room. All elements with the same room_group.code relates to the same real room (physical).",
@@ -2455,6 +2455,7 @@
                         "description": "Text describing the cancellation policy for the room. Should be in the language indicated by the 'lang'\nparameter. Text field.Length limit: 1000 characters.",
                         "type": "string",
                         "maxLength": 1000,
+                        "nullable": true,
                         "deprecated": true
                     },
                     "cancellation_deadline": {
@@ -2540,8 +2541,7 @@
                     },
                     "description": {
                         "description": "Description of the real room limited to 1000 characters.",
-                        "type": "string",
-                        "maxLength": 1000
+                        "type": "string"
                     }
                 },
                 "type": "object"

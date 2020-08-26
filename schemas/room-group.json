@@ -16,8 +16,7 @@
     },
     "description": {
       "description": "Description of the real room limited to 1000 characters.",
-      "type": "string",
-      "maxLength": 1000
+      "type": "string"
     }
   },
   "type": "object",

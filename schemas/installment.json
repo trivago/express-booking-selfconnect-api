@@ -33,8 +33,7 @@
     },
     "interest_charge": {
       "description": "Interest rate per installment",
-      "type": "number",
-      "format": "number"
+      "type": "number"
     },
     "extra_charge": {
       "$ref": "price.json"

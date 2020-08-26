@@ -44,8 +44,7 @@
     },
     "terms_and_conditions": {
       "description": "General terms and conditions.\nText field.\nLength limit of 1000 characters.",
-      "type": "string",
-      "maxLength": 1000
+      "type": "string"
     },
     "terms_and_conditions_url": {
       "description": "Link to the advertiser's terms and conditions page.",
@@ -53,13 +52,11 @@
     },
     "payment_policy": {
       "description": "Describes how the advertiser will use the credit card information, e.g. charged immediately or hold.\nText field.\nLength limit of 1000 characters.",
-      "type": "string",
-      "maxLength": 1000
+      "type": "string"
     },
     "other_policy": {
       "description": "Miscellaneous policies\nText field.\nLength limit of 1000 characters.",
-      "type": "string",
-      "maxLength": 1000
+      "type": "string"
     },
     "errors": {
       "description": "Array of errors",
