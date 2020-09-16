@@ -2477,7 +2477,7 @@
                     "other_policy": {
                         "description": "Miscellaneous policies.Text field (Length limit: 1000 characters).",
                         "type": "string",
-                        "maxLength": 1000
+                        "maxLength": 5000
                     },
                     "promotions": {
                         "description": "Array of promotions",

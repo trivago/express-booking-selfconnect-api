@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.12.0
+- Update schema to increase max length of `other_policy` to 5000
+
 ## 1.11.2
 - tEB Self-Connect: Add User agent getter and setter
 
