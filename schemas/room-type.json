@@ -60,8 +60,7 @@
     },
     "description": {
       "description": "Longer room description. Will be displayed to users, and should be in the language indicated by the 'lang' parameter (max length of 1000 characters).",
-      "type": "string",
-      "maxLength": 1000
+      "type": "string"
     },
     "rooms_available": {
       "description": "The number of rooms remaining/available.",
